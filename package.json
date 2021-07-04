@@ -1,0 +1,12 @@
+{
+  "name": "ot",
+  "private": true,
+  "description": "A collection of Algorithms to Synchronise changes across multiple clients using Operational Transformation",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Progyan1997/OT.git"
+  },
+  "devDependencies": {
+    "lerna": "4.0.0"
+  }
+}
