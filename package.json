@@ -2,11 +2,20 @@
   "name": "ot",
   "private": true,
   "description": "A collection of Algorithms to Synchronise changes across multiple clients using Operational Transformation",
+  "scripts": {
+    "lint:prettier": "prettier --write packages/**/*.ts"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Progyan1997/OT.git"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
-    "lerna": "4.0.0"
+    "@types/node": "16.4.0",
+    "lerna": "4.0.0",
+    "prettier": "2.3.2",
+    "typescript": "4.2.4"
   }
 }

@@ -1,0 +1,34 @@
+{
+  "name": "@ot/state-machine",
+  "version": "0.0.0",
+  "description": "State machine to manage Consistency of Operations across multiple clients.",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "homepage": "https://github.com/Progyan1997/ot#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/ot.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Progyan1997/ot/issues"
+  },
+  "dependencies": {
+    "@ot/types": "0.0.0",
+    "@ot/utils": "^0.0.0"
+  }
+}

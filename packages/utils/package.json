@@ -1,0 +1,30 @@
+{
+  "name": "@ot/utils",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Utility functions to help implement different OT packages.",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "homepage": "https://github.com/Progyan1997/ot#readme",
+  "license": "MIT",
+  "main": "src/index.js",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/ot.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Progyan1997/ot/issues"
+  }
+}
