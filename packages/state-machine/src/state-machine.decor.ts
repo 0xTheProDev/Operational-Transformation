@@ -6,7 +6,7 @@ import { ITransitionHandler } from "./transition-handler";
  * @returns Property Decorator to add State Machine instance as property to target object.
  */
 export function InjectStateMachine(): PropertyDecorator {
-  return (target: Object, key: string | symbol = "stateMachine") => {
+  return (target: Object, key: string | symbol) => {
     Object.defineProperty(target, key, {
       configurable: false,
       enumerable: false,

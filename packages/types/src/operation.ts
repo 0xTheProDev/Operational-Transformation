@@ -1,5 +1,5 @@
 /**
- * Base Interface for any Tansformable Operation.
+ * Base Interface for any Transformable Operation.
  */
 export interface IOperation {
   /**

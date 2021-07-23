@@ -6,13 +6,15 @@
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/ot#readme",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "lib/index.js",
+  "types": "index.d.ts",
   "directories": {
     "lib": "src",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "lib",
+    "index.d.ts"
   ],
   "publishConfig": {
     "access": "public"
