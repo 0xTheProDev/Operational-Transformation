@@ -3,7 +3,10 @@
   "private": true,
   "description": "A collection of Algorithms to Synchronise changes across multiple clients using Operational Transformation",
   "scripts": {
-    "lint:prettier": "prettier --write packages/**/*.ts"
+    "postinstall": "husky install",
+    "lint": "yarn lint:lockfile && yarn lint:prettier",
+    "lint:prettier": "prettier --write packages/**/*.ts",
+    "lint:lockfile": "check-yarn-lock"
   },
   "repository": {
     "type": "git",
@@ -14,7 +17,10 @@
   ],
   "devDependencies": {
     "@types/node": "16.4.0",
+    "check-yarn-lock": "0.2.1",
+    "husky": "7.0.1",
     "lerna": "4.0.0",
+    "lint-staged": "11.1.0",
     "prettier": "2.3.2",
     "typescript": "4.2.4"
   }
