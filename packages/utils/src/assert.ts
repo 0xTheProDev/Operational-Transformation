@@ -11,5 +11,8 @@ export function assert(
     return require("assert").strict(statement, message);
   }
 
-  console.assert(statement, message);
+  if (!statement) {
+    const err = typeof message === "string" ? new Error(message) : message;
+    throw err;
+  }
 }

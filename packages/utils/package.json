@@ -24,7 +24,8 @@
     "url": "git+https://github.com/Progyan1997/ot.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "TEST_ENV=true jest --colors",
+    "test:watch": "yarn test --watch"
   },
   "bugs": {
     "url": "https://github.com/Progyan1997/ot/issues"
