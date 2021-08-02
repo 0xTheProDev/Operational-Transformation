@@ -2,11 +2,14 @@
   "name": "@ot/types",
   "version": "0.0.0",
   "private": true,
-  "description": "Types and Interfaces regarding OTs",
+  "description": "Common Types and Interfaces regarding OTs",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/ot#readme",
   "license": "MIT",
   "main": "index.d.ts",
+  "directories": {
+    "lib": "src"
+  },
   "files": [
     "index.d.ts"
   ],
@@ -19,5 +22,10 @@
   },
   "bugs": {
     "url": "https://github.com/Progyan1997/ot/issues"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "tsc",
+    "clean": "rimraf index.d.ts"
   }
 }
