@@ -8,6 +8,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",
+  "rootDir": "utils",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -23,11 +24,11 @@
     "type": "git",
     "url": "git+https://github.com/Progyan1997/ot.git"
   },
+  "bugs": {
+    "url": "https://github.com/Progyan1997/ot/issues"
+  },
   "scripts": {
     "test": "TEST_ENV=true jest --colors",
     "test:watch": "yarn test --watch"
-  },
-  "bugs": {
-    "url": "https://github.com/Progyan1997/ot/issues"
   }
 }

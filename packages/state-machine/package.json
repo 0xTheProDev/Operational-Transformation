@@ -6,6 +6,7 @@
   "homepage": "https://github.com/Progyan1997/ot#readme",
   "license": "MIT",
   "main": "lib/index.js",
+  "rootDir": "state-machine",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -23,6 +24,10 @@
   },
   "bugs": {
     "url": "https://github.com/Progyan1997/ot/issues"
+  },
+  "scripts": {
+    "test": "TEST_ENV=true jest --colors",
+    "test:watch": "yarn test --watch"
   },
   "dependencies": {
     "@ot/types": "0.0.0",

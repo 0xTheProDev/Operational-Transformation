@@ -23,12 +23,10 @@ module.exports = {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  coverageDirectory: "<rootDir>/coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
-  // coveragePathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  coveragePathIgnorePatterns: ["/node_modules/", "__tests__/.(jsx?|tsx?)$"],
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "v8",
@@ -96,7 +94,7 @@ module.exports = {
   preset: "ts-jest",
 
   // Run tests from one or more projects
-  projects: ["<rootDir>/packages/*"],
+  projects: ["<rootDir>/packages/*/jest.config.js"],
 
   // Use this configuration option to add custom reporters to Jest
   // reporters: undefined,
