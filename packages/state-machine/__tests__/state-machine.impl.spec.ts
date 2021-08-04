@@ -25,7 +25,7 @@ describe("Test State Machine", () => {
   });
 
   describe("#isSynchronized", () => {
-    it("should returntrue as it starts in Synchronized state", () => {
+    it("should return true as it starts in Synchronized state", () => {
       expect(client.isSynchronized()).toBe(true);
     });
   });
@@ -126,6 +126,48 @@ describe("Test State Machine", () => {
       client.applyClient(operation);
       client.serverRetry();
       expect(client.isAwaitingConfirm()).toBe(true);
+    });
+  });
+
+  describe("#sendOperation", () => {
+    it("should send operation to remote users", () => {
+      const operation: IOperation = {
+        compose: (op: IOperation) => op,
+        transform: (op: IOperation) => [op, op],
+      };
+      client.sendOperation(operation);
+      expect(handler.sendOperation).toHaveBeenCalledWith(operation);
+    });
+
+    it("should throw error if already disposed", () => {
+      client.dispose();
+
+      const operation: IOperation = {
+        compose: (op: IOperation) => op,
+        transform: (op: IOperation) => [op, op],
+      };
+      expect(() => client.sendOperation(operation)).toThrowError();
+    });
+  });
+
+  describe("#applyOperation", () => {
+    it("should recieve operation from remote users", () => {
+      const operation: IOperation = {
+        compose: (op: IOperation) => op,
+        transform: (op: IOperation) => [op, op],
+      };
+      client.applyOperation(operation);
+      expect(handler.applyOperation).toHaveBeenCalledWith(operation);
+    });
+
+    it("should throw error if already disposed", () => {
+      client.dispose();
+
+      const operation: IOperation = {
+        compose: (op: IOperation) => op,
+        transform: (op: IOperation) => [op, op],
+      };
+      expect(() => client.applyOperation(operation)).toThrowError();
     });
   });
 });
