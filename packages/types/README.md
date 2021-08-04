@@ -1,11 +1,11 @@
-# `@ot/typings`
+# `@ot/types`
 
 > TODO: description
 
 ## Usage
 
 ```
-const typings = require('@ot/typings');
+const types = require('@ot/types');
 
 // TODO: DEMONSTRATE API
 ```

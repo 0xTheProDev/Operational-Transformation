@@ -1,5 +1,5 @@
 /**
- * Base Interface - This exposed APIs to identify the current state from outside world.
+ * Base Interface - This exposes APIs to identify the current state from outside world.
  */
 export interface IBase {
   /**
