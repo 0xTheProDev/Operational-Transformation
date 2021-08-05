@@ -25,10 +25,6 @@ describe("Test State Machine Decorator", () => {
     handler.dispose();
   });
 
-  afterAll(() => {
-    jest.restoreAllMocks();
-  });
-
   it("should inject a State Machine instance as property", () => {
     expect(handler.stateMachine.isSynchronized()).toBe(true);
   });

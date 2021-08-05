@@ -33,6 +33,10 @@ describe("Test Awaiting With Buffer State", () => {
     };
   });
 
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   afterAll(() => {
     jest.restoreAllMocks();
   });

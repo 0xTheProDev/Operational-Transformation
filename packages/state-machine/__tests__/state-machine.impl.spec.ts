@@ -18,6 +18,7 @@ describe("Test State Machine", () => {
 
   afterEach(() => {
     client.dispose();
+    jest.resetAllMocks();
   });
 
   afterAll(() => {

@@ -2,7 +2,7 @@ import { StateMachine } from "./state-machine.impl";
 import { ITransitionHandler } from "./transition-handler";
 
 /**
- * Decorator - Proeprty Decorator Factory, should applied to Class that implements `ITransitionHandler` interface.
+ * Decorator - Property Decorator Factory, should be applied to Class that implements `ITransitionHandler` interface.
  * @returns Property Decorator to add State Machine instance as property to target object.
  */
 export function InjectStateMachine(): PropertyDecorator {

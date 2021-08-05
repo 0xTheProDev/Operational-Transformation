@@ -12,6 +12,10 @@ describe("Test Synchronized State", () => {
     };
   });
 
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   afterAll(() => {
     jest.restoreAllMocks();
   });

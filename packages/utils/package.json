@@ -30,5 +30,8 @@
   "scripts": {
     "test": "TEST_ENV=true jest --colors",
     "test:watch": "yarn test --watch"
+  },
+  "dependencies": {
+    "mitt": "3.0.0"
   }
 }

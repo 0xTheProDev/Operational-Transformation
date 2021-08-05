@@ -27,6 +27,10 @@ describe("Test Awaiting Confirm State", () => {
     };
   });
 
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   afterAll(() => {
     jest.restoreAllMocks();
   });
