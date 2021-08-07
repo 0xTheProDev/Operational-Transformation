@@ -1,3 +1,5 @@
+import { AssertionError } from "./errors";
+
 /**
  * Isomorphic Assertion Function (Works on both Node.JS and Browser)
  * @param statement - Statement of Assertion (Evaluated for Truthy value)
@@ -8,7 +10,8 @@ export function assert(
   message: string | Error
 ): void {
   if (statement == null || statement === false) {
-    const err = typeof message === "string" ? new Error(message) : message;
+    const err =
+      typeof message === "string" ? new AssertionError(message) : message;
     throw err;
   }
 }

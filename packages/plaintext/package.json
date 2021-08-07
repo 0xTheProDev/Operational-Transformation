@@ -1,0 +1,38 @@
+{
+  "name": "@ot/plaintext",
+  "version": "0.0.0",
+  "description": "Operational Transformational Logic for Plain Text.",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "homepage": "https://github.com/Progyan1997/ot#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "index.d.ts",
+  "rootDir": "plaintext",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/ot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Progyan1997/ot/issues"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "concurrently \"yarn build:lib\" \"yarn build:dts\"",
+    "build:lib": "webpack",
+    "build:dts": "tsc --declaration --emitDeclarationOnly --outFile index",
+    "clean": "rimraf lib index.d.ts",
+    "test": "TEST_ENV=true jest --colors",
+    "test:watch": "yarn test --watch"
+  },
+  "dependencies": {
+    "@ot/utils": "^0.0.0"
+  }
+}

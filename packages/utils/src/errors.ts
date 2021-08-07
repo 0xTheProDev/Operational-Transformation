@@ -1,4 +1,11 @@
 /**
+ * Assertion Error: Error when an Assumption/Assertion Fails.
+ */
+export class AssertionError extends Error {
+  readonly name: string = "Assertion Failed";
+}
+
+/**
  * No-op Error: Unexpected method call without any executable code.
  */
 export class NoopError extends Error {

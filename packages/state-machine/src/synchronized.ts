@@ -1,6 +1,6 @@
 import { IOperation } from "@ot/types";
+import { NoopError } from "@ot/utils";
 import { AwaitingConfirm } from "./awaiting-confirm";
-import { NoopError } from "./errors";
 import { IState } from "./state";
 import { IStateMachine } from "./state-machine";
 

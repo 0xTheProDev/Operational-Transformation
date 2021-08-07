@@ -1,6 +1,5 @@
 import { IOperation } from "@ot/types";
-import { assert } from "@ot/utils";
-import { NoopError } from "./errors";
+import { assert, NoopError } from "@ot/utils";
 import { IState } from "./state";
 import { IStateMachine } from "./state-machine";
 import { synchronized } from "./synchronized";
