@@ -7,11 +7,7 @@ export function assert(
   statement: boolean | undefined,
   message: string | Error
 ): void {
-  if (typeof window === "undefined") {
-    return require("assert").strict(statement, message);
-  }
-
-  if (!statement) {
+  if (statement == null || statement === false) {
     const err = typeof message === "string" ? new Error(message) : message;
     throw err;
   }
