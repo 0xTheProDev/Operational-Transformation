@@ -2,6 +2,7 @@ import { NoopError } from "@ot/utils";
 import { ITextOperation, ITextOperationAttributes } from "./operation";
 
 /**
+ * @internal
  * Retain Operation - Move Cursor over without changing the content.
  * @param characterCount - Number of characters to move over.
  * @param attributes - Additional Metadata attached with Retain operation.

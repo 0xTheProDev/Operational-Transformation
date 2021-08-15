@@ -5,6 +5,10 @@ import { ITextOperation, ITextOperationAttributes } from "./operation";
 import { RetainOperation } from "./retain-operation";
 import { IPlainTextOperation, TPlainTextOperation } from "./text-operation";
 
+/**
+ * @public
+ * Implementation Class of Operational Transformation of Plain Text
+ */
 export class PlainTextOperation implements IPlainTextOperation {
   protected readonly _ops: ITextOperation[];
 

@@ -2,6 +2,7 @@ import { NoopError } from "../../utils/src";
 import { ITextOperation, ITextOperationAttributes } from "./operation";
 
 /**
+ * @internal
  * Insert Operation - Insert Characters starting from current Cursor position in the content.
  * @param text - Text content to be Inserted.
  * @param attributes - Additional Metadata attached with Insert operation.

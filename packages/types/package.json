@@ -19,5 +19,8 @@
   },
   "bugs": {
     "url": "https://github.com/Progyan1997/ot/issues"
+  },
+  "scripts": {
+    "build": "echo \"Private Module: No Build Script Provided\""
   }
 }

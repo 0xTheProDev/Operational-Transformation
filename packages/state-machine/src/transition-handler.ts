@@ -1,6 +1,7 @@
 import { IOperation } from "@ot/types";
 
 /**
+ * @public
  * Transition Handler Interface - Handles side-effects of State transition in outside world.
  */
 export interface ITransitionHandler {

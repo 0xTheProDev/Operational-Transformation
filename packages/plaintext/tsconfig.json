@@ -3,6 +3,10 @@
   "compilerOptions": {
     "baseUrl": "./",
     "sourceMap": true,
+    "paths": {
+      "@ot/types": ["../types"],
+      "@ot/utils": ["../utils"]
+    },
     "outDir": "lib"
   },
   "include": ["src/**/*.ts"],

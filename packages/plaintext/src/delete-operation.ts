@@ -2,6 +2,7 @@ import { NoopError } from "@ot/utils";
 import { ITextOperation, ITextOperationAttributes } from "./operation";
 
 /**
+ * @internal
  * Delete Operation - Delete Characters starting from current Cursor position in the content.
  * @param characterCount - Number of characters to Delete.
  * @param attributes - Additional Metadata attached with Delete operation.

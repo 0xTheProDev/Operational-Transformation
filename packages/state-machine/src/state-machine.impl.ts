@@ -6,6 +6,7 @@ import { synchronized } from "./synchronized";
 import { ITransitionHandler } from "./transition-handler";
 
 /**
+ * @public
  * State Machine - Handles all incoming and outgoing operations and manages serializability to keep content synced acorss all clients.
  * @param handler - Handler for invoking side-effects in outside world.
  */

@@ -19,6 +19,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@microsoft/api-extractor": "7.18.5",
     "@types/jest": "26.0.24",
     "@types/node": "16.4.0",
     "check-yarn-lock": "0.2.1",

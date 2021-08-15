@@ -1,6 +1,7 @@
 import { ITextOperation, ITextOperationAttributes } from "./operation";
 
 /**
+ * @public
  * JSON Representation of a Text Operation
  */
 export type TPlainTextOperation = (
@@ -9,6 +10,10 @@ export type TPlainTextOperation = (
   | ITextOperationAttributes
 )[];
 
+/**
+ * @public
+ * Interface for Operational Transformation on Plain Text
+ */
 export interface IPlainTextOperation {
   /**
    * Checks if two Text Operations are equivalent and equal.

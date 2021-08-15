@@ -1,4 +1,5 @@
 /**
+ * @public
  * Additional Metadata for Text Operation
  */
 export interface ITextOperationAttributes {
@@ -6,6 +7,7 @@ export interface ITextOperationAttributes {
 }
 
 /**
+ * @public
  * Text Operation are essentially lists of ops. There are three types of operations:
  *
  * **Retain ops:** Advance the cursor position by a given number of characters.

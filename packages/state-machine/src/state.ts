@@ -3,6 +3,7 @@ import { IBase } from "./base";
 import { IStateMachine } from "./state-machine";
 
 /**
+ * @public
  * State Interface - Interface for all internal States of the State Machine
  */
 export interface IState extends IBase {

@@ -1,6 +1,7 @@
 {
   "name": "@ot/state-machine",
   "version": "0.0.0",
+  "sideEffects": false,
   "description": "State machine to manage Consistency of Operations across multiple clients.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/ot#readme",
@@ -28,10 +29,11 @@
   },
   "scripts": {
     "prebuild": "yarn clean",
-    "build": "concurrently \"yarn build:lib\" \"yarn build:dts\"",
+    "build": "concurrently \"yarn build:lib\" \"yarn build:typings && yarn build:dts\"",
     "build:lib": "webpack",
-    "build:dts": "tsc --declaration --emitDeclarationOnly --outFile index",
-    "clean": "rimraf lib index.d.ts",
+    "build:typings": "tsc --declaration --emitDeclarationOnly --outDir typings",
+    "build:dts": "api-extractor run",
+    "clean": "rimraf lib typings index.d.ts",
     "test": "TEST_ENV=true jest --colors",
     "test:watch": "yarn test --watch"
   },

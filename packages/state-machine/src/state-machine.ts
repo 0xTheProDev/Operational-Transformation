@@ -3,6 +3,7 @@ import { IBase } from "./base";
 import { ITransitionHandler } from "./transition-handler";
 
 /**
+ * @public
  * State Machine Interface - Handles all incoming and outgoing operations and manages serializability to keep content synced acorss all clients.
  */
 export interface IStateMachine extends IBase, IDisposable {
@@ -34,12 +35,4 @@ export interface IStateMachine extends IBase, IDisposable {
    * @param operation - Operation recieved from Server.
    */
   applyOperation(operation: IOperation): void;
-}
-
-/**
- * Constructor for State Machine
- * @param handler - Handler for invoking side-effects in outside world.
- */
-export interface IStateMachineConstructor {
-  new (handler: ITransitionHandler): IStateMachine;
 }

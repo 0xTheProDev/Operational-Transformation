@@ -4,7 +4,9 @@
     "baseUrl": "./",
     "sourceMap": true,
     "paths": {
-      "@ot/types": ["../types"]
+      "@ot/state-machine": ["./src"],
+      "@ot/types": ["../types"],
+      "@ot/utils": ["../utils"]
     },
     "outDir": "lib"
   },
