@@ -1,5 +1,6 @@
 /**
- * Base Interface for any Transformable Operation.
+ * @public
+ * Base Interface for any Operational Transformation.
  */
 export interface IOperation {
   /**

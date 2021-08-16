@@ -1,11 +1,4 @@
 {
   "extends": "../../api-extractor.json",
-  "compiler": {
-    "tsconfigFilePath": "<projectFolder>/tsconfig.json"
-  },
-  "dtsRollup": {
-    "publicTrimmedFilePath": "<projectFolder>/index.d.ts"
-  },
-  "mainEntryPointFilePath": "<projectFolder>/typings/plaintext/src/index.d.ts",
   "projectFolder": "./"
 }

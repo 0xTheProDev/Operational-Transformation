@@ -1,6 +1,5 @@
-import { IOperation, IDisposable } from "@ot/types";
+import { IDisposable, IOperation } from "@ot/types";
 import { IBase } from "./base";
-import { ITransitionHandler } from "./transition-handler";
 
 /**
  * @public
@@ -36,3 +35,5 @@ export interface IStateMachine extends IBase, IDisposable {
    */
   applyOperation(operation: IOperation): void;
 }
+
+export { IDisposable, IOperation };

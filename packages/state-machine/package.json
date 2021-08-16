@@ -29,9 +29,8 @@
   },
   "scripts": {
     "prebuild": "yarn clean",
-    "build": "concurrently \"yarn build:lib\" \"yarn build:typings && yarn build:dts\"",
+    "build": "yarn build:lib && yarn build:dts",
     "build:lib": "webpack",
-    "build:typings": "tsc --declaration --emitDeclarationOnly --outDir typings",
     "build:dts": "api-extractor run",
     "clean": "rimraf lib typings index.d.ts",
     "test": "TEST_ENV=true jest --colors",
