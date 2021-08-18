@@ -11,7 +11,7 @@
     "lib": "src"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   },
   "repository": {
     "type": "git",

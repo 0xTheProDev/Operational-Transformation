@@ -1,14 +1,19 @@
-import { ITextOperation, ITextOperationAttributes } from "./operation";
+import { ITextOperation, TTextOperationAttributes } from "./operation";
+
+/**
+ * @public
+ * Value Representation of Text Operation
+ */
+export type TPlainTextOperationValue =
+  | string
+  | number
+  | TTextOperationAttributes;
 
 /**
  * @public
  * JSON Representation of a Text Operation
  */
-export type TPlainTextOperation = (
-  | string
-  | number
-  | ITextOperationAttributes
-)[];
+export type TPlainTextOperation = TPlainTextOperationValue[];
 
 /**
  * @public
@@ -27,7 +32,7 @@ export interface IPlainTextOperation {
    */
   retain(
     n: number,
-    attributes?: ITextOperationAttributes | null
+    attributes?: TTextOperationAttributes | null
   ): IPlainTextOperation;
   /**
    * Insert a string at the current position.
@@ -36,7 +41,7 @@ export interface IPlainTextOperation {
    */
   insert(
     str: string,
-    attributes?: ITextOperationAttributes | null
+    attributes?: TTextOperationAttributes | null
   ): IPlainTextOperation;
   /**
    * Delete a string at the current position.
@@ -64,8 +69,8 @@ export interface IPlainTextOperation {
    */
   apply(
     prevContent: string,
-    prevAttributes?: ITextOperationAttributes[],
-    attributes?: ITextOperationAttributes[]
+    prevAttributes?: TTextOperationAttributes[],
+    attributes?: TTextOperationAttributes[]
   ): string;
   /**
    * Computes the inverse of an operation. The inverse of an operation is the

@@ -1,5 +1,5 @@
 import { NoopError } from "../../utils/src";
-import { ITextOperation, ITextOperationAttributes } from "./operation";
+import { ITextOperation, TTextOperationAttributes } from "./operation";
 
 /**
  * @internal
@@ -9,11 +9,11 @@ import { ITextOperation, ITextOperationAttributes } from "./operation";
  */
 export class InsertOperation implements ITextOperation {
   protected _text: string;
-  protected readonly _attributes: ITextOperationAttributes | null;
+  protected readonly _attributes: TTextOperationAttributes | null;
 
   constructor(
     text: string,
-    attributes: ITextOperationAttributes | null = null
+    attributes: TTextOperationAttributes | null = null
   ) {
     this._attributes = attributes;
     this._text = text;
@@ -39,7 +39,7 @@ export class InsertOperation implements ITextOperation {
     );
   }
 
-  attributesEqual(otherAttributes: ITextOperationAttributes | null): boolean {
+  attributesEqual(otherAttributes: TTextOperationAttributes | null): boolean {
     if (otherAttributes == null || this._attributes == null) {
       return this._attributes == otherAttributes;
     }
@@ -95,7 +95,7 @@ export class InsertOperation implements ITextOperation {
     return Object.keys(this._attributes).length === 0;
   }
 
-  getAttributes(): ITextOperationAttributes | null {
+  getAttributes(): TTextOperationAttributes | null {
     return Object.assign({}, this._attributes);
   }
 

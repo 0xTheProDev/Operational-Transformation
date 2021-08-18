@@ -37,9 +37,7 @@
     "test:watch": "yarn test --watch"
   },
   "devDependencies": {
-    "@ot/types": "^0.0.0"
-  },
-  "dependencies": {
+    "@ot/types": "^0.0.0",
     "@ot/utils": "^0.0.0"
   }
 }

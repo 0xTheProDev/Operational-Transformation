@@ -1,5 +1,4 @@
-import { IPlainTextOperation } from "../src/text-operation";
-import { ITextOperationAttributes } from "../src/operation";
+import { IPlainTextOperation, TTextOperationAttributes } from "@ot/plaintext";
 import { PlainTextOperation } from "../src/text-operation.impl";
 
 describe("Plain Text Operation", () => {
@@ -222,7 +221,7 @@ describe("Plain Text Operation", () => {
 
     it("should propagate attributes on applying a text operation", () => {
       const content = "Hello World",
-        attributes: ITextOperationAttributes[] = [];
+        attributes: TTextOperationAttributes[] = [];
 
       const retainCount = 6,
         retainAttrs = { what: "hello" },

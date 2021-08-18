@@ -1,5 +1,5 @@
 import { NoopError } from "@ot/utils";
-import { ITextOperation, ITextOperationAttributes } from "./operation";
+import { ITextOperation, TTextOperationAttributes } from "./operation";
 
 /**
  * @internal
@@ -30,7 +30,7 @@ export class DeleteOperation implements ITextOperation {
     return other.isDelete() && other.characterCountEqual(this._characterCount);
   }
 
-  attributesEqual(_otherAttributes: ITextOperationAttributes | null): boolean {
+  attributesEqual(_otherAttributes: TTextOperationAttributes | null): boolean {
     throw new NoopError("Delete operation does not have any attributes.");
   }
 
@@ -66,7 +66,7 @@ export class DeleteOperation implements ITextOperation {
     return true;
   }
 
-  getAttributes(): ITextOperationAttributes | null {
+  getAttributes(): TTextOperationAttributes | null {
     return null;
   }
 

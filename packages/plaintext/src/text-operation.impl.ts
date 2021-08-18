@@ -1,7 +1,7 @@
 import { assert } from "@ot/utils";
 import { DeleteOperation } from "./delete-operation";
 import { InsertOperation } from "./insert-operation";
-import { ITextOperation, ITextOperationAttributes } from "./operation";
+import { ITextOperation, TTextOperationAttributes } from "./operation";
 import { RetainOperation } from "./retain-operation";
 import { IPlainTextOperation, TPlainTextOperation } from "./text-operation";
 
@@ -55,7 +55,7 @@ export class PlainTextOperation implements IPlainTextOperation {
 
   retain(
     n: number,
-    attributes: ITextOperationAttributes | null = null
+    attributes: TTextOperationAttributes | null = null
   ): IPlainTextOperation {
     assert(n >= 0, "Retain expects a positive integer.");
 
@@ -82,7 +82,7 @@ export class PlainTextOperation implements IPlainTextOperation {
 
   insert(
     str: string,
-    attributes: ITextOperationAttributes | null = null
+    attributes: TTextOperationAttributes | null = null
   ): IPlainTextOperation {
     assert(typeof str === "string", "Insert expects a string.");
 
@@ -181,8 +181,8 @@ export class PlainTextOperation implements IPlainTextOperation {
 
   apply(
     prevContent: string,
-    prevAttributes: ITextOperationAttributes[] = [],
-    attributes: ITextOperationAttributes[] = []
+    prevAttributes: TTextOperationAttributes[] = [],
+    attributes: TTextOperationAttributes[] = []
   ): string {
     assert(
       prevContent.length === this._baseLength,
@@ -209,9 +209,9 @@ export class PlainTextOperation implements IPlainTextOperation {
 
         // Copy (and potentially update) attributes for each char in retained string
         for (let k = 0; k < retainCount; k++) {
-          const currAttributes: ITextOperationAttributes =
+          const currAttributes: TTextOperationAttributes =
             prevAttributes[cursorPosition + k] || {};
-          const updatedAttributes: ITextOperationAttributes = {};
+          const updatedAttributes: TTextOperationAttributes = {};
 
           for (const attr in currAttributes) {
             updatedAttributes[attr] = currAttributes[attr];
@@ -249,7 +249,7 @@ export class PlainTextOperation implements IPlainTextOperation {
         // Insert attributes for each char
         for (let k = 0; k < textContent.length; k++) {
           const opAttributes = op.getAttributes();
-          const insertAttributes: ITextOperationAttributes = {};
+          const insertAttributes: TTextOperationAttributes = {};
 
           for (const attr in opAttributes) {
             insertAttributes[attr] = opAttributes[attr];
@@ -426,11 +426,11 @@ export class PlainTextOperation implements IPlainTextOperation {
   }
 
   protected _composeAttributes(
-    first: ITextOperationAttributes | null,
-    second: ITextOperationAttributes | null,
+    first: TTextOperationAttributes | null,
+    second: TTextOperationAttributes | null,
     firstOpIsInsert: boolean
-  ): ITextOperationAttributes {
-    const merged: ITextOperationAttributes = {};
+  ): TTextOperationAttributes {
+    const merged: TTextOperationAttributes = {};
 
     for (const attr in first) {
       merged[attr] = first[attr];
@@ -592,13 +592,13 @@ export class PlainTextOperation implements IPlainTextOperation {
   }
 
   protected _transformAttributes(
-    attributes1: ITextOperationAttributes | null,
-    attributes2: ITextOperationAttributes | null
-  ): [ITextOperationAttributes, ITextOperationAttributes] {
-    const attributes1prime: ITextOperationAttributes = {};
-    const attributes2prime: ITextOperationAttributes = {};
+    attributes1: TTextOperationAttributes | null,
+    attributes2: TTextOperationAttributes | null
+  ): [TTextOperationAttributes, TTextOperationAttributes] {
+    const attributes1prime: TTextOperationAttributes = {};
+    const attributes2prime: TTextOperationAttributes = {};
 
-    const allAttrs: ITextOperationAttributes = {};
+    const allAttrs: TTextOperationAttributes = {};
 
     for (const attr in attributes1) {
       allAttrs[attr] = true;
@@ -841,7 +841,7 @@ export class PlainTextOperation implements IPlainTextOperation {
    */
   static fromJSON(ops: TPlainTextOperation): PlainTextOperation {
     const operation = new PlainTextOperation();
-    let attributes: ITextOperationAttributes = {};
+    let attributes: TTextOperationAttributes = {};
 
     for (const op of ops) {
       if (typeof op === "object") {

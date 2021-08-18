@@ -1,10 +1,17 @@
 /**
  * @public
- * Additional Metadata for Text Operation
+ * Additional Metadata Data Type for Text Operation
  */
-export interface ITextOperationAttributes {
-  [attributeKey: string]: number | boolean | string | symbol;
-}
+export type TTextOperationAttributeValue = number | boolean | string | symbol;
+
+/**
+ * @public
+ * Additional Metadata Set for Text Operation
+ */
+export type TTextOperationAttributes = Record<
+  string,
+  TTextOperationAttributeValue
+>;
 
 /**
  * @public
@@ -41,7 +48,7 @@ export interface ITextOperation {
    * @param otherAttributes - Another Text Operation Attributes.
    */
   attributesEqual(
-    otherAttributes: ITextOperationAttributes | null | void
+    otherAttributes: TTextOperationAttributes | null | void
   ): boolean;
   /**
    * Tests if two Individual Text Operation have same Character Count or not.
@@ -84,7 +91,7 @@ export interface ITextOperation {
   /**
    * Returns additional Metadata of a Text Operation.
    */
-  getAttributes(): ITextOperationAttributes | null;
+  getAttributes(): TTextOperationAttributes | null;
   /**
    * Returns String representation of an Individual Text Operation
    */

@@ -32,7 +32,7 @@
     "test": "TEST_ENV=true jest --colors",
     "test:watch": "yarn test --watch"
   },
-  "dependencies": {
+  "devDependencies": {
     "@ot/utils": "^0.0.0"
   }
 }
