@@ -1,3 +1,27 @@
+/**
+ * Copyright © 2021 Progyan Bhattacharya
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ * See LICENSE file in the root directory for more details.
+ */
+
 import { assert } from "@ot/utils";
 import { DeleteOperation } from "./delete-operation";
 import { InsertOperation } from "./insert-operation";
@@ -308,6 +332,10 @@ export class PlainTextOperation implements IPlainTextOperation {
     return inverse;
   }
 
+  /**
+   * Returns first non-Retain Operation.
+   * @param operation - A Plain Text Operation
+   */
   protected _getSimpleOp(operation: PlainTextOperation): ITextOperation | null {
     const ops = operation._ops;
 
@@ -340,6 +368,10 @@ export class PlainTextOperation implements IPlainTextOperation {
     return null;
   }
 
+  /**
+   * Returns the index of the text content where first insert/delete occured.
+   * @param operation - A Plain Text Operation
+   */
   protected _getStartIndex(operation: PlainTextOperation): number {
     const ops = operation._ops;
 
@@ -425,6 +457,12 @@ export class PlainTextOperation implements IPlainTextOperation {
     return opIteratorResult ? opIteratorResult[1] : null;
   }
 
+  /**
+   * Merges additional attributes from two Plain Text Operation.
+   * @param first - Additional Attributes from First Operation.
+   * @param second - Additional Attributes from Second Operation.
+   * @param firstOpIsInsert - Is first operation an Insert Operation.
+   */
   protected _composeAttributes(
     first: TTextOperationAttributes | null,
     second: TTextOperationAttributes | null,
@@ -591,6 +629,11 @@ export class PlainTextOperation implements IPlainTextOperation {
     return operation;
   }
 
+  /**
+   * Transforms additional attributes from two Plain Text Operation.
+   * @param attributes1 - Additional Attributes from First Operation.
+   * @param attributes2 - Additional Attributes from Second Operation.
+   */
   protected _transformAttributes(
     attributes1: TTextOperationAttributes | null,
     attributes2: TTextOperationAttributes | null

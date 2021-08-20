@@ -106,3 +106,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Addon binaries from OS
+.DS_Store
+desktop.ini

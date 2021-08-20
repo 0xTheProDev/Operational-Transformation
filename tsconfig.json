@@ -2,6 +2,7 @@
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
     "baseUrl": "./packages",
+    "downlevelIteration": true,
     "paths": {
       "@ot/*": ["*/src"]
     }

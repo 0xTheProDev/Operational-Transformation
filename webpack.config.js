@@ -1,6 +1,7 @@
-module.exports = ({ entryFile, libraryName, outDir }) => ({
+module.exports = ({ entryFile, externals, libraryName, outDir }) => ({
   devtool: "source-map",
   entry: entryFile,
+  externals,
   mode: "production",
   module: {
     rules: [
@@ -21,7 +22,7 @@ module.exports = ({ entryFile, libraryName, outDir }) => ({
   output: {
     library: {
       name: libraryName,
-      type: "commonjs",
+      type: "umd",
     },
     filename: "index.js",
     path: outDir,

@@ -1,0 +1,50 @@
+{
+  "name": "@ot/plaintext-editor",
+  "version": "0.0.0",
+  "description": "A Editor Client to wrap a Plain Text Editor to have collaborative experience based on OT.",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "homepage": "https://github.com/Progyan1997/ot#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "index.d.ts",
+  "rootDir": "plaintext-editor",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/ot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Progyan1997/ot/issues"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "yarn build:lib && yarn build:dts",
+    "build:lib": "webpack",
+    "build:dts": "api-extractor run",
+    "clean": "rimraf lib typings index.d.ts",
+    "test": "TEST_ENV=true jest --colors",
+    "test:watch": "yarn test --watch"
+  },
+  "devDependencies": {
+    "@ot/plaintext": "^0.0.0",
+    "@ot/utils": "^0.0.0",
+    "@ot/types": "^0.0.0"
+  },
+  "dependencies": {
+    "@ot/state-machine": "^0.0.0",
+    "mitt": "3.0.0"
+  },
+  "peerDependencies": {
+    "@ot/plaintext": "^0.0.0"
+  }
+}
