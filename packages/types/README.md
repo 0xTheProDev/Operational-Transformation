@@ -1,11 +1,7 @@
 # `@ot/types`
 
-> TODO: description
+> Collection of common types and interfaces functions across the repository.
 
 ## Usage
 
-```
-const types = require('@ot/types');
-
-// TODO: DEMONSTRATE API
-```
+For internal usage only.

@@ -1,11 +1,7 @@
 # `@ot/utils`
 
-> TODO: description
+> Collection of common utility functions across the repository.
 
 ## Usage
 
-```
-const utils = require('@ot/utils');
-
-// TODO: DEMONSTRATE API
-```
+For internal usage only.

@@ -1,10 +1,10 @@
 # Operational Transformation
 
-[![Built With](https://img.shields.io/badge/built%20with-webpack-green)](https://webpack.js.org)
+[![Built With](https://img.shields.io/badge/built%20with-webpack-darkgreen)](https://webpack.js.org)
 [![Tested With](https://img.shields.io/badge/tested%20with-jest-yellowgreen)](https://jestjs.io)
-[![Typed With](https://img.shields.io/badge/Typed%20With-TypeScript-blue)](https://www.typescriptlang.org)
+[![Typed With](https://img.shields.io/badge/typed%20with-TypeScript-blue)](https://www.typescriptlang.org)
 [![Styled With](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square&label=styled%20with)](https://prettier.io)
-[![License](https://img.shields.io/github/license/Progyan1997/Operational-Transformation)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-yellow)](LICENSE)
 [![Open Issues](https://img.shields.io/github/issues-raw/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/issues)
 [![Closed Issues](https://img.shields.io/github/issues-closed-raw/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/issues?q=is%3Aissue+is%3Aclosed)
 [![Open Pulls](https://img.shields.io/github/issues-pr-raw/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/pulls)
