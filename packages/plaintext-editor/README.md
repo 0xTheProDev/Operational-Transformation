@@ -1,11 +1,16 @@
 # `@ot/plaintext-editor`
 
-> TODO: description
+> Editor Client module to Synchronise Plain Text changes across multiple clients.
 
 ## Usage
 
-```
-const plaintextEditor = require('@ot/plaintext-editor');
+```ts
+import { EditorClient, IDatabaseAdapter, IEditorAdapter } from "@ot/plaintext-editor";
 
-// TODO: DEMONSTRATE API
+const databaseAdapter: IDatabaseAdapter = ...;
+const editorAdapter: IEditorAdapter = ...;
+
+const editorClient = new EditorClient(databaseAdapter, editorAdapter);
 ```
+
+**Note:** API Guidelines will be provided with the package.

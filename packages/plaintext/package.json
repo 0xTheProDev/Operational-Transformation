@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Operational Transformational Logic for Plain Text.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/ot#readme",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation#readme",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",
@@ -18,10 +18,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Progyan1997/ot.git"
+    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
   },
   "bugs": {
-    "url": "https://github.com/Progyan1997/ot/issues"
+    "url": "https://github.com/Progyan1997/Operational-Transformation/issues"
   },
   "scripts": {
     "prebuild": "yarn clean",

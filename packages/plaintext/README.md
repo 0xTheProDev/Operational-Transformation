@@ -1,11 +1,13 @@
 # `plaintext`
 
-> TODO: description
+> Exports Operational Transformation on Plain Text content.
 
 ## Usage
 
-```
-const plaintext = require('plaintext');
+```ts
+import { PlainTextOperation } from "@ot/plaintext";
 
-// TODO: DEMONSTRATE API
+const operation = new PlainTextOperation();
 ```
+
+**Note:** API Guidelines will be provided with the package.

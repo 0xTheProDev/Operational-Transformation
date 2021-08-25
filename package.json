@@ -1,5 +1,5 @@
 {
-  "name": "ot",
+  "name": "operational-transformation",
   "private": true,
   "description": "A collection of Algorithms to Synchronise changes across multiple clients using Operational Transformation",
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Progyan1997/OT.git"
+    "url": "https://github.com/Progyan1997/Operational-Transformation.git"
   },
   "workspaces": [
     "packages/*"

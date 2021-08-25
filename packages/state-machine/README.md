@@ -1,11 +1,15 @@
 # `@ot/state-machine`
 
-> TODO: description
+> State Machine implementation to Synchronise changes among multiple clients.
 
 ## Usage
 
-```
-const stateMachine = require('@ot/state-machine');
+```ts
+import { ITransitionHandler, StateMachine } from "@ot/state-machine";
 
-// TODO: DEMONSTRATE API
+const handler: ITransitionHandler = ...;
+
+const stateMachine = new StateMachine(handler);
 ```
+
+**Note:** API Guidelines will be provided with the package.

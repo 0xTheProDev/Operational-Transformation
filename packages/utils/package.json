@@ -5,7 +5,7 @@
   "sideEffects": false,
   "description": "Utility functions to help implement different OT packages.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/ot#readme",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation#readme",
   "license": "MIT",
   "main": "src/index.ts",
   "rootDir": "utils",
@@ -18,10 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Progyan1997/ot.git"
+    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
   },
   "bugs": {
-    "url": "https://github.com/Progyan1997/ot/issues"
+    "url": "https://github.com/Progyan1997/Operational-Transformation/issues"
   },
   "scripts": {
     "build": "echo \"Private Module: No Build Script Provided\"",
