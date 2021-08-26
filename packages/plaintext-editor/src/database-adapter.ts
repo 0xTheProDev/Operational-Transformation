@@ -23,8 +23,8 @@
  */
 
 import { ICursor, TCursor } from "./cursor";
-import { IPlainTextOperation } from "@ot/plaintext";
-import { IDisposable } from "@ot/types";
+import { IPlainTextOperation } from "@operational-transformation/plaintext";
+import { IDisposable } from "@operational-transformation/types";
 import { Handler } from "mitt";
 
 /**

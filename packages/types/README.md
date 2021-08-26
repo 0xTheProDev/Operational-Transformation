@@ -1,4 +1,4 @@
-# `@ot/types`
+# `@operational-transformation/types`
 
 > Collection of common types and interfaces functions across the repository.
 

@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: "14.x"
           registry-url: "https://registry.npmjs.org"
-          scope: "@ot"
+          scope: "@operational-transformation"
 
       - uses: actions/cache@v2
         with:
@@ -64,7 +64,7 @@ jobs:
         with:
           node-version: "14.x"
           registry-url: "https://npm.pkg.github.com"
-          scope: "@ot"
+          scope: "@operational-transformation"
 
       - name: Publish to GitHub
         run: lerna publish

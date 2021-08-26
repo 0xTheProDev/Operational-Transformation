@@ -22,8 +22,8 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IStateMachine } from "@ot/state-machine";
-import { IOperation } from "@ot/types";
+import { IStateMachine } from "@operational-transformation/state-machine";
+import { IOperation } from "@operational-transformation/types";
 import { AwaitingWithBuffer } from "../src/awaiting-with-buffer";
 
 describe("Test Awaiting With Buffer State", () => {

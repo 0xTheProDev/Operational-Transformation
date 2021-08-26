@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IDisposable } from "@ot/types";
+import { IDisposable } from "@operational-transformation/types";
 import { ICursor } from "./cursor";
 import { IEditorAdapter } from "./editor-adapter";
 import { IRemoteClient } from "./remote-client";

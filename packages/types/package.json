@@ -1,5 +1,5 @@
 {
-  "name": "@ot/types",
+  "name": "@operational-transformation/types",
   "version": "0.0.0",
   "private": true,
   "description": "Common Types and Interfaces regarding OTs",

@@ -22,8 +22,8 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { ITransitionHandler } from "@ot/state-machine";
-import { IDisposable } from "@ot/types";
+import { ITransitionHandler } from "@operational-transformation/state-machine";
+import { IDisposable } from "@operational-transformation/types";
 import { Handler } from "mitt";
 
 /**

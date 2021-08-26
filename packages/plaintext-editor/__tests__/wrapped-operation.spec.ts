@@ -24,7 +24,10 @@
 
 import { Cursor } from "../src/cursor.impl";
 import { OperationMetadata } from "../src/operation-metadata.impl";
-import { PlainTextOperation, TTextOperationAttributes } from "@ot/plaintext";
+import {
+  PlainTextOperation,
+  TTextOperationAttributes,
+} from "@operational-transformation/plaintext";
 import { WrappedOperation } from "../src/wrapped-operation.impl";
 
 describe("Wrapped Operation", () => {

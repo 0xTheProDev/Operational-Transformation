@@ -22,8 +22,8 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { ITransitionHandler } from "@ot/state-machine";
-import { IOperation } from "@ot/types";
+import { ITransitionHandler } from "@operational-transformation/state-machine";
+import { IOperation } from "@operational-transformation/types";
 import { StateMachine } from "../src/state-machine.impl";
 
 describe("Test State Machine", () => {

@@ -4,7 +4,7 @@
     "baseUrl": "./packages",
     "downlevelIteration": true,
     "paths": {
-      "@ot/*": ["*/src"]
+      "@operational-transformation/*": ["*/src"]
     }
   }
 }

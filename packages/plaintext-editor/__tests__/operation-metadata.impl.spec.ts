@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { PlainTextOperation } from "@ot/plaintext";
+import { PlainTextOperation } from "@operational-transformation/plaintext";
 import { Cursor } from "../src/cursor.impl";
 import { OperationMetadata } from "../src/operation-metadata.impl";
 

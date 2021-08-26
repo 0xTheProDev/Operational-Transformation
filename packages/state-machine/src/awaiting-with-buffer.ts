@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IOperation } from "@ot/types";
+import { IOperation } from "@operational-transformation/types";
 import { AwaitingConfirm } from "./awaiting-confirm";
 import { IState } from "./state";
 import { IStateMachine } from "./state-machine";

@@ -22,8 +22,8 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IOperation } from "@ot/types";
-import { NoopError } from "@ot/utils";
+import { IOperation } from "@operational-transformation/types";
+import { NoopError } from "@operational-transformation/utils";
 import { AwaitingConfirm } from "./awaiting-confirm";
 import { IState } from "./state";
 import { IStateMachine } from "./state-machine";

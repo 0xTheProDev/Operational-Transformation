@@ -22,8 +22,8 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IPlainTextOperation } from "@ot/plaintext";
-import { assert } from "@ot/utils";
+import { IPlainTextOperation } from "@operational-transformation/plaintext";
+import { assert } from "@operational-transformation/utils";
 import { Handler } from "mitt";
 import { IUndoManager } from "./undo-manager";
 import { IWrappedOperation } from "./wrapped-operation";

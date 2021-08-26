@@ -4,7 +4,11 @@ const getWebpackConfig = require("../../webpack.config");
 
 module.exports = getWebpackConfig({
   entryFile: "./src/index.ts",
-  externals: ["@ot/plaintext", "@ot/state-machine", "mitt"],
+  externals: [
+    "@operational-transformation/plaintext",
+    "@operational-transformation/state-machine",
+    "mitt",
+  ],
   libraryName: package.name,
   outDir: path.resolve(__dirname, "lib"),
 });

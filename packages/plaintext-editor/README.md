@@ -1,11 +1,11 @@
-# `@ot/plaintext-editor`
+# `@operational-transformation/plaintext-editor`
 
 > Editor Client module to Synchronise Plain Text changes across multiple clients.
 
 ## Usage
 
 ```ts
-import { EditorClient, IDatabaseAdapter, IEditorAdapter } from "@ot/plaintext-editor";
+import { EditorClient, IDatabaseAdapter, IEditorAdapter } from "@operational-transformation/plaintext-editor";
 
 const databaseAdapter: IDatabaseAdapter = ...;
 const editorAdapter: IEditorAdapter = ...;

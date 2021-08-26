@@ -23,9 +23,12 @@
  */
 
 import mitt, { Emitter, Handler } from "mitt";
-import { IPlainTextOperation, ITextOperation } from "@ot/plaintext";
-import { assert } from "@ot/utils";
-import { IDisposable } from "@ot/types";
+import {
+  IPlainTextOperation,
+  ITextOperation,
+} from "@operational-transformation/plaintext";
+import { assert } from "@operational-transformation/utils";
+import { IDisposable } from "@operational-transformation/types";
 import { ICursor } from "../src/cursor";
 import {
   EditorAdapterEvent,

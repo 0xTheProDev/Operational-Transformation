@@ -1,5 +1,5 @@
 {
-  "name": "@ot/plaintext",
+  "name": "@operational-transformation/plaintext",
   "version": "0.0.0",
   "description": "Operational Transformational Logic for Plain Text.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
@@ -33,6 +33,6 @@
     "test:watch": "yarn test --watch"
   },
   "devDependencies": {
-    "@ot/utils": "^0.0.0"
+    "@operational-transformation/utils": "^0.0.0"
   }
 }

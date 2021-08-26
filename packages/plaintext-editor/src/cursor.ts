@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IPlainTextOperation } from "@ot/plaintext";
+import { IPlainTextOperation } from "@operational-transformation/plaintext";
 
 /**
  * @public

@@ -27,7 +27,7 @@ import {
   TTextOperationAttributes,
   ITextOperation,
   TPlainTextOperation,
-} from "@ot/plaintext";
+} from "@operational-transformation/plaintext";
 import { ICursor } from "./cursor";
 import { IOperationMetadata } from "./operation-metadata";
 import { IWrappedOperation } from "./wrapped-operation";

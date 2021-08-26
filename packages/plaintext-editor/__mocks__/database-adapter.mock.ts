@@ -23,8 +23,8 @@
  */
 
 import mitt, { Emitter, Handler } from "mitt";
-import { IPlainTextOperation } from "@ot/plaintext";
-import { assert } from "@ot/utils";
+import { IPlainTextOperation } from "@operational-transformation/plaintext";
+import { assert } from "@operational-transformation/utils";
 import { ICursor } from "../src/cursor";
 import {
   DatabaseAdapterEvent,
