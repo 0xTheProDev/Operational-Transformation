@@ -1,0 +1,72 @@
+---
+name: Deployment
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  deploy:
+    name: Deploy Package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node for NPM
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+          registry-url: "https://registry.npmjs.org"
+          scope: "@ot"
+
+      - uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            $HOME/.npm
+            $HOME/.yarn-cache
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+
+      - name: Install Lerna
+        run: npm install -g lerna
+
+      - name: Wait for Build to Complete
+        uses: fountainhead/action-wait-for-check@v1.0.0
+        id: wait-for-build
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: "Build"
+          timeoutSeconds: 600
+          intervalSeconds: 10
+
+      - name: Check for Build Failure
+        if: steps.wait-for-build.outputs.conclusion != 'success'
+        shell: bash
+        run: |
+          echo "Error! $The Build workflow has status of [${{steps.wait-for-build.outputs.conclusion}}]" 1>&2
+          exit 64
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: artifacts-${{ github.sha }}
+
+      - name: Publish to NPM
+        run: lerna publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Setup Node for GitHub
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@ot"
+
+      - name: Publish to GitHub
+        run: lerna publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -37,8 +37,8 @@
   },
   "devDependencies": {
     "@ot/plaintext": "^0.0.0",
-    "@ot/utils": "^0.0.0",
-    "@ot/types": "^0.0.0"
+    "@ot/types": "^0.0.0",
+    "@ot/utils": "^0.0.0"
   },
   "dependencies": {
     "@ot/state-machine": "^0.0.0",
@@ -46,5 +46,10 @@
   },
   "peerDependencies": {
     "@ot/plaintext": "^0.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@ot/plaintext": {
+      "optional": false
+    }
   }
 }

@@ -1,0 +1,41 @@
+---
+name: Tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Unit Test Modules
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            $HOME/.npm
+            $HOME/.yarn-cache
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+
+      - name: Install Lerna
+        run: npm install -g lerna
+
+      - name: Install Dependencies
+        run: lerna bootstrap --ignore-scripts
+
+      - name: Run Tests
+        run: yarn test

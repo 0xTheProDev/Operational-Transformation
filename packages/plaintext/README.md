@@ -1,4 +1,4 @@
-# `plaintext`
+# `@ot/plaintext`
 
 > Exports Operational Transformation on Plain Text content.
 

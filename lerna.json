@@ -1,11 +1,7 @@
 {
   "npmClient": "yarn",
-  "npmClientArgs": [
-    "--pure-lockfile"
-  ],
-  "packages": [
-    "packages/*"
-  ],
+  "npmClientArgs": ["--frozen-lockfile"],
+  "packages": ["packages/*"],
   "useWorkspaces": true,
   "version": "0.0.0"
 }
