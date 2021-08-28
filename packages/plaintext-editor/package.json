@@ -45,7 +45,7 @@
     "mitt": "3.0.0"
   },
   "peerDependencies": {
-    "@operational-transformation/plaintext": "^0.0.0"
+    "@operational-transformation/plaintext": "^0.1.0"
   },
   "peerDependenciesMeta": {
     "@operational-transformation/plaintext": {

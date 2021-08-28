@@ -9,7 +9,8 @@
     "test:watch": "yarn test --watch",
     "lint": "yarn lint:lockfile && yarn lint:prettier",
     "lint:prettier": "prettier --write packages/**/*.ts",
-    "lint:lockfile": "check-yarn-lock"
+    "lint:lockfile": "check-yarn-lock",
+    "release": "lerna version --no-private --exact"
   },
   "repository": {
     "type": "git",
