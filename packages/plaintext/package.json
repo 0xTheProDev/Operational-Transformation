@@ -16,6 +16,9 @@
     "lib",
     "index.d.ts"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"

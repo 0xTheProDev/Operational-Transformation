@@ -1,4 +1,16 @@
 {
+  "command": {
+    "version": {
+      "allowBranch": "main",
+      "message": "(chore) @operational-transformation/*: Release %s"
+    }
+  },
+  "ignoreChanges": [
+    "**/__mocks__/**",
+    "**/__tests__/**",
+    "**/*.md",
+    "**/*.yml"
+  ],
   "npmClient": "yarn",
   "npmClientArgs": ["--frozen-lockfile"],
   "packages": ["packages/*"],

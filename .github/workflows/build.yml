@@ -39,14 +39,3 @@ jobs:
 
       - name: Build Artifacts
         run: lerna exec yarn build
-
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: artifacts-${{ github.sha }}
-          path: |
-            packages/**/lib/index.js
-            packages/**/lib/index.js.map
-            packages/**/index.d.ts
-            packages/**/package.json
-            !packages/**/typings

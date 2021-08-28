@@ -33,40 +33,13 @@ jobs:
       - name: Install Lerna
         run: npm install -g lerna
 
-      - name: Wait for Build to Complete
-        uses: fountainhead/action-wait-for-check@v1.0.0
-        id: wait-for-build
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: "Build"
-          timeoutSeconds: 600
-          intervalSeconds: 10
+      - name: Install Dependencies
+        run: lerna bootstrap --ignore-scripts
 
-      - name: Check for Build Failure
-        if: steps.wait-for-build.outputs.conclusion != 'success'
-        shell: bash
-        run: |
-          echo "Error! $The Build workflow has status of [${{steps.wait-for-build.outputs.conclusion}}]" 1>&2
-          exit 64
-
-      - name: Download Artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: artifacts-${{ github.sha }}
+      - name: Build Artifacts
+        run: lerna exec yarn build
 
       - name: Publish to NPM
-        run: lerna publish
+        run: lerna publish from-git --yes --no-verify-access
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Setup Node for GitHub
-        uses: actions/setup-node@v2
-        with:
-          node-version: "14.x"
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@operational-transformation"
-
-      - name: Publish to GitHub
-        run: lerna publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
