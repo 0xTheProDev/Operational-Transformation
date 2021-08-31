@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "State machine to manage Consistency of Operations across multiple clients.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation#readme",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/state-machine#readme",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",
@@ -24,7 +24,7 @@
     "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
   },
   "bugs": {
-    "url": "https://github.com/Progyan1997/Operational-Transformation/issues"
+    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
   },
   "scripts": {
     "prebuild": "yarn clean",
