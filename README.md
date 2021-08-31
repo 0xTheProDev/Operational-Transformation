@@ -2,10 +2,10 @@
 
 [![Build](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/build.yml/badge.svg)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/build.yml)
 [![Tests](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/tests.yml/badge.svg)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/tests.yml)
-[![Deployment](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/deploy.yml/badge.svg)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/deploy.yml)
-[![Version](https://img.shields.io/npm/v/@operational-transformation/plaintext?)](https://www.npmjs.com/package/@operational-transformation/plaintext)
+[![Deployment](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/deploy.yml/badge.svg?branch=v0.1.0)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/deploy.yml)
+[![Version](https://img.shields.io/npm/v/@operational-transformation/plaintext)](https://www.npmjs.com/package/@operational-transformation/plaintext)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@operational-transformation/plaintext)](https://www.npmjs.com/package/@operational-transformation/plaintext)
-[![Built With](https://img.shields.io/badge/built%20with-webpack-lightgreen)](https://webpack.js.org)
+[![Built With](https://img.shields.io/badge/built%20with-webpack-green)](https://webpack.js.org)
 [![Tested With](https://img.shields.io/badge/tested%20with-jest-yellowgreen)](https://jestjs.io)
 [![Typed With](https://img.shields.io/badge/typed%20with-TypeScript-blue)](https://www.typescriptlang.org)
 [![Styled With](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square&label=styled%20with)](https://prettier.io)
