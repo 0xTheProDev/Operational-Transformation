@@ -21,6 +21,6 @@
 
 Collection of Operation Transformation Algorithms and their respective clients to integrate with any existing system.
 
-## Motivation
+## License
 
-This is a derivative work over OT implementation by Tim Baumann, which was later incorporated in Firepad project by Firebase team at Google. See [LICENSE](LICENSE) for more details.
+MIT License. See [LICENSE](LICENSE) for more details.
