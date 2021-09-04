@@ -66,7 +66,7 @@ describe("Editor Client", () => {
     it("should attach event listener to emitter for valid event", () => {
       const fn = () =>
         editorClient.on(EditorClientEvent.Synced, eventListenerStub);
-      expect(fn).not.toThrowError();
+      expect(fn).not.toThrow();
     });
   });
 
@@ -74,7 +74,7 @@ describe("Editor Client", () => {
     it("should detach event listener to emitter for valid event", () => {
       const fn = () =>
         editorClient.off(EditorClientEvent.Synced, eventListenerStub);
-      expect(fn).not.toThrowError();
+      expect(fn).not.toThrow();
     });
   });
 

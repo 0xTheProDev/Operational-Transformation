@@ -43,14 +43,14 @@ describe("Remote Client", () => {
   describe("#setColor", () => {
     it("should set cursor/selection color for remote user", () => {
       const fn = () => remoteClient.setColor("#fff");
-      expect(fn).not.toThrowError();
+      expect(fn).not.toThrow();
     });
   });
 
   describe("#setUserName", () => {
     it("should set name/short-name for remote user", () => {
       const fn = () => remoteClient.setUserName("Robin");
-      expect(fn).not.toThrowError();
+      expect(fn).not.toThrow();
     });
   });
 

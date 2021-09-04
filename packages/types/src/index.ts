@@ -22,5 +22,9 @@
  * See LICENSE file in the root directory for more details.
  */
 
+export * from "./cancelable";
 export * from "./operation";
 export * from "./disposable";
+export * from "./memoize";
+export * from "./thenable";
+export * from "./utility-types";

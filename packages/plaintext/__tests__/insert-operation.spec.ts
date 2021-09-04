@@ -108,7 +108,7 @@ describe("Insert Operation", () => {
     it("should throw error", () => {
       const insertOperation = new InsertOperation("Hello World");
       const fn = () => insertOperation.addCharacterCount(20);
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 
@@ -132,7 +132,7 @@ describe("Insert Operation", () => {
     it("should throw error", () => {
       const insertOperation = new InsertOperation("Hello World");
       const fn = () => insertOperation.characterCount();
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 

@@ -102,7 +102,7 @@ describe("Plain Text Operation", () => {
 
     it("should throw error if non-positive number passed as param", () => {
       const fn = () => new PlainTextOperation().retain(-5);
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 
@@ -195,7 +195,7 @@ describe("Plain Text Operation", () => {
 
     it("should throw error if non-positive number passed as param", () => {
       const fn = () => new PlainTextOperation().delete(-5);
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 
@@ -273,7 +273,7 @@ describe("Plain Text Operation", () => {
       const content = "Hello World";
       const operation = new PlainTextOperation().retain(12);
       const fn = () => operation.apply(content);
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 
@@ -437,7 +437,7 @@ describe("Plain Text Operation", () => {
       const operation2 = new PlainTextOperation().retain(8).insert("!");
 
       const fn = () => operation1.transform(operation2);
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
 
     it("should transform two operation such that they can be reversed", () => {

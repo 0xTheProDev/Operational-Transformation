@@ -3,14 +3,14 @@ const package = require("./package.json");
 
 module.exports = {
   ...baseConfig,
+  // The directory where Jest should output its coverage files
+  coverageDirectory: `<rootDir>/coverage-${package.rootDir}`,
   // Name should be displayed on Test Report
   displayName: "Plain Text OT",
-  // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  moduleNameMapper: {
-    "@operational-transformation/utils": "<rootDir>/packages/utils/src",
-  },
   // Name of the package
   name: package.name,
+  // Run tests from one or more projects
+  projects: null,
   // The root directory that Jest should scan for tests and modules within
   rootDir: "../..",
   // The glob patterns Jest uses to detect test files

@@ -102,7 +102,7 @@ describe("Test State Machine", () => {
 
   describe("#serverAck", () => {
     it("should throw error if state is Synchronized", () => {
-      expect(() => client.serverAck()).toThrowError();
+      expect(() => client.serverAck()).toThrow();
     });
 
     it("should transition to Synchronized state if state is Awaiting for Confirm", () => {
@@ -129,7 +129,7 @@ describe("Test State Machine", () => {
 
   describe("#serverRetry", () => {
     it("should throw error if state is Synchronized", () => {
-      expect(() => client.serverRetry()).toThrowError();
+      expect(() => client.serverRetry()).toThrow();
     });
 
     it("should retain state if state is Awaiting for Confirm", () => {
@@ -171,7 +171,7 @@ describe("Test State Machine", () => {
         compose: (op: IOperation) => op,
         transform: (op: IOperation) => [op, op],
       };
-      expect(() => client.sendOperation(operation)).toThrowError();
+      expect(() => client.sendOperation(operation)).toThrow();
     });
   });
 
@@ -192,7 +192,7 @@ describe("Test State Machine", () => {
         compose: (op: IOperation) => op,
         transform: (op: IOperation) => [op, op],
       };
-      expect(() => client.applyOperation(operation)).toThrowError();
+      expect(() => client.applyOperation(operation)).toThrow();
     });
   });
 });

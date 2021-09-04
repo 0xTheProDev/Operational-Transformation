@@ -144,6 +144,7 @@ export class UndoManager implements IUndoManager {
     for (const stackOp of reverseStack) {
       const pair = stackOp.transform(operation);
 
+      /* istanbul ignore if */
       if (!pair[0].isNoop()) {
         newStack.push(pair[0]);
       }
