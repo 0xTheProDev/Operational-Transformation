@@ -22,6 +22,12 @@ Good to have: commit or PR links.
 
 -->
 
+## [v0.1.1](https://github.com/Progyan1997/Operational-Transformation/tree/v0.1.1)
+
+### Fixed
+
+- Enable usage of the library in both Web (Browsers) and Node. Change `library.globalObject` to use `this` in Webpack Config. [Issue](https://github.com/Progyan1997/Operational-Transformation/issues/21) [Fix](https://github.com/Progyan1997/Operational-Transformation/pull/22)
+
 ## [v0.1.0](https://github.com/Progyan1997/Operational-Transformation/tree/v0.1.0)
 
 ### Added
