@@ -25,6 +25,7 @@ module.exports = ({ entryFile, externals, libraryName, outDir }) => ({
       type: "umd",
     },
     filename: "index.js",
+    globalObject: "this",
     path: outDir,
   },
   resolve: {
