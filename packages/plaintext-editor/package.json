@@ -1,6 +1,6 @@
 {
   "name": "@operational-transformation/plaintext-editor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Editor Client to wrap a Plain Text Editor to have collaborative experience based on OT.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext-editor#readme",
@@ -36,12 +36,12 @@
     "test:watch": "yarn test --watch"
   },
   "devDependencies": {
-    "@operational-transformation/plaintext": "0.1.0",
+    "@operational-transformation/plaintext": "0.1.1",
     "@operational-transformation/types": "^0.0.0",
     "@operational-transformation/utils": "^0.0.0"
   },
   "dependencies": {
-    "@operational-transformation/state-machine": "0.1.0",
+    "@operational-transformation/state-machine": "0.1.1",
     "mitt": "3.0.0"
   },
   "peerDependencies": {
