@@ -116,7 +116,7 @@ describe("Undo Manager", () => {
 
     it("should throw error if the limit is set to zero", () => {
       const fn = () => new UndoManager(0);
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 

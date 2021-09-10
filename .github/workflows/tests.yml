@@ -26,6 +26,7 @@ jobs:
             node_modules
             $HOME/.npm
             $HOME/.yarn-cache
+            $HOME/.cache/firebase
           key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-node-
@@ -35,7 +36,19 @@ jobs:
         run: npm install -g lerna
 
       - name: Install Dependencies
-        run: lerna bootstrap --ignore-scripts
+        run: |
+          lerna bootstrap --ignore-scripts
+          mkdir -p packages/firebase-adapter/.firebase
+
+      - name: Add Realtime Database Rules
+        uses: jsdaniell/create-json@1.1.2
+        with:
+          name: "database.rules.json"
+          json: ${{ secrets.FIREBASE_DATABASE_JSON }}
+          dir: "packages/firebase-adapter/.firebase/"
 
       - name: Run Tests
         run: "yarn test:ci"
+
+      - name: Generate Coverage Report
+        run: yarn coverage

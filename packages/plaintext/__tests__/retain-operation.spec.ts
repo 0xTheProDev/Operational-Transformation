@@ -110,7 +110,7 @@ describe("Retain Operation", () => {
     it("should throw error", () => {
       const retainOperation = new RetainOperation(32);
       const fn = () => retainOperation.addTextContent("Any Text");
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 
@@ -118,7 +118,7 @@ describe("Retain Operation", () => {
     it("should throw error", () => {
       const retainOperation = new RetainOperation(32);
       const fn = () => retainOperation.setTextContent("Any Text");
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 
@@ -133,7 +133,7 @@ describe("Retain Operation", () => {
     it("should throw error", () => {
       const retainOperation = new RetainOperation(32);
       const fn = () => retainOperation.textContent();
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 

@@ -108,17 +108,13 @@ describe("Test Synchronized State", () => {
 
   describe("#serverAck", () => {
     it("should throw error", () => {
-      expect(() =>
-        synchronized.serverAck(client as IStateMachine)
-      ).toThrowError();
+      expect(() => synchronized.serverAck(client as IStateMachine)).toThrow();
     });
   });
 
   describe("#serverRetry", () => {
     it("should throw error", () => {
-      expect(() =>
-        synchronized.serverRetry(client as IStateMachine)
-      ).toThrowError();
+      expect(() => synchronized.serverRetry(client as IStateMachine)).toThrow();
     });
   });
 });

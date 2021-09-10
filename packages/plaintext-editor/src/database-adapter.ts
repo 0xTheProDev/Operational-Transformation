@@ -135,18 +135,16 @@ export interface IDatabaseAdapter extends IDisposable {
    */
   isCurrentUser(clientId: string): boolean;
   /**
-   * Send operation, while retrying on connection failure.
+   * Send operation, while retrying on connection failure. Returns a Promise with commited status.
    * An exception will be thrown on transaction failure, which should only happen on
    * catastrophic failure like a security rule violation.
    *
    * @param operation - Plain Text Operation to sent to server.
-   * @param callback - Callback handler for the transaction.
    */
-  sendOperation(operation: IPlainTextOperation): void;
+  sendOperation(operation: IPlainTextOperation): Promise<boolean>;
   /**
-   * Send current user's cursor information to server.
+   * Send current user's cursor information to server. Returns an empty Promise.
    * @param cursor - Cursor of Current User.
-   * @param callback - Callback handler for the transaction.
    */
-  sendCursor(cursor: ICursor | null): void;
+  sendCursor(cursor: ICursor | null): Promise<void>;
 }

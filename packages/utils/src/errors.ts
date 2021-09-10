@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 /**
  * Copyright © 2021 Progyan Bhattacharya
  *
@@ -38,10 +40,18 @@ export class NoopError extends Error {
 }
 
 /**
- * Non Writable Property Error: Perform Write operation on ReadOnly property.
+ * Invalid Operation Error: Executing an Invalid Operation.
  */
-export class NonWritablePropertyError extends Error {
-  readonly name: string = "Invalid Assignment to Readonly Property";
+export class InvalidOperationError extends Error {
+  readonly name: string = "Invalid Operation Encountered";
   readonly message: string =
-    "This property is read only, and can not be overwritten!";
+    "The Operation recieved was either Invalid or Corrupted, please retry!";
+}
+
+/**
+ * Transaction Failure Error: Failed to update some reference in Database.
+ */
+export class TransactionFailureError extends Error {
+  readonly name: string = "Transaction Failure";
+  readonly message: string = "Failed to update in the Database";
 }

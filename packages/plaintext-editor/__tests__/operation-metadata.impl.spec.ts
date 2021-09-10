@@ -88,7 +88,7 @@ describe("Operation Metadata", () => {
       const operationMeta = new OperationMetadata(null, null);
       const operation = new PlainTextOperation().retain(12);
       const fn = () => operationMeta.transform(operation);
-      expect(fn).not.toThrowError();
+      expect(fn).not.toThrow();
     });
   });
 

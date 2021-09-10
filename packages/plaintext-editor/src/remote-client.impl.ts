@@ -67,6 +67,7 @@ export class RemoteClient implements IRemoteClient {
   }
 
   removeCursor(): void {
+    /* istanbul ignore else */
     if (this._mark) {
       this._mark.dispose();
     }

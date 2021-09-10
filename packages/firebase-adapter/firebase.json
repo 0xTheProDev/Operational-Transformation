@@ -1,0 +1,14 @@
+{
+  "database": {
+    "rules": ".firebase/database.rules.json"
+  },
+  "emulators": {
+    "database": {
+      "name": "ot-unit-test",
+      "port": 9000
+    },
+    "ui": {
+      "enabled": true
+    }
+  }
+}

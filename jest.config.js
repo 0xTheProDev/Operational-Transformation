@@ -23,21 +23,25 @@ module.exports = {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "<rootDir>/coverage",
+  coverageDirectory: "<rootDir>/coverage-root",
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: ["/node_modules/", "__tests__/.(jsx?|tsx?)$"],
+  coveragePathIgnorePatterns: [
+    "/node_modules/",
+    "__mocks__/.(jsx?|tsx?)$",
+    "__tests__/.(jsx?|tsx?)$",
+  ],
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "v8",
 
   // A list of reporter names that Jest uses when writing coverage reports
-  // coverageReporters: [
-  //   "json",
-  //   "text",
-  //   "lcov",
-  //   "clover"
-  // ],
+  coverageReporters: [
+    "json",
+    // "text",
+    // "lcov",
+    // "clover"
+  ],
 
   // An object that configures minimum threshold enforcement for coverage results
   // coverageThreshold: undefined,
@@ -79,7 +83,9 @@ module.exports = {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    "@operational-transformation/(.*)": "<rootDir>/packages/$1/src",
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -94,7 +100,7 @@ module.exports = {
   preset: "ts-jest",
 
   // Run tests from one or more projects
-  projects: ["<rootDir>/packages/*/jest.config.js"],
+  projects: ["<rootDir>/packages/*(!(firebase*))/jest.config.js"],
 
   // Use this configuration option to add custom reporters to Jest
   // reporters: undefined,

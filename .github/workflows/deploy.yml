@@ -37,7 +37,7 @@ jobs:
         run: lerna bootstrap --ignore-scripts
 
       - name: Build Artifacts
-        run: lerna exec yarn build
+        run: yarn build
 
       - name: Publish to NPM
         run: lerna publish from-git --yes --no-verify-access

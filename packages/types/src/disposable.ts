@@ -33,3 +33,16 @@ export interface IDisposable {
    */
   dispose(): void;
 }
+
+/**
+ * @internal
+ * Interface for Collection Class for Disposable instances to handle cross-cutting concerns of cleanup.
+ */
+export interface IDisposableCollection {
+  /** Returns true if all Disposables are Disposed */
+  disposed: boolean;
+  /** Pushes Disposables to the collection */
+  push(...disposables: IDisposable[]): void;
+  /** Disposes all Disposables in the collection and resets the collection */
+  dispose(): void;
+}

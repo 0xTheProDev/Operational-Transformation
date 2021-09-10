@@ -64,7 +64,7 @@ describe("Delete Operation", () => {
     it("should throw error", () => {
       const deleteOperation = new DeleteOperation(32);
       const fn = () => deleteOperation.attributesEqual({ attr2: "value2" });
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 
@@ -99,7 +99,7 @@ describe("Delete Operation", () => {
     it("should throw error", () => {
       const deleteOperation = new DeleteOperation(32);
       const fn = () => deleteOperation.addTextContent("Any Text");
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 
@@ -107,7 +107,7 @@ describe("Delete Operation", () => {
     it("should throw error", () => {
       const deleteOperation = new DeleteOperation(32);
       const fn = () => deleteOperation.setTextContent("Any Text");
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 
@@ -122,7 +122,7 @@ describe("Delete Operation", () => {
     it("should throw error", () => {
       const deleteOperation = new DeleteOperation(32);
       const fn = () => deleteOperation.textContent();
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 

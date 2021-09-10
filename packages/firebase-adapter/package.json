@@ -1,0 +1,64 @@
+{
+  "name": "@operational-transformation/firebase-adapter",
+  "version": "0.1.1",
+  "description": "IDatabaseAdapter implementation Firebase to use with Plain Text Editor",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-adapter#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "index.d.ts",
+  "rootDir": "firebase-adapter",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "yarn build:lib && yarn build:dts",
+    "build:lib": "webpack",
+    "build:dts": "api-extractor run",
+    "clean": "rimraf lib typings index.d.ts",
+    "test": "TEST_ENV=true jest --colors",
+    "test:ci": "firebase emulators:exec \"yarn test --ci --silent\"",
+    "test:watch": "yarn test --watch"
+  },
+  "devDependencies": {
+    "@operational-transformation/plaintext": "0.1.1",
+    "@operational-transformation/plaintext-editor": "0.1.1",
+    "@operational-transformation/utils": "^0.0.0",
+    "firebase": "9.0.2"
+  },
+  "dependencies": {
+    "mitt": "3.0.0"
+  },
+  "peerDependencies": {
+    "@operational-transformation/plaintext": "^0.1.1",
+    "@operational-transformation/plaintext-editor": "^0.1.1",
+    "firebase": "^9.0.2"
+  },
+  "peerDependenciesMeta": {
+    "@operational-transformation/plaintext": {
+      "optional": false
+    },
+    "@operational-transformation/plaintext-editor": {
+      "optional": false
+    },
+    "firebase": {
+      "optional": false
+    }
+  }
+}

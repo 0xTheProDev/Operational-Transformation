@@ -144,7 +144,7 @@ describe("Wrapped Operation", () => {
     it("should throw error if non-positive number passed as param", () => {
       const fn = () =>
         new WrappedOperation(new PlainTextOperation()).retain(-5);
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 
@@ -243,7 +243,7 @@ describe("Wrapped Operation", () => {
     it("should throw error if non-positive number passed as param", () => {
       const fn = () =>
         new WrappedOperation(new PlainTextOperation()).delete(-5);
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 
@@ -341,7 +341,7 @@ describe("Wrapped Operation", () => {
         null
       );
       const fn = () => operation.apply(content);
-      expect(fn).toThrowError();
+      expect(fn).toThrow();
     });
   });
 
