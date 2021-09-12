@@ -55,3 +55,11 @@ export class TransactionFailureError extends Error {
   readonly name: string = "Transaction Failure";
   readonly message: string = "Failed to update in the Database";
 }
+
+/**
+ * DOM Failure Error: Failed to Query or Mutate some DOM Node.
+ */
+export class DOMFailureError extends Error {
+  readonly name: string = "DOM Operation Failure";
+  readonly message: string = "Failed to Query or Mutate some DOM Node";
+}

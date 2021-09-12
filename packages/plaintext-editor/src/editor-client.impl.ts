@@ -317,7 +317,7 @@ export class EditorClient implements IEditorClient {
 
   /** Handles `intialRevision` event from Database Adapter */
   protected _handleInitialRevision = (): void => {
-    this._editorAdapter.setInitiated(true);
+    this._editorAdapter.setInitiated();
   };
 
   /** Handles `ack` event from Database Adapter */

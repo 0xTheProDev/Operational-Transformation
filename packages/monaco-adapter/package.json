@@ -1,13 +1,13 @@
 {
-  "name": "@operational-transformation/firebase-adapter",
+  "name": "@operational-transformation/monaco-adapter",
   "version": "0.1.1",
-  "description": "Database Adapter implementation for Firebase to use with Plain Text Editor",
+  "description": "Plain Text Editor Adapter for Monaco Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-adapter#readme",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/monaco-adapter#readme",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "firebase-adapter",
+  "rootDir": "monaco-adapter",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -33,14 +33,14 @@
     "build:dts": "api-extractor run",
     "clean": "rimraf lib typings index.d.ts",
     "test": "TEST_ENV=true jest --colors",
-    "test:ci": "firebase emulators:exec \"yarn test --ci --silent\"",
+    "test:ci": "yarn test --ci --silent",
     "test:watch": "yarn test --watch"
   },
   "devDependencies": {
     "@operational-transformation/plaintext": "0.1.1",
     "@operational-transformation/plaintext-editor": "0.1.1",
     "@operational-transformation/utils": "^0.0.0",
-    "firebase": "9.0.2"
+    "monaco-editor": "0.27.0"
   },
   "dependencies": {
     "mitt": "3.0.0"
@@ -48,7 +48,7 @@
   "peerDependencies": {
     "@operational-transformation/plaintext": "^0.1.1",
     "@operational-transformation/plaintext-editor": "^0.1.1",
-    "firebase": "^9.0.2"
+    "monaco-editor": "^0.27.0"
   },
   "peerDependenciesMeta": {
     "@operational-transformation/plaintext": {
@@ -57,7 +57,7 @@
     "@operational-transformation/plaintext-editor": {
       "optional": false
     },
-    "firebase": {
+    "monaco-editor": {
       "optional": false
     }
   }

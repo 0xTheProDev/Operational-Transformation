@@ -25,6 +25,7 @@
 export * from "./assert";
 export * from "./cancelable";
 export * from "./disposable";
+export * from "./eol";
 export * from "./errors";
 export * from "./memoize";
 export * from "./thenable";

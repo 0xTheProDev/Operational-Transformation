@@ -72,7 +72,7 @@ const applyOperation = (operation: IPlainTextOperation) => {
   let opValue: IteratorResult<[number, ITextOperation]>;
 
   while (!(opValue = ops.next()).done) {
-    const op: ITextOperation = opValue.value[1];
+    const [, op] = opValue.value;
 
     switch (true) {
       case op.isDelete():
@@ -134,7 +134,7 @@ const editorAdapter: IMockEditorAdapter = Object.freeze({
   dispose: jest.fn<void, []>(() => {
     emitter.all.clear();
   }),
-  setInitiated: jest.fn<void, [boolean]>(),
+  setInitiated: jest.fn<void, []>(),
   getCursor: jest.fn<ICursor | null, []>(() => currentCursor),
   setCursor: jest.fn<void, [ICursor]>((cursor) => {
     currentCursor = cursor;

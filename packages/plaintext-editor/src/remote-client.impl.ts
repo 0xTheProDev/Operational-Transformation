@@ -57,6 +57,7 @@ export class RemoteClient implements IRemoteClient {
   }
 
   updateCursor(cursor: ICursor): void {
+    this.removeCursor();
     this._userCursor = cursor;
     this._mark = this._editorAdapter.setOtherCursor({
       cursor,

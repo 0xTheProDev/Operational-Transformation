@@ -85,9 +85,9 @@ export type TEditorAdapterCursorParams = {
   /** Remote User ID. */
   clientId: string;
   /** Cursor instance of Remote User. */
-  cursor: ICursor | null;
-  /** HexaDecimal Color Code for Cursor/Selection. */
-  userColor?: string;
+  cursor: ICursor;
+  /** Color String (Hex, HSL, RGB, Text etc.) for Cursor/Selection. */
+  userColor: string;
   /** User Name to show on Cursor (optional). */
   userName?: string;
 };
@@ -97,6 +97,11 @@ export type TEditorAdapterCursorParams = {
  * Editor Adapter Interface - This Interface should be implemented over Plain Text Editor to have OT functionalities.
  */
 export interface IEditorAdapter extends IDisposable {
+  /**
+   * Returns whether or not Editor Adapter instance will emit event.
+   * Toggling this value will set/reset event listeners on Editor.
+   */
+  events: boolean;
   /**
    * Add listener to Editor Adapter.
    * @param event - Event name.
@@ -159,10 +164,9 @@ export interface IEditorAdapter extends IDisposable {
    */
   setText(text: string): void;
   /**
-   * Sets the inititated boolean which in turn allows onChange events to progress
-   * @param _initiated - initiated boolean that represent initial firebase Revisions.
+   * Informs Editor Adapter before Syncing Operations for the first time.
    */
-  setInitiated(init: boolean): void;
+  setInitiated(): void;
   /**
    * Applies operation into Editor.
    * @param operation - Text Operation.

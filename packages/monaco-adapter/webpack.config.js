@@ -7,8 +7,8 @@ module.exports = getWebpackConfig({
   externals: [
     "@operational-transformation/plaintext",
     "@operational-transformation/plaintext-editor",
-    "firebase/database",
     "mitt",
+    "monaco-editor",
   ],
   libraryName: package.name,
   outDir: path.resolve(__dirname, "lib"),

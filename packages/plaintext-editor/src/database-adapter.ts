@@ -50,7 +50,7 @@ export type TDatabaseAdapterCursor = {
   clientId: string;
   /** JSON Representation of User Cursor/Selection */
   cursor: TCursor | null;
-  /** Hexadecimal Color code of the Cursor/Selection */
+  /** Color String (Hex, HSL, RGB, Text etc.) for Cursor/Selection. */
   userColor?: string;
   /** Name/Short Name of the Remote User */
   userName?: string;

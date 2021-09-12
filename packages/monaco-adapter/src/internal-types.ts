@@ -22,19 +22,16 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { DatabaseReference } from "firebase/database";
+import * as monaco from "monaco-editor";
+import { Handler } from "mitt";
 
 /**
- * @public
- * Constructor Options to instantiate a Firebase Adapter
+ * @internal
+ * Augment ITextModel interface to allow direct access to undo and redo methods.
  */
-export type TFirebaseAdapterConstructionOptions = {
-  /** Firebase Database Reference */
-  databaseRef: DatabaseReference;
-  /** Unique Identifier of the User */
-  userId: string;
-  /** Color String (Hex, HSL, RGB, Text etc.) for Cursor/Selection. */
-  userColor: string;
-  /** Name or Short Name of the User */
-  userName?: string;
-};
+export interface ITextModelWithUndoRedo extends monaco.editor.ITextModel {
+  /** Native Undo Handler for Monaco */
+  undo: Handler<void> | null;
+  /** Native Redo Handler for Monaco */
+  redo: Handler<void> | null;
+}
