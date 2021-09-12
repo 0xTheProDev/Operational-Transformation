@@ -3,6 +3,7 @@
 [![Build](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/build.yml/badge.svg)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/build.yml)
 [![Tests](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/tests.yml/badge.svg)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/tests.yml)
 [![Deployment](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/deploy.yml/badge.svg?branch=v0.1.0)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/deploy.yml)
+[![Code Coverage](https://codecov.io/gh/Progyan1997/Operational-Transformation/branch/main/graph/badge.svg?token=R0T5YH3XX3)](https://codecov.io/gh/Progyan1997/Operational-Transformation)
 [![Version](https://img.shields.io/npm/v/@operational-transformation/plaintext)](https://www.npmjs.com/package/@operational-transformation/plaintext)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@operational-transformation/plaintext)](https://www.npmjs.com/package/@operational-transformation/plaintext)
 [![Built With](https://img.shields.io/badge/built%20with-webpack-green)](https://webpack.js.org)
