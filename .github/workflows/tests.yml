@@ -33,7 +33,7 @@ jobs:
             ${{ runner.OS }}-
 
       - name: Install Lerna
-        run: npm install -g lerna
+        run: yarn global add lerna@4
 
       - name: Install Dependencies
         run: |
