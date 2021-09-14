@@ -30,3 +30,7 @@ Head on to **Discussion** section to report a bug or to ask for any feature. Use
 ## License
 
 MIT License. See [LICENSE](LICENSE) for more details.
+
+## Reporting a Bug
+
+Report a [BUG Here](discussions/30).
