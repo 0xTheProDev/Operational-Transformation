@@ -26,3 +26,7 @@ Collection of Operation Transformation Algorithms and their respective clients t
 ## License
 
 MIT License. See [LICENSE](LICENSE) for more details.
+
+## Reporting a Bug
+
+Report a [BUG Here](discussions/30).
