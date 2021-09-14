@@ -22,19 +22,6 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { DatabaseReference } from "firebase/database";
-
-/**
- * @public
- * Constructor Options to instantiate a Firebase Adapter
- */
-export type TFirebaseAdapterConstructionOptions = {
-  /** Firebase Database Reference */
-  databaseRef: DatabaseReference;
-  /** Unique Identifier of the User */
-  userId: string;
-  /** Color String (Hex, HSL, RGB, Text etc.) for Cursor/Selection. */
-  userColor: string;
-  /** Name or Short Name of the User */
-  userName?: string;
-};
+export * from "./external-types";
+export * from "./internal-types";
+export * from "./monaco-adapter";

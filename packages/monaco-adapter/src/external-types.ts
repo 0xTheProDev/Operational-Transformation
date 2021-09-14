@@ -22,19 +22,15 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { DatabaseReference } from "firebase/database";
+import * as monaco from "monaco-editor";
 
 /**
  * @public
- * Constructor Options to instantiate a Firebase Adapter
+ * Constructor Options to instantiate a Monaco Adapter
  */
-export type TFirebaseAdapterConstructionOptions = {
-  /** Firebase Database Reference */
-  databaseRef: DatabaseReference;
-  /** Unique Identifier of the User */
-  userId: string;
-  /** Color String (Hex, HSL, RGB, Text etc.) for Cursor/Selection. */
-  userColor: string;
-  /** Name or Short Name of the User */
-  userName?: string;
+export type TMonacoAdapterConstructionOptions = {
+  /** Monaco Editor Instance */
+  editor: monaco.editor.IStandaloneCodeEditor;
+  /** Bind Event Handlers to Monaco (optional, defaults to `false`) */
+  bindEvents?: boolean;
 };

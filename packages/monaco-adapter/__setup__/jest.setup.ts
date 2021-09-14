@@ -22,19 +22,18 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { DatabaseReference } from "firebase/database";
+import "regenerator-runtime/runtime";
 
-/**
- * @public
- * Constructor Options to instantiate a Firebase Adapter
- */
-export type TFirebaseAdapterConstructionOptions = {
-  /** Firebase Database Reference */
-  databaseRef: DatabaseReference;
-  /** Unique Identifier of the User */
-  userId: string;
-  /** Color String (Hex, HSL, RGB, Text etc.) for Cursor/Selection. */
-  userColor: string;
-  /** Name or Short Name of the User */
-  userName?: string;
-};
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: jest.fn().mockImplementation((query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(), // Deprecated
+    removeListener: jest.fn(), // Deprecated
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  })),
+});

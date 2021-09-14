@@ -169,7 +169,7 @@ describe("Editor Client", () => {
     describe("#onInitialRevision", () => {
       it("should mark Editor adapter ready for handle onChange", () => {
         databaseAdapter.emit(DatabaseAdapterEvent.InitialRevision);
-        expect(editorAdapter.setInitiated).toHaveBeenCalledWith(true);
+        expect(editorAdapter.setInitiated).toHaveBeenCalled();
       });
     });
 

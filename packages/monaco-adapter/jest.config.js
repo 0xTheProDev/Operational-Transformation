@@ -6,7 +6,14 @@ module.exports = {
   // The directory where Jest should output its coverage files
   coverageDirectory: `<rootDir>/coverage-${package.rootDir}`,
   // Name should be displayed on Test Report
-  displayName: "Firebase Adapter",
+  displayName: "Monaco Adapter",
+  // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
+  moduleNameMapper: {
+    ...baseConfig.moduleNameMapper,
+    "monaco-editor":
+      "<rootDir>/node_modules/monaco-editor/esm/vs/editor/editor.api.js",
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+  },
   // Name of the package
   name: package.name,
   // Run tests from one or more projects
@@ -17,6 +24,14 @@ module.exports = {
   setupFilesAfterEnv: [
     `<rootDir>/packages/${package.rootDir}/__setup__/jest.setup.ts`,
   ],
+  // The test environment that will be used for testing
+  testEnvironment: "jsdom",
   // The glob patterns Jest uses to detect test files
   testMatch: [`<rootDir>/packages/${package.rootDir}/__tests__/*.[jt]s?(x)`],
+  // A map from regular expressions to paths to transformers
+  transform: {
+    "^.+\\.(jsx?)$": "babel-jest",
+  },
+  // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
+  transformIgnorePatterns: ["node_modules/(?!(monaco-editor)/)"],
 };

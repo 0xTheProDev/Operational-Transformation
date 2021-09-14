@@ -37,7 +37,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          lerna bootstrap --ignore-scripts
+          lerna bootstrap
           mkdir -p packages/firebase-adapter/.firebase
 
       - name: Add Realtime Database Rules

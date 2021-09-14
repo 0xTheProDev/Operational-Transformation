@@ -81,7 +81,7 @@ export class Cursor implements ICursor {
     let opValue: IteratorResult<[number, ITextOperation]>;
 
     while (!(opValue = ops.next()).done) {
-      const op: ITextOperation = opValue.value[1];
+      const [, op] = opValue.value;
 
       switch (true) {
         case op.isDelete():

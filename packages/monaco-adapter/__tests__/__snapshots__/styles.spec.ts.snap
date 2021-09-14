@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Style Utility Functions Test addStyleRule should inject style rules to Document 1`] = `
+Array [
+  Array [
+    <style>
+      
+    .test-class {
+      position: relative;
+      opacity: 0.5;
+      background-color: transparent;
+      border-left: 2px solid #000;
+    }
+  
+    </style>,
+  ],
+]
+`;
