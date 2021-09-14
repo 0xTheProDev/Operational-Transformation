@@ -134,6 +134,7 @@ export class EditorClient implements IEditorClient {
       return;
     }
 
+    /* istanbul ignore if */
     if (this._sendCursorTimeout) {
       clearTimeout(this._sendCursorTimeout);
       this._sendCursorTimeout = null;

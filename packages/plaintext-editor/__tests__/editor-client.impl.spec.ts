@@ -118,6 +118,17 @@ describe("Editor Client", () => {
   });
 
   describe("_databaseAdapter", () => {
+    describe("#onReady", () => {
+      it("should emit Ready event once Database adapter is ready", (done) => {
+        editorClient.on(EditorClientEvent.Ready, (isReady) => {
+          expect(isReady).toEqual(true);
+          done();
+        });
+
+        databaseAdapter.emit(DatabaseAdapterEvent.Ready);
+      });
+    });
+
     describe("#onAck", () => {
       it("should emit Synced event once Acknowledgement from Database is received", (done) => {
         editorClient.on(EditorClientEvent.Synced, (isSynced) => {

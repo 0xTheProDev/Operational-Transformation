@@ -10,7 +10,6 @@
     "coverage:dev": "nyc report -t coverage --report-dir coverage --reporter=lcov",
     "pretest": "rm -rf coverage-* coverage",
     "test": "TEST_ENV=true jest --colors",
-    "pretest:ci": "CI=true yarn pretest",
     "test:ci": "concurrently --prefix \"{time}-[{index}]\" \"yarn test:unit\" \"yarn test:firebase-adapter\"",
     "test:unit": "yarn test --ci --silent",
     "test:firebase-adapter": "cd packages/firebase-adapter && yarn test:ci",
