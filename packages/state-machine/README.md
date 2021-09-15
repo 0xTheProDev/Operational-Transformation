@@ -13,3 +13,7 @@ const stateMachine = new StateMachine(handler);
 ```
 
 **Note:** API Guidelines will be provided with the package.
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for more details.

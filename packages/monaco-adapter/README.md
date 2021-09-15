@@ -14,3 +14,7 @@ const monacoAdapter = new MonacoAdapter({
 ```
 
 **Note:** API Guidelines will be provided with the package.
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for more details.
