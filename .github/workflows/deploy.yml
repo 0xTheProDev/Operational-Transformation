@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: "14.x"
           registry-url: "https://registry.npmjs.org"
-          scope: "@operational-transformation"
+          scope: "@otjs"
 
       - uses: actions/cache@v2
         with:

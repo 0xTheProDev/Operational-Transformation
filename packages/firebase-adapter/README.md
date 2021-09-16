@@ -1,11 +1,11 @@
-# `@operational-transformation/firebase-adapter`
+# `@otjs/firebase-adapter`
 
 > Database Adapter implementation for Firebase.
 
 ## Usage
 
 ```ts
-import { FirebaseAdapter } from "@operational-transformation/firebase-adapter";
+import { FirebaseAdapter } from "@otjs/firebase-adapter";
 
 const firebaseAdapter = new FirebaseAdapter({
   databaseRef:  // Database Reference in Firebase Realtime DB

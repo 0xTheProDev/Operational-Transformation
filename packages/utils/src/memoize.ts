@@ -22,10 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import {
-  IMemoizedFunction,
-  Primitive,
-} from "@operational-transformation/types";
+import { IMemoizedFunction, Primitive } from "@otjs/types";
 
 /**
  * @internal

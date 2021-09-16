@@ -1,11 +1,11 @@
-# `@operational-transformation/state-machine`
+# `@otjs/state-machine`
 
 > State Machine implementation to Synchronise changes among multiple clients.
 
 ## Usage
 
 ```ts
-import { ITransitionHandler, StateMachine } from "@operational-transformation/state-machine";
+import { ITransitionHandler, StateMachine } from "@otjs/state-machine";
 
 const handler: ITransitionHandler = ...;
 

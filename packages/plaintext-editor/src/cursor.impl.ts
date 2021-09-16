@@ -22,10 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import {
-  ITextOperation,
-  IPlainTextOperation,
-} from "@operational-transformation/plaintext";
+import { ITextOperation, IPlainTextOperation } from "@otjs/plaintext";
 import { ICursor, TCursor } from "./cursor";
 
 /**

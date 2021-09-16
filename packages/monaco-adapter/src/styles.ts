@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { assert, DOMFailureError } from "@operational-transformation/utils";
+import { assert, DOMFailureError } from "@otjs/utils";
 
 /**
  * Set of Injected ClassNames in DOM.

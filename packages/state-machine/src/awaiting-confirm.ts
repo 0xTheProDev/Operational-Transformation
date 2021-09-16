@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IOperation } from "@operational-transformation/types";
+import { IOperation } from "@otjs/types";
 import { IState } from "./state";
 import { IStateMachine } from "./state-machine";
 import { synchronized } from "./synchronized";

@@ -22,10 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import {
-  IThenable,
-  IThenableCollection,
-} from "@operational-transformation/types";
+import { IThenable, IThenableCollection } from "@otjs/types";
 
 /**
  * @internal

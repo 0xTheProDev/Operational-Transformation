@@ -23,7 +23,7 @@
  */
 
 import { Handler } from "mitt";
-import { PlainTextOperation } from "@operational-transformation/plaintext";
+import { PlainTextOperation } from "@otjs/plaintext";
 import { Cursor } from "../src/cursor.impl";
 import {
   DatabaseAdapterEvent,

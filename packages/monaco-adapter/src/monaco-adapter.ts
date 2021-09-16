@@ -27,7 +27,7 @@ import {
   IPlainTextOperation,
   ITextOperation,
   PlainTextOperation,
-} from "@operational-transformation/plaintext";
+} from "@otjs/plaintext";
 import {
   Cursor,
   EditorAdapterEvent,
@@ -35,18 +35,15 @@ import {
   IEditorAdapter,
   TEditorAdapterCursorParams,
   TEditorAdapterEventArgs,
-} from "@operational-transformation/plaintext-editor";
+} from "@otjs/plaintext-editor";
 import mitt, { Emitter, Handler } from "mitt";
-import {
-  IDisposable,
-  IDisposableCollection,
-} from "@operational-transformation/types";
+import { IDisposable, IDisposableCollection } from "@otjs/types";
 import {
   assert,
   Disposable,
   DisposableCollection,
   EndOfLineSequence,
-} from "@operational-transformation/utils";
+} from "@otjs/utils";
 import { TMonacoAdapterConstructionOptions } from "./external-types";
 import { ITextModelWithUndoRedo } from "./internal-types";
 import { addStyleRule } from "./styles";
@@ -786,7 +783,4 @@ export class MonacoAdapter implements IEditorAdapter {
   }
 }
 
-export {
-  IDisposable,
-  IDisposableCollection,
-} from "@operational-transformation/types";
+export { IDisposable, IDisposableCollection } from "@otjs/types";

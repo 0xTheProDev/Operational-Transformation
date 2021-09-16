@@ -22,11 +22,8 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IDisposable, Primitive } from "@operational-transformation/types";
-import {
-  memoize,
-  DisposableCollection,
-} from "@operational-transformation/utils";
+import { IDisposable, Primitive } from "@otjs/types";
+import { memoize, DisposableCollection } from "@otjs/utils";
 import { child, DatabaseReference } from "firebase/database";
 
 /** Argument for Data Reference */

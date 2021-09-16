@@ -27,7 +27,7 @@ import {
   TTextOperationAttributes,
   ITextOperation,
   TPlainTextOperation,
-} from "@operational-transformation/plaintext";
+} from "@otjs/plaintext";
 import { ICursor } from "./cursor";
 import { IOperationMetadata } from "./operation-metadata";
 import { IWrappedOperation } from "./wrapped-operation";

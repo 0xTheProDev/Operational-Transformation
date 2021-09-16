@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { NoopError } from "@operational-transformation/utils";
+import { NoopError } from "@otjs/utils";
 import { ITextOperation, TTextOperationAttributes } from "./operation";
 
 /**

@@ -1,11 +1,11 @@
-# `@operational-transformation/plaintext`
+# `@otjs/plaintext`
 
 > Exports Operational Transformation on Plain Text content.
 
 ## Usage
 
 ```ts
-import { PlainTextOperation } from "@operational-transformation/plaintext";
+import { PlainTextOperation } from "@otjs/plaintext";
 
 const operation = new PlainTextOperation();
 ```

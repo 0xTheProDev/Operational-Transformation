@@ -22,10 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import {
-  IDisposable,
-  IDisposableCollection,
-} from "@operational-transformation/types";
+import { IDisposable, IDisposableCollection } from "@otjs/types";
 
 /** Disposable Constructor */
 export namespace Disposable {

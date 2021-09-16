@@ -5,8 +5,8 @@ const getWebpackConfig = require("../../webpack.config");
 module.exports = getWebpackConfig({
   entryFile: "./src/index.ts",
   externals: [
-    "@operational-transformation/plaintext",
-    "@operational-transformation/plaintext-editor",
+    "@otjs/plaintext",
+    "@otjs/plaintext-editor",
     "mitt",
     "monaco-editor",
   ],

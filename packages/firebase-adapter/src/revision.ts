@@ -22,11 +22,8 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import {
-  IPlainTextOperation,
-  PlainTextOperation,
-} from "@operational-transformation/plaintext";
-import { assert } from "@operational-transformation/utils";
+import { IPlainTextOperation, PlainTextOperation } from "@otjs/plaintext";
+import { assert } from "@otjs/utils";
 import { TParsedRevision, TRevision } from "./internal-types";
 
 // Based off ideas from http://www.zanopha.com/docs/elen.pdf
