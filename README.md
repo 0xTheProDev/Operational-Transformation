@@ -23,10 +23,10 @@
 
 Collection of Operation Transformation Algorithms and their respective clients to integrate with any existing system.
 
-## License
-
-MIT License. See [LICENSE](LICENSE) for more details.
-
 ## Reporting a Bug
 
 Head on to *Discussion* section to report a bug or to ask for any feature. Use this [template](https://github.com/Progyan1997/Operational-Transformation/discussions/30) to make it structural and helpful for the maintainer and the contributors. Feel to add your queries about using this library as well under _Q & A_ section of it.
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for more details.
