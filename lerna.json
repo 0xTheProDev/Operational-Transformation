@@ -2,7 +2,7 @@
   "command": {
     "version": {
       "allowBranch": "main",
-      "message": "(chore) @operational-transformation/*: Release %s"
+      "message": "(release) @otjs/*: Publish %s for all Packages"
     }
   },
   "ignoreChanges": [

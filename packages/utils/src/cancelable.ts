@@ -22,10 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import {
-  ICancelable,
-  ICancelableCollection,
-} from "@operational-transformation/types";
+import { ICancelable, ICancelableCollection } from "@otjs/types";
 
 /** Cancelable Constructor */
 export namespace Cancelable {

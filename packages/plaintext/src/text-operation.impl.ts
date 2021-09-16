@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { assert } from "@operational-transformation/utils";
+import { assert } from "@otjs/utils";
 import { DeleteOperation } from "./delete-operation";
 import { InsertOperation } from "./insert-operation";
 import { ITextOperation, TTextOperationAttributes } from "./operation";

@@ -22,8 +22,8 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IStateMachine } from "@operational-transformation/state-machine";
-import { IOperation } from "@operational-transformation/types";
+import { IStateMachine } from "@otjs/state-machine";
+import { IOperation } from "@otjs/types";
 import { synchronized } from "../src/synchronized";
 
 describe("Test Synchronized State", () => {

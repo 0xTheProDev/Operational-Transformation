@@ -44,14 +44,14 @@ import {
   IPlainTextOperation,
   PlainTextOperation,
   TPlainTextOperation,
-} from "@operational-transformation/plaintext";
+} from "@otjs/plaintext";
 import {
   TCursor,
   ICursor,
   DatabaseAdapterEvent,
   IDatabaseAdapter,
   TDatabaseAdapterEventArgs,
-} from "@operational-transformation/plaintext-editor";
+} from "@otjs/plaintext-editor";
 import {
   assert,
   CancelableCollection,
@@ -60,7 +60,7 @@ import {
   InvalidOperationError,
   ThenableCollection,
   TransactionFailureError,
-} from "@operational-transformation/utils";
+} from "@otjs/utils";
 import {
   TCheckPointData,
   TCursorData,
@@ -86,7 +86,7 @@ import {
   ICancelableCollection,
   IDisposableCollection,
   IThenableCollection,
-} from "@operational-transformation/types";
+} from "@otjs/types";
 
 /**
  * @public
@@ -811,4 +811,4 @@ export {
   IDisposableCollection,
   IThenable,
   IThenableCollection,
-} from "@operational-transformation/types";
+} from "@otjs/types";

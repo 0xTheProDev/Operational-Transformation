@@ -27,8 +27,8 @@ import {
   Cursor,
   EditorAdapterEvent,
   IEditorAdapter,
-} from "@operational-transformation/plaintext-editor";
-import { PlainTextOperation } from "@operational-transformation/plaintext";
+} from "@otjs/plaintext-editor";
+import { PlainTextOperation } from "@otjs/plaintext";
 import { ITextModelWithUndoRedo } from "../src/internal-types";
 import { MonacoAdapter } from "../src/monaco-adapter";
 

@@ -1,11 +1,11 @@
-# `@operational-transformation/monaco-adapter`
+# `@otjs/monaco-adapter`
 
 > Editor Adapter implementation for Monaco.
 
 ## Usage
 
 ```ts
-import { MonacoAdapter } from "@operational-transformation/monaco-adapter";
+import { MonacoAdapter } from "@otjs/monaco-adapter";
 
 const monacoAdapter = new MonacoAdapter({
   editor:     // Monaco Editor Instance

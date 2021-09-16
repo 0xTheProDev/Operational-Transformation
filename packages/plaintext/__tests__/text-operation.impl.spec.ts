@@ -22,10 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import {
-  IPlainTextOperation,
-  TTextOperationAttributes,
-} from "@operational-transformation/plaintext";
+import { IPlainTextOperation, TTextOperationAttributes } from "@otjs/plaintext";
 import { PlainTextOperation } from "../src/text-operation.impl";
 
 describe("Plain Text Operation", () => {

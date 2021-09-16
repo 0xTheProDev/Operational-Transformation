@@ -1,5 +1,5 @@
 {
-  "name": "@operational-transformation/monaco-adapter",
+  "name": "@otjs/monaco-adapter",
   "version": "0.1.1",
   "description": "Plain Text Editor Adapter for Monaco Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
@@ -37,24 +37,24 @@
     "test:watch": "yarn test --watch"
   },
   "devDependencies": {
-    "@operational-transformation/plaintext": "0.1.1",
-    "@operational-transformation/plaintext-editor": "0.1.1",
-    "@operational-transformation/utils": "^0.0.0",
+    "@otjs/plaintext": "0.1.1",
+    "@otjs/plaintext-editor": "0.1.1",
+    "@otjs/utils": "^0.0.0",
     "monaco-editor": "0.27.0"
   },
   "dependencies": {
     "mitt": "3.0.0"
   },
   "peerDependencies": {
-    "@operational-transformation/plaintext": "^0.1.1",
-    "@operational-transformation/plaintext-editor": "^0.1.1",
+    "@otjs/plaintext": "^0.1.1",
+    "@otjs/plaintext-editor": "^0.1.1",
     "monaco-editor": "^0.27.0"
   },
   "peerDependenciesMeta": {
-    "@operational-transformation/plaintext": {
+    "@otjs/plaintext": {
       "optional": false
     },
-    "@operational-transformation/plaintext-editor": {
+    "@otjs/plaintext-editor": {
       "optional": false
     },
     "monaco-editor": {

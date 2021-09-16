@@ -22,8 +22,8 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IPlainTextOperation } from "@operational-transformation/plaintext";
-import { IDisposable } from "@operational-transformation/types";
+import { IPlainTextOperation } from "@otjs/plaintext";
+import { IDisposable } from "@otjs/types";
 import { Handler } from "mitt";
 import { IWrappedOperation } from "./wrapped-operation";
 

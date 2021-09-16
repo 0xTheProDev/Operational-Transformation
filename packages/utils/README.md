@@ -1,4 +1,4 @@
-# `@operational-transformation/utils`
+# `@otjs/utils`
 
 > Collection of common utility functions across the repository.
 

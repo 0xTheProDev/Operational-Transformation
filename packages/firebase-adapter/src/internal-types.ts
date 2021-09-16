@@ -21,11 +21,8 @@
  *
  * See LICENSE file in the root directory for more details.
  */
-import {
-  IPlainTextOperation,
-  TPlainTextOperation,
-} from "@operational-transformation/plaintext";
-import { TCursor } from "@operational-transformation/plaintext-editor";
+import { IPlainTextOperation, TPlainTextOperation } from "@otjs/plaintext";
+import { TCursor } from "@otjs/plaintext-editor";
 
 /**
  * @internal

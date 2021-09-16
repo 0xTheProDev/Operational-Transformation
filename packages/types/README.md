@@ -1,4 +1,4 @@
-# `@operational-transformation/types`
+# `@otjs/types`
 
 > Collection of common types and interfaces functions across the repository.
 

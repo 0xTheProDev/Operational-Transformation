@@ -33,11 +33,8 @@ import {
   set,
   serverTimestamp,
 } from "firebase/database";
-import { PlainTextOperation } from "@operational-transformation/plaintext";
-import {
-  Cursor,
-  DatabaseAdapterEvent,
-} from "@operational-transformation/plaintext-editor";
+import { PlainTextOperation } from "@otjs/plaintext";
+import { Cursor, DatabaseAdapterEvent } from "@otjs/plaintext-editor";
 import { FirebaseAdapter } from "../src/firebase-adapter";
 
 const {

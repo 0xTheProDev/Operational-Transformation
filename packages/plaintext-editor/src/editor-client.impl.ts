@@ -22,12 +22,9 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IPlainTextOperation } from "@operational-transformation/plaintext";
-import {
-  IStateMachine,
-  StateMachine,
-} from "@operational-transformation/state-machine";
-import { assert, NoopError } from "@operational-transformation/utils";
+import { IPlainTextOperation } from "@otjs/plaintext";
+import { IStateMachine, StateMachine } from "@otjs/state-machine";
+import { assert, NoopError } from "@otjs/utils";
 import mitt, { Emitter, Handler } from "mitt";
 import { ICursor } from "./cursor";
 import { Cursor } from "./cursor.impl";
