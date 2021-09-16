@@ -1,13 +1,13 @@
 {
-  "name": "@otjs/firebase-adapter",
+  "name": "@otjs/firebase-plaintext-adapter",
   "version": "0.1.1",
   "description": "Database Adapter implementation for Firebase to use with Plain Text Editor",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-adapter#readme",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-plaintext-adapter#readme",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "firebase-adapter",
+  "rootDir": "firebase-plaintext-adapter",
   "directories": {
     "lib": "src",
     "test": "__tests__"

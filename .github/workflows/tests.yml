@@ -38,14 +38,14 @@ jobs:
       - name: Install Dependencies
         run: |
           lerna bootstrap
-          mkdir -p packages/firebase-adapter/.firebase
+          mkdir -p packages/firebase-plaintext-adapter/.firebase
 
       - name: Add Realtime Database Rules
         uses: jsdaniell/create-json@1.1.2
         with:
           name: "database.rules.json"
           json: ${{ secrets.FIREBASE_DATABASE_JSON }}
-          dir: "packages/firebase-adapter/.firebase/"
+          dir: "packages/firebase-plaintext-adapter/.firebase/"
 
       - name: Run Tests
         run: "yarn test:ci"
