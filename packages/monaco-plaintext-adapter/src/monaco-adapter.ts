@@ -305,18 +305,20 @@ export class MonacoAdapter implements IEditorAdapter {
     /** Extract Positions */
     const { position, selectionEnd } = cursor.toJSON();
 
-    let hightlightColor = cursorColor;
+    let [hightlightColor, opacity] = [cursorColor, 0.5];
     const cursorColorTitle = cursorColor.replace(/[\W_-]+/g, "");
     let className = `remote-client-selection-${cursorColorTitle}`;
 
     if (position === selectionEnd) {
       /** It's a single cursor */
+      opacity = 1;
       hightlightColor = "transparent";
       className = className.replace("selection", "cursor");
     }
 
     /** Generate Style rules and add them to document */
     addStyleRule({
+      opacity,
       className,
       cursorColor,
       hightlightColor,

@@ -42,6 +42,7 @@ describe("Style Utility Functions", () => {
   describe("Test addStyleRule", () => {
     it("should inject style rules to Document", async () => {
       await addStyleRule({
+        opacity: 1,
         className: "test-class",
         cursorColor: "#000",
         hightlightColor: "transparent",
@@ -51,6 +52,7 @@ describe("Style Utility Functions", () => {
 
     it("should not inject same style rules twice", async () => {
       await addStyleRule({
+        opacity: 1,
         className: "test-class",
         cursorColor: "#000",
         hightlightColor: "transparent",
@@ -66,6 +68,7 @@ describe("Style Utility Functions", () => {
         .mockImplementationOnce((node: Node) => node);
 
       await addStyleRule({
+        opacity: 1,
         className: "test-class2",
         cursorColor: "#000",
         hightlightColor: "transparent",
@@ -79,6 +82,7 @@ describe("Style Utility Functions", () => {
       });
 
       const promise = addStyleRule({
+        opacity: 1,
         className: "test-class3",
         cursorColor: "#000",
         hightlightColor: "transparent",

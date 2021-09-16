@@ -46,10 +46,12 @@ const MAX_ERROR_ON_STYLE_INJECTION: number = 3;
  * @param cursorColor - Color of cursor at the end.
  */
 export async function addStyleRule({
+  opacity,
   className,
   cursorColor,
   hightlightColor,
 }: {
+  opacity: number;
   className: string;
   cursorColor: string;
   hightlightColor: string;
@@ -71,7 +73,7 @@ export async function addStyleRule({
     );
   }
 
-  const style = getStyles(className, hightlightColor, cursorColor);
+  const style = getStyles(className, hightlightColor, cursorColor, opacity);
 
   try {
     const styleTextNode = document.createTextNode(style);
@@ -88,6 +90,7 @@ export async function addStyleRule({
     classNamesInprogress.set(className, errorCount + 1);
 
     return addStyleRule({
+      opacity,
       className,
       cursorColor,
       hightlightColor,
@@ -104,12 +107,13 @@ export async function addStyleRule({
 function getStyles(
   className: string,
   backgroundColor: string,
-  borderColor: string
+  borderColor: string,
+  opacity: number
 ): string {
   return `
     .${className} {
       position: relative;
-      opacity: 0.5;
+      opacity: ${opacity};
       background-color: ${backgroundColor};
       border-left: 2px solid ${borderColor};
     }
