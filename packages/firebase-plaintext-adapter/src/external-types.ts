@@ -26,15 +26,15 @@ import { DatabaseReference } from "firebase/database";
 
 /**
  * @public
- * Constructor Options to instantiate a Firebase Adapter
+ * Constructor Options to instantiate a Firebase Adapter.
  */
 export type TFirebaseAdapterConstructionOptions = {
-  /** Firebase Database Reference */
+  /** Firebase Database Reference. */
   databaseRef: DatabaseReference;
-  /** Unique Identifier of the User */
+  /** Unique Identifier of the User. */
   userId: string;
   /** Color String (Hex, HSL, RGB, Text etc.) for Cursor/Selection. */
   userColor: string;
-  /** Name or Short Name of the User */
+  /** Name or Short Name of the User. */
   userName?: string;
 };

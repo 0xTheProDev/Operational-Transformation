@@ -22,42 +22,5 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IThenable, IThenableCollection } from "@otjs/types";
-
-/**
- * @internal
- * Collection Class for Thenable instances to handle cross-cutting concerns of Promise resolution.
- * @param thenables - Comma separated Thenable instances.
- */
-export class ThenableCollection implements IThenableCollection {
-  protected _thenables: IThenable[] = [];
-
-  constructor(...thenables: IThenable[]) {
-    this.push(...thenables);
-  }
-
-  get resolved(): boolean {
-    return this._thenables.length === 0;
-  }
-
-  push(...thenables: IThenable[]): void {
-    this._thenables.push(
-      ...thenables.map((thenable) => Promise.resolve(thenable))
-    );
-  }
-
-  pushSync(thenableFn: () => IThenable): void {
-    const pastThenables = Promise.allSettled(this._thenables);
-    this._thenables = [pastThenables.then(() => Promise.resolve(thenableFn()))];
-  }
-
-  all(): IThenable<PromiseSettledResult<unknown>[]> {
-    const batchThenables = Promise.allSettled(this._thenables);
-    this._thenables = [];
-    return batchThenables;
-  }
-
-  dispose(): void {
-    this._thenables = [];
-  }
-}
+export * from "./firebase-monaco";
+export * from "./firebase-monaco.impl";

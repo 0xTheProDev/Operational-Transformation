@@ -23,6 +23,7 @@
  */
 
 import * as monaco from "monaco-editor";
+import mitt, { Emitter, Handler } from "mitt";
 import {
   IPlainTextOperation,
   ITextOperation,
@@ -36,7 +37,6 @@ import {
   TEditorAdapterCursorParams,
   TEditorAdapterEventArgs,
 } from "@otjs/plaintext-editor";
-import mitt, { Emitter, Handler } from "mitt";
 import { IDisposable, IDisposableCollection } from "@otjs/types";
 import {
   assert,

@@ -39,6 +39,7 @@
   "devDependencies": {
     "@otjs/plaintext": "0.1.1",
     "@otjs/plaintext-editor": "0.1.1",
+    "@otjs/types": "^0.0.0",
     "@otjs/utils": "^0.0.0",
     "monaco-editor": "0.27.0"
   },

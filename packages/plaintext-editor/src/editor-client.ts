@@ -25,6 +25,8 @@
 import { ITransitionHandler } from "@otjs/state-machine";
 import { IDisposable } from "@otjs/types";
 import { Handler } from "mitt";
+import { IDatabaseAdapter } from "./database-adapter";
+import { IEditorAdapter } from "./editor-adapter";
 
 /**
  * @public
@@ -67,6 +69,17 @@ export type TEditorClientEventArgs = {
   [EditorClientEvent.Ready]: boolean;
   [EditorClientEvent.Synced]: boolean;
   [EditorClientEvent.Undo]: string;
+};
+
+/**
+ * @public
+ * Constructor Options to instantiate a Editor Client.
+ */
+export type TEditorClientConstructionOptions = {
+  /** Database Adapter Instance. */
+  databaseAdapter: IDatabaseAdapter;
+  /** Editor Adapter Instance. */
+  editorAdapter: IEditorAdapter;
 };
 
 /**

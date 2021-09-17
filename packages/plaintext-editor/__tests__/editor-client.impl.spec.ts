@@ -25,11 +25,8 @@
 import { Handler } from "mitt";
 import { PlainTextOperation } from "@otjs/plaintext";
 import { Cursor } from "../src/cursor.impl";
-import {
-  DatabaseAdapterEvent,
-  IDatabaseAdapter,
-} from "../src/database-adapter";
-import { EditorAdapterEvent, IEditorAdapter } from "../src/editor-adapter";
+import { DatabaseAdapterEvent } from "../src/database-adapter";
+import { EditorAdapterEvent } from "../src/editor-adapter";
 import { EditorClientEvent, IEditorClient } from "../src/editor-client";
 import { EditorClient } from "../src/editor-client.impl";
 import {
@@ -52,10 +49,10 @@ describe("Editor Client", () => {
   });
 
   beforeEach(() => {
-    editorClient = new EditorClient(
-      databaseAdapter as IDatabaseAdapter,
-      editorAdapter as IEditorAdapter
-    );
+    editorClient = new EditorClient({
+      databaseAdapter,
+      editorAdapter,
+    });
   });
 
   afterEach(() => {
