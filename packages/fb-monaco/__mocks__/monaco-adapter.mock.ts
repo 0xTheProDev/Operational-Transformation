@@ -22,42 +22,51 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IThenable, IThenableCollection } from "@otjs/types";
+import * as monaco from "monaco-editor";
+import { assert } from "@otjs/utils";
+
+assert(jest != null, "This factories can only be imported in Test environment");
 
 /**
- * @internal
- * Collection Class for Thenable instances to handle cross-cutting concerns of Promise resolution.
- * @param thenables - Comma separated Thenable instances.
+ * Mock Function to replace `dispose` functionality of Editor Adapter.
  */
-export class ThenableCollection implements IThenableCollection {
-  protected _thenables: IThenable[] = [];
+export const dispose = jest.fn<void, []>();
 
-  constructor(...thenables: IThenable[]) {
-    this.push(...thenables);
-  }
+/**
+ * Mock Function to replace `getText` functionality of Editor Adapter.
+ */
+export const getText = jest.fn<string, []>();
 
-  get resolved(): boolean {
-    return this._thenables.length === 0;
-  }
+/**
+ * Mock Function to replace `setText` functionality of Editor Adapter.
+ */
+export const setText = jest.fn<void, [string]>();
 
-  push(...thenables: IThenable[]): void {
-    this._thenables.push(
-      ...thenables.map((thenable) => Promise.resolve(thenable))
-    );
-  }
+/**
+ * Mock Function to replace `constructor` functionality of Editor Adapter.
+ */
+export const monacoAdapterCtor = jest.fn<
+  MonacoAdapter,
+  [monaco.editor.IStandaloneCodeEditor]
+>();
 
-  pushSync(thenableFn: () => IThenable): void {
-    const pastThenables = Promise.allSettled(this._thenables);
-    this._thenables = [pastThenables.then(() => Promise.resolve(thenableFn()))];
-  }
-
-  all(): IThenable<PromiseSettledResult<unknown>[]> {
-    const batchThenables = Promise.allSettled(this._thenables);
-    this._thenables = [];
-    return batchThenables;
+/**
+ * Mock Class to replace functionality of Editor Adapter.
+ */
+export class MonacoAdapter {
+  constructor({ editor }: { editor: monaco.editor.IStandaloneCodeEditor }) {
+    monacoAdapterCtor(editor);
   }
 
   dispose(): void {
-    this._thenables = [];
+    dispose();
+  }
+
+  getText(): string {
+    return getText();
+  }
+
+  setText(text: string): void {
+    setText(text);
   }
 }

@@ -53,6 +53,12 @@ import {
   TDatabaseAdapterEventArgs,
 } from "@otjs/plaintext-editor";
 import {
+  ICancelable,
+  ICancelableCollection,
+  IDisposableCollection,
+  IThenableCollection,
+} from "@otjs/types";
+import {
   assert,
   CancelableCollection,
   Disposable,
@@ -81,12 +87,6 @@ import {
   getUsersRef,
 } from "./reference";
 import { TFirebaseAdapterConstructionOptions } from "./external-types";
-import {
-  ICancelable,
-  ICancelableCollection,
-  IDisposableCollection,
-  IThenableCollection,
-} from "@otjs/types";
 
 /**
  * @public
@@ -698,13 +698,14 @@ export class FirebaseAdapter implements IDatabaseAdapter {
     this._userColor = userColor;
   }
 
-  setUserName(userName: string | void): void {
+  setUserName(userName: string | null = null): void {
     assert(
       this._disposed === false,
       "Cannot set User Name after Adapter has been disposed!"
     );
 
-    if (userName == null) {
+    /* istanbul ignore if */
+    if (!this._databaseRef || this._userName === userName) {
       return;
     }
 
@@ -712,11 +713,6 @@ export class FirebaseAdapter implements IDatabaseAdapter {
       typeof userName === "string",
       new TypeError("User Name must be a String.")
     );
-
-    /* istanbul ignore if */
-    if (!this._databaseRef || this._userName === userName) {
-      return;
-    }
 
     const userNameRef = getUserNameRef({
       databaseRef: this._databaseRef,

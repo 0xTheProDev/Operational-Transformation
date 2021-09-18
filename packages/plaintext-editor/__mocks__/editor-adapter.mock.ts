@@ -30,7 +30,6 @@ import { ICursor } from "../src/cursor";
 import {
   EditorAdapterEvent,
   IEditorAdapter,
-  TEditorAdapterChange,
   TEditorAdapterEventArgs,
 } from "../src/editor-adapter";
 import { clearMock, resetMock } from "./test-utils";

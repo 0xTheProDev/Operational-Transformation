@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": "../../packages",
+    "declaration": false,
+    "declarationMap": false,
+    "paths": {
+      "@otjs/*": ["*/src"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}

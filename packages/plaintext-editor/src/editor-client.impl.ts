@@ -44,6 +44,7 @@ import {
   EditorClientEvent,
   IEditorClient,
   TEditorClientEventArgs,
+  TEditorClientConstructionOptions,
 } from "./editor-client";
 import { OperationMetadata } from "./operation-metadata.impl";
 import { IRemoteClient, TRemoteClientMap } from "./remote-client";
@@ -75,10 +76,10 @@ export class EditorClient implements IEditorClient {
   protected _focused: boolean = false;
   protected _sendCursorTimeout: NodeJS.Timeout | null = null;
 
-  constructor(
-    databaseAdapter: IDatabaseAdapter,
-    editorAdapter: IEditorAdapter
-  ) {
+  constructor({
+    databaseAdapter,
+    editorAdapter,
+  }: TEditorClientConstructionOptions) {
     this._databaseAdapter = databaseAdapter;
     this._editorAdapter = editorAdapter;
     this._initDatabaseAdapter();

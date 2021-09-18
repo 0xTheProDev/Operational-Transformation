@@ -4,12 +4,11 @@
   "description": "A collection of Algorithms to Synchronise changes across multiple clients using Operational Transformation",
   "scripts": {
     "postinstall": "husky install",
-    "build": "lerna exec yarn build",
+    "build": "lerna exec --scope @otjs/* -- yarn build",
     "precoverage": "./scripts/merge-coverage-reports.sh",
     "coverage": "nyc merge coverage-all coverage/coverage.json",
+    "coverage:clean": "rm -rf coverage-* coverage",
     "coverage:dev": "nyc report -t coverage --report-dir coverage --reporter=lcov",
-    "pretest": "rm -rf coverage-* coverage",
-    "pretest:ci": "rm -rf coverage-* coverage",
     "test": "TEST_ENV=true jest --colors",
     "test:ci": "concurrently --prefix \"{time}-[{index}]\" \"yarn test:unit\" \"yarn test:firebase\"",
     "test:unit": "TEST_ENV=true jest --colors --ci --silent",
@@ -25,6 +24,7 @@
     "url": "https://github.com/Progyan1997/Operational-Transformation.git"
   },
   "workspaces": [
+    "examples/*",
     "packages/*"
   ],
   "devDependencies": {
@@ -48,7 +48,7 @@
     "ts-jest": "27.0.5",
     "ts-loader": "9.2.5",
     "typescript": "4.4.2",
-    "webpack": "5.52.0",
+    "webpack": "5.53.0",
     "webpack-cli": "4.8.0"
   }
 }

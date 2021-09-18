@@ -22,6 +22,6 @@
  * See LICENSE file in the root directory for more details.
  */
 
-export * from "./firebase-adapter";
 export * from "./external-types";
+export * from "./firebase-adapter";
 export * from "./internal-types";

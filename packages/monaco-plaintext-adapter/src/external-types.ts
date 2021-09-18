@@ -29,8 +29,8 @@ import * as monaco from "monaco-editor";
  * Constructor Options to instantiate a Monaco Adapter
  */
 export type TMonacoAdapterConstructionOptions = {
-  /** Monaco Editor Instance */
+  /** Monaco Editor Instance. */
   editor: monaco.editor.IStandaloneCodeEditor;
-  /** Bind Event Handlers to Monaco (optional, defaults to `false`) */
+  /** Bind Event Handlers to Monaco (optional, defaults to `false`). */
   bindEvents?: boolean;
 };
