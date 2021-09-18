@@ -6,19 +6,21 @@ on:
       - main
     paths:
       - "packages/**"
-      - "**.md"
-      - "packages/**/__mocks__/**"
-      - "packages/**/__tests__/**"
-    paths-ignore:
+      - "*.js(on)?"
+      - "!**.md"
+      - "!examples/**/*.js(on)?"
+      - "!packages/**/__mocks__/**"
+      - "!packages/**/__tests__/**"
   pull_request:
     branches:
       - main
     paths:
       - "packages/**"
-    paths-ignore:
-      - "**.md"
-      - "packages/**/__mocks__/**"
-      - "packages/**/__tests__/**"
+      - "*.js(on)?"
+      - "!**.md"
+      - "!examples/**/*.js(on)?"
+      - "!packages/**/__mocks__/**"
+      - "!packages/**/__tests__/**"
 
 jobs:
   build:

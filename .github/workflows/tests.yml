@@ -8,13 +8,15 @@ on:
       - "packages/**"
       - "*.js(on)?"
       - "!examples/**/*.js(on)?"
-      - "!**/*.md"
+      - "!**.md"
   pull_request:
     branches:
       - main
     paths:
       - "packages/**"
-      - "!**/*.md"
+      - "*.js(on)?"
+      - "!examples/**/*.js(on)?"
+      - "!**.md"
 
 jobs:
   test:
