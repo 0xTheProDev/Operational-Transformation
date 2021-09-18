@@ -5,9 +5,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "packages/**/*.ts"
   pull_request:
     branches:
       - main
+    paths:
+      - "packages/**/*.ts"
 
 jobs:
   analyze:
@@ -31,6 +35,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1
         with:
+          config-file: ./codeql.config.yml
           languages: ${{ matrix.language }}
 
       - name: Perform CodeQL Analysis
