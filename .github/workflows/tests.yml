@@ -5,18 +5,22 @@ on:
     branches:
       - main
     paths:
-      - "packages/**"
-      - "*.js(on)?"
-      - "!examples/**/*.js(on)?"
+      - "*.js"
+      - "*.json"
       - "!**.md"
+      - "packages/**"
+      - "!examples/**/*.js"
+      - "!examples/**/*.json"
   pull_request:
     branches:
       - main
     paths:
-      - "packages/**"
-      - "*.js(on)?"
-      - "!examples/**/*.js(on)?"
+      - "*.js"
+      - "*.json"
       - "!**.md"
+      - "packages/**"
+      - "!examples/**/*.js"
+      - "!examples/**/*.json"
 
 jobs:
   test:
