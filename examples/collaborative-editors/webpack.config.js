@@ -98,9 +98,7 @@ module.exports = (env, argv) => {
       new webpack.DefinePlugin({
         "process.env.FIREBASE_CONFIG": JSON.stringify(getFbConfig()),
       }),
-      new MonacoWebpackPlugin({
-        globalAPI: true,
-      }),
+      new MonacoWebpackPlugin(),
     ],
   };
 };
