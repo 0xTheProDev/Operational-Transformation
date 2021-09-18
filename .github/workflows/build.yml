@@ -4,9 +4,21 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "packages/**"
+      - "**.md"
+      - "packages/**/__mocks__/**"
+      - "packages/**/__tests__/**"
+    paths-ignore:
   pull_request:
     branches:
       - main
+    paths:
+      - "packages/**"
+    paths-ignore:
+      - "**.md"
+      - "packages/**/__mocks__/**"
+      - "packages/**/__tests__/**"
 
 jobs:
   build:
