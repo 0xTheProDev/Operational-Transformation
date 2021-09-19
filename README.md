@@ -31,6 +31,73 @@ Collection of Operation Transformation Algorithms and their respective clients t
 
 Head on to **Discussion** section to report a bug or to ask for any feature. Use this [template](https://github.com/Progyan1997/Operational-Transformation/discussions/30) to make it structural and helpful for the maintainer and the contributors. Feel to add your queries about using this library as well under _Q & A_ section of it.
 
+## Requirements
+
+---
+
+- Typescript
+- Lerna
+
+## Installation
+
+---
+
+- Using Lerna to optimizes the workflow around managing multi-package repositories.
+
+```
+lerna bootstrap
+```
+
+## Testing
+
+---
+
+- **Test Runner:** JEST
+- **Test Suite:** JEST
+- **Test Coberage:** Istanbul/NYC
+
+**How to Run Test**
+
+- To Run in CI environment
+
+```
+$ yarn test ci
+```
+
+- To Run Test in non CI environment
+
+```
+$ yarn test
+```
+
+**NOTE:** Run yarn test in top level to run tests for all packages and inside individual packages to run test for individual packages.
+
+**Test Coverage Report**
+
+- Generating JSON Format Report
+
+```
+$ yarn coverage
+```
+
+- Generating Human Readable (LCOV Report)
+
+```
+$ yarn coverage dev
+```
+
+**NOTE:** Running test at top level is not going to run firebase tests. To run firebase test run `$ yarn run` inside firebase-adapter package. Running `$ yarn test ci` will run the test in ci environment and running `$ yarn test ` will spin-up webui of firebase emulator.
+
+<br>
+
+**Metrics and Tracking**
+<br>
+codecov.io is used to produce metrics by tracking different reports at various timestamps.
+
+## Contributing
+
+---
+
 ## License
 
 ---
