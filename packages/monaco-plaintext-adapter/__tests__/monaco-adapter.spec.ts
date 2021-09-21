@@ -29,7 +29,7 @@ import {
   IEditorAdapter,
 } from "@otjs/plaintext-editor";
 import { PlainTextOperation } from "@otjs/plaintext";
-import { ITextModelWithUndoRedo } from "../src/internal-types";
+import { ITextModelWithUndoRedo } from "../src/text-model";
 import { MonacoAdapter } from "../src/monaco-adapter";
 
 jest.setTimeout(10000 /** 10 seconds */);

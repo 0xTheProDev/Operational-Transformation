@@ -4,7 +4,7 @@
   "description": "A collection of Algorithms to Synchronise changes across multiple clients using Operational Transformation",
   "scripts": {
     "postinstall": "husky install",
-    "build": "lerna exec --scope @otjs/* -- yarn build",
+    "build": "lerna run build --no-private",
     "precoverage": "./scripts/merge-coverage-reports.sh",
     "coverage": "nyc merge coverage-all coverage/coverage.json",
     "coverage:clean": "rm -rf coverage-* coverage",

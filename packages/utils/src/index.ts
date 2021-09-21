@@ -24,6 +24,7 @@
 
 export * from "./assert";
 export * from "./cancelable";
+export * from "./colors";
 export * from "./disposable";
 export * from "./eol";
 export * from "./errors";

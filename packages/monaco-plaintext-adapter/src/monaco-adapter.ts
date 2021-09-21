@@ -44,9 +44,10 @@ import {
   DisposableCollection,
   EndOfLineSequence,
 } from "@otjs/utils";
-import { TMonacoAdapterConstructionOptions } from "./external-types";
-import { ITextModelWithUndoRedo } from "./internal-types";
+import { TMonacoAdapterConstructionOptions } from "./api";
+import { createCursorWidget } from "./cursor-widget.impl";
 import { addStyleRule } from "./styles";
+import { ITextModelWithUndoRedo } from "./text-model";
 
 /**
  * @public
@@ -57,6 +58,7 @@ export class MonacoAdapter implements IEditorAdapter {
   protected readonly _toDispose: IDisposableCollection =
     new DisposableCollection();
 
+  protected _announcementDuration: number;
   protected _bindEvents: boolean;
   protected _initiated: boolean = false;
   protected _ignoreChanges: boolean = false;
@@ -71,9 +73,11 @@ export class MonacoAdapter implements IEditorAdapter {
 
   constructor({
     editor,
+    announcementDuration = 1000,
     bindEvents = false,
   }: TMonacoAdapterConstructionOptions) {
     this._monaco = editor;
+    this._announcementDuration = announcementDuration;
     this._bindEvents = bindEvents;
 
     this._init();
@@ -283,6 +287,7 @@ export class MonacoAdapter implements IEditorAdapter {
   setOtherCursor({
     clientId,
     cursor,
+    userName,
     userColor: cursorColor,
   }: TEditorAdapterCursorParams): IDisposable {
     assert(
@@ -305,23 +310,13 @@ export class MonacoAdapter implements IEditorAdapter {
     /** Extract Positions */
     const { position, selectionEnd } = cursor.toJSON();
 
-    let [hightlightColor, opacity] = [cursorColor, 0.5];
     const cursorColorTitle = cursorColor.replace(/[\W_-]+/g, "");
-    let className = `remote-client-selection-${cursorColorTitle}`;
-
-    if (position === selectionEnd) {
-      /** It's a single cursor */
-      opacity = 1;
-      hightlightColor = "transparent";
-      className = className.replace("selection", "cursor");
-    }
+    const className = `remote-client-${cursorColorTitle}`;
 
     /** Generate Style rules and add them to document */
     addStyleRule({
-      opacity,
       className,
       cursorColor,
-      hightlightColor,
     });
 
     /** Get co-ordinate position in Editor */
@@ -337,19 +332,35 @@ export class MonacoAdapter implements IEditorAdapter {
     );
 
     /** Add decoration to the Editor */
+    const decorationClassName =
+      position === selectionEnd
+        ? `${className}-cursor`
+        : `${className}-selection`;
     const decorations = this._monaco.deltaDecorations(
       [],
       [
         {
           range,
           options: {
-            className,
+            className: decorationClassName,
             isWholeLine: false,
             stickiness:
               monaco.editor.TrackedRangeStickiness.NeverGrowsWhenTypingAtEdges,
           },
         },
       ]
+    );
+
+    /** Add Cursor Widget to the editor */
+    this._toDispose.push(
+      createCursorWidget({
+        className,
+        clientId,
+        range,
+        userName,
+        duration: this._announcementDuration,
+        editor: this._monaco,
+      })
     );
 
     return Disposable.create(() => {

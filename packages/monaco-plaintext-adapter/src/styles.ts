@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { assert, DOMFailureError } from "@otjs/utils";
+import { assert, getRgb, DOMFailureError } from "@otjs/utils";
 
 /**
  * Set of Injected ClassNames in DOM.
@@ -37,28 +37,23 @@ const classNamesInprogress: Map<string, number> = new Map();
 /**
  * Maximum number of error allowed before bailing.
  */
-const MAX_ERROR_ON_STYLE_INJECTION: number = 3;
+const MAX_ERROR_ON_DOM_OPERATION: number = 3;
 
 /**
  * Injects Styling for Cursor and/or Selections into Document.
- * @param className - CSS Classname for the Cursor or Selection.
- * @param hightlightColor - Highlight color for selection, `transparent` for cursor.
- * @param cursorColor - Color of cursor at the end.
+ * @param className - CSS Classname for the Cursor or the Selection.
+ * @param cursorColor - Color of the Cursor or the Selection.
  */
 export async function addStyleRule({
-  opacity,
   className,
   cursorColor,
-  hightlightColor,
 }: {
-  opacity: number;
   className: string;
   cursorColor: string;
-  hightlightColor: string;
 }): Promise<void> {
   assert(document != null, "This package must run on browser!");
 
-  /** Do not re-inject if already exists in DOM or about to be */
+  /** Do not re-inject if already exists in DOM */
   if (classNames.has(className)) {
     return;
   }
@@ -66,14 +61,14 @@ export async function addStyleRule({
   let errorCount: number = classNamesInprogress.get(className) ?? 0;
 
   /** Throw error if limit exceeded for Retry */
-  if (errorCount > MAX_ERROR_ON_STYLE_INJECTION) {
+  if (errorCount > MAX_ERROR_ON_DOM_OPERATION) {
     classNamesInprogress.delete(className);
     throw new DOMFailureError(
       `Failed to inject styles for class ${className}.`
     );
   }
 
-  const style = getStyles(className, hightlightColor, cursorColor, opacity);
+  const style = getStyles({ className, cursorColor });
 
   try {
     const styleTextNode = document.createTextNode(style);
@@ -90,32 +85,152 @@ export async function addStyleRule({
     classNamesInprogress.set(className, errorCount + 1);
 
     return addStyleRule({
-      opacity,
       className,
       cursorColor,
-      hightlightColor,
     });
   }
 }
 
 /**
- * Returns CSS Style rules for Cursor and Selection.
- * @param className - CSS Classname for the Cursor or Selection.
- * @param backgroundColor - Background color for selection, `transparent` for cursor.
- * @param borderColor - Border Color for cursor.
+ * Creates and returns DOM Element for Tooltip.
+ * @param className - Class name of the Tooltip element.
+ * @param textContent - Content of the Tooltip element.
  */
-function getStyles(
-  className: string,
-  backgroundColor: string,
-  borderColor: string,
-  opacity: number
-): string {
+export async function createTooltipNode({
+  className,
+  textContent,
+}: {
+  className: string;
+  textContent: string;
+}): Promise<HTMLElement> {
+  assert(document != null, "This package must run on browser!");
+
+  let errorCount: number = classNamesInprogress.get(className) ?? 0;
+
+  /** Throw error if limit exceeded for Retry */
+  if (errorCount > MAX_ERROR_ON_DOM_OPERATION) {
+    classNamesInprogress.delete(className);
+    throw new DOMFailureError(
+      `Failed to create tooltip with class ${className}.`
+    );
+  }
+
+  try {
+    const tooltipNode = document.createElement("div");
+    tooltipNode.className = className;
+    tooltipNode.textContent = textContent;
+    tooltipNode.setAttribute("role", "tooltip");
+    classNames.add(className);
+
+    return tooltipNode;
+  } catch (error) {
+    /** Retry if any error happens */
+    console.error("Error occured while adding Tooltip into DOM:", error);
+    classNamesInprogress.set(className, errorCount + 1);
+
+    return createTooltipNode({ className, textContent });
+  }
+}
+
+/**
+ * Creates and returns DOM Element for Widget.
+ * @param className - Class name of the Widget element.
+ * @param textContent - Content of the Widget element.
+ */
+export async function createWidgetNode({
+  className,
+  childElement,
+}: {
+  className: string;
+  childElement: HTMLElement;
+}): Promise<HTMLElement> {
+  assert(document != null, "This package must run on browser!");
+
+  let errorCount: number = classNamesInprogress.get(className) ?? 0;
+
+  /** Throw error if limit exceeded for Retry */
+  if (errorCount > MAX_ERROR_ON_DOM_OPERATION) {
+    classNamesInprogress.delete(className);
+    throw new DOMFailureError(
+      `Failed to create widget with class ${className}.`
+    );
+  }
+
+  try {
+    const widgetNode = document.createElement("div");
+    widgetNode.classList.add("monaco-editor-overlaymessage", className);
+    widgetNode.appendChild(childElement);
+    classNames.add(className);
+
+    return widgetNode;
+  } catch (error) {
+    /** Retry if any error happens */
+    console.error("Error occured while adding Widget into DOM:", error);
+    classNamesInprogress.set(className, errorCount + 1);
+
+    return createWidgetNode({ className, childElement });
+  }
+}
+
+/**
+ * Returns CSS Style rules for Cursor and Selection.
+ * @param className - CSS Classname for the Cursor or the Selection.
+ * @param cursorColor - Color of the Cursor or the Selection.
+ */
+function getStyles({
+  className,
+  cursorColor,
+}: {
+  className: string;
+  cursorColor: string;
+}): string {
   return `
-    .${className} {
+    /**
+     * Copyright © 2021 Progyan Bhattacharya
+     * Licensed under the MIT License.
+     * See LICENSE in the project root for license information.
+     */
+
+    .${className}-cursor {
       position: relative;
-      opacity: ${opacity};
-      background-color: ${backgroundColor};
-      border-left: 2px solid ${borderColor};
+      background-color: transparent;
+      border-left: 2px solid ${cursorColor};
+    }
+
+    .${className}-selection {
+      position: relative;
+      opacity: 0.5;
+      background-color: ${cursorColor};
+      border-left: 2px solid ${cursorColor};
+    }
+
+    .${className}-tooltip {
+      opacity: 1;
+      padding: 2px 8px;
+      font-size: 12px;
+      white-space: nowrap;
+      border-radius: 2px;
+      color: ${getContrastColor(cursorColor)};
+      border-color: ${cursorColor};
+      background-color: ${cursorColor};
+    }
+
+    .${className}-widget {
+      height: 20px;
+      padding-bottom: 0 !important;
+      transition: all 0.1s linear;
     }
   `;
+}
+
+/**
+ * Returns Text Color (white or black) based on contrasting background.
+ * @param backgroundColor - Color of the background.
+ */
+function getContrastColor(backgroundColor: string): string {
+  const [red, blue, green] = getRgb(backgroundColor);
+
+  const brightness = Math.round((red * 299 + blue * 587 + green * 114) / 1000);
+
+  return brightness >= 125 ? "#000000" : "#ffffff";
 }

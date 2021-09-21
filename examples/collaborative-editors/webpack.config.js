@@ -34,11 +34,11 @@ module.exports = (env, argv) => {
     context: __dirname,
     target: "web",
     entry: {
-      "firebase-monaco": {
+      app: {
         import: "./src/firebase-monaco.ts",
-        dependOn: ["fb-monaco"],
+        dependOn: ["firebase-monaco"],
       },
-      "fb-monaco": ["@otjs/fb-monaco"],
+      "firebase-monaco": ["@otjs/fb-monaco"],
     },
     output: {
       chunkFilename: "[name].[chunkhash:8].js",

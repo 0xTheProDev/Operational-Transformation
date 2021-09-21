@@ -22,6 +22,20 @@
  * See LICENSE file in the root directory for more details.
  */
 
-export * from "./api";
-export * from "./text-model";
-export * from "./monaco-adapter";
+import * as monaco from "monaco-editor";
+
+/**
+ * @public
+ * Constructor Options to instantiate a Monaco Adapter
+ */
+export type TMonacoAdapterConstructionOptions = {
+  /** Monaco Editor Instance. */
+  editor: monaco.editor.IStandaloneCodeEditor;
+  /**
+   * Duration (in ms) of User Name Announcement beside Cursor.
+   * Infinity means it will never be hidden. (optional, defaults to 1000)
+   */
+  announcementDuration?: number;
+  /** Bind Event Handlers to Monaco (optional, defaults to `false`). */
+  bindEvents?: boolean;
+};
