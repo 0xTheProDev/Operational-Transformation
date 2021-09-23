@@ -22,56 +22,52 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { addStyleRule } from "../src/styles";
+import {
+  addStyleRule,
+  createTooltipNode,
+  createWidgetNode,
+} from "../src/styles";
 
 describe("Style Utility Functions", () => {
-  let appendChildSpy: jest.SpyInstance<Node, [Node]>;
-
-  beforeAll(() => {
-    appendChildSpy = jest.spyOn(document.head, "appendChild");
-  });
-
-  afterEach(() => {
-    appendChildSpy.mockReset();
-  });
-
-  afterAll(() => {
-    appendChildSpy.mockRestore();
-  });
-
   describe("Test addStyleRule", () => {
+    let appendChildSpy: jest.SpyInstance<Node, [node: Node]>;
+
+    beforeAll(() => {
+      appendChildSpy = jest.spyOn(document.head, "appendChild");
+    });
+
+    afterEach(() => {
+      appendChildSpy.mockReset();
+    });
+
+    afterAll(() => {
+      appendChildSpy.mockRestore();
+    });
+
     it("should inject style rules to Document", async () => {
       await addStyleRule({
-        opacity: 1,
         className: "test-class",
         cursorColor: "#000",
-        hightlightColor: "transparent",
       });
       expect(appendChildSpy.mock.calls).toMatchSnapshot();
     });
 
     it("should not inject same style rules twice", async () => {
       await addStyleRule({
-        opacity: 1,
         className: "test-class",
         cursorColor: "#000",
-        hightlightColor: "transparent",
       });
       expect(appendChildSpy).not.toHaveBeenCalled();
     });
 
     it("should retry if DOM update fails once", async () => {
-      appendChildSpy
-        .mockImplementationOnce(() => {
-          throw new DOMException();
-        })
-        .mockImplementationOnce((node: Node) => node);
+      appendChildSpy.mockImplementationOnce(() => {
+        throw new DOMException();
+      });
 
       await addStyleRule({
-        opacity: 1,
         className: "test-class2",
         cursorColor: "#000",
-        hightlightColor: "transparent",
       });
       expect(appendChildSpy).toHaveBeenCalledTimes(2);
     });
@@ -82,10 +78,115 @@ describe("Style Utility Functions", () => {
       });
 
       const promise = addStyleRule({
-        opacity: 1,
         className: "test-class3",
         cursorColor: "#000",
-        hightlightColor: "transparent",
+      });
+
+      expect(promise).rejects.toThrow();
+    });
+  });
+
+  describe("Test createTooltipNode", () => {
+    let createElementSpy: jest.SpyInstance<
+      HTMLElement,
+      [tagname: string, options?: ElementCreationOptions | undefined]
+    >;
+
+    beforeAll(() => {
+      createElementSpy = jest.spyOn(document, "createElement");
+    });
+
+    afterEach(() => {
+      createElementSpy.mockReset();
+    });
+
+    afterAll(() => {
+      createElementSpy.mockRestore();
+    });
+
+    it("should create a tootip", async () => {
+      const tooltip = await createTooltipNode({
+        className: "test-class",
+        textContent: "user-name",
+      });
+      expect(tooltip).toMatchSnapshot();
+    });
+
+    it.skip("should retry if DOM update fails once", async () => {
+      createElementSpy.mockImplementationOnce(() => {
+        throw new DOMException();
+      });
+
+      await createTooltipNode({
+        className: "test-class2",
+        textContent: "user-name",
+      });
+      expect(createElementSpy).toHaveBeenCalledTimes(2);
+    });
+
+    it("should throw error if DOM update fails more than once", () => {
+      createElementSpy.mockImplementation(() => {
+        throw new DOMException();
+      });
+
+      const promise = createTooltipNode({
+        className: "test-class3",
+        textContent: "user-name",
+      });
+
+      expect(promise).rejects.toThrow();
+    });
+  });
+
+  describe("Test createWidgetNode", () => {
+    let childElement: HTMLElement,
+      createElementSpy: jest.SpyInstance<
+        HTMLElement,
+        [tagname: string, options?: ElementCreationOptions | undefined]
+      >;
+
+    beforeAll(() => {
+      childElement = document.createElement("div");
+      createElementSpy = jest.spyOn(document, "createElement");
+    });
+
+    afterEach(() => {
+      createElementSpy.mockReset();
+    });
+
+    afterAll(() => {
+      createElementSpy.mockRestore();
+      childElement.remove();
+    });
+
+    it("should create a widget", async () => {
+      const tooltip = await createWidgetNode({
+        className: "test-class",
+        childElement,
+      });
+      expect(tooltip).toMatchSnapshot();
+    });
+
+    it.skip("should retry if DOM update fails once", async () => {
+      createElementSpy.mockImplementationOnce(() => {
+        throw new DOMException();
+      });
+
+      await createWidgetNode({
+        className: "test-class2",
+        childElement,
+      });
+      expect(createElementSpy).toHaveBeenCalledTimes(2);
+    });
+
+    it("should throw error if DOM update fails more than once", () => {
+      createElementSpy.mockImplementation(() => {
+        throw new DOMException();
+      });
+
+      const promise = createWidgetNode({
+        className: "test-class3",
+        childElement,
       });
 
       expect(promise).rejects.toThrow();

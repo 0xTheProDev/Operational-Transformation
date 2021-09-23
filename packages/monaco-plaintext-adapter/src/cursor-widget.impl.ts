@@ -32,7 +32,12 @@ import {
 import { createTooltipNode, createWidgetNode } from "./styles";
 
 /**
- * Map of Client Id to Dispose method of Cursor Widget.
+ * Set of Disposable instances.
+ */
+const disposables = new DisposableCollection();
+
+/**
+ * Map of Client Id to Cursor Widgets.
  */
 const widgets: Map<string, ICursorWidget> = new Map();
 
@@ -46,15 +51,16 @@ class CursorWidget implements ICursorWidget {
     new DisposableCollection();
 
   protected readonly _id: string;
-  protected readonly _content: string;
   protected readonly _duration: number;
   protected readonly _tooltipClass: string;
   protected readonly _widgetClass: string;
   protected readonly _editor: monaco.editor.IStandaloneCodeEditor;
 
+  protected _content: string;
   protected _disposed: boolean = false;
   protected _position: monaco.editor.IContentWidgetPosition | null = null;
   protected _range: monaco.Range;
+  protected _timer: NodeJS.Timeout | null = null;
   protected _tooltipNode!: HTMLElement;
   protected _widgetNode!: HTMLElement;
 
@@ -101,10 +107,12 @@ class CursorWidget implements ICursorWidget {
   }
 
   dispose(): void {
+    /* istanbul ignore if */
     if (this._disposed === true) {
       return;
     }
 
+    this._cleanupTimer();
     this._editor.removeContentWidget(this);
     this._toDispose.dispose();
 
@@ -134,7 +142,7 @@ class CursorWidget implements ICursorWidget {
   }
 
   updateRange(range: monaco.Range): void {
-    if (this._range === range) {
+    if (this._range.equalsRange(range)) {
       return;
     }
 
@@ -148,6 +156,32 @@ class CursorWidget implements ICursorWidget {
     }
 
     this._tooltipNode.textContent = userName;
+    this._content = userName;
+  }
+
+  /**
+   * Removes any pending timer.
+   */
+  protected _cleanupTimer(): void {
+    if (this._timer != null) {
+      clearTimeout(this._timer);
+      this._timer = null;
+    }
+  }
+
+  /**
+   * Sets up timer to hide Tooltip message.
+   */
+  protected _setupTimer(): void {
+    /* istanbul ignore else */
+    if (!Number.isFinite(this._duration)) {
+      return;
+    }
+
+    this._timer = setTimeout(() => {
+      this._hideTooltip();
+      this._timer = null;
+    }, this._duration);
   }
 
   /**
@@ -173,8 +207,8 @@ class CursorWidget implements ICursorWidget {
 
     this._tooltipNode.style.top =
       distanceFromTop - this._tooltipNode.offsetHeight < 5
-        ? `${this._tooltipNode.offsetHeight - 2}px`
-        : `-${this._tooltipNode.offsetHeight - 4}px`;
+        ? `${this._tooltipNode.offsetHeight}px`
+        : `-${this._tooltipNode.offsetHeight}px`;
 
     this._tooltipNode.style.left = "0";
   }
@@ -193,24 +227,8 @@ class CursorWidget implements ICursorWidget {
     };
 
     this._editor.layoutContentWidget(this);
-
-    if (!Number.isFinite(this._duration)) {
-      return;
-    }
-
     this._showTooltip();
-    let timer: NodeJS.Timeout | null = setTimeout(() => {
-      this._hideTooltip();
-      timer = null;
-    }, this._duration);
-
-    this._toDispose.push(
-      Disposable.create(() => {
-        if (timer !== null) {
-          clearTimeout(timer);
-        }
-      })
-    );
+    this._setupTimer();
   }
 }
 
@@ -221,7 +239,7 @@ class CursorWidget implements ICursorWidget {
  */
 export function createCursorWidget(
   options: TCursorWidgetConstructionOptions
-): IDisposable {
+): void {
   const { clientId, range, userName } = options;
 
   const pastWidget = widgets.get(clientId);
@@ -229,15 +247,21 @@ export function createCursorWidget(
   if (pastWidget != null) {
     pastWidget.updateRange(range);
     pastWidget.updateUserName(userName ?? clientId);
-    return Disposable.create(() => {});
+    return;
   }
 
   const widget = new CursorWidget(options);
-  const disposable = Disposable.create(() => {
-    widget.dispose();
-    widgets.delete(clientId);
-  });
+  disposables.push(widget);
   widgets.set(clientId, widget);
+}
 
-  return disposable;
+/**
+ * @internal
+ * Returns a Disposable instance to clean up all the Cursor Widgets.
+ */
+export function disposeCursorWidgets(): IDisposable {
+  return Disposable.create(() => {
+    widgets.clear();
+    disposables.dispose();
+  });
 }

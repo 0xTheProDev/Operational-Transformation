@@ -5,14 +5,60 @@ Array [
   Array [
     <style>
       
-    .test-class {
+    /**
+     * Copyright © 2021 Progyan Bhattacharya
+     * Licensed under the MIT License.
+     * See LICENSE in the project root for license information.
+     */
+
+    .test-class-cursor {
       position: relative;
-      opacity: 1;
       background-color: transparent;
       border-left: 2px solid #000;
+    }
+
+    .test-class-selection {
+      position: relative;
+      opacity: 0.5;
+      background-color: #000;
+      border-left: 2px solid #000;
+    }
+
+    .test-class-tooltip {
+      opacity: 1;
+      padding: 2px 8px;
+      font-size: 12px;
+      white-space: nowrap;
+      border-radius: 2px;
+      color: #ffffff;
+      border-color: #000;
+      background-color: #000;
+    }
+
+    .test-class-widget {
+      height: 20px;
+      padding-bottom: 0 !important;
+      transition: all 0.1s linear;
     }
   
     </style>,
   ],
 ]
+`;
+
+exports[`Style Utility Functions Test createTooltipNode should create a tootip 1`] = `
+<div
+  class="test-class"
+  role="tooltip"
+>
+  user-name
+</div>
+`;
+
+exports[`Style Utility Functions Test createWidgetNode should create a widget 1`] = `
+<div
+  class="monaco-editor-overlaymessage test-class"
+>
+  <div />
+</div>
 `;

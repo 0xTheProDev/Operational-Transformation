@@ -120,6 +120,8 @@ export async function createTooltipNode({
     tooltipNode.className = className;
     tooltipNode.textContent = textContent;
     tooltipNode.setAttribute("role", "tooltip");
+
+    classNamesInprogress.delete(className);
     classNames.add(className);
 
     return tooltipNode;
@@ -160,6 +162,8 @@ export async function createWidgetNode({
     const widgetNode = document.createElement("div");
     widgetNode.classList.add("monaco-editor-overlaymessage", className);
     widgetNode.appendChild(childElement);
+
+    classNamesInprogress.delete(className);
     classNames.add(className);
 
     return widgetNode;

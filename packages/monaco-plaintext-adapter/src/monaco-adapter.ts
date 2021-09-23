@@ -45,7 +45,7 @@ import {
   EndOfLineSequence,
 } from "@otjs/utils";
 import { TMonacoAdapterConstructionOptions } from "./api";
-import { createCursorWidget } from "./cursor-widget.impl";
+import { createCursorWidget, disposeCursorWidgets } from "./cursor-widget.impl";
 import { addStyleRule } from "./styles";
 import { ITextModelWithUndoRedo } from "./text-model";
 
@@ -81,6 +81,7 @@ export class MonacoAdapter implements IEditorAdapter {
     this._bindEvents = bindEvents;
 
     this._init();
+    this._toDispose.push(disposeCursorWidgets());
   }
 
   get events(): boolean {
@@ -352,16 +353,14 @@ export class MonacoAdapter implements IEditorAdapter {
     );
 
     /** Add Cursor Widget to the editor */
-    this._toDispose.push(
-      createCursorWidget({
-        className,
-        clientId,
-        range,
-        userName,
-        duration: this._announcementDuration,
-        editor: this._monaco,
-      })
-    );
+    createCursorWidget({
+      className,
+      clientId,
+      range,
+      userName,
+      duration: this._announcementDuration,
+      editor: this._monaco,
+    });
 
     return Disposable.create(() => {
       /* istanbul ignore if */
@@ -718,12 +717,12 @@ export class MonacoAdapter implements IEditorAdapter {
    * @param model - Monaco Text Model.
    */
   protected _transformOpsIntoMonacoChanges(
-    ops: IterableIterator<[number, ITextOperation]>,
+    ops: IterableIterator<[index: number, operation: ITextOperation]>,
     model: monaco.editor.ITextModel
   ): monaco.editor.IIdentifiedSingleEditOperation[] {
     let index = 0;
     const changes: monaco.editor.IIdentifiedSingleEditOperation[] = [];
-    let opValue: IteratorResult<[number, ITextOperation]>;
+    let opValue: IteratorResult<[index: number, operation: ITextOperation]>;
 
     while (!(opValue = ops.next()).done) {
       const [, op] = opValue.value;
