@@ -151,6 +151,7 @@ class CursorWidget implements ICursorWidget {
   }
 
   updateUserName(userName: string): void {
+    /* istanbul ignore else */
     if (this._content === userName) {
       return;
     }
@@ -163,6 +164,7 @@ class CursorWidget implements ICursorWidget {
    * Removes any pending timer.
    */
   protected _cleanupTimer(): void {
+    /* istanbul ignore if */
     if (this._timer != null) {
       clearTimeout(this._timer);
       this._timer = null;
@@ -178,19 +180,23 @@ class CursorWidget implements ICursorWidget {
       return;
     }
 
-    this._timer = setTimeout(() => {
-      this._hideTooltip();
-      this._timer = null;
-    }, this._duration);
+    this._timer = setTimeout(
+      /* istanbul ignore next */ () => {
+        this._hideTooltip();
+        this._timer = null;
+      },
+      this._duration
+    );
   }
 
   /**
-   * Make the tooltip disappear.
+   * Make the tooltip reappear.
    */
   protected _showTooltip(): void {
     this._tooltipNode.style.display = "block";
   }
 
+  /* istanbul ignore next */
   /**
    * Make the tooltip disappear.
    */

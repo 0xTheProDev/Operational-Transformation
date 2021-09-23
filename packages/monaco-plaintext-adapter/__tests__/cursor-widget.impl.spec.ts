@@ -82,7 +82,7 @@ describe("Test Cursor Widget", () => {
         className: "remote-client-000",
         duration: Infinity,
         editor: monacoEditor,
-        range: new monaco.Range(1, 2, 1, 3),
+        range: new monaco.Range(9, 2, 9, 3),
       });
       expect(layoutContentWidget).toHaveBeenCalled();
     });
@@ -93,7 +93,7 @@ describe("Test Cursor Widget", () => {
         className: "remote-client-000",
         duration: Infinity,
         editor: monacoEditor,
-        range: new monaco.Range(1, 2, 1, 3),
+        range: new monaco.Range(9, 2, 9, 3),
       });
       expect(layoutContentWidget).not.toHaveBeenCalled();
     });

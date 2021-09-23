@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { hexToRgb } from "../src/colors";
+import { getRgb, hexToRgb } from "../src/colors";
 
 describe("Color utility functions", () => {
   describe("Test hexToRgb", () => {
@@ -36,6 +36,16 @@ describe("Color utility functions", () => {
 
     it("should not throw error if invalid string in provided", () => {
       expect(() => hexToRgb("random")).not.toThrow();
+    });
+  });
+
+  describe("Test getRgb", () => {
+    it("should return tuple with color intensities for a hexadecimal code", () => {
+      expect(getRgb("#00090c")).toEqual([0, 9, 12]);
+    });
+
+    it("should return tuple with color intensities for a hexadecimal code", () => {
+      expect(getRgb("rgb(102,129,34)")).toEqual([102, 129, 34]);
     });
   });
 });
