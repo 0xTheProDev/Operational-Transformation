@@ -22,6 +22,43 @@
  * See LICENSE file in the root directory for more details.
  */
 
-export * from "./api";
-export * from "./text-model";
-export * from "./monaco-adapter";
+import { IDisposable } from "@otjs/types";
+import * as monaco from "monaco-editor";
+
+/**
+ * @internal
+ * Constructor Parameter of Cursor Widget.
+ */
+export type TCursorWidgetConstructionOptions = {
+  /** Monaco Editor instance. */
+  editor: monaco.editor.IStandaloneCodeEditor;
+  /** Unique User Id whom the Cursor/Selection belongs to */
+  clientId: string;
+  /** Classname for the Cursor/Selection */
+  className: string;
+  /** Duration (in ms) of visibility */
+  duration: number;
+  /** Position of the Cursor/Selection */
+  range: monaco.Range;
+  /** Name/Short Name of the user (optional). */
+  userName?: string;
+};
+
+/**
+ * @internal
+ * Cursor Widget - To show tooltip like UI with Username beside Cursor.
+ */
+export interface ICursorWidget
+  extends monaco.editor.IContentWidget,
+    IDisposable {
+  /**
+   * Update Range of the Cursor Widget.
+   * @param range - Range of the Cursor/Selection.
+   */
+  updateRange(range: monaco.Range): void;
+  /**
+   * Update User Name of the remote user.
+   * @param userName - User Name.
+   */
+  updateUserName(userName: string): void;
+}

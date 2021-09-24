@@ -22,6 +22,8 @@
  * See LICENSE file in the root directory for more details.
  */
 
+import { TFirebaseAdapterConstructionOptions } from "@otjs/firebase-plaintext-adapter";
+import { TMonacoAdapterConstructionOptions } from "@otjs/monaco-plaintext-adapter";
 import { TEditorClientEventArgs } from "@otjs/plaintext-editor";
 import { IDisposable } from "@otjs/types";
 import { DatabaseReference } from "firebase/database";
@@ -32,18 +34,8 @@ import * as monaco from "monaco-editor";
  * @public
  * Constructor Options to instantiate a FireMonaco Editor.
  */
-export type TFireMonacoEditorConstructionOptions = {
-  /** Firebase Database Reference. */
-  databaseRef: DatabaseReference;
-  /** Monaco Editor Instance. */
-  editor: monaco.editor.IStandaloneCodeEditor;
-  /** Unique Identifier of the User. */
-  userId: string;
-  /** Color String (Hex, HSL, RGB, Text etc.) for Cursor/Selection. */
-  userColor: string;
-  /** Name or Short Name of the User. */
-  userName?: string;
-};
+export type TFireMonacoEditorConstructionOptions =
+  TFirebaseAdapterConstructionOptions & TMonacoAdapterConstructionOptions;
 
 /**
  * @public

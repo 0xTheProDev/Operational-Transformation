@@ -53,8 +53,9 @@ export class FireMonacoEditor implements IFireMonacoEditor {
   protected _userName: string | null = null;
 
   constructor({
-    databaseRef,
+    announcementDuration,
     editor,
+    databaseRef,
     userId,
     userColor,
     userName,
@@ -66,6 +67,7 @@ export class FireMonacoEditor implements IFireMonacoEditor {
       userName,
     });
     this._editorAdapter = new MonacoAdapter({
+      announcementDuration,
       editor,
       bindEvents: true,
     });

@@ -29,7 +29,7 @@ import {
   IEditorAdapter,
 } from "@otjs/plaintext-editor";
 import { PlainTextOperation } from "@otjs/plaintext";
-import { ITextModelWithUndoRedo } from "../src/internal-types";
+import { ITextModelWithUndoRedo } from "../src/text-model";
 import { MonacoAdapter } from "../src/monaco-adapter";
 
 jest.setTimeout(10000 /** 10 seconds */);
@@ -250,7 +250,7 @@ describe("Test Monaco Adapter", () => {
         expect.arrayContaining([
           expect.objectContaining({
             options: expect.objectContaining({
-              className: "remote-client-cursor-09c",
+              className: "remote-client-09c-cursor",
               isWholeLine: false,
               stickiness:
                 monaco.editor.TrackedRangeStickiness
@@ -281,7 +281,7 @@ describe("Test Monaco Adapter", () => {
         expect.arrayContaining([
           expect.objectContaining({
             options: expect.objectContaining({
-              className: "remote-client-selection-0ff",
+              className: "remote-client-0ff-selection",
               isWholeLine: false,
               stickiness:
                 monaco.editor.TrackedRangeStickiness
@@ -314,7 +314,7 @@ describe("Test Monaco Adapter", () => {
         expect.arrayContaining([
           expect.not.objectContaining({
             options: expect.objectContaining({
-              className: "remote-client-cursor-0ee",
+              className: "remote-client-0ee-cursor",
               isWholeLine: false,
               stickiness:
                 monaco.editor.TrackedRangeStickiness

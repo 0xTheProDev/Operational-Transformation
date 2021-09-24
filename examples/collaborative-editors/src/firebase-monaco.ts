@@ -55,16 +55,19 @@ declare global {
 window.editor = undefined;
 window.fireMonaco = undefined;
 
+/**
+ * Generate Random Integer
+ */
+const randInt = (limit: number = 1) => (Math.random() * limit) | 0;
+
 /** User Color */
-const userColor = `rgb(${(Math.random() * 255) | 0}, ${
-  (Math.random() * 255) | 0
-}, ${(Math.random() * 255) | 0})`;
+const userColor = `rgb(${randInt(255)}, ${randInt(255)}, ${randInt(255)})`;
 
 /** User Id */
 const userId = uuid();
 
 /** User Name */
-const userName = `Anonymous ${(Math.random() * 100) | 0}`;
+const userName = `Anonymous ${randInt(100)}`;
 
 /**
  * @returns Unique Data Reference in the Database.
@@ -94,8 +97,11 @@ const getEditorInstance = (): monaco.editor.IStandaloneCodeEditor => {
   }
 
   const editor = monaco.editor.create(document.getElementById("editor")!, {
-    language: "plaintext",
     fontSize: 18,
+    language: "plaintext",
+    minimap: {
+      enabled: false,
+    },
     readOnly: true,
     theme: "vs-dark",
     trimAutoWhitespace: false,
@@ -125,8 +131,9 @@ const onDocumentReady = (): void => {
   const databaseRef = getDatabaseRef();
 
   window.fireMonaco = new FireMonacoEditor({
-    editor,
+    announcementDuration: Infinity,
     databaseRef,
+    editor,
     userId,
     userColor,
     userName,

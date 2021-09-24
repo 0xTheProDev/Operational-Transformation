@@ -1,5 +1,9 @@
 {
   "command": {
+    "run": {
+      "npmClient": "yarn",
+      "scope": "@otjs/*"
+    },
     "version": {
       "allowBranch": "main",
       "message": "(release) @otjs/*: Publish %s for all Packages"

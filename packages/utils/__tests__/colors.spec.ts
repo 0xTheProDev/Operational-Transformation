@@ -22,15 +22,30 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import * as monaco from "monaco-editor";
+import { getRgb, hexToRgb } from "../src/colors";
 
-/**
- * @public
- * Constructor Options to instantiate a Monaco Adapter
- */
-export type TMonacoAdapterConstructionOptions = {
-  /** Monaco Editor Instance. */
-  editor: monaco.editor.IStandaloneCodeEditor;
-  /** Bind Event Handlers to Monaco (optional, defaults to `false`). */
-  bindEvents?: boolean;
-};
+describe("Color utility functions", () => {
+  describe("Test hexToRgb", () => {
+    it("should return tuple with color intensities for a hexadecimal code", () => {
+      expect(hexToRgb("#000000")).toEqual([0, 0, 0]);
+      expect(hexToRgb("#0000ff")).toEqual([0, 0, 255]);
+      expect(hexToRgb("#00ff00")).toEqual([0, 255, 0]);
+      expect(hexToRgb("#ff0000")).toEqual([255, 0, 0]);
+      expect(hexToRgb("#ffffff")).toEqual([255, 255, 255]);
+    });
+
+    it("should not throw error if invalid string in provided", () => {
+      expect(() => hexToRgb("random")).not.toThrow();
+    });
+  });
+
+  describe("Test getRgb", () => {
+    it("should return tuple with color intensities for a hexadecimal code", () => {
+      expect(getRgb("#00090c")).toEqual([0, 9, 12]);
+    });
+
+    it("should return tuple with color intensities for a hexadecimal code", () => {
+      expect(getRgb("rgb(102,129,34)")).toEqual([102, 129, 34]);
+    });
+  });
+});

@@ -22,6 +22,36 @@
  * See LICENSE file in the root directory for more details.
  */
 
-export * from "./api";
-export * from "./text-model";
-export * from "./monaco-adapter";
+/**
+ * Converts color code from Hexadecimal format to RGB format.
+ * @param hex - Hexadecimal represenation of color.
+ */
+export function hexToRgb(
+  hex: string
+): [red: number, green: number, blue: number] {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+
+  if (!result) {
+    return [0, 0, 0];
+  }
+
+  const [, red, green, blue] = result;
+
+  return [parseInt(red, 16), parseInt(green, 16), parseInt(blue, 16)];
+}
+
+/**
+ * Returns RGB color code from any format.
+ */
+export function getRgb(
+  color: string
+): [red: number, green: number, blue: number] {
+  if (color.startsWith("#")) {
+    /** Hexadecimal Color Code */
+    return hexToRgb(color);
+  }
+
+  /** Already in rgb() or rgba() */
+  const [red, green, blue] = color.replace(/[^\d,]/g, "").split(",");
+  return [parseInt(red, 10), parseInt(green, 10), parseInt(blue, 10)];
+}
