@@ -34,7 +34,7 @@ describe("Remote Client", () => {
   let editorAdapter: IMockEditorAdapter;
 
   beforeAll(() => {
-    clientId = Math.round(Math.random() * 100).toString();
+    clientId = "userId";
     editorAdapter = getEditorAdapter();
 
     remoteClient = new RemoteClient(clientId, editorAdapter as IEditorAdapter);
