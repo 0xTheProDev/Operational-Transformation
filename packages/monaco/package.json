@@ -1,13 +1,13 @@
 {
-  "name": "@otjs/monaco-plaintext-adapter",
+  "name": "@otjs/monaco",
   "version": "0.1.1",
   "description": "Plain Text Editor Adapter for Monaco Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/monaco-plaintext-adapter#readme",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/monaco#readme",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "monaco-plaintext-adapter",
+  "rootDir": "monaco",
   "directories": {
     "lib": "src",
     "test": "__tests__"

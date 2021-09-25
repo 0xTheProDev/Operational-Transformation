@@ -30,7 +30,7 @@ import {
   TEditorClientEventArgs,
 } from "@otjs/plaintext-editor";
 import { FirebaseAdapter } from "@otjs/firebase-plaintext-adapter";
-import { MonacoAdapter } from "@otjs/monaco-plaintext-adapter";
+import { MonacoAdapter } from "@otjs/monaco";
 import { Handler } from "mitt";
 import {
   IFireMonacoEditor,

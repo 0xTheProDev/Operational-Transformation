@@ -23,12 +23,10 @@
  */
 
 import { TFirebaseAdapterConstructionOptions } from "@otjs/firebase-plaintext-adapter";
-import { TMonacoAdapterConstructionOptions } from "@otjs/monaco-plaintext-adapter";
+import { TMonacoAdapterConstructionOptions } from "@otjs/monaco";
 import { TEditorClientEventArgs } from "@otjs/plaintext-editor";
 import { IDisposable } from "@otjs/types";
-import { DatabaseReference } from "firebase/database";
 import { Handler } from "mitt";
-import * as monaco from "monaco-editor";
 
 /**
  * @public
