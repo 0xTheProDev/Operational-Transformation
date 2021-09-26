@@ -12,7 +12,7 @@ module.exports = {
     "@otjs/firebase-plaintext-adapter": `<rootDir>/packages/${package.rootDir}/__mocks__/firebase-adapter.mock`,
     "@otjs/monaco": `<rootDir>/packages/${package.rootDir}/__mocks__/monaco-adapter.mock`,
     "@otjs/plaintext-editor": `<rootDir>/packages/${package.rootDir}/__mocks__/editor-client.mock`,
-    "@otjs/utils": "<rootDir>/packages/utils/src",
+    ...baseConfig.moduleNameMapper,
   },
   // Name of the package
   name: package.name,

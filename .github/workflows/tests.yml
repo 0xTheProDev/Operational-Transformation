@@ -90,7 +90,7 @@ jobs:
         run: lerna bootstrap
 
       - name: Run Tests
-        run: "yarn --cwd __tests__/monaco test:ci"
+        run: "yarn test:monaco"
 
       - uses: actions/upload-artifact@v2
         with:
