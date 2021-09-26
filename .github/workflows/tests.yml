@@ -122,9 +122,6 @@ jobs:
 
       - uses: actions/download-artifact@v2
 
-      - name: LS
-        run: ls -R
-
       - name: Generate Coverage Report
         run: yarn coverage
 
