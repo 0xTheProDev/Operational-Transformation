@@ -16,7 +16,6 @@ module.exports = {
   },
   // Name of the package
   name: package.name,
-  // preset: "ts-jest",
   // Run tests from one or more projects
   projects: null,
   // The root directory that Jest should scan for tests and modules within
