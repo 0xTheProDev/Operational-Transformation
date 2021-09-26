@@ -16,18 +16,17 @@ module.exports = {
   },
   // Name of the package
   name: package.name,
+  // preset: "ts-jest",
   // Run tests from one or more projects
   projects: null,
   // The root directory that Jest should scan for tests and modules within
   rootDir: "../..",
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: [
-    "<rootDir>/__tests__/monaco-adapter/__setup__/jest.setup.ts",
-  ],
+  setupFilesAfterEnv: ["<rootDir>/__tests__/monaco/__setup__/jest.setup.ts"],
   // The test environment that will be used for testing
   testEnvironment: "jsdom",
   // The glob patterns Jest uses to detect test files
-  testMatch: ["<rootDir>/__tests__/monaco-adapter/__tests__/*.[jt]s?(x)"],
+  testMatch: ["<rootDir>/__tests__/monaco/__tests__/*.[jt]s?(x)"],
   // A map from regular expressions to paths to transformers
   transform: {
     "^.+\\.(jsx?)$": "babel-jest",

@@ -6,11 +6,11 @@ module.exports = {
   // The directory where Jest should output its coverage files
   coverageDirectory: `<rootDir>/coverage-${package.rootDir}`,
   // Name should be displayed on Test Report
-  displayName: "Firebase Monaco Intgr",
+  displayName: "Firebase Monaco",
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
     "@otjs/firebase-plaintext-adapter": `<rootDir>/packages/${package.rootDir}/__mocks__/firebase-adapter.mock`,
-    "@otjs/monaco-plaintext-adapter": `<rootDir>/packages/${package.rootDir}/__mocks__/monaco-adapter.mock`,
+    "@otjs/monaco": `<rootDir>/packages/${package.rootDir}/__mocks__/monaco-adapter.mock`,
     "@otjs/plaintext-editor": `<rootDir>/packages/${package.rootDir}/__mocks__/editor-client.mock`,
     "@otjs/utils": "<rootDir>/packages/utils/src",
   },

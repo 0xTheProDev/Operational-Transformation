@@ -26,7 +26,7 @@ import {
   addStyleRule,
   createTooltipNode,
   createWidgetNode,
-} from "monaco/src/styles";
+} from "@otjs/monaco/src/styles";
 
 describe("Style Utility Functions", () => {
   describe("Test addStyleRule", () => {

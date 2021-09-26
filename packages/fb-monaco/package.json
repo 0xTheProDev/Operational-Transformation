@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@otjs/firebase-plaintext-adapter": "0.1.1",
-    "@otjs/monaco-plaintext-adapter": "0.1.1",
+    "@otjs/monaco": "0.1.1",
     "@otjs/plaintext": "0.1.1",
     "@otjs/plaintext-editor": "0.1.1"
   },

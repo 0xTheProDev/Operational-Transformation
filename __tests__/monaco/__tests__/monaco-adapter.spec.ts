@@ -29,8 +29,8 @@ import {
   IEditorAdapter,
 } from "@otjs/plaintext-editor";
 import { PlainTextOperation } from "@otjs/plaintext";
-import { ITextModelWithUndoRedo } from "monaco/src/text-model";
-import { MonacoAdapter } from "monaco/src/monaco-adapter";
+import { ITextModelWithUndoRedo } from "@otjs/monaco/src/text-model";
+import { MonacoAdapter } from "@otjs/monaco/src/monaco-adapter";
 
 jest.setTimeout(10000 /** 10 seconds */);
 

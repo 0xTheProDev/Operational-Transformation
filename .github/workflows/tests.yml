@@ -8,6 +8,7 @@ on:
       - "*.js"
       - "*.json"
       - "!**.md"
+      - "__tests__/**"
       - "packages/**"
       - "!examples/**/*.js"
       - "!examples/**/*.json"
@@ -18,12 +19,13 @@ on:
       - "*.js"
       - "*.json"
       - "!**.md"
+      - "__tests__/**"
       - "packages/**"
       - "!examples/**/*.js"
       - "!examples/**/*.json"
 
 jobs:
-  test:
+  unit:
     name: Unit Test Modules
     runs-on: ubuntu-latest
     steps:
@@ -40,29 +42,65 @@ jobs:
             node_modules
             $HOME/.npm
             $HOME/.yarn-cache
-            $HOME/.cache/firebase
           key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
 
-      - name: Install Lerna
-        run: yarn global add lerna@4
-
       - name: Install Dependencies
-        run: |
-          lerna bootstrap
-          mkdir -p packages/firebase-plaintext-adapter/.firebase
-
-      - name: Add Realtime Database Rules
-        uses: jsdaniell/create-json@1.1.2
-        with:
-          name: "database.rules.json"
-          json: ${{ secrets.FIREBASE_DATABASE_JSON }}
-          dir: "packages/firebase-plaintext-adapter/.firebase/"
+        run: yarn
 
       - name: Run Tests
         run: "yarn test:ci"
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: coverage-unit-tests
+          path: coverage-*
+
+  monaco:
+    name: Monaco Integration
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            $HOME/.npm
+            $HOME/.yarn-cache
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Run Tests
+        run: "yarn --cwd __tests__/monaco test:ci"
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: coverage-monaco-tests
+          path: coverage-*
+
+  coverage:
+    name: Generate Coverage Report
+    needs: [unit, monaco]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@v2
+        with:
+          path: coverage-*
 
       - name: Generate Coverage Report
         run: yarn coverage

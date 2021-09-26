@@ -26,7 +26,9 @@ import * as monaco from "monaco-editor";
 import {
   createCursorWidget,
   disposeCursorWidgets,
-} from "monaco/src/cursor-widget.impl";
+} from "@otjs/monaco/src/cursor-widget.impl";
+
+jest.setTimeout(10000 /** 10 seconds */);
 
 describe("Test Cursor Widget", () => {
   let monacoEditor: monaco.editor.IStandaloneCodeEditor,

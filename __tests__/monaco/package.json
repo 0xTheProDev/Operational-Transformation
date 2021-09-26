@@ -1,5 +1,5 @@
 {
-  "name": "@otjs-tests/monaco-adapter",
+  "name": "@otjs-tests/monaco",
   "version": "0.0.0",
   "description": "Integration Test Suite for Monaco Adapter.",
   "scripts": {
@@ -10,6 +10,7 @@
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@otjs/monaco": "0.1.1",
     "monaco-editor": "0.27.0"
   }
 }
