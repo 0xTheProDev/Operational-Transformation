@@ -1,6 +1,7 @@
 {
   "name": "@otjs-tests/monaco",
   "version": "0.0.0",
+  "private": true,
   "description": "Integration Test Suite for Monaco Adapter.",
   "scripts": {
     "test": "TEST_ENV=true jest --colors",

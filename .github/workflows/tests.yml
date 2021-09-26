@@ -58,8 +58,9 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: coverage-unit-tests
-          path: coverage-*
+          name: unit-tests-coverage
+          path: coverage-root/coverage-final.json
+          if-no-files-found: error
 
   monaco:
     name: Monaco Integration
@@ -94,8 +95,9 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: coverage-monaco-tests
-          path: coverage-*
+          name: monaco-integration-coverage
+          path: coverage-monaco/coverage-final.json
+          if-no-files-found: error
 
   coverage:
     name: Generate Coverage Report
