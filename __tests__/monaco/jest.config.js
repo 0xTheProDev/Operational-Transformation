@@ -10,6 +10,7 @@ module.exports = {
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
     ...baseConfig.moduleNameMapper,
+    "@otjs/monaco/(.*)": "<rootDir>/packages/monaco/src/$1",
     "monaco-editor":
       "<rootDir>/node_modules/monaco-editor/esm/vs/editor/editor.api.js",
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
