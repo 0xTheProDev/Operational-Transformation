@@ -106,7 +106,24 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            $HOME/.npm
+            $HOME/.yarn-cache
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+
+      - name: Install Dependencies
+        run: yarn
+
       - uses: actions/download-artifact@v2
+
+      - name: LS
+        run: ls -R
 
       - name: Generate Coverage Report
         run: yarn coverage
