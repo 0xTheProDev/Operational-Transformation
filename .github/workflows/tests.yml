@@ -51,7 +51,7 @@ jobs:
         run: yarn global add lerna@4
 
       - name: Install Dependencies
-        run: lerna bootstrap --ignore-scripts
+        run: lerna bootstrap
 
       - name: Run Tests
         run: "yarn test:ci"
@@ -87,7 +87,7 @@ jobs:
         run: yarn global add lerna@4
 
       - name: Install Dependencies
-        run: lerna bootstrap --ignore-scripts
+        run: lerna bootstrap
 
       - name: Run Tests
         run: "yarn --cwd __tests__/monaco test:ci"
