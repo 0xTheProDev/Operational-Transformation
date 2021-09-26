@@ -47,8 +47,11 @@ jobs:
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
 
+      - name: Install Lerna
+        run: yarn global add lerna@4
+
       - name: Install Dependencies
-        run: yarn
+        run: lerna bootstrap --ignore-scripts
 
       - name: Run Tests
         run: "yarn test:ci"
@@ -80,8 +83,11 @@ jobs:
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
 
+      - name: Install Lerna
+        run: yarn global add lerna@4
+
       - name: Install Dependencies
-        run: yarn
+        run: lerna bootstrap --ignore-scripts
 
       - name: Run Tests
         run: "yarn --cwd __tests__/monaco test:ci"
