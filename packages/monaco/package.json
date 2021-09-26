@@ -9,8 +9,7 @@
   "types": "index.d.ts",
   "rootDir": "monaco",
   "directories": {
-    "lib": "src",
-    "test": "__tests__"
+    "lib": "src"
   },
   "files": [
     "lib",
@@ -31,10 +30,7 @@
     "build": "yarn build:lib && yarn build:dts",
     "build:lib": "webpack",
     "build:dts": "api-extractor run",
-    "clean": "rimraf lib typings index.d.ts",
-    "test": "TEST_ENV=true jest --colors",
-    "test:ci": "yarn test --ci --silent",
-    "test:watch": "yarn test --watch"
+    "clean": "rimraf lib typings index.d.ts"
   },
   "devDependencies": {
     "@otjs/plaintext": "0.1.1",

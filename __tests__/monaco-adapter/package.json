@@ -1,0 +1,15 @@
+{
+  "name": "@otjs-tests/monaco-adapter",
+  "version": "0.0.0",
+  "description": "Integration Test Suite for Monaco Adapter.",
+  "scripts": {
+    "test": "TEST_ENV=true jest --colors",
+    "test:ci": "yarn test --ci --silent",
+    "test:watch": "yarn test --watch"
+  },
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "monaco-editor": "0.27.0"
+  }
+}

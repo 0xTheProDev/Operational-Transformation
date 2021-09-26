@@ -4,7 +4,7 @@ const package = require("./package.json");
 module.exports = {
   ...baseConfig,
   // The directory where Jest should output its coverage files
-  coverageDirectory: `<rootDir>/coverage-${package.rootDir}`,
+  coverageDirectory: "<rootDir>/coverage-monaco",
   // Name should be displayed on Test Report
   displayName: "Monaco Adapter",
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
@@ -22,12 +22,12 @@ module.exports = {
   rootDir: "../..",
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: [
-    `<rootDir>/packages/${package.rootDir}/__setup__/jest.setup.ts`,
+    "<rootDir>/__tests__/monaco-adapter/__setup__/jest.setup.ts",
   ],
   // The test environment that will be used for testing
   testEnvironment: "jsdom",
   // The glob patterns Jest uses to detect test files
-  testMatch: [`<rootDir>/packages/${package.rootDir}/__tests__/*.[jt]s?(x)`],
+  testMatch: ["<rootDir>/__tests__/monaco-adapter/__tests__/*.[jt]s?(x)"],
   // A map from regular expressions to paths to transformers
   transform: {
     "^.+\\.(jsx?)$": "babel-jest",

@@ -26,7 +26,7 @@ import * as monaco from "monaco-editor";
 import {
   createCursorWidget,
   disposeCursorWidgets,
-} from "../src/cursor-widget.impl";
+} from "monaco/src/cursor-widget.impl";
 
 describe("Test Cursor Widget", () => {
   let monacoEditor: monaco.editor.IStandaloneCodeEditor,
