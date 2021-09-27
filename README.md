@@ -21,86 +21,55 @@
 
 ## Description
 
----
-
 Collection of Operation Transformation Algorithms and their respective clients to integrate with any existing system.
-
-## Reporting a Bug
-
----
-
-Head on to **Discussion** section to report a bug or to ask for any feature. Use this [template](https://github.com/Progyan1997/Operational-Transformation/discussions/30) to make it structural and helpful for the maintainer and the contributors. Feel to add your queries about using this library as well under _Q & A_ section of it.
-
-## Requirements
-
----
-
-- Typescript
-- Lerna
 
 ## Installation
 
----
-
-- Using Lerna to optimizes the workflow around managing multi-package repositories.
-
-```
-lerna bootstrap
-```
+We are using lerna to manage mono repo packages. <br>To install Operational Transformation directly using yarn run `$ yarn` or if you have lerna installed globally run `$lerna bootstrap`.
 
 ## Testing
 
----
+[Jest](https://jestjs.io/) is used as test runner as well as test suite.
 
-- **Test Runner:** JEST
-- **Test Suite:** JEST
-- **Test Coberage:** Istanbul/NYC
+[Istanbul/NYC](https://istanbul.js.org/) is used as test coverage tool.
 
-**How to Run Test**
-
-- To Run in CI environment
-
-```
-$ yarn test ci
-```
-
-- To Run Test in non CI environment
+To run unit test suite, first install all the dependencies, then run:
 
 ```
 $ yarn test
 ```
 
-**NOTE:** Run yarn test in top level to run tests for all packages and inside individual packages to run test for individual packages.
+To run test in CI environment run:
 
-**Test Coverage Report**
+```
+$ yarn test:ci
+```
 
-- Generating JSON Format Report
+To Generate test coverage report run:
 
 ```
 $ yarn coverage
 ```
 
-- Generating Human Readable (LCOV Report)
+To geenerate human readable (LCOV Report) run:
 
 ```
-$ yarn coverage dev
+$ yarn coverage:dev
 ```
-
-**NOTE:** Running test at top level is not going to run firebase tests. To run firebase test run `$ yarn run` inside firebase-adapter package. Running `$ yarn test ci` will run the test in ci environment and running `$ yarn test ` will spin-up webui of firebase emulator.
-
-<br>
 
 **Metrics and Tracking**
 <br>
-codecov.io is used to produce metrics by tracking different reports at various timestamps.
+[codecov.io](https://about.codecov.io/) is used to produce metrics by tracking different reports at various timestamps.
+
+## Reporting a Bug
+
+Head on to [**Discussion**](https://github.com/Progyan1997/Operational-Transformation/discussions/30) section to report a bug or to ask for any feature. Use this [template](https://github.com/Progyan1997/Operational-Transformation/discussions/30) to make it structural and helpful for the maintainer and the contributors. Feel to add your queries about using this library as well under _Q & A_ section of it.
 
 ## Contributing
 
----
+See [Contributing Guidelines](.github/CONTRIBUTING.md).
 
 ## License
-
----
 
 This project is licensed under the terms of the MIT license,
 see [LICENSE](LICENSE) for more details.
