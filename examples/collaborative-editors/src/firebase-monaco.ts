@@ -32,7 +32,7 @@ import {
 } from "firebase/database";
 import * as monaco from "monaco-editor";
 import { v4 as uuid } from "uuid";
-import { IFireMonacoEditor } from "@otjs/fb-monaco";
+import { IFireMonacoEditor } from "@otjs/firebase-monaco";
 
 /**
  * Augment Global Namespace to enable Cache and Hot Module Replacement logic.

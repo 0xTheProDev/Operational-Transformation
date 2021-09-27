@@ -84,7 +84,7 @@ module.exports = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    "@otjs/(.*)": "<rootDir>/packages/$1/src",
+    "^@otjs/(.*)": "<rootDir>/packages/$1/src",
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -100,7 +100,7 @@ module.exports = {
   preset: "ts-jest",
 
   // Run tests from one or more projects
-  projects: ["<rootDir>/packages/*(!(firebase*))/jest.config.js"],
+  projects: ["<rootDir>/packages/**/jest.config.js"],
 
   // Use this configuration option to add custom reporters to Jest
   // reporters: undefined,

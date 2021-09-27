@@ -1,0 +1,61 @@
+{
+  "name": "@otjs/monaco",
+  "version": "0.1.1",
+  "description": "Plain Text Editor Adapter for Monaco Editor.",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/monaco#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "index.d.ts",
+  "rootDir": "monaco",
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "yarn build:lib && yarn build:dts",
+    "build:lib": "webpack",
+    "build:dts": "api-extractor run",
+    "clean": "rimraf lib typings index.d.ts"
+  },
+  "devDependencies": {
+    "@otjs/plaintext": "0.1.1",
+    "@otjs/plaintext-editor": "0.1.1",
+    "@otjs/types": "^0.0.0",
+    "@otjs/utils": "^0.0.0",
+    "monaco-editor": "0.27.0"
+  },
+  "dependencies": {
+    "mitt": "3.0.0"
+  },
+  "peerDependencies": {
+    "@otjs/plaintext": "^0.1.1",
+    "@otjs/plaintext-editor": "^0.1.1",
+    "monaco-editor": "^0.27.0"
+  },
+  "peerDependenciesMeta": {
+    "@otjs/plaintext": {
+      "optional": false
+    },
+    "@otjs/plaintext-editor": {
+      "optional": false
+    },
+    "monaco-editor": {
+      "optional": false
+    }
+  }
+}

@@ -1,6 +1,7 @@
 {
   "name": "@otjs-examples/collaborative-editors",
   "version": "0.0.0",
+  "private": true,
   "description": "Example usage of @otjs library as Real-time collaborative editor.",
   "main": "index.js",
   "scripts": {

@@ -10,9 +10,9 @@
     "coverage:clean": "rm -rf coverage-* coverage",
     "coverage:dev": "nyc report -t coverage --report-dir coverage --reporter=lcov",
     "test": "TEST_ENV=true jest --colors",
-    "test:ci": "concurrently --prefix \"{time}-[{index}]\" \"yarn test:unit\" \"yarn test:firebase\"",
-    "test:unit": "TEST_ENV=true jest --colors --ci --silent",
-    "test:firebase": "cd packages/firebase-plaintext-adapter && yarn test:ci",
+    "test:ci": "yarn test --ci --silent",
+    "test:firebase": "yarn --cwd __tests__/firebase test:ci",
+    "test:monaco": "yarn --cwd __tests__/monaco test:ci",
     "test:watch": "yarn test --watch",
     "lint": "yarn lint:lockfile && yarn lint:prettier",
     "lint:prettier": "prettier --write packages/**/*.ts",
@@ -24,6 +24,7 @@
     "url": "https://github.com/Progyan1997/Operational-Transformation.git"
   },
   "workspaces": [
+    "__tests__/*",
     "examples/*",
     "packages/*"
   ],
@@ -32,6 +33,7 @@
     "@microsoft/api-extractor": "7.18.7",
     "@types/jest": "27.0.1",
     "@types/node": "16.7.10",
+    "babel-jest": "27.2.2",
     "canvas": "2.8.0",
     "check-yarn-lock": "0.2.1",
     "concurrently": "6.2.1",
