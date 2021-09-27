@@ -23,7 +23,11 @@
  */
 
 import { IPlainTextOperation, PlainTextOperation } from "@otjs/plaintext";
-import { parseRevision, revisionToId, revisionFromId } from "../src/revision";
+import {
+  parseRevision,
+  revisionToId,
+  revisionFromId,
+} from "@otjs/firebase-plaintext/src/revision";
 
 describe("Revision", () => {
   describe("Test revisionToId", () => {

@@ -100,7 +100,7 @@ module.exports = {
   preset: "ts-jest",
 
   // Run tests from one or more projects
-  projects: ["<rootDir>/packages/*(!(firebase*))/jest.config.js"],
+  projects: ["<rootDir>/packages/**/jest.config.js"],
 
   // Use this configuration option to add custom reporters to Jest
   // reporters: undefined,

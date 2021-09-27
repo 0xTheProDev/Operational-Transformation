@@ -24,7 +24,7 @@
 
 import * as monaco from "monaco-editor";
 import { DatabaseReference } from "firebase/database";
-import { FirebaseAdapter } from "@otjs/firebase-plaintext-adapter";
+import { FirebaseAdapter } from "@otjs/firebase-plaintext";
 import { MonacoAdapter } from "@otjs/monaco";
 import {
   firebaseAdapterCtor,

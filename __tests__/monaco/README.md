@@ -1,1 +1,1 @@
-## Integration Test Suite for Monaco Adapter for PlainText Editor
+## Integration Test Suite for Monaco Adapter for Plain Text Editor

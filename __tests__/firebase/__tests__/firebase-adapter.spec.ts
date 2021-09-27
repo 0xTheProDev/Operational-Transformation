@@ -35,13 +35,11 @@ import {
 } from "firebase/database";
 import { PlainTextOperation } from "@otjs/plaintext";
 import { Cursor, DatabaseAdapterEvent } from "@otjs/plaintext-editor";
-import { FirebaseAdapter } from "../src/firebase-adapter";
+import { FirebaseAdapter } from "@otjs/firebase-plaintext/src/firebase-adapter";
 
 const {
   /** Firebase Realtime Database URL */
-  DATABASE_URL,
-  /** Firebase Realtime Database Name */
-  DATABASE_NAME,
+  DATABASE_URL: databaseURL,
 } = process.env;
 
 jest.setTimeout(15000 /** 15 seconds */);
@@ -53,7 +51,7 @@ describe("Test Firebase Adapter", () => {
 
   beforeAll(async () => {
     app = initializeApp({
-      databaseURL: `${DATABASE_URL}?ns=${DATABASE_NAME}`,
+      databaseURL,
     });
     databaseRef = ref(getDatabase(app));
     await remove(databaseRef);

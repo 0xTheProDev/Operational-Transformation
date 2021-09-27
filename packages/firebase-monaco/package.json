@@ -1,13 +1,13 @@
 {
-  "name": "@otjs/firebase-plaintext-adapter",
+  "name": "@otjs/firebase-monaco",
   "version": "0.1.1",
-  "description": "Database Adapter implementation for Firebase to use with Plain Text Editor",
+  "description": "Real-time collaborative editor with out of the box binding with Firebase and Monaco Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-plaintext-adapter#readme",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-monaco#readme",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "firebase-plaintext-adapter",
+  "rootDir": "firebase-monaco",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -37,28 +37,27 @@
     "test:watch": "yarn test --watch"
   },
   "devDependencies": {
-    "@otjs/plaintext": "0.1.1",
-    "@otjs/plaintext-editor": "0.1.1",
     "@otjs/types": "^0.0.0",
     "@otjs/utils": "^0.0.0",
-    "firebase": "9.0.2"
+    "firebase": "9.0.2",
+    "mitt": "3.0.0",
+    "monaco-editor": "0.27.0"
   },
   "dependencies": {
-    "mitt": "3.0.0"
+    "@otjs/firebase-plaintext": "0.1.1",
+    "@otjs/monaco": "0.1.1",
+    "@otjs/plaintext": "0.1.1",
+    "@otjs/plaintext-editor": "0.1.1"
   },
   "peerDependencies": {
-    "@otjs/plaintext": "^0.1.1",
-    "@otjs/plaintext-editor": "^0.1.1",
-    "firebase": "^9.0.2"
+    "firebase": "^9.0.2",
+    "monaco-editor": "^0.27.0"
   },
   "peerDependenciesMeta": {
-    "@otjs/plaintext": {
-      "optional": false
-    },
-    "@otjs/plaintext-editor": {
-      "optional": false
-    },
     "firebase": {
+      "optional": false
+    },
+    "monaco-editor": {
       "optional": false
     }
   }

@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { TFirebaseAdapterConstructionOptions } from "@otjs/firebase-plaintext-adapter";
+import { TFirebaseAdapterConstructionOptions } from "@otjs/firebase-plaintext";
 import { TMonacoAdapterConstructionOptions } from "@otjs/monaco";
 import { TEditorClientEventArgs } from "@otjs/plaintext-editor";
 import { IDisposable } from "@otjs/types";

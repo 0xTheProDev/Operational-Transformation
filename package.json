@@ -11,7 +11,7 @@
     "coverage:dev": "nyc report -t coverage --report-dir coverage --reporter=lcov",
     "test": "TEST_ENV=true jest --colors",
     "test:ci": "yarn test --ci --silent",
-    "test:firebase": "cd packages/firebase-plaintext-adapter && yarn test:ci",
+    "test:firebase": "yarn --cwd __tests__/firebase test:ci",
     "test:monaco": "yarn --cwd __tests__/monaco test:ci",
     "test:watch": "yarn test --watch",
     "lint": "yarn lint:lockfile && yarn lint:prettier",

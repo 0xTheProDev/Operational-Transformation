@@ -32,21 +32,24 @@ import {
   getUserColorRef,
   getUserCursorRef,
   getUserNameRef,
-} from "../src/reference";
+} from "@otjs/firebase-plaintext/src/reference";
 
 const {
+  /** Firebase Root URL */
+  BASE_DATABASE_URL: baseDatabaseURL,
   /** Firebase Realtime Database URL */
-  DATABASE_URL,
-  /** Firebase Realtime Database Name */
-  DATABASE_NAME,
+  DATABASE_URL: databaseURL,
 } = process.env;
+
+const getDatabaseURL = (endpoint: string): string =>
+  `${baseDatabaseURL}/${endpoint}`;
 
 describe("Database Reference", () => {
   let app: FirebaseApp, databaseRef: DatabaseReference;
 
   beforeAll(() => {
     app = initializeApp({
-      databaseURL: `${DATABASE_URL}?ns=${DATABASE_NAME}`,
+      databaseURL,
     });
     databaseRef = ref(getDatabase(app));
   });
@@ -54,9 +57,6 @@ describe("Database Reference", () => {
   afterAll(() => {
     deleteApp(app);
   });
-
-  const getDatabaseURL = (endpoint: string): string =>
-    `${DATABASE_URL}/${endpoint}`;
 
   describe("Test getCheckpointRef", () => {
     it("should return Reference to Checkpoint path in Database", () => {

@@ -30,6 +30,6 @@ const host: string = "localhost";
 const port: number = firebaseConfig.emulators.database.port;
 const dbName: string = firebaseConfig.emulators.database.name;
 
-/** Firebase Database URL and Name */
-process.env.DATABASE_URL = `${schema}://${host}:${port}`;
-process.env.DATABASE_NAME = dbName;
+/** Firebase Database URL */
+process.env.BASE_DATABASE_URL = `${schema}://${host}:${port}`;
+process.env.DATABASE_URL = `${process.env.BASE_DATABASE_URL}?ns=${dbName}`;
