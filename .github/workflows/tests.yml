@@ -79,6 +79,8 @@ jobs:
             node_modules
             $HOME/.npm
             $HOME/.yarn-cache
+            $HOME/.cache
+            $HOME/firebase
           key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-node-
