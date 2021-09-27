@@ -7,8 +7,8 @@ on:
     paths:
       - "*.js"
       - "*.json"
-      - "!**.md"
       - "__tests__/**"
+      - "!*.md"
       - "packages/**"
       - "!examples/**/*.js"
       - "!examples/**/*.json"
@@ -18,9 +18,9 @@ on:
     paths:
       - "*.js"
       - "*.json"
-      - "!**.md"
       - "__tests__/**"
       - "packages/**"
+      - "!*.md"
       - "!examples/**/*.js"
       - "!examples/**/*.json"
 
