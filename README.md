@@ -23,47 +23,72 @@
 
 Collection of Operation Transformation Algorithms and their respective clients to integrate with any existing system.
 
+<table>
+  <thead>
+    <tr>
+      <th>Package Name</th>
+      <th>Npm Version</th>
+      <th>Node Version</th>
+      <th>Weekly Downloads</th>
+      <th>Peer Dependency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="github.com">Name</td>
+    </tr>
+</table>
+
 ## Installation
 
-We are using lerna to manage mono repo packages. <br>To install Operational Transformation directly using yarn run `$ yarn` or if you have lerna installed globally run `$lerna bootstrap`.
+This repository uses monorepo architecture for hosting packages. We are using Lerna to manage workspaces and publishing of individual packages, where as Yarn is used as package manager to symlink and install 3rd Party Dependencies.
+
+* To install using Lerna _(recommended)_:
+```sh
+$ lerna bootstrap
+```
+* To install using Yarn:
+```sh
+$ yarn
+```
 
 ## Testing
 
-[Jest](https://jestjs.io/) is used as test runner as well as test suite.
+We are using [Jest](https://jestjs.io) extensively to form our Unit Test Suite as well as Integration Test Suites, along with test environment, stubs and test runner. [Nyc _(formerly known as Istanbul)_](https://istanbul.js.org/) is used for coverage reporting.
 
-[Istanbul/NYC](https://istanbul.js.org/) is used as test coverage tool.
+To run all the unit test suites in local dev environment, run the following after dependencies have been installed:
 
-To run unit test suite, first install all the dependencies, then run:
-
-```
+```sh
 $ yarn test
 ```
 
-To run test in CI environment run:
+To run unit tests in CI environment, run:
 
-```
+```sh
 $ yarn test:ci
 ```
 
-To Generate test coverage report run:
+To merge all the individual code coverage report and generate final test coverage report, run:
 
-```
+```sh
 $ yarn coverage
 ```
 
-To geenerate human readable (LCOV Report) run:
+To convert generated final coverage report into more human readable form _(such as **lcov**)_, run:
 
-```
+```sh
 $ yarn coverage:dev
 ```
 
-**Metrics and Tracking**
-<br>
-[codecov.io](https://about.codecov.io/) is used to produce metrics by tracking different reports at various timestamps.
+### Editor Integration
+Most of the popular editors and IDEs have extensions to help with Code Coverage details. These tools often read `lcov` reports and not `json` format. So one must convert them into `lcov` using last command described above to make it work with the editor of their choice.
+
+### Metrics and Tracking
+We are using [codecov.io](https://about.codecov.io) to track progress over Code Coverage and [CodeQL](https://codeql.github.com) for Code Quality Analysis.
 
 ## Reporting a Bug
 
-Head on to [**Discussion**](https://github.com/Progyan1997/Operational-Transformation/discussions/30) section to report a bug or to ask for any feature. Use this [template](https://github.com/Progyan1997/Operational-Transformation/discussions/30) to make it structural and helpful for the maintainer and the contributors. Feel to add your queries about using this library as well under _Q & A_ section of it.
+Head on to [**Discussion**](https://github.com/Progyan1997/Operational-Transformation/discussions) section to report a bug or to ask for any feature. Use this [template](https://github.com/Progyan1997/Operational-Transformation/discussions/30) to make it structural and helpful for the maintainer and the contributors. Feel to add your queries about using this library as well under _Q & A_ section of it. Remember, do not create any Issues by yourself, maintainers of this repository will open one if deemed necessary.
 
 ## Contributing
 
