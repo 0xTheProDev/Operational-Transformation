@@ -35,7 +35,11 @@ Collection of Operation Transformation Algorithms and their respective clients t
   </thead>
   <tbody>
     <tr>
-      <td><a href="github.com">Name</td>
+      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-monaco">firebase-monaco</td>
+      <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/npm/v/@otjs/firebase-monaco"/></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/node/v/@otjs/firebase-monaco"/></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/npm/dw/@otjs/firebase-monaco"/></td>
+      <td><pre>firebase@9.x.x</pre>,<pre>monaco-editor@0.27.x</pre></td>
     </tr>
 </table>
 
@@ -43,11 +47,14 @@ Collection of Operation Transformation Algorithms and their respective clients t
 
 This repository uses monorepo architecture for hosting packages. We are using Lerna to manage workspaces and publishing of individual packages, where as Yarn is used as package manager to symlink and install 3rd Party Dependencies.
 
-* To install using Lerna _(recommended)_:
+- To install using Lerna _(recommended)_:
+
 ```sh
 $ lerna bootstrap
 ```
-* To install using Yarn:
+
+- To install using Yarn:
+
 ```sh
 $ yarn
 ```
@@ -81,9 +88,11 @@ $ yarn coverage:dev
 ```
 
 ### Editor Integration
+
 Most of the popular editors and IDEs have extensions to help with Code Coverage details. These tools often read `lcov` reports and not `json` format. So one must convert them into `lcov` using last command described above to make it work with the editor of their choice.
 
 ### Metrics and Tracking
+
 We are using [codecov.io](https://about.codecov.io) to track progress over Code Coverage and [CodeQL](https://codeql.github.com) for Code Quality Analysis.
 
 ## Reporting a Bug
