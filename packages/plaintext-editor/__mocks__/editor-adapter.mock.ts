@@ -65,7 +65,7 @@ const applyOperation = (operation: IPlainTextOperation) => {
   const ops = operation.entries();
 
   let index = 0;
-  let opValue: IteratorResult<[number, ITextOperation]>;
+  let opValue: IteratorResult<[index: number, operation: ITextOperation]>;
 
   while (!(opValue = ops.next()).done) {
     const [, op] = opValue.value;
