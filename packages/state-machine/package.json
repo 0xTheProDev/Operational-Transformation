@@ -4,6 +4,14 @@
   "description": "State machine to manage Consistency of Operations across multiple clients.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/state-machine#readme",
+  "keywords": [
+    "event-bus",
+    "eventual-consistency",
+    "operational-transformation",
+    "state-machine",
+    "synchronization",
+    "typescript"
+  ],
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",

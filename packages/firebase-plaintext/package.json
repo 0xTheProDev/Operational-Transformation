@@ -4,6 +4,13 @@
   "description": "Database Adapter implementation for Firebase to use with Plain Text Editor",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-plaintext#readme",
+  "keywords": [
+    "event-bus",
+    "eventual-consistency",
+    "firebase",
+    "operational-transformation",
+    "typescript"
+  ],
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",

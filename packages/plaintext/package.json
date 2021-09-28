@@ -4,6 +4,14 @@
   "description": "Operational Transformational Logic for Plain Text.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext#readme",
+  "keywords": [
+    "collaborative",
+    "editor",
+    "eventual-consistency",
+    "operational-transformation",
+    "plaintext",
+    "typescript"
+  ],
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",

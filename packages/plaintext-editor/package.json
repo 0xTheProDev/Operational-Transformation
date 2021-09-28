@@ -4,6 +4,14 @@
   "description": "A Editor Client to wrap a Plain Text Editor to have collaborative experience based on OT.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext-editor#readme",
+  "keywords": [
+    "collaborative",
+    "editor",
+    "eventual-consistency",
+    "operational-transformation",
+    "plaintext",
+    "typescript"
+  ],
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",

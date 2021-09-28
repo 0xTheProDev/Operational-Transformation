@@ -4,6 +4,14 @@
   "description": "Plain Text Editor Adapter for Monaco Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/monaco#readme",
+  "keywords": [
+    "collaborative",
+    "editor",
+    "eventual-consistency",
+    "monaco-editor",
+    "operational-transformation",
+    "typescript"
+  ],
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",

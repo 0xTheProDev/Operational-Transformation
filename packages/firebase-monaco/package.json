@@ -4,6 +4,15 @@
   "description": "Real-time collaborative editor with out of the box binding with Firebase and Monaco Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-monaco#readme",
+  "keywords": [
+    "collaborative",
+    "editor",
+    "eventual-consistency",
+    "firebase",
+    "monaco-editor",
+    "operational-transformation",
+    "typescript"
+  ],
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",
