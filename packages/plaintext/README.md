@@ -61,4 +61,4 @@ See [Contributing Guidelines](https://github.com/Progyan1997/Operational-Transfo
 
 ## License
 
-This project is licensed under the terms of the MIT license, see [LICENSE](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-monaco/LICENSE) for more details.
+This project is licensed under the terms of the MIT license, see [LICENSE](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/plaintext/LICENSE) for more details.
