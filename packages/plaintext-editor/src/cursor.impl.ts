@@ -62,7 +62,7 @@ export class Cursor implements ICursor {
     );
   }
 
-  compose(other: Cursor): Cursor {
+  compose(other: ICursor): ICursor {
     return other;
   }
 
@@ -75,7 +75,7 @@ export class Cursor implements ICursor {
     const ops = operation.entries();
 
     let newIndex = index;
-    let opValue: IteratorResult<[number, ITextOperation]>;
+    let opValue: IteratorResult<[index: number, operation: ITextOperation]>;
 
     while (!(opValue = ops.next()).done) {
       const [, op] = opValue.value;
@@ -103,7 +103,7 @@ export class Cursor implements ICursor {
     return newIndex;
   }
 
-  transform(operation: IPlainTextOperation): Cursor {
+  transform(operation: IPlainTextOperation): ICursor {
     const newPosition: number = this._transformIndex(operation, this._position);
 
     if (this._position === this._selectionEnd) {
@@ -131,7 +131,7 @@ export class Cursor implements ICursor {
     };
   }
 
-  valueOf(): [number, number] {
+  valueOf(): [startPosition: number, endPosition: number] {
     return [this._position, this._selectionEnd];
   }
 }

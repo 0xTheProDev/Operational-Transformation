@@ -107,7 +107,7 @@ export class WrappedOperation implements IWrappedOperation {
   }
 
   /* istanbul ignore next */
-  entries(): IterableIterator<[number, ITextOperation]> {
+  entries(): IterableIterator<[index: number, operation: ITextOperation]> {
     return this._operation.entries();
   }
 

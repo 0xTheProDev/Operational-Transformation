@@ -199,7 +199,7 @@ export class PlainTextOperation implements IPlainTextOperation {
     return clone;
   }
 
-  entries(): IterableIterator<[number, ITextOperation]> {
+  entries(): IterableIterator<[index: number, operation: ITextOperation]> {
     return this._ops.entries();
   }
 
@@ -449,9 +449,9 @@ export class PlainTextOperation implements IPlainTextOperation {
    * @param opIterator - Iterator Protocol Object containing Text Operation
    */
   protected _nextTextOp(
-    opIterator: IterableIterator<[number, ITextOperation]>
+    opIterator: IterableIterator<[index: number, operation: ITextOperation]>
   ): ITextOperation | null {
-    const opIteratorResult: [number, ITextOperation] | void =
+    const opIteratorResult: [index: number, operation: ITextOperation] | void =
       opIterator.next().value;
 
     return opIteratorResult ? opIteratorResult[1] : null;

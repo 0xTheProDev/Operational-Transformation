@@ -53,7 +53,7 @@ export interface ICursor {
    */
   equals(other: ICursor | null): boolean;
   /**
-   * Return the more current cursor information.
+   * Return the more recent cursor information.
    * @param other - Another Cursor Object.
    */
   compose(other: ICursor): ICursor;
@@ -73,5 +73,5 @@ export interface ICursor {
   /**
    * Returns Serializable set of Primitive value of a Cursor.
    */
-  valueOf(): [number, number];
+  valueOf(): [startPosition: number, endPosition: number];
 }

@@ -83,7 +83,7 @@ export interface IPlainTextOperation {
   /**
    * Returns an Iterator with values from Individual Operation set.
    */
-  entries(): IterableIterator<[number, ITextOperation]>;
+  entries(): IterableIterator<[index: number, operation: ITextOperation]>;
   /**
    * Apply an operation to a string, returning a new string. Throws an error if
    * there's a mismatch between the input string and the operation.
