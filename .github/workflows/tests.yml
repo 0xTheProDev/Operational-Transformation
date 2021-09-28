@@ -9,6 +9,7 @@ on:
       - "*.json"
       - "__tests__/**"
       - "packages/**"
+      - "!**.md"
       - "!examples/**/*.js"
       - "!examples/**/*.json"
   pull_request:
@@ -19,6 +20,7 @@ on:
       - "*.json"
       - "__tests__/**"
       - "packages/**"
+      - "!**.md"
       - "!examples/**/*.js"
       - "!examples/**/*.json"
 
