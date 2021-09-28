@@ -19,7 +19,7 @@
 
 ## Description
 
-Collection of Operation Transformation Algorithms and their respective clients to integrate with any existing system.
+> Collection of Operation Transformation Algorithms and their respective clients to integrate with any existing system.
 
 <table>
   <thead>
