@@ -36,7 +36,7 @@
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-monaco">firebase-monaco</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/npm/v/@otjs/firebase-monaco"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/npm/dw/@otjs/firebase-monaco"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor"/><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/firebase"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor"/> <img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/firebase"/></a></td>
     </tr>
     <tr title="firebase-plaintext">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-plaintext">firebase-plaintext</a></td>
