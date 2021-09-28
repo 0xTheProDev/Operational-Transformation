@@ -8,7 +8,6 @@ on:
       - "*.js"
       - "*.json"
       - "__tests__/**"
-      - "!*.md"
       - "packages/**"
       - "!examples/**/*.js"
       - "!examples/**/*.json"
@@ -20,7 +19,6 @@ on:
       - "*.json"
       - "__tests__/**"
       - "packages/**"
-      - "!*.md"
       - "!examples/**/*.js"
       - "!examples/**/*.json"
 
