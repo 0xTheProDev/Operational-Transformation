@@ -54,19 +54,7 @@ const monacoAdapter = new MonacoAdapter({
 
 ## Testing
 
-We are using [Jest](https://jestjs.io) to form our Unit Test Suite. [Nyc _(formerly known as Istanbul)_](https://istanbul.js.org/) is used for coverage reporting.
-
-To run all the unit test suites in local dev environment, run the following after dependencies have been installed:
-
-```sh
-$ yarn test
-```
-
-To run unit tests in CI environment, run:
-
-```sh
-$ yarn test:ci
-```
+We don't have any Unit Test Suite for _@otjs/monaco_. Please refer to Root README.md for details regarding Integration Test Suite.
 
 ## Reporting a Bug
 

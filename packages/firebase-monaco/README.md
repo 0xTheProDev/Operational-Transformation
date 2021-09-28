@@ -19,13 +19,13 @@
 
 ## Installation
 
-* To install using [Yarn](https://yarnpkg.com) _(recommended)_:
+- To install using [Yarn](https://yarnpkg.com) _(recommended)_:
 
 ```sh
 $ yarn add @otjs/firebase-monaco
 ```
 
-* To install using [Npm](https://www.npmjs.com):
+- To install using [Npm](https://www.npmjs.com):
 
 ```sh
 $ npm i @otjs/firebase-monaco
@@ -52,6 +52,7 @@ const fireMonaco = new FireMonacoEditor({
   userName:               // Human readable Name or Short Name (optional)
 });
 ```
+
 **Note**: An API documentation will shipped along with the package. This will power intellisense in the editor of your choice.
 
 ## Testing
@@ -62,12 +63,6 @@ To run all the unit test suites in local dev environment, run the following afte
 
 ```sh
 $ yarn test
-```
-
-To run unit tests in CI environment, run:
-
-```sh
-$ yarn test:ci
 ```
 
 ## Reporting a Bug

@@ -62,12 +62,6 @@ To run all the unit test suites in local dev environment, run the following afte
 $ yarn test
 ```
 
-To run unit tests in CI environment, run:
-
-```sh
-$ yarn test:ci
-```
-
 ## Reporting a Bug
 
 Head on to [**Discussion**](https://github.com/Progyan1997/Operational-Transformation/discussions) section to report a bug or to ask for any feature. Use this [template](https://github.com/Progyan1997/Operational-Transformation/discussions/30) to make it structural and helpful for the maintainer and the contributors. Feel to add your queries about using this library as well under _Q & A_ section of it. Remember, do not create any Issues by yourself, maintainers of this repository will open one if deemed necessary.
