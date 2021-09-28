@@ -41,7 +41,7 @@ const handler: ITransitionHandler = ...;
 const stateMachine = new StateMachine(handler);
 ```
 
-**Note:** API Guidelines will be provided with the package.
+**Note**: An API documentation will be shipped along with the package. This will power intellisense in the editor of your choice.
 
 ## Testing
 

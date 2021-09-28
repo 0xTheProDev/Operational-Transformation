@@ -39,7 +39,7 @@ import { PlainTextOperation } from "@otjs/plaintext";
 const operation = new PlainTextOperation();
 ```
 
-**Note:** API Guidelines will be provided with the package.
+**Note**: An API documentation will be shipped along with the package. This will power intellisense in the editor of your choice.
 
 ## Testing
 

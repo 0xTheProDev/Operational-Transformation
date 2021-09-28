@@ -45,16 +45,17 @@ Make sure to install all the peer dependencies beforehand:
 import { MonacoAdapter } from "@otjs/monaco";
 
 const monacoAdapter = new MonacoAdapter({
-  editor:     // Monaco Editor Instance
-  events:     // Boolean on whether or not to emit events from Adapter (optional)
+  editor:                   // Monaco Editor Instance
+  announcementDuration:     // Duration (in ms) of User Name Announcement beside Cursor (optional)
+  bindEvents:               // Boolean on whether or not to emit events from Adapter (optional)
 });
 ```
 
-**Note:** API Guidelines will be provided with the package.
+**Note**: An API documentation will be shipped along with the package. This will power intellisense in the editor of your choice.
 
 ## Testing
 
-We don't have any Unit Test Suite for _@otjs/monaco_. Please refer to Root README.md for details regarding Integration Test Suite.
+We don't have any Unit Test Suite for `@otjs/monaco`. Please refer to root [README](https://github.com/Progyan1997/Operational-Transformation/blob/main/README.md) for details regarding Integration Test Suite that concerns monaco.
 
 ## Reporting a Bug
 

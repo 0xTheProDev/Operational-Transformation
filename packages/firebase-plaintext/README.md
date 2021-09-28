@@ -50,17 +50,11 @@ const firebaseAdapter = new FirebaseAdapter({
 });
 ```
 
-**Note:** API Guidelines will be provided with the package.
+**Note**: An API documentation will be shipped along with the package. This will power intellisense in the editor of your choice.
 
 ## Testing
 
-We are using [Jest](https://jestjs.io) to form our Unit Test Suite. [Nyc _(formerly known as Istanbul)_](https://istanbul.js.org/) is used for coverage reporting.
-
-To run all the unit test suites in local dev environment, run the following after dependencies have been installed:
-
-```sh
-$ yarn test
-```
+We don't have any Unit Test Suite for `@otjs/firebase-plaintext`. Please refer to root [README](https://github.com/Progyan1997/Operational-Transformation/blob/main/README.md) for details regarding Integration Test Suite that concerns firebase.
 
 ## Reporting a Bug
 

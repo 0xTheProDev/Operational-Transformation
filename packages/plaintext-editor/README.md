@@ -42,8 +42,7 @@ const editorAdapter: IEditorAdapter = ...;
 const editorClient = new EditorClient(databaseAdapter, editorAdapter);
 ```
 
-**Note:** API Guidelines will be provided with the package.
-**Note**: An API documentation will shipped along with the package. This will power intellisense in the editor of your choice.
+**Note**: An API documentation will be shipped along with the package. This will power intellisense in the editor of your choice.
 
 ## Testing
 
