@@ -26,7 +26,6 @@ Collection of Operation Transformation Algorithms and their respective clients t
     <tr>
       <th>Package Name</th>
       <th>Npm Version</th>
-      <th>Node Version</th>
       <th>Weekly Downloads</th>
       <th>Peer Dependency</th>
     </tr>
@@ -35,42 +34,36 @@ Collection of Operation Transformation Algorithms and their respective clients t
     <tr title="firebase-monaco">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-monaco">firebase-monaco</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/npm/v/@otjs/firebase-monaco"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/node/v/@otjs/firebase-monaco"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/npm/dw/@otjs/firebase-monaco"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor"/><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/firebase"/></a></td>
     </tr>
     <tr title="firebase-plaintext">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-plaintext">firebase-plaintext</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext"><img src="https://img.shields.io/npm/v/@otjs/firebase-plaintext"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext"><img src="https://img.shields.io/node/v/@otjs/firebase-plaintext"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext"><img src="https://img.shields.io/npm/dw/@otjs/firebase-plaintext"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-plaintext/peer/firebase"/></a></td>
     </tr>
     <tr title="monaco">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/monaco">monaco</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/monaco"><img src="https://img.shields.io/npm/v/@otjs/monaco"/></a></td>
-      <td>-</td>
       <td><a href="https://www.npmjs.com/package/@otjs/monaco"><img src="https://img.shields.io/npm/dw/@otjs/monaco"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/monaco"><img src="https://img.shields.io/npm/dependency-version/@otjs/monaco/peer/monaco-editor"/></a></td>
     </tr>
     <tr title="plaintext">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext">plaintext</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/plaintext"><img src="https://img.shields.io/npm/v/@otjs/plaintext"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/plaintext"><img src="https://img.shields.io/node/v/@otjs/plaintext"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/plaintext"><img src="https://img.shields.io/npm/dw/@otjs/plaintext"/></a></td>
       <td>-</td>
     </tr>
     <tr title="plaintext-editor">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext-editor">plaintext-editor</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/plaintext-editor"><img src="https://img.shields.io/npm/v/@otjs/plaintext-editor"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/plaintext-editor"><img src="https://img.shields.io/node/v/@otjs/plaintext-editor"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/plaintext-editor"><img src="https://img.shields.io/npm/dw/@otjs/plaintext-editor"/></a></td>
       <td>-</td>
     </tr>
     <tr title="state-machine">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/state-machine">state-machine</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/state-machine"><img src="https://img.shields.io/npm/v/@otjs/state-machine"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/state-machine"><img src="https://img.shields.io/node/v/@otjs/state-machine"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/state-machine"><img src="https://img.shields.io/npm/dw/@otjs/state-machine"/></a></td>
       <td>-</td>
     </tr>
@@ -79,11 +72,9 @@ Collection of Operation Transformation Algorithms and their respective clients t
       <td>-</td>
       <td>-</td>
       <td>-</td>
-      <td>-</td>
     </tr>
     <tr title="utils">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/utils">utils</a></td>
-      <td>-</td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
