@@ -23,8 +23,10 @@
   "bugs": {
     "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
   },
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "scripts": {
-    "build": "echo \"Private Module: No Build Script Provided\"",
     "test": "TEST_ENV=true jest --colors",
     "test:watch": "yarn test --watch"
   }

@@ -9,8 +9,7 @@
   "types": "index.d.ts",
   "rootDir": "firebase-plaintext",
   "directories": {
-    "lib": "src",
-    "test": "__tests__"
+    "lib": "src"
   },
   "files": [
     "lib",
@@ -25,6 +24,9 @@
   },
   "bugs": {
     "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+  },
+  "engines": {
+    "node": ">=10.10.0"
   },
   "scripts": {
     "prebuild": "yarn clean",
