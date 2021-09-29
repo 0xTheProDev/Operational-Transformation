@@ -1,6 +1,7 @@
 # `@otjs/state-machine`
 
 [![Npm Version](https://img.shields.io/npm/v/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
+[![Node Version](https://img.shields.io/node/v/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
 [![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)

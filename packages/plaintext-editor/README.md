@@ -1,6 +1,7 @@
 # `@otjs/plaintext-editor`
 
 [![Npm Version](https://img.shields.io/npm/v/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
+[![Node Version](https://img.shields.io/node/v/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
 [![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)

@@ -1,6 +1,7 @@
 # `@otjs/plaintext`
 
 [![Npm Version](https://img.shields.io/npm/v/@otjs/plaintext)](https://www.npmjs.com/package/@otjs/plaintext)
+[![Node Version](https://img.shields.io/node/v/@otjs/plaintext)](https://www.npmjs.com/package/@otjs/plaintext)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/plaintext)](https://www.npmjs.com/package/@otjs/plaintext)
 [![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/plaintext)](https://www.npmjs.com/package/@otjs/plaintext)
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/plaintext)](https://www.npmjs.com/package/@otjs/plaintext)

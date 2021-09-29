@@ -1,6 +1,7 @@
 # `@otjs/firebase-plaintext`
 
 [![Npm Version](https://img.shields.io/npm/v/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
+[![Node Version](https://img.shields.io/node/v/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
 [![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
