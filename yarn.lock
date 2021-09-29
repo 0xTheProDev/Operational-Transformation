@@ -2769,6 +2769,11 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
+"@types/ace@0.0.47":
+  version "0.0.47"
+  resolved "https://registry.yarnpkg.com/@types/ace/-/ace-0.0.47.tgz#519759a22d8af999fa12d64f6891847f9f3de139"
+  integrity sha512-VoMFn09L8avwV0AGIaStj1MCJmgHKiPAGZYnmeHYp4Pz+ov4h/F61LJNFvq4d4K+YZmk0ClWByCDU81kZyCfoA==
+
 "@types/archiver@^5.1.0":
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@types/archiver/-/archiver-5.1.1.tgz#d6d7610de4386b293abd5c1cb1875e0a4f4e1c30"

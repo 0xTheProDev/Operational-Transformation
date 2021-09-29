@@ -42,7 +42,6 @@
     "build:dts": "api-extractor run",
     "clean": "rimraf lib typings index.d.ts",
     "test": "TEST_ENV=true jest --colors",
-    "test:ci": "firebase emulators:exec \"yarn test --ci --silent\"",
     "test:watch": "yarn test --watch"
   },
   "devDependencies": {

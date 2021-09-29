@@ -34,11 +34,16 @@ module.exports = (env, argv) => {
     context: __dirname,
     target: "web",
     entry: {
-      app: {
+      ace: {
+        import: "./src/firebase-ace.ts",
+        dependOn: ["firebase-ace"],
+      },
+      monaco: {
         import: "./src/firebase-monaco.ts",
         dependOn: ["firebase-monaco"],
       },
-      "firebase-monaco": ["@otjs/fb-monaco"],
+      "firebase-ace": ["@otjs/firebase-ace"],
+      "firebase-monaco": ["@otjs/firebase-monaco"],
     },
     output: {
       chunkFilename: "[name].[chunkhash:8].js",

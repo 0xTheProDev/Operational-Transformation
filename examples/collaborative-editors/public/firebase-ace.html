@@ -25,7 +25,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Collaborative Editor: Firebase Monaco</title>
+  <title>Collaborative Editor: Firebase Ace</title>
 </head>
 <body>
   <style>
@@ -44,7 +44,12 @@
     }
   </style>
   <div id="editor"></div>
-  <script src="./firebase-monaco.js"></script>
-  <script src="./monaco.js"></script>
+  <!-- ACE and its JavaScript mode and theme files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/mode-javascript.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/theme-textmate.js"></script>
+
+  <script src="./firebase-ace.js"></script>
+  <script src="./ace.js"></script>
 </body>
 </html>

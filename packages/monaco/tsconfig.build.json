@@ -4,6 +4,5 @@
     "outDir": "lib",
     "declarationDir": "typings"
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["__tests__"]
+  "include": ["src/**/*.ts"]
 }

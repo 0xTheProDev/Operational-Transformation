@@ -1,23 +1,25 @@
 {
-  "name": "@otjs/ace",
+  "name": "@otjs/firebase-ace",
   "version": "0.1.1",
-  "description": "Plain Text Editor Adapter for Ace Editor.",
+  "description": "Real-time collaborative editor with out of the box binding with Firebase and Ace Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/ace#readme",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-ace#readme",
   "keywords": [
     "ace",
     "collaborative",
     "editor",
     "eventual-consistency",
+    "firebase",
     "operational-transformation",
     "typescript"
   ],
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "ace",
+  "rootDir": "firebase-ace",
   "directories": {
-    "lib": "src"
+    "lib": "src",
+    "test": "__tests__"
   },
   "files": [
     "lib",
@@ -38,27 +40,28 @@
     "build": "yarn build:lib && yarn build:dts",
     "build:lib": "webpack",
     "build:dts": "api-extractor run",
-    "clean": "rimraf lib typings index.d.ts"
+    "clean": "rimraf lib typings index.d.ts",
+    "test": "TEST_ENV=true jest --colors",
+    "test:watch": "yarn test --watch"
   },
   "devDependencies": {
-    "@otjs/plaintext": "0.1.1",
-    "@otjs/plaintext-editor": "0.1.1",
     "@otjs/types": "^0.0.0",
     "@otjs/utils": "^0.0.0",
-    "@types/ace": "0.0.47"
-  },
-  "dependencies": {
+    "@types/ace": "0.0.47",
+    "firebase": "9.0.2",
     "mitt": "3.0.0"
   },
+  "dependencies": {
+    "@otjs/ace": "0.1.1",
+    "@otjs/firebase-plaintext": "0.1.1",
+    "@otjs/plaintext": "0.1.1",
+    "@otjs/plaintext-editor": "0.1.1"
+  },
   "peerDependencies": {
-    "@otjs/plaintext": "^0.1.1",
-    "@otjs/plaintext-editor": "^0.1.1"
+    "firebase": "^9.0.2"
   },
   "peerDependenciesMeta": {
-    "@otjs/plaintext": {
-      "optional": false
-    },
-    "@otjs/plaintext-editor": {
+    "firebase": {
       "optional": false
     }
   }
