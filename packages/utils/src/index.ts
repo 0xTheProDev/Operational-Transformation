@@ -29,4 +29,5 @@ export * from "./disposable";
 export * from "./eol";
 export * from "./errors";
 export * from "./memoize";
+export * from "./styles";
 export * from "./thenable";

@@ -124,10 +124,10 @@ const onDocumentReady = (): void => {
     window.fireAce.dispose();
   }
 
-  const { fireAceEditor } = require("@otjs/firebase-ace");
+  const { FireAceEditor } = require("@otjs/firebase-ace");
   const databaseRef = getDatabaseRef();
 
-  const fireAce = new fireAceEditor({
+  const fireAce = new FireAceEditor({
     databaseRef,
     editor,
     userId,

@@ -24,12 +24,16 @@
 
 import * as monaco from "monaco-editor";
 import { IDisposable, IDisposableCollection } from "@otjs/types";
-import { Disposable, DisposableCollection } from "@otjs/utils";
+import {
+  createTooltipNode,
+  createWidgetNode,
+  Disposable,
+  DisposableCollection,
+} from "@otjs/utils";
 import {
   ICursorWidget,
   TCursorWidgetConstructionOptions,
 } from "./cursor-widget";
-import { createTooltipNode, createWidgetNode } from "./styles";
 
 /**
  * Set of Disposable instances.
@@ -78,7 +82,7 @@ class CursorWidget implements ICursorWidget {
     this._content = userName ?? clientId;
     this._duration = duration;
     this._tooltipClass = `${className}-tooltip`;
-    this._widgetClass = `${className}-widget`;
+    this._widgetClass = `monaco-editor-overlaymessage ${className}-widget`;
 
     this._init();
   }

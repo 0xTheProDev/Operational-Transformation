@@ -39,6 +39,7 @@ import {
 } from "@otjs/plaintext-editor";
 import { IDisposable, IDisposableCollection } from "@otjs/types";
 import {
+  addStyleRule,
   assert,
   Disposable,
   DisposableCollection,
@@ -46,7 +47,6 @@ import {
 } from "@otjs/utils";
 import { TMonacoAdapterConstructionOptions } from "./api";
 import { createCursorWidget, disposeCursorWidgets } from "./cursor-widget.impl";
-import { addStyleRule } from "./styles";
 import { ITextModelWithUndoRedo } from "./text-model";
 
 /**
@@ -297,8 +297,10 @@ export class MonacoAdapter implements IEditorAdapter {
     );
 
     assert(
-      typeof clientId === "string" && typeof cursorColor === "string",
-      "Client Id and User Color must be strings."
+      typeof clientId === "string" &&
+        typeof cursorColor === "string" &&
+        typeof userName === "string",
+      "Client Id, User Name and User Color must be strings."
     );
 
     const model = this._getModel();
@@ -308,10 +310,8 @@ export class MonacoAdapter implements IEditorAdapter {
       return Disposable.create(() => {});
     }
 
-    /** Extract Positions */
-    const { position, selectionEnd } = cursor.toJSON();
-
-    const cursorColorTitle = cursorColor.replace(/[\W_-]+/g, "");
+    /** Remove non-alphanumeric characters to create valid classname */
+    const cursorColorTitle = cursorColor.replace(/\W+/g, "_");
     const className = `remote-client-${cursorColorTitle}`;
 
     /** Generate Style rules and add them to document */
@@ -319,6 +319,9 @@ export class MonacoAdapter implements IEditorAdapter {
       className,
       cursorColor,
     });
+
+    /** Extract Positions */
+    const { position, selectionEnd } = cursor.toJSON();
 
     /** Get co-ordinate position in Editor */
     let start = model.getPositionAt(position);

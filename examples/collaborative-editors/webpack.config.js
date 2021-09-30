@@ -8,10 +8,9 @@ const getFbConfig = () => {
   /** If running using Emulators */
   if (rawFbConfig.emulators) {
     const host = "localhost";
-    const port = rawFbConfig.emulators.database.port;
-    const dbName = rawFbConfig.emulators.database.name;
+    const { port, name } = rawFbConfig.emulators.database;
 
-    const databaseURL = `http://${host}:${port}?ns=${dbName}`;
+    const databaseURL = `http://${host}:${port}?ns=${name}`;
 
     return {
       databaseURL,

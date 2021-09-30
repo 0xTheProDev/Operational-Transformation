@@ -36,7 +36,12 @@ import {
   ITextOperation,
   PlainTextOperation,
 } from "@otjs/plaintext";
-import { assert, EndOfLineSequence } from "@otjs/utils";
+import {
+  addStyleRule,
+  assert,
+  Disposable,
+  EndOfLineSequence,
+} from "@otjs/utils";
 import mitt, { Emitter, Handler } from "mitt";
 import { TAceAdapterConstructionOptions } from "./api";
 
@@ -236,8 +241,81 @@ export class AceAdapter implements IEditorAdapter {
     );
   }
 
-  setOtherCursor(remoteCursorData: TEditorAdapterCursorParams): IDisposable {
-    throw new Error("Method not implemented.");
+  setOtherCursor({
+    clientId,
+    cursor,
+    userColor: cursorColor,
+  }: TEditorAdapterCursorParams): IDisposable {
+    assert(
+      typeof cursor === "object" && typeof cursor.toJSON === "function",
+      "Cursor must be an implementation of ICursor"
+    );
+
+    assert(
+      typeof clientId === "string" && typeof cursorColor === "string",
+      "Client Id and User Color must be strings."
+    );
+
+    /** Remove non-alphanumeric characters to create valid classname */
+    const cursorColorTitle = cursorColor.replace(/\W+/g, "_");
+    const className = `remote-client-${cursorColorTitle}`;
+
+    /** Generate Style rules and add them to document */
+    addStyleRule({
+      className,
+      cursorColor,
+    });
+
+    /** Extract Positions */
+    const { position, selectionEnd } = cursor.toJSON();
+
+    /** Get co-ordinate position in Editor */
+    let start = this._aceDocument.indexToPosition(position, 0);
+    let end = this._aceDocument.indexToPosition(selectionEnd, 0);
+
+    /** Find Range of Selection */
+    const cursorRange = new Range(start.row, start.column, end.row, end.column);
+
+    let originalClipRows = cursorRange.clipRows;
+    cursorRange.clipRows = function (
+      firstRow: number,
+      lastRow: number
+    ): AceAjax.Range {
+      const range = originalClipRows.call(cursorRange, firstRow, lastRow);
+      range.isEmpty = function () {
+        return false;
+      };
+      return range;
+    };
+
+    // @ts-expect-error
+    cursorRange.start = this._aceDocument.createAnchor(
+      cursorRange.start.row,
+      cursorRange.start.column
+    );
+
+    // @ts-expect-error
+    cursorRange.end = this._aceDocument.createAnchor(
+      cursorRange.end.row,
+      cursorRange.end.column
+    );
+
+    // @ts-expect-error
+    cursorRange.id = this._aceSession.addMarker(
+      cursorRange,
+      className,
+      "text",
+      false
+    );
+
+    return Disposable.create(() => {
+      // @ts-expect-error
+      cursorRange.start.detach();
+      // @ts-expect-error
+      cursorRange.end.detach();
+      // @ts-expect-error
+      this._aceSession.removeMarker(cursorRange.id);
+    });
   }
 
   getText(): string {
