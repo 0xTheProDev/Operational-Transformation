@@ -78,7 +78,7 @@ $ git add <some files>
 - Every commit message must follow the [Semantic Commit Structure](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716).
 
 ```bash
-[Topic] shortlog: commit title
+(category) shortlog: commit title
 
 commit body
 
@@ -87,8 +87,8 @@ fixes: #<issue_number>
 Signed-Off-By: [Your name] <your email>
 ```
 
-- The commit title should explain what the commit works.
-- Commit body should describe the changes in an imperative manner.
+- The commit title should explain what the commit does in an imperative manner.
+- Commit body should describe the changes. This is optional in case of a dependency update or similar.
 
 ### Step 5 : Work Remotely
 
