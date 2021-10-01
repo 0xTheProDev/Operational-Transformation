@@ -146,6 +146,10 @@ We are using [codecov.io](https://about.codecov.io) to track progress over Code 
 
 Head on to [**Discussion**](https://github.com/Progyan1997/Operational-Transformation/discussions) section to report a bug or to ask for any feature. Use this [template](https://github.com/Progyan1997/Operational-Transformation/discussions/30) to make it structural and helpful for the maintainer and the contributors. Feel to add your queries about using this library as well under _Q & A_ section of it. Remember, do not create any Issues by yourself, maintainers of this repository will open one if deemed necessary.
 
+## Changelog
+
+See [CHANGELOG](CHANGELOG.md) for more details.
+
 ## Contributing
 
 See [Contributing Guidelines](.github/CONTRIBUTING.md).
