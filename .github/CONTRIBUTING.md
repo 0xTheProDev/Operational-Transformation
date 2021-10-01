@@ -1,12 +1,12 @@
 # Contributing Guidelines
 
-This documentation contains a set of guidelines to help you during the contribution process.
+This documentation contains a set of guidelines to help you with the contribution process.
 
-Read our [Code of Conduct](.CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
+Before you start, read our [Code of Conduct](.CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
-In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
+In this guide you will get an overview of the contribution workflow from enagaging in the discussion of feature building, contributing a Pull Request, till getting it reviewed and merged.
 
-## New contributor guide
+## New Contributor Guidelines
 
 See the [README](README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution:
 
@@ -17,44 +17,46 @@ See the [README](README.md) to get an overview of the project. Here are some hel
 
 ## Submitting Contributions
 
-Below you will find the process and workflow used to review and merge your changes.
+Below you will find the process and workflow used to review and merge your valuable changes.
 
-### Step 0 : Find an issue
+### Step 0: Find an issue
 
-- Take a look at the Existing Issues or go to [Discussions Section](https://github.com/Progyan1997/Operational-Transformation/discussions/30) for creating new Issues!
-- Subscribe to the issue and interact with the maintainers regarding contributing to the issue.
-- Note : Every change in this project should/must have an associated issue.
+[![script](./images/Issues.jpeg)](https://github.com/Progyan1997/Operational-Transformation/issues)
 
-![script](./images/Issues.jpeg)
+- Take a look at the Existing Issues or visit [Discussions Section](https://github.com/Progyan1997/Operational-Transformation/discussions/30) to enagage into discussion about feature request or bug reporting.
+- If the issue doesn't exists yet in our issue tracker, the maintainer will yield a issue from the discussion with proper description and milestone.
+- Once you selected an issue subscribe to it and interact with the maintainer/reporter in regular interval to describe your willingness or progress towards that issue.
+- Note: Every pull request in this project should have an associated issue registered.
 
-### Step 1 : Fork the Project
+### Step 1: Fork the Project
 
-- Fork this Repository. This will create a Local Copy of this Repository on your Github Profile.
-  Keep a reference to the original project in `upstream` remote.
+[![script1](./images/PullRequest.jpeg)](https://github.com/Progyan1997/Operational-Transformation.git)
 
-```bash
-git clone https://github.com/<your-username>/Operational-Transformation
-cd <repo-name>
-git remote add upstream https://github.com/Progyan1997/Operational-Transformation
-```
-
-![script1](./images/PullRequest.jpeg)
-
-- If you have already forked the project, update your copy before working.
+- Fork this Repository. This will create a local copy of this Repository on your Github Profile.
+  Keep a reference to the original project in `upstream` remote as shown below.
 
 ```bash
-git remote update
-git checkout <branch-name>
-git rebase upstream/<branch-name>
+$ git clone https://github.com/<your-username>/Operational-Transformation
+$ cd Operational-Transformation
+$ git remote add upstream https://github.com/Progyan1997/Operational-Transformation
+$ git fetch upstream
 ```
 
-### Step 2 : Branch
+- If you have already forked the project, update your copy before starting to work on the copy.
 
-Create a new branch. Use its name to identify the issue your addressing.
+```bash
+$ git remote update
+$ git checkout <branch-name>
+$ git rebase upstream/<branch-name>
+```
+
+### Step 2: Branch
+
+Create a new branch. Use its name to identify the issue you are addressing.
 
 ```bash
 # It will create a new branch with name Branch_Name and switch to that branch
-git checkout -b branch_name
+$ git checkout -b <branch_name>
 ```
 
 ### Step 3 : Work on the issue assigned
@@ -65,19 +67,18 @@ git checkout -b branch_name
 
 ```bash
 # To add all new files to branch Branch_Name
-git add .
+$ git add .
 
 # To add only a few files to Branch_Name
-git add <some files>
+$ git add <some files>
 ```
 
-### Step 4 : Commit
+### Step 4: Commit
 
 - Every commit message must follow the [Semantic Commit Structure](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716).
 
 ```bash
-# The following standard should be followed for commit messages
-shortlog: commit message
+[Topic] shortlog: commit title
 
 commit body
 
@@ -86,6 +87,9 @@ fixes: #<issue_number>
 Signed-Off-By: [Your name] <your email>
 ```
 
+- The commit title should explain what the commit works.
+- Commit body should describe the changes in an imperative manner.
+
 ### Step 5 : Work Remotely
 
 - Now you are ready to your work to the remote repository.
@@ -93,10 +97,12 @@ Signed-Off-By: [Your name] <your email>
 
 ```bash
 # To push your work to your remote repository
-git push -u origin Branch_Name
+$ git push -u origin <branch_bame>
 ```
 
-### Step 6 : Pull Request
+### Step 6: Pull Request
+
+[![script](./images/PR.jpeg)](https://github.com/Progyan1997/Operational-Transformation/pulls)
 
 - Go to your repository in browser and click on compare and pull requests.
   Then add a title and description to your pull request that explains your contribution.
