@@ -2,7 +2,7 @@
 
 This documentation contains a set of guidelines to help you with the contribution process.
 
-Before you start, read our [Code of Conduct](.CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
+Before you start, read our [Code of Conduct](CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
 In this guide you will get an overview of the contribution workflow from enagaging in the discussion of feature building, contributing a Pull Request, till getting it reviewed and merged.
 
