@@ -21,8 +21,8 @@
  *
  * See LICENSE file in the root directory for more details.
  */
+import { AceAdapter } from "@otjs/ace";
 import { FirebaseAdapter } from "@otjs/firebase-plaintext";
-import { MonacoAdapter } from "@otjs/monaco";
 import {
   EditorClient,
   IDatabaseAdapter,
@@ -32,16 +32,16 @@ import {
 } from "@otjs/plaintext-editor";
 import { Handler } from "mitt";
 import {
-  IFireMonacoEditor,
-  TFireMonacoEditorConstructionOptions,
-} from "./firebase-monaco";
+  IFireAceEditor,
+  TFireAceEditorConstructionOptions,
+} from "./firebase-ace";
 
 /**
  * @public
- * FireMonaco Editor Implementation - Real-time Collaborative Editor.
- * @param constructorOptions - A Configuration Object consisting Database Reference, Monaco Editor Instance and User Information.
+ * FireAce Editor Implementation - Real-time Collaborative Editor.
+ * @param constructorOptions - A Configuration Object consisting Database Reference, Ace Editor Instance and User Information.
  */
-export class FireMonacoEditor implements IFireMonacoEditor {
+export class FireAceEditor implements IFireAceEditor {
   protected readonly _databaseAdapter: IDatabaseAdapter;
   protected readonly _editorAdapter: IEditorAdapter;
   protected readonly _editorClient: IEditorClient;
@@ -52,21 +52,19 @@ export class FireMonacoEditor implements IFireMonacoEditor {
   protected _userName: string | null = null;
 
   constructor({
-    announcementDuration,
     editor,
     databaseRef,
     userId,
     userColor,
     userName,
-  }: TFireMonacoEditorConstructionOptions) {
+  }: TFireAceEditorConstructionOptions) {
     this._databaseAdapter = new FirebaseAdapter({
       databaseRef,
       userId,
       userColor,
       userName,
     });
-    this._editorAdapter = new MonacoAdapter({
-      announcementDuration,
+    this._editorAdapter = new AceAdapter({
       editor,
       bindEvents: true,
     });

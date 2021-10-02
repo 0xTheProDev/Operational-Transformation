@@ -35,6 +35,10 @@
       padding: 0;
     }
 
+    li {
+      margin-bottom: 10px;
+    }
+
     li:nth-child(odd) {
       background-color: rgb(238, 238, 238);
     }
@@ -65,7 +69,18 @@
   </style>
   <nav>
     <ol>
-      <li>
+      <li data-package="firebase-ace">
+        <details>
+          <summary>
+            <a href="./firebase-ace.html">Firebase-Ace</a>
+          </summary>
+          <p>
+            Firebase as Database and Ace as Plaintext Editor.
+            By default, Firebase runs inside an emulator, but feel free to update <kbd>firebase.json</kbd> to use it with actual database.
+          </p>
+        </details>
+      </li>
+      <li data-package="firebase-monaco">
         <details>
           <summary>
             <a href="./firebase-monaco.html">Firebase-Monaco</a>

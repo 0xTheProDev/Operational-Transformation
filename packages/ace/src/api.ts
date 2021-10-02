@@ -22,12 +22,13 @@
  * See LICENSE file in the root directory for more details.
  */
 
-export * from "./assert";
-export * from "./cancelable";
-export * from "./colors";
-export * from "./disposable";
-export * from "./eol";
-export * from "./errors";
-export * from "./memoize";
-export * from "./styles";
-export * from "./thenable";
+/**
+ * @public
+ * Constructor Options to instantiate a Ace Adapter
+ */
+export type TAceAdapterConstructionOptions = {
+  /** Ace Editor Instance. */
+  editor: AceAjax.Editor;
+  /** Bind Event Handlers to Ace (optional, defaults to `false`). */
+  bindEvents?: boolean;
+};

@@ -8,10 +8,9 @@ const getFbConfig = () => {
   /** If running using Emulators */
   if (rawFbConfig.emulators) {
     const host = "localhost";
-    const port = rawFbConfig.emulators.database.port;
-    const dbName = rawFbConfig.emulators.database.name;
+    const { port, name } = rawFbConfig.emulators.database;
 
-    const databaseURL = `http://${host}:${port}?ns=${dbName}`;
+    const databaseURL = `http://${host}:${port}?ns=${name}`;
 
     return {
       databaseURL,
@@ -34,11 +33,16 @@ module.exports = (env, argv) => {
     context: __dirname,
     target: "web",
     entry: {
-      app: {
+      ace: {
+        import: "./src/firebase-ace.ts",
+        dependOn: ["firebase-ace"],
+      },
+      monaco: {
         import: "./src/firebase-monaco.ts",
         dependOn: ["firebase-monaco"],
       },
-      "firebase-monaco": ["@otjs/fb-monaco"],
+      "firebase-ace": ["@otjs/firebase-ace"],
+      "firebase-monaco": ["@otjs/firebase-monaco"],
     },
     output: {
       chunkFilename: "[name].[chunkhash:8].js",

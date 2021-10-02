@@ -1,25 +1,23 @@
 {
-  "name": "@otjs/firebase-monaco",
+  "name": "@otjs/ace",
   "version": "0.1.1",
-  "description": "Real-time collaborative editor with out of the box binding with Firebase and Monaco Editor.",
+  "description": "Plain Text Editor Adapter for Ace Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-monaco#readme",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/ace#readme",
   "keywords": [
+    "ace",
     "collaborative",
     "editor",
     "eventual-consistency",
-    "firebase",
-    "monaco-editor",
     "operational-transformation",
     "typescript"
   ],
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "firebase-monaco",
+  "rootDir": "ace",
   "directories": {
-    "lib": "src",
-    "test": "__tests__"
+    "lib": "src"
   },
   "files": [
     "lib",
@@ -40,32 +38,27 @@
     "build": "yarn build:lib && yarn build:dts",
     "build:lib": "webpack",
     "build:dts": "api-extractor run",
-    "clean": "rimraf lib typings index.d.ts",
-    "test": "TEST_ENV=true jest --colors",
-    "test:watch": "yarn test --watch"
+    "clean": "rimraf lib typings index.d.ts"
   },
   "devDependencies": {
+    "@otjs/plaintext": "0.1.1",
+    "@otjs/plaintext-editor": "0.1.1",
     "@otjs/types": "^0.0.0",
     "@otjs/utils": "^0.0.0",
-    "firebase": "9.0.2",
-    "mitt": "3.0.0",
-    "monaco-editor": "0.27.0"
+    "@types/ace": "0.0.47"
   },
   "dependencies": {
-    "@otjs/firebase-plaintext": "0.1.1",
-    "@otjs/monaco": "0.1.1",
-    "@otjs/plaintext": "0.1.1",
-    "@otjs/plaintext-editor": "0.1.1"
+    "mitt": "3.0.0"
   },
   "peerDependencies": {
-    "firebase": "^9.0.2",
-    "monaco-editor": "^0.27.0"
+    "@otjs/plaintext": "^0.1.1",
+    "@otjs/plaintext-editor": "^0.1.1"
   },
   "peerDependenciesMeta": {
-    "firebase": {
+    "@otjs/plaintext": {
       "optional": false
     },
-    "monaco-editor": {
+    "@otjs/plaintext-editor": {
       "optional": false
     }
   }

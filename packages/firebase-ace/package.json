@@ -1,22 +1,22 @@
 {
-  "name": "@otjs/firebase-monaco",
+  "name": "@otjs/firebase-ace",
   "version": "0.1.1",
-  "description": "Real-time collaborative editor with out of the box binding with Firebase and Monaco Editor.",
+  "description": "Real-time collaborative editor with out of the box binding with Firebase and Ace Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-monaco#readme",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-ace#readme",
   "keywords": [
+    "ace",
     "collaborative",
     "editor",
     "eventual-consistency",
     "firebase",
-    "monaco-editor",
     "operational-transformation",
     "typescript"
   ],
   "license": "MIT",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "firebase-monaco",
+  "rootDir": "firebase-ace",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -47,25 +47,21 @@
   "devDependencies": {
     "@otjs/types": "^0.0.0",
     "@otjs/utils": "^0.0.0",
+    "@types/ace": "0.0.47",
     "firebase": "9.0.2",
-    "mitt": "3.0.0",
-    "monaco-editor": "0.27.0"
+    "mitt": "3.0.0"
   },
   "dependencies": {
+    "@otjs/ace": "0.1.1",
     "@otjs/firebase-plaintext": "0.1.1",
-    "@otjs/monaco": "0.1.1",
     "@otjs/plaintext": "0.1.1",
     "@otjs/plaintext-editor": "0.1.1"
   },
   "peerDependencies": {
-    "firebase": "^9.0.2",
-    "monaco-editor": "^0.27.0"
+    "firebase": "^9.0.2"
   },
   "peerDependenciesMeta": {
     "firebase": {
-      "optional": false
-    },
-    "monaco-editor": {
       "optional": false
     }
   }

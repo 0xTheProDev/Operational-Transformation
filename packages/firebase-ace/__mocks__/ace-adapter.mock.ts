@@ -22,12 +22,47 @@
  * See LICENSE file in the root directory for more details.
  */
 
-export * from "./assert";
-export * from "./cancelable";
-export * from "./colors";
-export * from "./disposable";
-export * from "./eol";
-export * from "./errors";
-export * from "./memoize";
-export * from "./styles";
-export * from "./thenable";
+import { assert } from "@otjs/utils";
+
+assert(jest != null, "This factories can only be imported in Test environment");
+
+/**
+ * Mock Function to replace `dispose` functionality of Editor Adapter.
+ */
+export const dispose = jest.fn<void, []>();
+
+/**
+ * Mock Function to replace `getText` functionality of Editor Adapter.
+ */
+export const getText = jest.fn<string, []>();
+
+/**
+ * Mock Function to replace `setText` functionality of Editor Adapter.
+ */
+export const setText = jest.fn<void, [string]>();
+
+/**
+ * Mock Function to replace `constructor` functionality of Editor Adapter.
+ */
+export const monacoAdapterCtor = jest.fn<AceAdapter, [AceAjax.Editor]>();
+
+/**
+ * Mock Class to replace functionality of Editor Adapter.
+ */
+export class AceAdapter {
+  constructor({ editor }: { editor: AceAjax.Editor }) {
+    monacoAdapterCtor(editor);
+  }
+
+  dispose(): void {
+    dispose();
+  }
+
+  getText(): string {
+    return getText();
+  }
+
+  setText(text: string): void {
+    setText(text);
+  }
+}

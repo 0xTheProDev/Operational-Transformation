@@ -30,17 +30,16 @@ import {
   push,
   ref,
 } from "firebase/database";
-import * as monaco from "monaco-editor";
 import { v4 as uuid } from "uuid";
-import { IFireMonacoEditor } from "@otjs/firebase-monaco";
+import { IFireAceEditor } from "@otjs/firebase-ace";
 
 /**
  * Augment Global Namespace to enable Cache and Hot Module Replacement logic.
  */
 declare global {
   interface Window {
-    monacoEditor?: monaco.editor.IStandaloneCodeEditor;
-    fireMonaco?: IFireMonacoEditor;
+    aceEditor?: AceAjax.Editor;
+    fireAce?: IFireAceEditor;
   }
   interface NodeModule {
     hot?: {
@@ -52,8 +51,8 @@ declare global {
 /**
  * Cleanup
  */
-window.monacoEditor = undefined;
-window.fireMonaco = undefined;
+window.aceEditor = undefined;
+window.fireAce = undefined;
 
 /**
  * Generate Random Integer
@@ -91,27 +90,25 @@ const getDatabaseRef = (): DatabaseReference => {
 /**
  * @returns - Monaco Editor instance.
  */
-const getEditorInstance = (): monaco.editor.IStandaloneCodeEditor => {
-  if (window.monacoEditor) {
-    return window.monacoEditor;
+const getEditorInstance = (): AceAjax.Editor => {
+  if (window.aceEditor) {
+    return window.aceEditor;
   }
 
-  const editor = monaco.editor.create(document.getElementById("editor")!, {
-    fontSize: 18,
-    language: "plaintext",
-    minimap: {
-      enabled: false,
-    },
-    readOnly: true,
-    theme: "vs-dark",
-    trimAutoWhitespace: false,
-  });
+  const editor = ace.edit("editor");
+  editor.setReadOnly(true);
+  editor.setTheme("ace/theme/textmate");
+
+  const session = editor.getSession();
+  session.setUseWrapMode(true);
+  session.setUseWorker(false);
+  session.setMode("ace/mode/javascript");
 
   window.addEventListener("resize", () => {
-    editor.layout();
+    editor.resize(true);
   });
 
-  window.monacoEditor = editor;
+  window.aceEditor = editor;
   return editor;
 };
 
@@ -121,17 +118,16 @@ const getEditorInstance = (): monaco.editor.IStandaloneCodeEditor => {
 const onDocumentReady = (): void => {
   const editor = getEditorInstance();
 
-  if (window.fireMonaco) {
+  if (window.fireAce) {
     console.log("Changes detected, recreating editor.");
-    editor.updateOptions({ readOnly: true });
-    window.fireMonaco.dispose();
+    editor.setReadOnly(true);
+    window.fireAce.dispose();
   }
 
-  const { FireMonacoEditor } = require("@otjs/firebase-monaco");
+  const { FireAceEditor } = require("@otjs/firebase-ace");
   const databaseRef = getDatabaseRef();
 
-  const fireMonaco = new FireMonacoEditor({
-    announcementDuration: Infinity,
+  const fireAce = new FireAceEditor({
     databaseRef,
     editor,
     userId,
@@ -139,11 +135,11 @@ const onDocumentReady = (): void => {
     userName,
   });
 
-  fireMonaco.on("ready", () => {
-    editor.updateOptions({ readOnly: false });
+  fireAce.on("ready", () => {
+    editor.setReadOnly(false);
   });
 
-  window.fireMonaco = fireMonaco;
+  window.fireAce = fireAce;
 };
 
 /**
@@ -160,7 +156,7 @@ setTimeout(onDocumentReady, 1);
  * Handle module.hot replacement.
  */
 if (module.hot) {
-  module.hot.accept("@otjs/firebase-monaco", onDocumentReady);
+  module.hot.accept("@otjs/firebase-ace", onDocumentReady);
 }
 
 export {};

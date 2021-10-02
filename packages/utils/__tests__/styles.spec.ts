@@ -1,4 +1,8 @@
 /**
+ * @jest-environment jsdom
+ */
+
+/**
  * Copyright © 2021 Progyan Bhattacharya
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,11 +26,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import {
-  addStyleRule,
-  createTooltipNode,
-  createWidgetNode,
-} from "@otjs/monaco/src/styles";
+import { addStyleRule, createTooltipNode, createWidgetNode } from "@otjs/utils";
 
 describe("Style Utility Functions", () => {
   describe("Test addStyleRule", () => {

@@ -160,7 +160,7 @@ export async function createWidgetNode({
 
   try {
     const widgetNode = document.createElement("div");
-    widgetNode.classList.add("monaco-editor-overlaymessage", className);
+    widgetNode.className = className;
     widgetNode.appendChild(childElement);
 
     classNamesInprogress.delete(className);

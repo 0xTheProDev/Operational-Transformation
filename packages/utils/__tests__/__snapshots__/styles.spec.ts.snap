@@ -57,7 +57,7 @@ exports[`Style Utility Functions Test createTooltipNode should create a tootip 1
 
 exports[`Style Utility Functions Test createWidgetNode should create a widget 1`] = `
 <div
-  class="monaco-editor-overlaymessage test-class"
+  class="test-class"
 >
   <div />
 </div>

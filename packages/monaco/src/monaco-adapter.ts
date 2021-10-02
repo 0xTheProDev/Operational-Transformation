@@ -39,6 +39,7 @@ import {
 } from "@otjs/plaintext-editor";
 import { IDisposable, IDisposableCollection } from "@otjs/types";
 import {
+  addStyleRule,
   assert,
   Disposable,
   DisposableCollection,
@@ -46,7 +47,6 @@ import {
 } from "@otjs/utils";
 import { TMonacoAdapterConstructionOptions } from "./api";
 import { createCursorWidget, disposeCursorWidgets } from "./cursor-widget.impl";
-import { addStyleRule } from "./styles";
 import { ITextModelWithUndoRedo } from "./text-model";
 
 /**
@@ -170,7 +170,7 @@ export class MonacoAdapter implements IEditorAdapter {
     return this._emitter!.emit(event, payload);
   }
 
-  registerUndo(callback: Handler<void>): void {
+  registerUndo(undoCallback: Handler<void>): void {
     const model = this._getModel();
 
     /* istanbul ignore if */
@@ -179,10 +179,10 @@ export class MonacoAdapter implements IEditorAdapter {
     }
 
     this._originalUndo = model.undo;
-    model.undo = this._undoCallback = callback;
+    model.undo = this._undoCallback = undoCallback;
   }
 
-  registerRedo(callback: Handler<void>): void {
+  registerRedo(redoCallback: Handler<void>): void {
     const model = this._getModel();
 
     /* istanbul ignore if */
@@ -191,7 +191,7 @@ export class MonacoAdapter implements IEditorAdapter {
     }
 
     this._originalRedo = model.redo;
-    model.redo = this._redoCallback = callback;
+    model.redo = this._redoCallback = redoCallback;
   }
 
   deregisterUndo(undoCallback?: Handler<void>): void {
@@ -297,8 +297,10 @@ export class MonacoAdapter implements IEditorAdapter {
     );
 
     assert(
-      typeof clientId === "string" && typeof cursorColor === "string",
-      "Client Id and User Color must be strings."
+      typeof clientId === "string" &&
+        typeof cursorColor === "string" &&
+        (userName == null || typeof userName === "string"),
+      "Client Id, User Name and User Color must be strings."
     );
 
     const model = this._getModel();
@@ -308,10 +310,8 @@ export class MonacoAdapter implements IEditorAdapter {
       return Disposable.create(() => {});
     }
 
-    /** Extract Positions */
-    const { position, selectionEnd } = cursor.toJSON();
-
-    const cursorColorTitle = cursorColor.replace(/[\W_-]+/g, "");
+    /** Remove non-alphanumeric characters to create valid classname */
+    const cursorColorTitle = cursorColor.replace(/\W+/g, "_");
     const className = `remote-client-${cursorColorTitle}`;
 
     /** Generate Style rules and add them to document */
@@ -319,6 +319,9 @@ export class MonacoAdapter implements IEditorAdapter {
       className,
       cursorColor,
     });
+
+    /** Extract Positions */
+    const { position, selectionEnd } = cursor.toJSON();
 
     /** Get co-ordinate position in Editor */
     let start = model.getPositionAt(position);
@@ -455,6 +458,7 @@ export class MonacoAdapter implements IEditorAdapter {
 
     // @ts-expect-error
     this._monaco = null;
+    this._initiated = false;
   }
 
   /**
@@ -555,7 +559,7 @@ export class MonacoAdapter implements IEditorAdapter {
   protected _onChange(
     ev: Partial<monaco.editor.IModelContentChangedEvent>
   ): void {
-    /** Ignore if change is being applied by firepad itself. */
+    /** Ignore if change is being applied by itself. */
     if (this._ignoreChanges || !this._initiated) {
       return;
     }
@@ -638,10 +642,15 @@ export class MonacoAdapter implements IEditorAdapter {
     return val;
   }
 
+  /**
+   * Transform Monaco Content changes into pair of Text Operation that are inverse of each other.
+   * @param changes - Set of Changes from Monaco Model Content Change Event.
+   * @param contentLength - Current Size of the Content string.
+   */
   protected _operationFromMonacoChange(
     changes: monaco.editor.IModelContentChange[],
     contentLength: number
-  ): [IPlainTextOperation, IPlainTextOperation] {
+  ): [operation: IPlainTextOperation, inverse: IPlainTextOperation] {
     /** Text Operation respective of current changes */
     let mainOp: IPlainTextOperation = new PlainTextOperation();
 
@@ -727,45 +736,46 @@ export class MonacoAdapter implements IEditorAdapter {
     while (!(opValue = ops.next()).done) {
       const [, op] = opValue.value;
 
-      /** Retain Operation */
-      if (op.isRetain()) {
-        index += op.characterCount();
-        continue;
-      }
+      switch (true) {
+        case op.isRetain():
+          /** Retain Operation */
+          index += op.characterCount();
+          break;
 
-      if (op.isInsert()) {
-        /** Insert Operation */
-        const pos = model.getPositionAt(index);
-        changes.push({
-          range: new monaco.Range(
-            pos.lineNumber,
-            pos.column,
-            pos.lineNumber,
-            pos.column
-          ),
-          text: op.textContent(),
-          forceMoveMarkers: true,
-        });
-        continue;
-      }
+        case op.isInsert(): {
+          /** Insert Operation */
+          const pos = model.getPositionAt(index);
+          changes.push({
+            range: new monaco.Range(
+              pos.lineNumber,
+              pos.column,
+              pos.lineNumber,
+              pos.column
+            ),
+            text: op.textContent(),
+            forceMoveMarkers: true,
+          });
+          break;
+        }
 
-      if (op.isDelete()) {
-        /** Delete Operation */
-        const from = model.getPositionAt(index);
-        const to = model.getPositionAt(index + op.characterCount());
+        case op.isDelete(): {
+          /** Delete Operation */
+          const from = model.getPositionAt(index);
+          const to = model.getPositionAt(index + op.characterCount());
 
-        changes.push({
-          range: new monaco.Range(
-            from.lineNumber,
-            from.column,
-            to.lineNumber,
-            to.column
-          ),
-          text: "",
-          forceMoveMarkers: true,
-        });
+          changes.push({
+            range: new monaco.Range(
+              from.lineNumber,
+              from.column,
+              to.lineNumber,
+              to.column
+            ),
+            text: "",
+            forceMoveMarkers: true,
+          });
 
-        index += op.characterCount();
+          index += op.characterCount();
+        }
       }
     }
 
