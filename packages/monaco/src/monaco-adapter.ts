@@ -299,7 +299,7 @@ export class MonacoAdapter implements IEditorAdapter {
     assert(
       typeof clientId === "string" &&
         typeof cursorColor === "string" &&
-        typeof userName === "string",
+        (userName == null || typeof userName === "string"),
       "Client Id, User Name and User Color must be strings."
     );
 
