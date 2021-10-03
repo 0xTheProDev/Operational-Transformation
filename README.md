@@ -28,27 +28,45 @@
       <th>Package Name</th>
       <th>Npm Version</th>
       <th>Weekly Downloads</th>
-      <th>Peer Dependency</th>
+      <th>External Dependency</th>
     </tr>
   </thead>
   <tbody>
+    <tr title="ace">
+      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/ace">ace</a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/ace"><img src="https://img.shields.io/npm/v/@otjs/ace"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/ace"><img src="https://img.shields.io/npm/dw/@otjs/ace"/></a></td>
+      <td><a href="https://ace.c9.io" target="_blank"><img src="https://img.shields.io/npm/v/ace-build?label=ace"/></a></td>
+    </tr>
+    <tr title="firebase-ace">
+      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-ace">firebase-ace</a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/firebase-ace"><img src="https://img.shields.io/npm/v/@otjs/firebase-ace"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/firebase-ace"><img src="https://img.shields.io/npm/dw/@otjs/firebase-ace"/></a></td>
+      <td>
+        <a href="https://ace.c9.io" target="_blank"><img src="https://img.shields.io/npm/v/ace-build?label=ace"/></a>
+        <a href="https://www.npmjs.com/package/firebase" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/peer/firebase"/></a>
+      </td>
+    </tr>
     <tr title="firebase-monaco">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-monaco">firebase-monaco</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/npm/v/@otjs/firebase-monaco"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/npm/dw/@otjs/firebase-monaco"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor"/> <img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/firebase"/></a></td>
+      <td>
+        <a href="https://www.npmjs.com/package/firebase" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/firebase"/></a>
+        <a href="https://www.npmjs.com/package/monaco-editor" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor"/></a>
+      </td>
     </tr>
     <tr title="firebase-plaintext">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-plaintext">firebase-plaintext</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext"><img src="https://img.shields.io/npm/v/@otjs/firebase-plaintext"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext"><img src="https://img.shields.io/npm/dw/@otjs/firebase-plaintext"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-plaintext/peer/firebase"/></a></td>
+      <td><a href="https://www.npmjs.com/package/firebase"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-plaintext/peer/firebase"/></a></td>
     </tr>
     <tr title="monaco">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/monaco">monaco</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/monaco"><img src="https://img.shields.io/npm/v/@otjs/monaco"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/monaco"><img src="https://img.shields.io/npm/dw/@otjs/monaco"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/monaco"><img src="https://img.shields.io/npm/dependency-version/@otjs/monaco/peer/monaco-editor"/></a></td>
+      <td><a href="https://www.npmjs.com/package/monaco-editor"><img src="https://img.shields.io/npm/dependency-version/@otjs/monaco/peer/monaco-editor"/></a></td>
     </tr>
     <tr title="plaintext">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext">plaintext</a></td>
