@@ -33,7 +33,8 @@ import { Handler } from "mitt";
  * Constructor Options to instantiate a FireMonaco Editor.
  */
 export type TFireMonacoEditorConstructionOptions =
-  TFirebaseAdapterConstructionOptions & TMonacoAdapterConstructionOptions;
+  TFirebaseAdapterConstructionOptions &
+    Omit<TMonacoAdapterConstructionOptions, "bindEvents">;
 
 /**
  * @public

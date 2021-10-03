@@ -1,52 +1,51 @@
-# `@otjs/firebase-monaco`
+# `@otjs/firebase-ace`
 
-[![Npm Version](https://img.shields.io/npm/v/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Types](https://img.shields.io/npm/types/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![License](https://img.shields.io/npm/l/@otjs/firebase-monaco)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-monaco/LICENSE)
-[![Quality](https://img.shields.io/npms-io/quality-score/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Maintainance](https://img.shields.io/npms-io/maintenance-score/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/firebase-monaco)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Npm Version](https://img.shields.io/npm/v/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Types](https://img.shields.io/npm/types/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![License](https://img.shields.io/npm/l/@otjs/firebase-ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-ace/LICENSE)
+[![Quality](https://img.shields.io/npms-io/quality-score/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Maintainance](https://img.shields.io/npms-io/maintenance-score/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/firebase-ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
 [![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description
 
-> Real-time collaborative editor with out of the box binding with Firebase and Monaco Editor.
+> Real-time collaborative editor with out of the box binding with Firebase and Ace Editor.
 
 ## Installation
 
 - To install using [Yarn](https://yarnpkg.com) _(recommended)_:
 
 ```sh
-$ yarn add @otjs/firebase-monaco
+$ yarn add @otjs/firebase-ace
 ```
 
 - To install using [Npm](https://www.npmjs.com):
 
 ```sh
-$ npm i @otjs/firebase-monaco
+$ npm i @otjs/firebase-ace
 ```
 
 ### Peer Dependencies
 
 Make sure to install all the peer dependencies beforehand:
 
-[![Firebase](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/firebase)](https://www.npmjs.com/package/firebase)
-[![Monaco Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor)](https://www.npmjs.com/package/monaco-editor)
+[![Firebase](https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/peer/firebase)](https://www.npmjs.com/package/firebase)
+[![Ace Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/dev/@types/ace)](https://ace.c9.io/)
 
 ## Usage
 
 ```ts
-import { FireMonacoEditor } from "@otjs/firebase-monaco";
+import { FireAceEditor } from "@otjs/firebase-ace";
 
-const fireMonaco = new FireMonacoEditor({
+const fireAce = new FireAceEditor({
   databaseRef:            // Database Reference in Firebase Realtime DB
   editor:                 // Monaco Editor instance
-  announcementDuration:   // Duration to hide Cursor tooltip (optional)
   userId:                 // Unique Identifier for current user
   userColor:              // Unique Color Code for current user
   userName:               // Human readable Name or Short Name (optional)
@@ -75,4 +74,4 @@ See [Contributing Guidelines](https://github.com/Progyan1997/Operational-Transfo
 
 ## License
 
-This project is licensed under the terms of the MIT license, see [LICENSE](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-monaco/LICENSE) for more details.
+This project is licensed under the terms of the MIT license, see [LICENSE](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-ace/LICENSE) for more details.
