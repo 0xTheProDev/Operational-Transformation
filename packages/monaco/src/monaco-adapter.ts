@@ -311,7 +311,9 @@ export class MonacoAdapter implements IEditorAdapter {
     }
 
     /** Remove non-alphanumeric characters to create valid classname */
-    const cursorColorTitle = cursorColor.replace(/\W+/g, "_");
+    const cursorColorTitle = cursorColor
+      .replaceAll(",", "_")
+      .replace(/\W+/g, "");
     const className = `remote-client-${cursorColorTitle}`;
 
     /** Generate Style rules and add them to document */
