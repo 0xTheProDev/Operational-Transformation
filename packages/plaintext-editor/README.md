@@ -32,6 +32,12 @@ $ yarn add @otjs/plaintext-editor
 $ npm i @otjs/plaintext-editor
 ```
 
+### Peer Dependencies
+
+Make sure to install all the peer dependencies beforehand:
+
+[![PlainText](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/@otjs/plaintext)](https://www.npmjs.com/package/@otjs/plaintext)
+
 ## Usage
 
 ```ts

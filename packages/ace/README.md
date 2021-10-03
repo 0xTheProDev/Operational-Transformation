@@ -35,7 +35,7 @@ $ npm i @otjs/ace
 
 Make sure to install all the peer dependencies beforehand:
 
-[![Ace Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/dev/@types/ace)](https://ace.c9.io/)
+[![Ace Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/dev/@types/ace?label=ace)](https://ace.c9.io)
 
 ## Usage
 
