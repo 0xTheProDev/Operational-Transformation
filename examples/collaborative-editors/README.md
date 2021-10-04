@@ -14,10 +14,10 @@ For development purpose, the following can be the content of this file :-
 
 ```
 {
-    "rules":{
-      ".read":true,
-      ".write":true
-    }
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
 }
 ```
 
