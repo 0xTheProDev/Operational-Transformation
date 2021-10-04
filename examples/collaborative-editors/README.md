@@ -1,3 +1,7 @@
+# Collaborative Editor
+
+> One of the use case of the `@otjs` library is to the ability to build a collaborative editor using one or more web based editor and a central database/queue implementation. In this example, this use case has been well demonastrated with almost no code setup.
+
 ## Purpose
 
 This example can help you get familiar with the API usage of `@otjs/firebase-ace` and `@otjs/firebase-monaco`.
