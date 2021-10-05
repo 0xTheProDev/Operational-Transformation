@@ -3,16 +3,9 @@
 [![Npm Version](https://img.shields.io/npm/v/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
 [![Node Version](https://img.shields.io/node/v/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
-
-<!-- [![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor) -->
-
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
 [![Types](https://img.shields.io/npm/types/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
 [![License](https://img.shields.io/npm/l/@otjs/plaintext-editor)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/plaintext-editor/LICENSE)
-
-<!-- [![Quality](https://img.shields.io/npms-io/quality-score/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor) -->
-<!-- [![Maintainance](https://img.shields.io/npms-io/maintenance-score/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor) -->
-
 [![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
 [![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
 [![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/plaintext-editor)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
