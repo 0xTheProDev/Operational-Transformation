@@ -2,15 +2,21 @@
 
 [![Npm Version](https://img.shields.io/npm/v/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
+
+<!-- [![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco) -->
+
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
 [![Types](https://img.shields.io/npm/types/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
 [![License](https://img.shields.io/npm/l/@otjs/firebase-monaco)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-monaco/LICENSE)
-[![Quality](https://img.shields.io/npms-io/quality-score/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Maintainance](https://img.shields.io/npms-io/maintenance-score/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
+
+<!-- [![Quality](https://img.shields.io/npms-io/quality-score/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco) -->
+<!-- [![Maintainance](https://img.shields.io/npms-io/maintenance-score/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco) -->
+
 [![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
 [![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
 [![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/firebase-monaco)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
 [![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description

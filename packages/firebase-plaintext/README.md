@@ -3,15 +3,21 @@
 [![Npm Version](https://img.shields.io/npm/v/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
 [![Node Version](https://img.shields.io/node/v/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
-[![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
+
+<!-- [![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext) -->
+
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
 [![Types](https://img.shields.io/npm/types/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
 [![License](https://img.shields.io/npm/l/@otjs/firebase-plaintext)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-plaintext/LICENSE)
-[![Quality](https://img.shields.io/npms-io/quality-score/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
-[![Maintainance](https://img.shields.io/npms-io/maintenance-score/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
+
+<!-- [![Quality](https://img.shields.io/npms-io/quality-score/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext) -->
+<!-- [![Maintainance](https://img.shields.io/npms-io/maintenance-score/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext) -->
+
 [![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
 [![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
 [![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/firebase-plaintext)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
 [![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description
