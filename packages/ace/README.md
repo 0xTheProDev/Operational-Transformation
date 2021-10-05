@@ -2,15 +2,14 @@
 
 [![Npm Version](https://img.shields.io/npm/v/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
-[![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
 [![Types](https://img.shields.io/npm/types/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
 [![License](https://img.shields.io/npm/l/@otjs/ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/monaco/LICENSE)
-[![Quality](https://img.shields.io/npms-io/quality-score/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
-[![Maintainance](https://img.shields.io/npms-io/maintenance-score/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
 [![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
 [![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
 [![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
 [![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description

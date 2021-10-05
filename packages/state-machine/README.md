@@ -3,15 +3,14 @@
 [![Npm Version](https://img.shields.io/npm/v/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
 [![Node Version](https://img.shields.io/node/v/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
-[![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
 [![Types](https://img.shields.io/npm/types/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
 [![License](https://img.shields.io/npm/l/@otjs/state-machine)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/state-machine/LICENSE)
-[![Quality](https://img.shields.io/npms-io/quality-score/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
-[![Maintainance](https://img.shields.io/npms-io/maintenance-score/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
 [![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
 [![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/state-machine)](https://www.npmjs.com/package/@otjs/state-machine)
 [![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/state-machine)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
 [![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description

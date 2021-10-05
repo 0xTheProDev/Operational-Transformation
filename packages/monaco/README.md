@@ -2,15 +2,14 @@
 
 [![Npm Version](https://img.shields.io/npm/v/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
-[![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
 [![Types](https://img.shields.io/npm/types/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
 [![License](https://img.shields.io/npm/l/@otjs/monaco)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/monaco/LICENSE)
-[![Quality](https://img.shields.io/npms-io/quality-score/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
-[![Maintainance](https://img.shields.io/npms-io/maintenance-score/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
 [![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
 [![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
 [![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/monaco)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
 [![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description

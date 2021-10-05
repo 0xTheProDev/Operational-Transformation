@@ -2,15 +2,14 @@
 
 [![Npm Version](https://img.shields.io/npm/v/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
-[![Minified Size](https://img.shields.io/bundlephobia/min/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
 [![Types](https://img.shields.io/npm/types/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
 [![License](https://img.shields.io/npm/l/@otjs/firebase-ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-ace/LICENSE)
-[![Quality](https://img.shields.io/npms-io/quality-score/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
-[![Maintainance](https://img.shields.io/npms-io/maintenance-score/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
 [![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
 [![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
 [![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/firebase-ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
 [![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description
