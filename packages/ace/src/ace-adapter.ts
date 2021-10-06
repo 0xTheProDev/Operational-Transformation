@@ -288,6 +288,12 @@ export class AceAdapter implements IEditorAdapter {
       return range;
     };
 
+    /** Add decoration to the Editor */
+    const decorationClassName =
+      position === selectionEnd
+        ? `${className}-cursor`
+        : `${className}-selection`;
+
     // @ts-expect-error
     cursorRange.start = this._aceDocument.createAnchor(
       cursorRange.start.row,
@@ -303,7 +309,7 @@ export class AceAdapter implements IEditorAdapter {
     // @ts-expect-error
     cursorRange.id = this._aceSession.addMarker(
       cursorRange,
-      className,
+      decorationClassName,
       "text",
       false
     );
