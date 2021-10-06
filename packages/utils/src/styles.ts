@@ -196,13 +196,13 @@ function getStyles({
      */
 
     .${className}-cursor {
-      position: relative;
+      position: absolute;
       background-color: transparent;
       border-left: 2px solid ${cursorColor};
     }
 
     .${className}-selection {
-      position: relative;
+      position: absolute;
       opacity: 0.5;
       background-color: ${cursorColor};
       border-left: 2px solid ${cursorColor};

@@ -12,13 +12,13 @@ Array [
      */
 
     .test-class-cursor {
-      position: relative;
+      position: absolute;
       background-color: transparent;
       border-left: 2px solid #000;
     }
 
     .test-class-selection {
-      position: relative;
+      position: absolute;
       opacity: 0.5;
       background-color: #000;
       border-left: 2px solid #000;
