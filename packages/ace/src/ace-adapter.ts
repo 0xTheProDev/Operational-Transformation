@@ -26,7 +26,6 @@ import {
   Cursor,
   EditorAdapterEvent,
   ICursor,
-  IDisposable,
   IEditorAdapter,
   TEditorAdapterCursorParams,
   TEditorAdapterEventArgs,
@@ -36,14 +35,17 @@ import {
   ITextOperation,
   PlainTextOperation,
 } from "@otjs/plaintext";
+import { IDisposable, IDisposableCollection } from "@otjs/types";
 import {
   addStyleRule,
   assert,
   Disposable,
+  DisposableCollection,
   EndOfLineSequence,
 } from "@otjs/utils";
 import mitt, { Emitter, Handler } from "mitt";
 import { TAceAdapterConstructionOptions } from "./api";
+import { createCursorWidget, disposeCursorWidgets } from "./cursor-widget.impl";
 
 /**
  * Range Constructor for Ace Editor
@@ -57,6 +59,8 @@ const Range: typeof AceAjax.Range = ace.require("ace/range").Range;
  */
 export class AceAdapter implements IEditorAdapter {
   protected _ace: AceAjax.Editor;
+  protected readonly _toDispose: IDisposableCollection =
+    new DisposableCollection();
   protected readonly _aceDocument: AceAjax.Document;
   protected readonly _aceSession: AceAjax.IEditSession;
   protected _bindEvents: boolean;
@@ -78,6 +82,7 @@ export class AceAdapter implements IEditorAdapter {
 
     this._grabDocumentState();
     this._init();
+    this._toDispose.push(disposeCursorWidgets());
   }
 
   get events(): boolean {
@@ -122,6 +127,8 @@ export class AceAdapter implements IEditorAdapter {
     if (this._bindEvents === false) {
       return;
     }
+
+    this._toDispose.dispose();
 
     this._ace.off("blur", this._onBlur);
     this._ace.off("focus", this._onFocus);
@@ -244,6 +251,7 @@ export class AceAdapter implements IEditorAdapter {
   setOtherCursor({
     clientId,
     cursor,
+    userName,
     userColor: cursorColor,
   }: TEditorAdapterCursorParams): IDisposable {
     assert(
@@ -313,6 +321,16 @@ export class AceAdapter implements IEditorAdapter {
       "text",
       false
     );
+
+    /** Add Cursor Widget to the editor */
+    createCursorWidget({
+      className,
+      clientId,
+      range: cursorRange,
+      userName,
+      duration: 1000,
+      editor: this._ace,
+    });
 
     return Disposable.create(() => {
       // @ts-expect-error
@@ -503,3 +521,5 @@ export class AceAdapter implements IEditorAdapter {
     this._grabDocumentState();
   }
 }
+
+export { IDisposable, IDisposableCollection } from "@otjs/types";
