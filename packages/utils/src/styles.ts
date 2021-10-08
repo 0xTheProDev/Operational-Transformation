@@ -222,7 +222,9 @@ function getStyles({
     .${className}-widget {
       height: 20px;
       padding-bottom: 0 !important;
+      position: absolute;
       transition: all 0.1s linear;
+      z-index: 10000;
     }
   `;
 }

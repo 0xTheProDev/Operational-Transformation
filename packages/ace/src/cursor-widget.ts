@@ -22,18 +22,40 @@
  * See LICENSE file in the root directory for more details.
  */
 
+import { IDisposable } from "@otjs/types";
+
 /**
- * @public
- * Constructor Options to instantiate a Ace Adapter
+ * @internal
+ * Constructor Parameter of Cursor Widget.
  */
-export type TAceAdapterConstructionOptions = {
-  /** Ace Editor Instance. */
+export type TCursorWidgetConstructionOptions = {
+  /** Ace Editor instance. */
   editor: AceAjax.Editor;
-  /**
-   * Duration (in ms) of User Name Announcement beside Cursor.
-   * Infinity means it will never be hidden. (optional, defaults to 1000)
-   */
-  announcementDuration?: number;
-  /** Bind Event Handlers to Ace (optional, defaults to `false`). */
-  bindEvents?: boolean;
+  /** Unique User Id whom the Cursor/Selection belongs to */
+  clientId: string;
+  /** Classname for the Cursor/Selection */
+  className: string;
+  /** Duration (in ms) of visibility */
+  duration: number;
+  /** Position of the Cursor/Selection */
+  range: AceAjax.Range;
+  /** Name/Short Name of the user (optional). */
+  userName?: string;
 };
+
+/**
+ * @internal
+ * Cursor Widget - To show tooltip like UI with Username beside Cursor.
+ */
+export interface ICursorWidget extends IDisposable {
+  /**
+   * Update Range of the Cursor Widget.
+   * @param range - Range of the Cursor/Selection.
+   */
+  updateRange(range: AceAjax.Range): void;
+  /**
+   * Update User Name of the remote user.
+   * @param userName - User Name.
+   */
+  updateUserName(userName: string): void;
+}
