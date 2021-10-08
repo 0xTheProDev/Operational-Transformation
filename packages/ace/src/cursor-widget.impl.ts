@@ -29,6 +29,7 @@ import {
   Disposable,
   DisposableCollection,
 } from "@otjs/utils";
+import { debounce, DebouncedFunc } from "lodash";
 import {
   ICursorWidget,
   TCursorWidgetConstructionOptions,
@@ -51,7 +52,6 @@ class CursorWidget implements ICursorWidget {
   protected _disposed: boolean = false;
   protected _position: AceAjax.Position | null = null;
   protected _range: AceAjax.Range;
-  protected _timer: NodeJS.Timeout | null = null;
   protected _tooltipNode!: HTMLElement;
   protected _widgetNode!: HTMLElement;
   protected _widget!: TooltipMarker;
@@ -93,8 +93,10 @@ class CursorWidget implements ICursorWidget {
       this._position!,
       this._widgetNode
     );
+    this._hideTooltip = debounce(this._hideTooltip, this._duration);
     this._editor.session.addDynamicMarker(this._widget, true);
     this._widget.setPosition({ row: 1, column: 0 });
+    this._setupTimer();
   }
 
   dispose(): void {
@@ -120,10 +122,6 @@ class CursorWidget implements ICursorWidget {
   }
 
   updateRange(range: AceAjax.Range): void {
-    if (this._range?.compareRange(range) === 0) {
-      return;
-    }
-
     this._range = range;
     this._updateWidgetPosition();
   }
@@ -142,11 +140,7 @@ class CursorWidget implements ICursorWidget {
    * Removes any pending timer.
    */
   protected _cleanupTimer(): void {
-    /* istanbul ignore if */
-    if (this._timer != null) {
-      clearTimeout(this._timer);
-      this._timer = null;
-    }
+    (this._hideTooltip as DebouncedFunc<any>).cancel();
   }
 
   /**
@@ -157,14 +151,7 @@ class CursorWidget implements ICursorWidget {
     if (!Number.isFinite(this._duration)) {
       return;
     }
-
-    this._timer = setTimeout(
-      /* istanbul ignore next */ () => {
-        this._hideTooltip();
-        this._timer = null;
-      },
-      this._duration
-    );
+    this._hideTooltip();
   }
 
   /**
@@ -193,6 +180,8 @@ class CursorWidget implements ICursorWidget {
     };
 
     this._widget.setPosition(this._position);
+    this._showTooltip();
+    this._setupTimer();
   }
 }
 
