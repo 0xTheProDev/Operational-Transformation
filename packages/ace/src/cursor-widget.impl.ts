@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IDisposable, IDisposableCollection } from "@otjs/types";
+import { IDisposable } from "@otjs/types";
 import {
   createTooltipNode,
   createWidgetNode,
@@ -59,10 +59,6 @@ class TooltipMarker {
     this._session = session;
     this._position = position;
     this._tooltipWidget = tooltipWidget;
-
-    // Adding tooltip specific styling
-    this._tooltipWidget.style.position = "absolute";
-    this._tooltipWidget.style.zIndex = "1000";
 
     // Append tooltip to ace-content div
     const aceContent = document.querySelector(".ace_content");
@@ -118,6 +114,9 @@ class TooltipMarker {
     this._tooltipWidget.style.opacity = "1";
   }
 
+  /**
+   * Force triggers the changeFrontMarker event
+   */
   private _forceSessionUpdate(): void {
     (this._session as any)._signal("changeFrontMarker");
   }
@@ -139,9 +138,6 @@ const widgets: Map<string, ICursorWidget> = new Map();
  * @param constructorOptions - Constructor options for Cursor Widget.
  */
 class CursorWidget implements ICursorWidget {
-  protected readonly _toDispose: IDisposableCollection =
-    new DisposableCollection();
-
   protected readonly _id: string;
   protected readonly _duration: number;
   protected readonly _tooltipClass: string;
@@ -171,7 +167,7 @@ class CursorWidget implements ICursorWidget {
     this._content = userName ?? clientId;
     this._duration = duration;
     this._tooltipClass = `${className}-tooltip`;
-    this._widgetClass = `ace-editor-overlaymessage ${className}-widget`;
+    this._widgetClass = `${className}-widget`;
 
     this._init();
   }
@@ -206,7 +202,6 @@ class CursorWidget implements ICursorWidget {
 
     this._cleanupTimer();
     this._editor.session.removeMarker(this._widget.id);
-    this._toDispose.dispose();
 
     // @ts-expect-error
     this._tooltipNode = null;
@@ -219,14 +214,6 @@ class CursorWidget implements ICursorWidget {
     this._position = null;
 
     this._disposed = true;
-  }
-
-  getId(): string {
-    return this._id;
-  }
-
-  getDomNode(): HTMLElement {
-    return this._widgetNode;
   }
 
   updateRange(range: AceAjax.Range): void {
