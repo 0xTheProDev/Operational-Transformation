@@ -41,33 +41,32 @@ class TooltipMarker {
   public inFront!: boolean;
   public id!: number;
 
-  private readonly _session: any;
-  private readonly tooltipWidget: HTMLElement;
+  private readonly _session: AceAjax.IEditSession;
+  private readonly _tooltipWidget: HTMLElement;
   private _position: AceAjax.Position;
 
   /**
    * Constructs a new TooltipMarker
    * @param session The Ace Editor Session to bind to.
-   * @param cursorId the unique id of this cursor.
-   * @param label The label to display over the cursor.
    * @param position The row / column coordinate of the cursor marker.
-   * @param domNode The dom node to act as tooltip container.
+   * @param tooltipWidget The dom node to act as tooltip container.
    */
   constructor(
-    session: any,
+    session: AceAjax.IEditSession,
     position: AceAjax.Position,
     tooltipWidget: HTMLElement
   ) {
     this._session = session;
-    this._position = position ? this._convertPosition(position) : null;
-    this.tooltipWidget = tooltipWidget;
+    this._position = position;
+    this._tooltipWidget = tooltipWidget;
 
     // Adding tooltip specific styling
-    this.tooltipWidget.style.position = "absolute";
-    this.tooltipWidget.style.zIndex = "1000";
+    this._tooltipWidget.style.position = "absolute";
+    this._tooltipWidget.style.zIndex = "1000";
 
     // Append tooltip to ace-content div
-    document.querySelector(".ace_content")?.append(this.tooltipWidget);
+    const aceContent = document.querySelector(".ace_content");
+    aceContent?.append(this._tooltipWidget);
   }
 
   /**
@@ -105,37 +104,22 @@ class TooltipMarker {
       toolTipTop = cursorTop + height - 1;
     }
 
-    this.tooltipWidget.style.top = `${toolTipTop}px`;
-    this.tooltipWidget.style.left = `${left}px`;
+    this._tooltipWidget.style.top = `${toolTipTop}px`;
+    this._tooltipWidget.style.left = `${left}px`;
   }
 
   /**
    * Sets the location of the cursor marker.
    * @param position The position of cursor marker.
    */
-  public setPosition(position: number | any): void {
-    this._position = this._convertPosition(position);
+  public setPosition(position: AceAjax.Position): void {
+    this._position = position;
     this._forceSessionUpdate();
-    this.tooltipWidget.style.opacity = "1";
+    this._tooltipWidget.style.opacity = "1";
   }
 
   private _forceSessionUpdate(): void {
     (this._session as any)._signal("changeFrontMarker");
-  }
-
-  private _convertPosition(position: number | any): any {
-    if (position === null) {
-      return null;
-    } else if (typeof position === "number") {
-      return this._session.getDocument().indexToPosition(position, 0);
-    } else if (
-      typeof position.row === "number" &&
-      typeof position.column === "number"
-    ) {
-      return position;
-    }
-
-    throw new Error(`Invalid position: ${position}`);
   }
 }
 
