@@ -29,6 +29,11 @@
 export type TAceAdapterConstructionOptions = {
   /** Ace Editor Instance. */
   editor: AceAjax.Editor;
+  /**
+   * Duration (in ms) of User Name Announcement beside Cursor.
+   * Infinity means it will never be hidden. (optional, defaults to 1000)
+   */
+  announcementDuration?: number;
   /** Bind Event Handlers to Ace (optional, defaults to `false`). */
   bindEvents?: boolean;
 };

@@ -61,6 +61,8 @@ export class AceAdapter implements IEditorAdapter {
   protected _ace: AceAjax.Editor;
   protected readonly _toDispose: IDisposableCollection =
     new DisposableCollection();
+
+  protected _announcementDuration: number;
   protected readonly _aceDocument: AceAjax.Document;
   protected readonly _aceSession: AceAjax.IEditSession;
   protected _bindEvents: boolean;
@@ -74,8 +76,13 @@ export class AceAdapter implements IEditorAdapter {
   protected _lastCursorRange: AceAjax.Range | null = null;
   protected _emitter: Emitter<TEditorAdapterEventArgs> = mitt();
 
-  constructor({ editor, bindEvents = false }: TAceAdapterConstructionOptions) {
+  constructor({
+    editor,
+    announcementDuration = 1000,
+    bindEvents = false,
+  }: TAceAdapterConstructionOptions) {
     this._ace = editor;
+    this._announcementDuration = announcementDuration;
     this._aceSession = this._ace.getSession();
     this._aceDocument = this._aceSession.getDocument();
     this._bindEvents = bindEvents;
@@ -328,7 +335,7 @@ export class AceAdapter implements IEditorAdapter {
       clientId,
       range: cursorRange,
       userName,
-      duration: 1000,
+      duration: this._announcementDuration,
       editor: this._ace,
     });
 
