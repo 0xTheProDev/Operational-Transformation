@@ -128,6 +128,7 @@ const onDocumentReady = (): void => {
   const databaseRef = getDatabaseRef();
 
   const fireAce = new FireAceEditor({
+    announcementDuration: Infinity,
     databaseRef,
     editor,
     userId,
