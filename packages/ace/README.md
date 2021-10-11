@@ -4,7 +4,7 @@
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
 [![Types](https://img.shields.io/npm/types/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
-[![License](https://img.shields.io/npm/l/@otjs/ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/monaco/LICENSE)
+[![License](https://img.shields.io/npm/l/@otjs/ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/ace/LICENSE)
 [![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
 [![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
 [![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
@@ -44,7 +44,8 @@ Make sure to install all the peer dependencies beforehand:
 import { AceAdapter } from "@otjs/ace";
 
 const aceAdapter = new AceAdapter({
-  editor:                   // Monaco Editor Instance
+  editor:                   // Ace Editor Instance
+  announcementDuration:     // Duration (in ms) of User Name Announcement beside Cursor (optional)
   bindEvents:               // Boolean on whether or not to emit events from Adapter (optional)
 });
 ```
@@ -69,4 +70,4 @@ See [Contributing Guidelines](https://github.com/Progyan1997/Operational-Transfo
 
 ## License
 
-This project is licensed under the terms of the MIT license, see [LICENSE](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/monaco/LICENSE) for more details.
+This project is licensed under the terms of the MIT license, see [LICENSE](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/ace/LICENSE) for more details.

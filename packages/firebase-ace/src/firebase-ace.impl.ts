@@ -52,6 +52,7 @@ export class FireAceEditor implements IFireAceEditor {
   protected _userName: string | null = null;
 
   constructor({
+    announcementDuration,
     editor,
     databaseRef,
     userId,
@@ -65,6 +66,7 @@ export class FireAceEditor implements IFireAceEditor {
       userName,
     });
     this._editorAdapter = new AceAdapter({
+      announcementDuration,
       editor,
       bindEvents: true,
     });

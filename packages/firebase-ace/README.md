@@ -44,7 +44,8 @@ import { FireAceEditor } from "@otjs/firebase-ace";
 
 const fireAce = new FireAceEditor({
   databaseRef:            // Database Reference in Firebase Realtime DB
-  editor:                 // Monaco Editor instance
+  editor:                 // Ace Editor instance
+  announcementDuration:   // Duration to hide Cursor tooltip (optional)
   userId:                 // Unique Identifier for current user
   userColor:              // Unique Color Code for current user
   userName:               // Human readable Name or Short Name (optional)
