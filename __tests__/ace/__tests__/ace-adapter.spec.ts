@@ -30,8 +30,6 @@ import {
 import { PlainTextOperation } from "@otjs/plaintext";
 import { AceAdapter } from "@otjs/ace/src/ace-adapter";
 
-jest.setTimeout(10000 /** 10 seconds */);
-
 /**
  * Range Constructor for Ace Editor
  */
