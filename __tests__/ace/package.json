@@ -1,0 +1,18 @@
+{
+  "name": "@otjs-tests/ace",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Integration Test Suite for Ace Adapter.",
+  "rootDir": "__tests__/ace",
+  "scripts": {
+    "test": "TEST_ENV=true jest --colors",
+    "test:ci": "yarn test --ci --silent",
+    "test:watch": "yarn test --watch"
+  },
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@otjs/ace": "0.1.1",
+    "ace-builds": "1.4.13"
+  }
+}

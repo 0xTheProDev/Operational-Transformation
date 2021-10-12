@@ -11,6 +11,7 @@
     "coverage:dev": "nyc report -t coverage --report-dir coverage --reporter=lcov",
     "test": "TEST_ENV=true jest --colors",
     "test:ci": "yarn test --ci --silent",
+    "test:ace": "yarn --cwd __tests__/ace test:ci",
     "test:firebase": "yarn --cwd __tests__/firebase test:ci",
     "test:monaco": "yarn --cwd __tests__/monaco test:ci",
     "test:watch": "yarn test --watch",
