@@ -1,1 +1,1 @@
-## Integration Test Suite for Monaco Adapter for Plain Text Editor
+## Integration Test Suite for Ace Adapter for Plain Text Editor

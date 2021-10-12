@@ -63,6 +63,7 @@ $ git checkout -b <branch_name>
 
 - Work on the issue(s) assigned to you.
 - Add all the files/folders needed.
+- Make sure to add or modify the tests (both unit and integration) to ensure net positive code coverage.
 - After you've made changes or made your contribution to the project, add changes to the branch you've just created by:
 
 ```bash
