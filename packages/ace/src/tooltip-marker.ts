@@ -65,8 +65,9 @@ export class TooltipMarker {
     _: string[],
     markerLayer: any,
     __: AceAjax.IEditSession,
-    layerConfig: any
+    layerConfig: AceAjax.VirtualRenderer
   ): void {
+    /* istanbul ignore if */
     if (this._position === null) {
       return;
     }
