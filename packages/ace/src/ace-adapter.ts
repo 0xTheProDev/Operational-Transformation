@@ -213,7 +213,7 @@ export class AceAdapter implements IEditorAdapter {
       end = this._aceDocument.positionToIndex(
         this._aceSession.selection.getRange().end
       );
-    } catch (err) {
+    } catch (err) /* istanbul ignore next */ {
       console.log("Failed to get cursor position from Ace editor: ", err);
 
       try {
@@ -229,10 +229,6 @@ export class AceAdapter implements IEditorAdapter {
 
         return null;
       }
-    }
-
-    if (start > end) {
-      [start, end] = [end, start];
     }
 
     return new Cursor(start, end);
@@ -272,7 +268,7 @@ export class AceAdapter implements IEditorAdapter {
     );
 
     /** Remove non-alphanumeric characters to create valid classname */
-    const cursorColorTitle = cursorColor.replace(/\W+/g, "_");
+    const cursorColorTitle = cursorColor.replace(/,/g, "_").replace(/\W+/g, "");
     const className = `remote-client-${cursorColorTitle}`;
 
     /** Generate Style rules and add them to document */
@@ -292,7 +288,7 @@ export class AceAdapter implements IEditorAdapter {
     const cursorRange = new Range(start.row, start.column, end.row, end.column);
 
     let originalClipRows = cursorRange.clipRows;
-    cursorRange.clipRows = function (
+    cursorRange.clipRows = /* istanbul ignore next */ function (
       firstRow: number,
       lastRow: number
     ): AceAjax.Range {

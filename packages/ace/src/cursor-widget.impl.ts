@@ -198,7 +198,7 @@ const widgets: Map<string, ICursorWidget> = new Map();
 /**
  * @internal
  * Returns a Disposable instance for cleanup.
- * @param options - Contruction Options for the Cursor Widget.
+ * @param options - Construction Options for the Cursor Widget.
  */
 export function createCursorWidget(
   options: TCursorWidgetConstructionOptions

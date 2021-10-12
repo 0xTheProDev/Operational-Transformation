@@ -33,7 +33,8 @@ import { Handler } from "mitt";
  * Constructor Options to instantiate a FireAce Editor.
  */
 export type TFireAceEditorConstructionOptions =
-  TFirebaseAdapterConstructionOptions & TAceAdapterConstructionOptions;
+  TFirebaseAdapterConstructionOptions &
+    Omit<TAceAdapterConstructionOptions, "bindEvents">;
 
 /**
  * @public

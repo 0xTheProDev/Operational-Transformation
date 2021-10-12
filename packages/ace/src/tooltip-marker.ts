@@ -29,9 +29,9 @@ export class TooltipMarker {
   public inFront!: boolean;
   public id!: number;
 
-  private readonly _session: AceAjax.IEditSession;
-  private readonly _tooltipWidget: HTMLElement;
-  private _position: AceAjax.Position;
+  protected readonly _session: AceAjax.IEditSession;
+  protected readonly _tooltipWidget: HTMLElement;
+  protected _position: AceAjax.Position;
 
   /**
    * Constructs a new TooltipMarker
@@ -61,12 +61,13 @@ export class TooltipMarker {
    * @param __ The ace edit session.
    * @param layerConfig
    */
-  public update(
+  update(
     _: string[],
     markerLayer: any,
-    __: any,
-    layerConfig: any
+    __: AceAjax.IEditSession,
+    layerConfig: AceAjax.VirtualRenderer
   ): void {
+    /* istanbul ignore if */
     if (this._position === null) {
       return;
     }
@@ -96,7 +97,7 @@ export class TooltipMarker {
    * Sets the location of the cursor marker.
    * @param position The position of cursor marker.
    */
-  public setPosition(position: AceAjax.Position): void {
+  setPosition(position: AceAjax.Position): void {
     this._position = position;
     this._forceSessionUpdate();
     this._tooltipWidget.style.opacity = "1";
@@ -105,7 +106,7 @@ export class TooltipMarker {
   /**
    * Force triggers the changeFrontMarker event
    */
-  private _forceSessionUpdate(): void {
+  protected _forceSessionUpdate(): void {
     (this._session as any)._signal("changeFrontMarker");
   }
 }

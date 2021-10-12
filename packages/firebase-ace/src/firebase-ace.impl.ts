@@ -53,8 +53,8 @@ export class FireAceEditor implements IFireAceEditor {
 
   constructor({
     announcementDuration,
-    editor,
     databaseRef,
+    editor,
     userId,
     userColor,
     userName,
