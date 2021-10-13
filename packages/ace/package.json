@@ -53,7 +53,8 @@
   },
   "peerDependencies": {
     "@otjs/plaintext": "^0.1.1",
-    "@otjs/plaintext-editor": "^0.1.1"
+    "@otjs/plaintext-editor": "^0.1.1",
+    "ace-builds": "1.4.13"
   },
   "peerDependenciesMeta": {
     "@otjs/plaintext": {
@@ -61,6 +62,9 @@
     },
     "@otjs/plaintext-editor": {
       "optional": false
+    },
+    "ace-builds": {
+      "optional": true
     }
   }
 }
