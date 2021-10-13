@@ -27,7 +27,9 @@ import { TooltipMarker } from "@otjs/ace/src/tooltip-marker";
 describe("Test Tooltip Marker", () => {
   let aceEditor: AceAjax.Editor,
     aceSession: AceAjax.IEditSession,
-    tooltipWidget: HTMLElement;
+    tooltipWidget: HTMLElement,
+    layerConfig: any,
+    markerLayer: any;
 
   beforeAll(() => {
     const containerEl = document.createElement("div");
@@ -35,33 +37,32 @@ describe("Test Tooltip Marker", () => {
     aceEditor = ace.edit(containerEl);
     aceSession = aceEditor.getSession();
     tooltipWidget = document.createElement("div");
+
+    jest
+      .spyOn(aceSession, "documentToScreenPosition")
+      .mockImplementation((docRow, docCol) => ({
+        row: docRow,
+        column: docCol,
+      }));
+    layerConfig = {
+      characterWidth: 5,
+      lineHeight: 12,
+    };
+    markerLayer = {
+      $padding: 2,
+      $getTop(row: number): number {
+        return row;
+      },
+    };
   });
 
   afterAll(() => {
     aceEditor.destroy();
+    layerConfig = null;
+    markerLayer = null;
   });
 
   describe("#update", () => {
-    let layerConfig: any, markerLayer: any;
-
-    beforeAll(() => {
-      layerConfig = {
-        characterWidth: 5,
-        lineHeight: 12,
-      };
-      markerLayer = {
-        $padding: 2,
-        $getTop(row: number): number {
-          return row;
-        },
-      };
-    });
-
-    afterAll(() => {
-      layerConfig = null;
-      markerLayer = null;
-    });
-
     it("should update position of the marker in the DOM", () => {
       const position = {
         row: 1,
@@ -70,8 +71,8 @@ describe("Test Tooltip Marker", () => {
       const marker = new TooltipMarker(aceSession, position, tooltipWidget);
       marker.update([], markerLayer, aceSession, layerConfig);
 
-      expect(tooltipWidget.style.top).toBe("13px");
-      expect(tooltipWidget.style.left).toBe("2px");
+      expect(tooltipWidget.style.top).toBe("14px");
+      expect(tooltipWidget.style.left).toBe("7px");
     });
   });
 
@@ -90,11 +91,15 @@ describe("Test Tooltip Marker", () => {
         initialPosition,
         tooltipWidget
       );
-      marker.setPosition(finalPosition);
 
+      aceSession.on("changeFrontMarker", () => {
+        marker.update([], markerLayer, aceSession, layerConfig);
+      });
+
+      marker.setPosition(finalPosition);
       expect(tooltipWidget.style.opacity).toBe("1");
-      expect(tooltipWidget.style.top).toBe("13px");
-      expect(tooltipWidget.style.left).toBe("2px");
+      expect(tooltipWidget.style.top).toBe("25px");
+      expect(tooltipWidget.style.left).toBe("17px");
     });
   });
 });
