@@ -34,7 +34,7 @@ $ npm i @otjs/ace
 
 Make sure to install all the peer dependencies beforehand:
 
-[![Ace Editor](https://img.shields.io/npm/v/ace-build?label=ace)](https://ace.c9.io)
+[![Ace Editor](https://img.shields.io/npm/dependency-version/@otjs/ace/peer/ace-builds)](https://ace.c9.io)
 
 ## Usage
 

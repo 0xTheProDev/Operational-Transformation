@@ -36,14 +36,14 @@
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/ace">ace</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/ace"><img src="https://img.shields.io/npm/v/@otjs/ace"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/ace"><img src="https://img.shields.io/npm/dw/@otjs/ace"/></a></td>
-      <td><a href="https://ace.c9.io" target="_blank"><img src="https://img.shields.io/npm/v/ace-build?label=ace"/></a></td>
+      <td><a href="https://www.npmjs.com/package/ace-builds" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/ace/peer/ace-builds"/></a></td>
     </tr>
     <tr title="firebase-ace">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-ace">firebase-ace</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-ace"><img src="https://img.shields.io/npm/v/@otjs/firebase-ace"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-ace"><img src="https://img.shields.io/npm/dw/@otjs/firebase-ace"/></a></td>
       <td>
-        <a href="https://ace.c9.io" target="_blank"><img src="https://img.shields.io/npm/v/ace-build?label=ace"/></a>
+        <a href="https://www.npmjs.com/package/ace-builds" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/peer/ace-builds"/></a>
         <a href="https://www.npmjs.com/package/firebase" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/peer/firebase"/></a>
       </td>
     </tr>
