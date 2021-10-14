@@ -102,6 +102,7 @@ jobs:
   firebase:
     name: Firebase Integration
     runs-on: ubuntu-latest
+    environment: test
     steps:
       - uses: actions/checkout@v2
 
