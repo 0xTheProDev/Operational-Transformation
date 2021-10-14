@@ -11,8 +11,8 @@
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@otjs/firebase-ace": "0.1.1",
-    "@otjs/firebase-monaco": "0.1.1",
+    "@otjs/firebase-ace": "^0.2.0",
+    "@otjs/firebase-monaco": "^0.2.0",
     "firebase": "9.0.2",
     "monaco-editor": "0.27.0",
     "uuid": "8.3.2"

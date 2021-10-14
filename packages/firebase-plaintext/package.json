@@ -1,6 +1,6 @@
 {
   "name": "@otjs/firebase-plaintext",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Database Adapter implementation for Firebase to use with Plain Text Editor",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-plaintext#readme",
@@ -43,8 +43,8 @@
     "clean": "rimraf lib typings index.d.ts"
   },
   "devDependencies": {
-    "@otjs/plaintext": "0.1.1",
-    "@otjs/plaintext-editor": "0.1.1",
+    "@otjs/plaintext": "0.2.0",
+    "@otjs/plaintext-editor": "0.2.0",
     "@otjs/types": "^0.0.0",
     "@otjs/utils": "^0.0.0",
     "firebase": "9.0.2"
@@ -53,8 +53,8 @@
     "mitt": "3.0.0"
   },
   "peerDependencies": {
-    "@otjs/plaintext": "^0.1.1",
-    "@otjs/plaintext-editor": "^0.1.1",
+    "@otjs/plaintext": "^0.2.0",
+    "@otjs/plaintext-editor": "^0.2.0",
     "firebase": "^9.0.2"
   },
   "peerDependenciesMeta": {

@@ -1,6 +1,6 @@
 {
   "name": "@otjs/state-machine",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "State machine to manage Consistency of Operations across multiple clients.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/state-machine#readme",

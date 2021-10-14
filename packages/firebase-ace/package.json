@@ -1,6 +1,6 @@
 {
   "name": "@otjs/firebase-ace",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Real-time collaborative editor with out of the box binding with Firebase and Ace Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-ace#readme",
@@ -52,14 +52,14 @@
     "mitt": "3.0.0"
   },
   "dependencies": {
-    "@otjs/ace": "0.1.1",
-    "@otjs/firebase-plaintext": "0.1.1",
-    "@otjs/plaintext": "0.1.1",
-    "@otjs/plaintext-editor": "0.1.1"
+    "@otjs/ace": "0.2.0",
+    "@otjs/firebase-plaintext": "0.2.0",
+    "@otjs/plaintext": "0.2.0",
+    "@otjs/plaintext-editor": "0.2.0"
   },
   "peerDependencies": {
-    "firebase": "^9.0.2",
-    "ace-builds": "1.4.13"
+    "ace-builds": "1.4.13",
+    "firebase": "^9.0.2"
   },
   "peerDependenciesMeta": {
     "firebase": {
