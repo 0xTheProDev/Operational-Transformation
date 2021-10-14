@@ -152,6 +152,10 @@ To convert generated final coverage report into more human readable form _(such 
 $ yarn coverage:dev
 ```
 
+### Integration Tests
+
+This package only provides a functional layer on top of your existing dependencies and does not ship any additional bundle. To make sure our implementation and integrations are up-to-date, we have a comprehensive set of Integration Test Suite living in [**tests**](./__tests__) directory.
+
 ### Editor Integration
 
 Most of the popular editors and IDEs have extensions to help with Code Coverage details. These tools often read `lcov` reports and not `json` format. So one must convert them into `lcov` using last command described above to make it work with the editor of their choice.
