@@ -34,8 +34,6 @@ $ npm i @otjs/monaco
 
 Make sure to install all the peer dependencies beforehand:
 
-[![PlainText](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/@otjs/plaintext)](https://www.npmjs.com/package/@otjs/plaintext)
-[![PlainText Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
 [![Monaco Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor)](https://microsoft.github.io/monaco-editor)
 
 ## Usage
