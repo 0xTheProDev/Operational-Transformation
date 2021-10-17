@@ -25,9 +25,9 @@
     "url": "https://github.com/Progyan1997/Operational-Transformation.git"
   },
   "workspaces": [
+    "packages/*",
     "__tests__/*",
-    "examples/*",
-    "packages/*"
+    "examples/*"
   ],
   "devDependencies": {
     "@babel/preset-env": "7.15.6",
