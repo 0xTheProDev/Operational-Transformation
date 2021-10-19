@@ -22,6 +22,19 @@
  * See LICENSE file in the root directory for more details.
  */
 
-export * from "./api";
-export * from "./firebase-adapter";
-export * from "./internal-types";
+import { PresenceChannel } from "pusher-js";
+
+/**
+ * @public
+ * Constructor Options to instantiate a Pusher Adapter.
+ */
+export type TPusherAdapterConstructionOptions = {
+  /** Pusher Channel (Presence) Reference. */
+  channel: PresenceChannel;
+  /** Unique Identifier of the User. */
+  userId: string;
+  /** Color String (Hex, HSL, RGB, Text etc.) for Cursor/Selection. */
+  userColor: string;
+  /** Name or Short Name of the User. */
+  userName?: string;
+};

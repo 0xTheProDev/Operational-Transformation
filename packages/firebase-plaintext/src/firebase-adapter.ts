@@ -67,6 +67,7 @@ import {
   ThenableCollection,
   TransactionFailureError,
 } from "@otjs/utils";
+import { TFirebaseAdapterConstructionOptions } from "./api";
 import {
   TCheckPointData,
   TCursorData,
@@ -86,7 +87,6 @@ import {
   getUserNameRef,
   getUsersRef,
 } from "./reference";
-import { TFirebaseAdapterConstructionOptions } from "./external-types";
 
 /**
  * @public
@@ -155,6 +155,9 @@ export class FirebaseAdapter implements IDatabaseAdapter {
     this._init();
   }
 
+  /**
+   * Setup Listeners and consume initial data.
+   */
   protected _init(): void {
     const connectedRef = child(this._databaseRef.root, ".info/connected");
 
@@ -406,11 +409,9 @@ export class FirebaseAdapter implements IDatabaseAdapter {
 
   /**
    * Handle scenario when own revision gets added as `child` in history node.
-   * Returns if a Retry is needed.
+   * Returns true if a Retry is needed.
    */
   protected _handleSelfReceivedRevision(revision: TParsedRevision): boolean {
-    let triggerRetry: boolean = false;
-
     /* istanbul ignore else */
     if (
       this._sent!.op.equals(revision.operation) &&
@@ -420,15 +421,15 @@ export class FirebaseAdapter implements IDatabaseAdapter {
       if (this._revision % FirebaseAdapter.CHECKPOINT_FREQUENCY === 0) {
         this._saveCheckpoint(this._revision - 1, this._document.toJSON());
       }
+
       this._sent = null;
       this._trigger(DatabaseAdapterEvent.Acknowledge, undefined);
-    } else {
-      /** our op failed.  Trigger a retry after we're done catching up on any incoming ops. */
-      triggerRetry = true;
-      this._trigger(DatabaseAdapterEvent.Operation, revision.operation);
+      return false;
     }
 
-    return triggerRetry;
+    /** our op failed.  Trigger a retry after we're done catching up on any incoming ops. */
+    this._trigger(DatabaseAdapterEvent.Operation, revision.operation);
+    return true;
   }
 
   /**

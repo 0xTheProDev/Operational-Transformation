@@ -23,5 +23,4 @@
  */
 
 export * from "./api";
-export * from "./firebase-adapter";
-export * from "./internal-types";
+export * from "./pusher-adapter";

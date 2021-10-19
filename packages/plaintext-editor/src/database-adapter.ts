@@ -62,9 +62,9 @@ export type TDatabaseAdapterCursor = {
  */
 export type TDatabaseAdapterError = {
   /** Error Object emitted inside Database Adapter */
-  err: Error;
+  err: Error | string;
   /** String representation of the Plain Text Operation */
-  operation: string;
+  operation?: string;
   /** String representation of the current Document State (optional) */
   document?: string;
 };

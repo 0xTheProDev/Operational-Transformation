@@ -22,6 +22,42 @@
  * See LICENSE file in the root directory for more details.
  */
 
-export * from "./api";
-export * from "./firebase-adapter";
-export * from "./internal-types";
+import { TCursor } from "@otjs/plaintext-editor";
+import { TPlainTextOperation } from "@otjs/plaintext";
+
+/** Additional Metadata on a Member */
+export type TMemberInfo = {
+  /** Color of user's Cursor/Selection */
+  color: string;
+  /** Position of user's Cursor/Selection */
+  cursor: TCursor | null;
+  /** User Name */
+  name: string;
+};
+
+/** Type Definition for a Member */
+export type TMember = {
+  /** User Id */
+  id: string;
+  /** Additional Metadata on a member */
+  info: TMemberInfo;
+};
+
+/** Error Payload on Subscription Error */
+export type TSubscriptionError = {
+  /** Category of error that occured, e.g. AuthError */
+  type: string;
+  /** Human readable details of error that occurred. */
+  error: string;
+  /** The HTTP Status code of the error response from the authentication call. */
+  status: number;
+};
+
+/**
+ * JSON Representation of Plain Text Operation in Pusher
+ */
+export type TOperationData = {
+  author: string;
+  operation: TPlainTextOperation;
+  timestamp: number;
+};
