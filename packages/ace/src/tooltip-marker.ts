@@ -32,6 +32,7 @@ export class TooltipMarker {
   protected readonly _session: AceAjax.IEditSession;
   protected readonly _tooltipWidget: HTMLElement;
   protected _position: AceAjax.Position;
+  protected _aceContent: HTMLElement | undefined;
 
   /**
    * Constructs a new TooltipMarker
@@ -47,10 +48,6 @@ export class TooltipMarker {
     this._session = session;
     this._position = position;
     this._tooltipWidget = tooltipWidget;
-
-    // Append tooltip to ace-content div
-    const aceContent = document.querySelector(".ace_content");
-    aceContent?.append(this._tooltipWidget);
   }
 
   /**
@@ -91,6 +88,12 @@ export class TooltipMarker {
 
     this._tooltipWidget.style.top = `${toolTipTop}px`;
     this._tooltipWidget.style.left = `${left}px`;
+
+    // Append tooltip to ace_content div
+    if (!this._aceContent) {
+      this._aceContent = markerLayer.element.closest(".ace_content");
+      this._aceContent?.append(this._tooltipWidget);
+    }
   }
 
   /**
