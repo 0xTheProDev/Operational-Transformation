@@ -44,12 +44,15 @@ describe("Test Tooltip Marker", () => {
         row: docRow,
         column: docCol,
       }));
+
     layerConfig = {
       characterWidth: 5,
       lineHeight: 12,
     };
+
     markerLayer = {
       $padding: 2,
+      element: document.createElement("div"),
       $getTop(row: number): number {
         return row;
       },
