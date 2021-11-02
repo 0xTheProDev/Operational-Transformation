@@ -1,0 +1,72 @@
+{
+  "name": "@otjs/pusher-monaco",
+  "version": "0.2.0",
+  "description": "Real-time collaborative editor with out of the box binding with Pusher and Monaco Editor.",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/pusher-monaco#readme",
+  "keywords": [
+    "collaborative",
+    "editor",
+    "eventual-consistency",
+    "pusher",
+    "monaco-editor",
+    "operational-transformation",
+    "typescript"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "index.d.ts",
+  "rootDir": "firebase-monaco",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "yarn build:lib && yarn build:dts",
+    "build:lib": "webpack",
+    "build:dts": "api-extractor run",
+    "clean": "rimraf lib typings index.d.ts",
+    "test": "TEST_ENV=true jest --colors",
+    "test:watch": "yarn test --watch"
+  },
+  "devDependencies": {
+    "@otjs/types": "^0.0.0",
+    "@otjs/utils": "^0.0.0",
+    "mitt": "3.0.0",
+    "monaco-editor": "0.27.0",
+    "pusher-js": "7.0.3"
+  },
+  "dependencies": {
+    "@otjs/monaco": "0.2.0",
+    "@otjs/plaintext": "0.2.0",
+    "@otjs/plaintext-editor": "0.2.0",
+    "@otjs/pusher-plaintext": "0.2.0"
+  },
+  "peerDependencies": {
+    "monaco-editor": "^0.27.0",
+    "pusher-js": "^7.0.3"
+  },
+  "peerDependenciesMeta": {
+    "monaco-editor": {
+      "optional": false
+    },
+    "pusher-js": {
+      "optional": false
+    }
+  }
+}
