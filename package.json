@@ -2,24 +2,6 @@
   "name": "operational-transformation",
   "private": true,
   "description": "A collection of Algorithms to Synchronise changes across multiple clients using Operational Transformation",
-  "scripts": {
-    "postinstall": "husky install",
-    "build": "lerna run build --no-private",
-    "precoverage": "./scripts/merge-coverage-reports.sh",
-    "coverage": "nyc merge coverage-all coverage/coverage.json",
-    "coverage:clean": "rm -rf coverage-* coverage",
-    "coverage:dev": "nyc report -t coverage --report-dir coverage --reporter=lcov",
-    "test": "TEST_ENV=true jest --colors",
-    "test:ci": "yarn test --ci --silent",
-    "test:ace": "yarn --cwd __tests__/ace test:ci",
-    "test:firebase": "yarn --cwd __tests__/firebase test:ci",
-    "test:monaco": "yarn --cwd __tests__/monaco test:ci",
-    "test:watch": "yarn test --watch",
-    "lint": "yarn lint:lockfile && yarn lint:prettier",
-    "lint:prettier": "prettier --write packages/**/*.ts",
-    "lint:lockfile": "check-yarn-lock",
-    "release": "lerna version --no-private --exact"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Progyan1997/Operational-Transformation.git"
@@ -29,6 +11,24 @@
     "__tests__/*",
     "examples/*"
   ],
+  "scripts": {
+    "build": "lerna run build --no-private",
+    "precoverage": "./scripts/merge-coverage-reports.sh",
+    "coverage": "nyc merge coverage-all coverage/coverage.json",
+    "coverage:clean": "rm -rf coverage-* coverage",
+    "coverage:dev": "nyc report -t coverage --report-dir coverage --reporter=lcov",
+    "postinstall": "husky install",
+    "lint": "yarn lint:lockfile && yarn lint:prettier",
+    "lint:lockfile": "check-yarn-lock",
+    "lint:prettier": "prettier --write packages/**/*.ts",
+    "release": "lerna version --no-private --exact",
+    "test": "TEST_ENV=true jest --colors",
+    "test:ace": "yarn --cwd __tests__/ace test:ci",
+    "test:ci": "yarn test --ci --silent",
+    "test:firebase": "yarn --cwd __tests__/firebase test:ci",
+    "test:monaco": "yarn --cwd __tests__/monaco test:ci",
+    "test:watch": "yarn test --watch"
+  },
   "devDependencies": {
     "@babel/preset-env": "7.15.6",
     "@microsoft/api-extractor": "7.18.7",
@@ -48,6 +48,7 @@
     "prettier": "2.3.2",
     "regenerator-runtime": "0.13.9",
     "rimraf": "3.0.2",
+    "sort-package-json": "1.52.0",
     "ts-jest": "27.0.5",
     "ts-loader": "9.2.5",
     "typescript": "4.4.2",
