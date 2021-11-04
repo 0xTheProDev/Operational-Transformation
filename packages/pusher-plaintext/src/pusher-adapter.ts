@@ -42,6 +42,11 @@ import { TPusherAdapterConstructionOptions } from "./api";
 import { PusherEvents } from "./events";
 import { TMember, TOperationData, TSubscriptionError } from "./internal_types";
 
+/**
+ * @public
+ * Create Database Adapter for Plain Text Editor using Pusher Channel as Source of Truth for Persistence.
+ * @param constructorOptions - A Configuration Object consisting Channel Reference and User Information.
+ */
 export class PusherAdapter implements IDatabaseAdapter {
   protected readonly _toDispose: IDisposableCollection =
     new DisposableCollection();
@@ -390,3 +395,5 @@ export class PusherAdapter implements IDatabaseAdapter {
     });
   };
 }
+
+export { IDisposable, IDisposableCollection } from "@otjs/types";

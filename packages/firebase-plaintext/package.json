@@ -2,8 +2,6 @@
   "name": "@otjs/firebase-plaintext",
   "version": "0.2.0",
   "description": "Database Adapter implementation for Firebase to use with Plain Text Editor",
-  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-plaintext#readme",
   "keywords": [
     "event-bus",
     "eventual-consistency",
@@ -11,10 +9,18 @@
     "operational-transformation",
     "typescript"
   ],
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-plaintext#readme",
+  "bugs": {
+    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+  },
   "license": "MIT",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "firebase-plaintext",
   "directories": {
     "lib": "src"
   },
@@ -22,25 +28,15 @@
     "lib",
     "index.d.ts"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
-  },
-  "engines": {
-    "node": ">=10.10.0"
-  },
   "scripts": {
     "prebuild": "yarn clean",
     "build": "yarn build:lib && yarn build:dts",
-    "build:lib": "webpack",
     "build:dts": "api-extractor run",
+    "build:lib": "webpack",
     "clean": "rimraf lib typings index.d.ts"
+  },
+  "dependencies": {
+    "mitt": "3.0.0"
   },
   "devDependencies": {
     "@otjs/plaintext": "0.2.0",
@@ -48,9 +44,6 @@
     "@otjs/types": "^0.0.0",
     "@otjs/utils": "^0.0.0",
     "firebase": "9.0.2"
-  },
-  "dependencies": {
-    "mitt": "3.0.0"
   },
   "peerDependencies": {
     "@otjs/plaintext": "^0.2.0",
@@ -67,5 +60,12 @@
     "firebase": {
       "optional": false
     }
-  }
+  },
+  "engines": {
+    "node": ">=10.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "rootDir": "firebase-plaintext"
 }

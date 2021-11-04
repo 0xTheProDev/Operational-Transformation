@@ -2,8 +2,6 @@
   "name": "@otjs/plaintext-editor",
   "version": "0.2.0",
   "description": "A Editor Client to wrap a Plain Text Editor to have collaborative experience based on OT.",
-  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext-editor#readme",
   "keywords": [
     "collaborative",
     "editor",
@@ -12,10 +10,18 @@
     "plaintext",
     "typescript"
   ],
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext-editor#readme",
+  "bugs": {
+    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+  },
   "license": "MIT",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "plaintext-editor",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -24,36 +30,23 @@
     "lib",
     "index.d.ts"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
-  },
-  "engines": {
-    "node": ">=10.0.0"
-  },
   "scripts": {
     "prebuild": "yarn clean",
     "build": "yarn build:lib && yarn build:dts",
-    "build:lib": "webpack",
     "build:dts": "api-extractor run",
+    "build:lib": "webpack",
     "clean": "rimraf lib typings index.d.ts",
     "test": "TEST_ENV=true jest --colors",
     "test:watch": "yarn test --watch"
+  },
+  "dependencies": {
+    "@otjs/state-machine": "0.2.0",
+    "mitt": "3.0.0"
   },
   "devDependencies": {
     "@otjs/plaintext": "0.2.0",
     "@otjs/types": "^0.0.0",
     "@otjs/utils": "^0.0.0"
-  },
-  "dependencies": {
-    "@otjs/state-machine": "0.2.0",
-    "mitt": "3.0.0"
   },
   "peerDependencies": {
     "@otjs/plaintext": "^0.2.0"
@@ -62,5 +55,12 @@
     "@otjs/plaintext": {
       "optional": false
     }
-  }
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "rootDir": "plaintext-editor"
 }

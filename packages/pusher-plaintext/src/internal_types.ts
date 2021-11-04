@@ -25,7 +25,10 @@
 import { TCursor } from "@otjs/plaintext-editor";
 import { TPlainTextOperation } from "@otjs/plaintext";
 
-/** Additional Metadata on a Member */
+/**
+ * @internal
+ * Additional Metadata on a Member
+ */
 export type TMemberInfo = {
   /** Color of user's Cursor/Selection */
   color: string;
@@ -35,7 +38,10 @@ export type TMemberInfo = {
   name: string;
 };
 
-/** Type Definition for a Member */
+/**
+ * @internal
+ * Type Definition for a Member
+ */
 export type TMember = {
   /** User Id */
   id: string;
@@ -43,7 +49,10 @@ export type TMember = {
   info: TMemberInfo;
 };
 
-/** Error Payload on Subscription Error */
+/**
+ * @internal
+ * Error Payload on Subscription Error
+ */
 export type TSubscriptionError = {
   /** Category of error that occured, e.g. AuthError */
   type: string;
@@ -54,6 +63,7 @@ export type TSubscriptionError = {
 };
 
 /**
+ * @internal
  * JSON Representation of Plain Text Operation in Pusher
  */
 export type TOperationData = {

@@ -2,32 +2,32 @@
   "name": "@otjs/utils",
   "version": "0.0.0",
   "private": true,
-  "sideEffects": false,
   "description": "Utility functions to help implement different OT packages.",
-  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/utils#readme",
-  "license": "MIT",
-  "main": "src/index.ts",
-  "rootDir": "utils",
-  "directories": {
-    "lib": "src",
-    "test": "__tests__"
-  },
-  "publishConfig": {
-    "access": "restricted"
+  "bugs": {
+    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
   },
-  "bugs": {
-    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
-  },
-  "engines": {
-    "node": ">=10.0.0"
+  "license": "MIT",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "sideEffects": false,
+  "main": "src/index.ts",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
   },
   "scripts": {
     "test": "TEST_ENV=true jest --colors",
     "test:watch": "yarn test --watch"
-  }
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "rootDir": "utils"
 }

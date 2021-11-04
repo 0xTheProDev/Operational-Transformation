@@ -2,8 +2,6 @@
   "name": "@otjs/monaco",
   "version": "0.2.0",
   "description": "Plain Text Editor Adapter for Monaco Editor.",
-  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/monaco#readme",
   "keywords": [
     "collaborative",
     "editor",
@@ -12,10 +10,18 @@
     "operational-transformation",
     "typescript"
   ],
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/monaco#readme",
+  "bugs": {
+    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+  },
   "license": "MIT",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "monaco",
   "directories": {
     "lib": "src"
   },
@@ -23,22 +29,15 @@
     "lib",
     "index.d.ts"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
-  },
   "scripts": {
     "prebuild": "yarn clean",
     "build": "yarn build:lib && yarn build:dts",
-    "build:lib": "webpack",
     "build:dts": "api-extractor run",
+    "build:lib": "webpack",
     "clean": "rimraf lib typings index.d.ts"
+  },
+  "dependencies": {
+    "mitt": "3.0.0"
   },
   "devDependencies": {
     "@otjs/plaintext": "0.2.0",
@@ -46,9 +45,6 @@
     "@otjs/types": "^0.0.0",
     "@otjs/utils": "^0.0.0",
     "monaco-editor": "0.27.0"
-  },
-  "dependencies": {
-    "mitt": "3.0.0"
   },
   "peerDependencies": {
     "@otjs/plaintext": "^0.2.0",
@@ -65,5 +61,9 @@
     "monaco-editor": {
       "optional": false
     }
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "rootDir": "monaco"
 }

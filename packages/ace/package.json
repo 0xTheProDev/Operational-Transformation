@@ -2,8 +2,6 @@
   "name": "@otjs/ace",
   "version": "0.2.0",
   "description": "Plain Text Editor Adapter for Ace Editor.",
-  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/ace#readme",
   "keywords": [
     "ace",
     "collaborative",
@@ -12,10 +10,18 @@
     "operational-transformation",
     "typescript"
   ],
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/ace#readme",
+  "bugs": {
+    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+  },
   "license": "MIT",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "ace",
   "directories": {
     "lib": "src"
   },
@@ -23,22 +29,15 @@
     "lib",
     "index.d.ts"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
-  },
   "scripts": {
     "prebuild": "yarn clean",
     "build": "yarn build:lib && yarn build:dts",
-    "build:lib": "webpack",
     "build:dts": "api-extractor run",
+    "build:lib": "webpack",
     "clean": "rimraf lib typings index.d.ts"
+  },
+  "dependencies": {
+    "mitt": "3.0.0"
   },
   "devDependencies": {
     "@otjs/plaintext": "0.2.0",
@@ -47,9 +46,6 @@
     "@otjs/utils": "^0.0.0",
     "@types/ace": "0.0.47",
     "@types/lodash": "4.14.175"
-  },
-  "dependencies": {
-    "mitt": "3.0.0"
   },
   "peerDependencies": {
     "@otjs/plaintext": "^0.2.0",
@@ -66,5 +62,9 @@
     "ace-builds": {
       "optional": true
     }
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "rootDir": "ace"
 }

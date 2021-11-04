@@ -43,6 +43,7 @@ import {
 import {
   EditorClientEvent,
   IEditorClient,
+  TEditorClientError,
   TEditorClientEventArgs,
   TEditorClientConstructionOptions,
 } from "./editor-client";
@@ -301,7 +302,7 @@ export class EditorClient implements IEditorClient {
   protected _onError = (
     err: TEditorAdapterError | TDatabaseAdapterError
   ): void => {
-    this._trigger(EditorClientEvent.Error, err);
+    this._trigger(EditorClientEvent.Error, err as TEditorClientError);
   };
 
   /** Handles `ready` event from Database Adapter */

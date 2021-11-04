@@ -23,4 +23,5 @@
  */
 
 export * from "./api";
+export * from "./internal_types";
 export * from "./pusher-adapter";

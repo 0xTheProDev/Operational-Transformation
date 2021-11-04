@@ -3,17 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "description": "Integration Test Suite for Firebase Adapter.",
-  "rootDir": "__tests__/firebase",
+  "license": "MIT",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "scripts": {
     "start": "firebase emulators:start",
     "test": "TEST_ENV=true jest --colors",
     "test:ci": "firebase emulators:exec \"yarn test --ci --silent\"",
     "test:watch": "yarn test --watch"
   },
-  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "license": "MIT",
   "devDependencies": {
     "@otjs/firebase-plaintext": "^0.2.0",
     "firebase": "9.0.2"
-  }
+  },
+  "rootDir": "__tests__/firebase"
 }

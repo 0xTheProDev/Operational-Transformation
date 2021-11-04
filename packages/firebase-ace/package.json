@@ -2,8 +2,6 @@
   "name": "@otjs/firebase-ace",
   "version": "0.2.0",
   "description": "Real-time collaborative editor with out of the box binding with Firebase and Ace Editor.",
-  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-ace#readme",
   "keywords": [
     "ace",
     "collaborative",
@@ -13,10 +11,18 @@
     "operational-transformation",
     "typescript"
   ],
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-ace#readme",
+  "bugs": {
+    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+  },
   "license": "MIT",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "firebase-ace",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -25,24 +31,20 @@
     "lib",
     "index.d.ts"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
-  },
   "scripts": {
     "prebuild": "yarn clean",
     "build": "yarn build:lib && yarn build:dts",
-    "build:lib": "webpack",
     "build:dts": "api-extractor run",
+    "build:lib": "webpack",
     "clean": "rimraf lib typings index.d.ts",
     "test": "TEST_ENV=true jest --colors",
     "test:watch": "yarn test --watch"
+  },
+  "dependencies": {
+    "@otjs/ace": "0.2.0",
+    "@otjs/firebase-plaintext": "0.2.0",
+    "@otjs/plaintext": "0.2.0",
+    "@otjs/plaintext-editor": "0.2.0"
   },
   "devDependencies": {
     "@otjs/types": "^0.0.0",
@@ -51,22 +53,20 @@
     "firebase": "9.0.2",
     "mitt": "3.0.0"
   },
-  "dependencies": {
-    "@otjs/ace": "0.2.0",
-    "@otjs/firebase-plaintext": "0.2.0",
-    "@otjs/plaintext": "0.2.0",
-    "@otjs/plaintext-editor": "0.2.0"
-  },
   "peerDependencies": {
     "ace-builds": "1.4.13",
     "firebase": "^9.0.2"
   },
   "peerDependenciesMeta": {
-    "firebase": {
-      "optional": false
-    },
     "ace-builds": {
       "optional": true
+    },
+    "firebase": {
+      "optional": false
     }
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "rootDir": "firebase-ace"
 }

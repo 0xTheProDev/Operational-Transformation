@@ -2,8 +2,6 @@
   "name": "@otjs/state-machine",
   "version": "0.2.0",
   "description": "State machine to manage Consistency of Operations across multiple clients.",
-  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/state-machine#readme",
   "keywords": [
     "event-bus",
     "eventual-consistency",
@@ -12,10 +10,18 @@
     "synchronization",
     "typescript"
   ],
+  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/state-machine#readme",
+  "bugs": {
+    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+  },
   "license": "MIT",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "rootDir": "state-machine",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -24,26 +30,20 @@
     "lib",
     "index.d.ts"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "yarn build:lib && yarn build:dts",
+    "build:dts": "api-extractor run",
+    "build:lib": "webpack",
+    "clean": "rimraf lib typings index.d.ts",
+    "test": "TEST_ENV=true jest --colors",
+    "test:watch": "yarn test --watch"
   },
   "engines": {
     "node": ">=10.0.0"
   },
-  "scripts": {
-    "prebuild": "yarn clean",
-    "build": "yarn build:lib && yarn build:dts",
-    "build:lib": "webpack",
-    "build:dts": "api-extractor run",
-    "clean": "rimraf lib typings index.d.ts",
-    "test": "TEST_ENV=true jest --colors",
-    "test:watch": "yarn test --watch"
-  }
+  "publishConfig": {
+    "access": "public"
+  },
+  "rootDir": "state-machine"
 }
