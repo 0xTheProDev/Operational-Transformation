@@ -1,6 +1,11 @@
-const path = require("path");
-const webpack = require("webpack");
+const bodyParser = require("body-parser");
 const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
+const path = require("path");
+const Pusher = require("pusher");
+const webpack = require("webpack");
+const uuid = require("uuid").v4;
+
+const PUSHER_CONFIG = require("./pusher.json");
 
 const getFbConfig = () => {
   const rawFbConfig = require("./firebase.json");
@@ -41,8 +46,13 @@ module.exports = (env, argv) => {
         import: "./src/firebase-monaco.ts",
         dependOn: ["firebase-monaco"],
       },
+      monaco2: {
+        import: "./src/pusher-monaco.ts",
+        dependOn: ["pusher-monaco"],
+      },
       "firebase-ace": ["@otjs/firebase-ace"],
       "firebase-monaco": ["@otjs/firebase-monaco"],
+      "pusher-monaco": ["@otjs/pusher-monaco"],
     },
     output: {
       chunkFilename: "[name].[chunkhash:8].js",
@@ -61,6 +71,28 @@ module.exports = (env, argv) => {
           "X-Requested-With, content-type, Authorization",
       },
       http2: true,
+      onAfterSetupMiddleware: (devServer) => {
+        if (!devServer) {
+          return;
+        }
+
+        devServer.app.post(
+          "/pusher/auth",
+          bodyParser.json(),
+          bodyParser.urlencoded({ extended: false }),
+          (req, res) => {
+            const pusher = new Pusher(PUSHER_CONFIG);
+            const { socket_id: socketId, channel_name: channel } = req.body;
+            const presenceData = {
+              user_id: uuid(),
+              user_info: {},
+            };
+            const auth = pusher.authenticate(socketId, channel, presenceData);
+            console.log("Pusher Channel Id:", channel);
+            res.send(auth);
+          }
+        );
+      },
     },
     resolve: {
       extensions: [".ts", ".tsx", ".js", ".json"],
@@ -101,6 +133,7 @@ module.exports = (env, argv) => {
     plugins: [
       new webpack.DefinePlugin({
         "process.env.FIREBASE_CONFIG": JSON.stringify(getFbConfig()),
+        "process.env.PUSHER_CONFIG": JSON.stringify(PUSHER_CONFIG),
       }),
       new MonacoWebpackPlugin(),
     ],

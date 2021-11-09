@@ -3,25 +3,29 @@
   "version": "0.0.0",
   "private": true,
   "description": "Example usage of @otjs library as Real-time collaborative editor.",
+  "license": "MIT",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "main": "index.js",
   "scripts": {
     "start": "firebase emulators:exec \"yarn start:app\"",
     "start:app": "webpack serve --hot --progress"
   },
-  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "license": "MIT",
   "dependencies": {
     "@otjs/firebase-ace": "^0.2.0",
     "@otjs/firebase-monaco": "^0.2.0",
+    "@otjs/pusher-monaco": "^0.2.0",
     "firebase": "9.0.2",
     "monaco-editor": "0.27.0",
+    "pusher-js": "7.0.3",
     "uuid": "8.3.2"
   },
   "devDependencies": {
     "@types/ace": "0.0.47",
     "@types/uuid": "8.3.1",
+    "body-parser": "1.19.0",
     "css-loader": "6.2.0",
     "monaco-editor-webpack-plugin": "4.1.2",
+    "pusher": "5.0.0",
     "source-map-loader": "3.0.0",
     "style-loader": "3.2.1",
     "webpack": "5.53.0",

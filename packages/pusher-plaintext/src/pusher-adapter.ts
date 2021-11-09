@@ -137,6 +137,7 @@ export class PusherAdapter implements IDatabaseAdapter {
     }
 
     this._channel.members.setMyID(userId);
+    this._userId = userId;
   }
 
   setUserColor(userColor: string): void {
@@ -263,6 +264,16 @@ export class PusherAdapter implements IDatabaseAdapter {
     /** Initialise data once subscription went through */
     this._channel.bind(PusherEvents.SUBSCRIPTION_SUCCESS, () => {
       this._initializeUserData();
+
+      /** Once we're initialized, start tracking users' cursors. */
+      this.on(DatabaseAdapterEvent.Ready, () => {
+        this._monitorCursors();
+      });
+
+      /** Avoid triggering any events until our callers have had a chance to attach their listeners. */
+      setTimeout(() => {
+        this._monitorHistory();
+      });
     });
 
     /** Inform Consumer about the error and self-dispose */
@@ -275,16 +286,6 @@ export class PusherAdapter implements IDatabaseAdapter {
         this.dispose();
       }
     );
-
-    /** Once we're initialized, start tracking users' cursors. */
-    this.on(DatabaseAdapterEvent.Ready, () => {
-      this._monitorCursors();
-    });
-
-    /** Avoid triggering any events until our callers have had a chance to attach their listeners. */
-    setTimeout(() => {
-      this._monitorHistory();
-    });
   }
 
   /**
