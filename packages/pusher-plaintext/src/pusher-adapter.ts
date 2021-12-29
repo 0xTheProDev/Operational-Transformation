@@ -263,6 +263,7 @@ export class PusherAdapter implements IDatabaseAdapter {
   protected _init(): void {
     /** Initialise data once subscription went through */
     this._channel.bind(PusherEvents.SUBSCRIPTION_SUCCESS, () => {
+      this._trigger(DatabaseAdapterEvent.InitialRevision, undefined);
       this._initializeUserData();
 
       /** Once we're initialized, start tracking users' cursors. */
