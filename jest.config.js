@@ -3,6 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
+/** @type {import("@jest/types").Config.InitialOptions} */
 module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,

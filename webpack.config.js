@@ -1,3 +1,6 @@
+/** @typedef {import("webpack").Configuration} Configuration */
+/** @typedef {{ entryFile: string, externals: string[], libraryName: string, outDir: string }} LibraryConfiguration */
+/** @type {(config: LibraryConfiguration) => Configuration} */
 module.exports = ({ entryFile, externals, libraryName, outDir }) => ({
   devtool: "source-map",
   entry: entryFile,
