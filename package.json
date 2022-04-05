@@ -37,7 +37,7 @@
     "babel-jest": "27.5.1",
     "canvas": "2.9.1",
     "check-yarn-lock": "0.2.1",
-    "firebase-tools": "9.23.3",
+    "firebase-tools": "10.6.0",
     "husky": "7.0.4",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.5.1",

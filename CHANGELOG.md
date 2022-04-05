@@ -23,6 +23,30 @@ Good to have: commit or PR links.
 
 -->
 
+## [v0.2.1](https://github.com/Progyan1997/Operational-Transformation/tree/v0.2.1)
+
+### Security
+
+#### Peer Dependency
+
+- Bump ace-builds from 1.4.13 to 1.4.14 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump firebase from 9.0.2 to 9.6.10 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump monaco-editor from 0.27.0 to 0.33.0 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+
+#### Dev Dependency
+
+- Bump api-extractor from 7.19.3 to 7.20.0 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump babel-jest from 27.4.5 to 27.5.1 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump canvas from 2.8.0 to 2.9.1 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump jest from 27.4.5 to 27.5.1 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump lint-staged from 11.2.6 to 12.3.7 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump preset-env from 7.16.5 to 7.16.11 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump prettier from 2.5.1 to 2.6.2 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump ts-loader from 9.2.6 to 9.2.8 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump typescript from 4.5.4 to 4.6.3 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump webpack from 5.65.0 to 5.71.0 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump webpack-cli from 4.9.1 to 4.9.2 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+
 ## [v0.2.0](https://github.com/Progyan1997/Operational-Transformation/tree/v0.2.0)
 
 ### Added
