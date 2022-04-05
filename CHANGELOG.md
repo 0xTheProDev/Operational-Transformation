@@ -38,6 +38,7 @@ Good to have: commit or PR links.
 - Bump api-extractor from 7.19.3 to 7.20.0 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
 - Bump babel-jest from 27.4.5 to 27.5.1 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
 - Bump canvas from 2.8.0 to 2.9.1 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump firebase-tools from 9.23.3 to 10.6.0 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
 - Bump jest from 27.4.5 to 27.5.1 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
 - Bump lint-staged from 11.2.6 to 12.3.7 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
 - Bump preset-env from 7.16.5 to 7.16.11 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
