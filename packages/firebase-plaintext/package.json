@@ -47,7 +47,7 @@
     "@otjs/plaintext-editor": "0.2.0",
     "@otjs/types": "^0.0.0",
     "@otjs/utils": "^0.0.0",
-    "firebase": "9.0.2"
+    "firebase": "9.6.10"
   },
   "dependencies": {
     "mitt": "3.0.0"
@@ -55,7 +55,7 @@
   "peerDependencies": {
     "@otjs/plaintext": "^0.2.0",
     "@otjs/plaintext-editor": "^0.2.0",
-    "firebase": "^9.0.2"
+    "firebase": "^9.6.10"
   },
   "peerDependenciesMeta": {
     "@otjs/plaintext": {
