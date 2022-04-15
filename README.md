@@ -34,65 +34,65 @@
 <table>
   <thead>
     <tr>
-      <th>Package Name</th>
-      <th>Npm Version</th>
-      <th>Weekly Downloads</th>
-      <th>External Dependency</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Downloads</th>
+      <th>Third-party Dependency</th>
     </tr>
   </thead>
   <tbody>
     <tr title="ace">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/ace">ace</a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/ace" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/ace"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/ace" target="_blank"><img src="https://img.shields.io/npm/dw/@otjs/ace"/></a></td>
-      <td><a href="https://www.npmjs.com/package/ace-builds" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/ace/peer/ace-builds"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/ace" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/ace?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/ace" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/ace?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/ace-builds" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/ace/peer/ace-builds?style=for-the-badge"/></a></td>
     </tr>
     <tr title="firebase-ace">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-ace">firebase-ace</a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/firebase-ace" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/firebase-ace"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/firebase-ace" target="_blank"><img src="https://img.shields.io/npm/dw/@otjs/firebase-ace"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/firebase-ace" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/firebase-ace?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/firebase-ace" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/firebase-ace?style=for-the-badge"/></a></td>
       <td>
-        <a href="https://www.npmjs.com/package/ace-builds" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/peer/ace-builds"/></a>
-        <a href="https://www.npmjs.com/package/firebase" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/peer/firebase"/></a>
+        <a href="https://www.npmjs.com/package/ace-builds" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/peer/ace-builds?style=for-the-badge"/></a>
+        <a href="https://www.npmjs.com/package/firebase" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/peer/firebase?style=for-the-badge"/></a>
       </td>
     </tr>
     <tr title="firebase-monaco">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-monaco">firebase-monaco</a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/firebase-monaco"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco" target="_blank"><img src="https://img.shields.io/npm/dw/@otjs/firebase-monaco"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/firebase-monaco?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/firebase-monaco?style=for-the-badge"/></a></td>
       <td>
-        <a href="https://www.npmjs.com/package/firebase" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/firebase"/></a>
-        <a href="https://www.npmjs.com/package/monaco-editor" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor"/></a>
+        <a href="https://www.npmjs.com/package/firebase" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/firebase?style=for-the-badge"/></a>
+        <a href="https://www.npmjs.com/package/monaco-editor" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor?style=for-the-badge"/></a>
       </td>
     </tr>
     <tr title="firebase-plaintext">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-plaintext">firebase-plaintext</a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/firebase-plaintext"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext" target="_blank"><img src="https://img.shields.io/npm/dw/@otjs/firebase-plaintext"/></a></td>
-      <td><a href="https://www.npmjs.com/package/firebase"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-plaintext/peer/firebase"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/firebase-plaintext?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/firebase-plaintext?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/firebase"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-plaintext/peer/firebase?style=for-the-badge"/></a></td>
     </tr>
     <tr title="monaco">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/monaco">monaco</a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/monaco" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/monaco"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/monaco" target="_blank"><img src="https://img.shields.io/npm/dw/@otjs/monaco"/></a></td>
-      <td><a href="https://www.npmjs.com/package/monaco-editor" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/monaco/peer/monaco-editor"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/monaco" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/monaco?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/monaco" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/monaco?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/monaco-editor" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/monaco/peer/monaco-editor?style=for-the-badge"/></a></td>
     </tr>
     <tr title="plaintext">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext">plaintext</a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/plaintext" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/plaintext"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/plaintext" target="_blank"><img src="https://img.shields.io/npm/dw/@otjs/plaintext"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/plaintext" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/plaintext?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/plaintext" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/plaintext?style=for-the-badge"/></a></td>
       <td>-</td>
     </tr>
     <tr title="plaintext-editor">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext-editor">plaintext-editor</a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/plaintext-editor" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/plaintext-editor"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/plaintext-editor" target="_blank"><img src="https://img.shields.io/npm/dw/@otjs/plaintext-editor"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/plaintext-editor" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/plaintext-editor?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/plaintext-editor" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/plaintext-editor?style=for-the-badge"/></a></td>
       <td>-</td>
     </tr>
     <tr title="state-machine">
       <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/state-machine">state-machine</a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/state-machine" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/state-machine"/></a></td>
-      <td><a href="https://www.npmjs.com/package/@otjs/state-machine" target="_blank"><img src="https://img.shields.io/npm/dw/@otjs/state-machine"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/state-machine" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/state-machine?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/state-machine" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/state-machine?style=for-the-badge"/></a></td>
       <td>-</td>
     </tr>
     <tr title="types">

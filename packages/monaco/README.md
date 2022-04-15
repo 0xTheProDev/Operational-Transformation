@@ -1,16 +1,16 @@
 # `@otjs/monaco`
 
-[![Npm Version](https://img.shields.io/npm/v/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
-[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
-[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
-[![Types](https://img.shields.io/npm/types/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
-[![License](https://img.shields.io/npm/l/@otjs/monaco)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/monaco/LICENSE)
-[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
-[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/monaco)](https://www.npmjs.com/package/@otjs/monaco)
-[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/monaco)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
-[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
-[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
-[![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
+[![Npm Version](https://img.shields.io/npm/v/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
+[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
+[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
+[![Types](https://img.shields.io/npm/types/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
+[![License](https://img.shields.io/npm/l/@otjs/monaco?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/monaco/LICENSE)
+[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
+[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
+[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/monaco?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
+[![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description
 
@@ -20,21 +20,21 @@
 
 - To install using [Yarn](https://yarnpkg.com) _(recommended)_:
 
-```sh
-$ yarn add @otjs/monaco
-```
+  ```sh
+  $ yarn add @otjs/monaco
+  ```
 
 - To install using [Npm](https://www.npmjs.com):
 
-```sh
-$ npm i @otjs/monaco
-```
+  ```sh
+  $ npm i @otjs/monaco --save
+  ```
 
 ### Peer Dependencies
 
 Make sure to install all the peer dependencies beforehand:
 
-[![Monaco Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor)](https://microsoft.github.io/monaco-editor)
+[![Monaco Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor?style=for-the-badge)](https://microsoft.github.io/monaco-editor)
 
 ## Usage
 

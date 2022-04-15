@@ -1,16 +1,16 @@
 # `@otjs/firebase-ace`
 
-[![Npm Version](https://img.shields.io/npm/v/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
-[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
-[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
-[![Types](https://img.shields.io/npm/types/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
-[![License](https://img.shields.io/npm/l/@otjs/firebase-ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-ace/LICENSE)
-[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
-[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/firebase-ace)](https://www.npmjs.com/package/@otjs/firebase-ace)
-[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/firebase-ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
-[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
-[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
-[![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
+[![Npm Version](https://img.shields.io/npm/v/@otjs/firebase-ace?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/firebase-ace?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/firebase-ace?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Types](https://img.shields.io/npm/types/@otjs/firebase-ace?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![License](https://img.shields.io/npm/l/@otjs/firebase-ace?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-ace/LICENSE)
+[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/firebase-ace?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/firebase-ace?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-ace)
+[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/firebase-ace?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
+[![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description
 
@@ -20,22 +20,22 @@
 
 - To install using [Yarn](https://yarnpkg.com) _(recommended)_:
 
-```sh
-$ yarn add @otjs/firebase-ace
-```
+  ```sh
+  $ yarn add @otjs/firebase-ace
+  ```
 
 - To install using [Npm](https://www.npmjs.com):
 
-```sh
-$ npm i @otjs/firebase-ace
-```
+  ```sh
+  $ npm i @otjs/firebase-ace --save
+  ```
 
 ### Peer Dependencies
 
 Make sure to install all the peer dependencies beforehand:
 
-[![Ace Editor](https://img.shields.io/npm/dependency-version/@otjs/ace/peer/ace-builds)](https://ace.c9.io)
-[![Firebase](https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/peer/firebase)](https://www.npmjs.com/package/firebase)
+[![Ace Editor](https://img.shields.io/npm/dependency-version/@otjs/ace/peer/ace-builds?style=for-the-badge)](https://ace.c9.io)
+[![Firebase](https://img.shields.io/npm/dependency-version/@otjs/firebase-ace/peer/firebase?style=for-the-badge)](https://www.npmjs.com/package/firebase)
 
 ## Usage
 

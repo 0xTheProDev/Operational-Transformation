@@ -1,16 +1,16 @@
 # `@otjs/firebase-monaco`
 
-[![Npm Version](https://img.shields.io/npm/v/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Types](https://img.shields.io/npm/types/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![License](https://img.shields.io/npm/l/@otjs/firebase-monaco)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-monaco/LICENSE)
-[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/firebase-monaco)](https://www.npmjs.com/package/@otjs/firebase-monaco)
-[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/firebase-monaco)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
-[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
-[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
-[![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
+[![Npm Version](https://img.shields.io/npm/v/@otjs/firebase-monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-monaco)
+[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/firebase-monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-monaco)
+[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/firebase-monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-monaco)
+[![Types](https://img.shields.io/npm/types/@otjs/firebase-monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-monaco)
+[![License](https://img.shields.io/npm/l/@otjs/firebase-monaco?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-monaco/LICENSE)
+[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/firebase-monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-monaco)
+[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/firebase-monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-monaco)
+[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/firebase-monaco?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
+[![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description
 
@@ -20,22 +20,22 @@
 
 - To install using [Yarn](https://yarnpkg.com) _(recommended)_:
 
-```sh
-$ yarn add @otjs/firebase-monaco
-```
+  ```sh
+  $ yarn add @otjs/firebase-monaco
+  ```
 
 - To install using [Npm](https://www.npmjs.com):
 
-```sh
-$ npm i @otjs/firebase-monaco
-```
+  ```sh
+  $ npm i @otjs/firebase-monaco --save
+  ```
 
 ### Peer Dependencies
 
 Make sure to install all the peer dependencies beforehand:
 
-[![Firebase](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/firebase)](https://www.npmjs.com/package/firebase)
-[![Monaco Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor)](https://microsoft.github.io/monaco-editor)
+[![Firebase](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/firebase?style=for-the-badge)](https://www.npmjs.com/package/firebase)
+[![Monaco Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor?style=for-the-badge)](https://microsoft.github.io/monaco-editor)
 
 ## Usage
 

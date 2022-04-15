@@ -1,17 +1,17 @@
 # `@otjs/plaintext-editor`
 
-[![Npm Version](https://img.shields.io/npm/v/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
-[![Node Version](https://img.shields.io/node/v/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
-[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
-[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
-[![Types](https://img.shields.io/npm/types/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
-[![License](https://img.shields.io/npm/l/@otjs/plaintext-editor)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/plaintext-editor/LICENSE)
-[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
-[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
-[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/plaintext-editor)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
-[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
-[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
-[![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
+[![Npm Version](https://img.shields.io/npm/v/@otjs/plaintext-editor?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext-editor)
+[![Node Version](https://img.shields.io/node/v/@otjs/plaintext-editor?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext-editor)
+[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/plaintext-editor?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext-editor)
+[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/plaintext-editor?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext-editor)
+[![Types](https://img.shields.io/npm/types/@otjs/plaintext-editor?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext-editor)
+[![License](https://img.shields.io/npm/l/@otjs/plaintext-editor?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/plaintext-editor/LICENSE)
+[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/plaintext-editor?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext-editor)
+[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/plaintext-editor?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext-editor)
+[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/plaintext-editor?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
+[![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description
 
@@ -21,21 +21,21 @@
 
 - To install using [Yarn](https://yarnpkg.com) _(recommended)_:
 
-```sh
-$ yarn add @otjs/plaintext-editor
-```
+  ```sh
+  $ yarn add @otjs/plaintext-editor
+  ```
 
 - To install using [Npm](https://www.npmjs.com):
 
-```sh
-$ npm i @otjs/plaintext-editor
-```
+  ```sh
+  $ npm i @otjs/plaintext-editor --save
+  ```
 
 ### Peer Dependencies
 
 Make sure to install all the peer dependencies beforehand:
 
-[![PlainText](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/@otjs/plaintext)](https://www.npmjs.com/package/@otjs/plaintext)
+[![PlainText](https://img.shields.io/npm/dependency-version/@otjs/plaintext-editor/peer/@otjs/plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext)
 
 ## Usage
 

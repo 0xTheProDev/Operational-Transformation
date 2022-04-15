@@ -1,16 +1,16 @@
 # `@otjs/ace`
 
-[![Npm Version](https://img.shields.io/npm/v/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
-[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
-[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
-[![Types](https://img.shields.io/npm/types/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
-[![License](https://img.shields.io/npm/l/@otjs/ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/ace/LICENSE)
-[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
-[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/ace)](https://www.npmjs.com/package/@otjs/ace)
-[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/ace)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
-[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
-[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
-[![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
+[![Npm Version](https://img.shields.io/npm/v/@otjs/ace?style=for-the-badge)](https://www.npmjs.com/package/@otjs/ace)
+[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/ace?style=for-the-badge)](https://www.npmjs.com/package/@otjs/ace)
+[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/ace?style=for-the-badge)](https://www.npmjs.com/package/@otjs/ace)
+[![Types](https://img.shields.io/npm/types/@otjs/ace?style=for-the-badge)](https://www.npmjs.com/package/@otjs/ace)
+[![License](https://img.shields.io/npm/l/@otjs/ace?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/ace/LICENSE)
+[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/ace?style=for-the-badge)](https://www.npmjs.com/package/@otjs/ace)
+[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/ace?style=for-the-badge)](https://www.npmjs.com/package/@otjs/ace)
+[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/ace?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
+[![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description
 
@@ -20,21 +20,21 @@
 
 - To install using [Yarn](https://yarnpkg.com) _(recommended)_:
 
-```sh
-$ yarn add @otjs/ace
-```
+  ```sh
+  $ yarn add @otjs/ace
+  ```
 
 - To install using [Npm](https://www.npmjs.com):
 
-```sh
-$ npm i @otjs/ace
-```
+  ```sh
+  $ npm i @otjs/ace --save
+  ```
 
 ### Peer Dependencies
 
 Make sure to install all the peer dependencies beforehand:
 
-[![Ace Editor](https://img.shields.io/npm/dependency-version/@otjs/ace/peer/ace-builds)](https://ace.c9.io)
+[![Ace Editor](https://img.shields.io/npm/dependency-version/@otjs/ace/peer/ace-builds?style=for-the-badge)](https://ace.c9.io)
 
 ## Usage
 

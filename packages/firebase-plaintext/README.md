@@ -1,17 +1,17 @@
 # `@otjs/firebase-plaintext`
 
-[![Npm Version](https://img.shields.io/npm/v/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
-[![Node Version](https://img.shields.io/node/v/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
-[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
-[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
-[![Types](https://img.shields.io/npm/types/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
-[![License](https://img.shields.io/npm/l/@otjs/firebase-plaintext)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-plaintext/LICENSE)
-[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
-[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/firebase-plaintext)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
-[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/firebase-plaintext)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
-[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
-[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation)
-[![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/discussions)
+[![Npm Version](https://img.shields.io/npm/v/@otjs/firebase-plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
+[![Node Version](https://img.shields.io/node/v/@otjs/firebase-plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
+[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/firebase-plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
+[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/firebase-plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
+[![Types](https://img.shields.io/npm/types/@otjs/firebase-plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
+[![License](https://img.shields.io/npm/l/@otjs/firebase-plaintext?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/firebase-plaintext/LICENSE)
+[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/firebase-plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
+[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/firebase-plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/firebase-plaintext)
+[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/firebase-plaintext?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
+[![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description
 
@@ -21,23 +21,23 @@
 
 - To install using [Yarn](https://yarnpkg.com) _(recommended)_:
 
-```sh
-$ yarn add @otjs/firebase-plaintext
-```
+  ```sh
+  $ yarn add @otjs/firebase-plaintext
+  ```
 
 - To install using [Npm](https://www.npmjs.com):
 
-```sh
-$ npm i @otjs/firebase-plaintext
-```
+  ```sh
+  $ npm i @otjs/firebase-plaintext --save
+  ```
 
 ### Peer Dependencies
 
 Make sure to install all the peer dependencies beforehand:
 
-[![PlainText](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/@otjs/plaintext)](https://www.npmjs.com/package/@otjs/plaintext)
-[![PlainText Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/@otjs/plaintext-editor)](https://www.npmjs.com/package/@otjs/plaintext-editor)
-[![Firebase](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/firebase)](https://www.npmjs.com/package/firebase)
+[![PlainText](https://img.shields.io/npm/dependency-version/@otjs/firebase-plaintext/peer/@otjs/plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext)
+[![PlainText Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-plaintext/peer/@otjs/plaintext-editor?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext-editor)
+[![Firebase](https://img.shields.io/npm/dependency-version/@otjs/firebase-plaintext/peer/firebase?style=for-the-badge)](https://www.npmjs.com/package/firebase)
 
 ## Usage
 
