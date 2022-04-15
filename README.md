@@ -10,21 +10,22 @@
 
 [![Build](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/build.yml/badge.svg)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/build.yml)
 [![Tests](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/tests.yml/badge.svg)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/tests.yml)
-[![Deployment](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/deploy.yml/badge.svg?branch=v0.2.0)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/deploy.yml)
+[![Deployment](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/deploy.yml/badge.svg?branch=v0.2.1)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/deploy.yml)
 [![Code Quality](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/quality.yml/badge.svg)](https://github.com/Progyan1997/Operational-Transformation/security/code-scanning)
 [![Code Coverage](https://codecov.io/gh/Progyan1997/Operational-Transformation/branch/main/graph/badge.svg?token=R0T5YH3XX3)](https://codecov.io/gh/Progyan1997/Operational-Transformation)
-[![Version](https://img.shields.io/github/lerna-json/v/Progyan1997/Operational-Transformation)](https://lerna.js.org)
-[![Built With](https://img.shields.io/badge/built%20with-webpack-green)](https://webpack.js.org)
-[![Tested With](https://img.shields.io/badge/tested%20with-jest-yellowgreen)](https://jestjs.io)
-[![Typed With](https://img.shields.io/badge/typed%20with-TypeScript-blue)](https://www.typescriptlang.org)
-[![Styled With](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square&label=styled%20with)](https://prettier.io)
-[![License](https://img.shields.io/badge/license-MIT-yellow)](LICENSE)
-[![Open Issues](https://img.shields.io/github/issues-raw/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/issues)
-[![Closed Issues](https://img.shields.io/github/issues-closed-raw/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/issues?q=is%3Aissue+is%3Aclosed)
-[![Open Pulls](https://img.shields.io/github/issues-pr-raw/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/pulls)
-[![Closed Pulls](https://img.shields.io/github/issues-pr-closed-raw/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/pulls?q=is%3Apr+is%3Aclosed)
-[![Contributors](https://img.shields.io/github/contributors/Progyan1997/Operational-Transformation)](https://github.com/Progyan1997/Operational-Transformation/graphs/contributors)
-[![Activity](https://img.shields.io/github/last-commit/Progyan1997/Operational-Transformation?label=most%20recent%20activity)](https://github.com/Progyan1997/Operational-Transformation/pulse)
+
+[![Version](https://img.shields.io/github/lerna-json/v/Progyan1997/Operational-Transformation?style=for-the-badge)](https://lerna.js.org)
+[![Built With](https://img.shields.io/badge/built%20with-webpack-green?style=for-the-badge)](https://webpack.js.org)
+[![Tested With](https://img.shields.io/badge/tested%20with-jest-yellowgreen?style=for-the-badge)](https://jestjs.io)
+[![Typed With](https://img.shields.io/badge/typed%20with-TypeScript-blue?style=for-the-badge)](https://www.typescriptlang.org)
+[![Styled With](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge&label=styled%20with)](https://prettier.io)
+[![License](https://img.shields.io/badge/license-MIT-yellow?style=for-the-badge)](LICENSE)
+[![Open Issues](https://img.shields.io/github/issues-raw/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/issues)
+[![Closed Issues](https://img.shields.io/github/issues-closed-raw/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/issues?q=is%3Aissue+is%3Aclosed)
+[![Open Pulls](https://img.shields.io/github/issues-pr-raw/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/pulls)
+[![Closed Pulls](https://img.shields.io/github/issues-pr-closed-raw/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/pulls?q=is%3Apr+is%3Aclosed)
+[![Contributors](https://img.shields.io/github/contributors/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/graphs/contributors)
+[![Activity](https://img.shields.io/github/last-commit/Progyan1997/Operational-Transformation?style=for-the-badge&label=most%20recent%20activity)](https://github.com/Progyan1997/Operational-Transformation/pulse)
 
 ## Description
 
@@ -115,50 +116,50 @@ This repository uses monorepo architecture for hosting packages. We are using [L
 
 - To install using Lerna _(recommended)_:
 
-```sh
-$ lerna bootstrap
-```
+  ```sh
+  $ lerna bootstrap
+  ```
 
 - To install using Yarn:
 
-```sh
-$ yarn
-```
+  ```sh
+  $ yarn
+  ```
 
 ## Testing
 
 We are using [Jest](https://jestjs.io) extensively to form our Unit Test Suite as well as Integration Test Suites, along with test environment, stubs and test runner. [Nyc _(formerly known as Istanbul)_](https://istanbul.js.org/) is used for coverage reporting.
 
-To run all the unit test suites in local dev environment, run the following after dependencies have been installed:
+- To run all the unit test suites in local dev environment, run the following after dependencies have been installed:
 
-```sh
-$ yarn test
-```
+  ```sh
+  $ yarn test
+  ```
 
-To run unit tests in CI environment, run:
+- To run unit tests in CI environment, run:
 
-```sh
-$ yarn test:ci
-```
+  ```sh
+  $ yarn test:ci
+  ```
 
-To run integration tests in CI environment, run:
+- To run integration tests in CI environment, run:
 
-```sh
-$ yarn test:firebase
-$ yarn test:monaco
-```
+  ```sh
+  $ yarn test:firebase
+  $ yarn test:monaco
+  ```
 
-To merge all the individual code coverage report and generate final test coverage report, run:
+- To merge all the individual code coverage report and generate final test coverage report, run:
 
-```sh
-$ yarn coverage
-```
+  ```sh
+  $ yarn coverage
+  ```
 
-To convert generated final coverage report into more human readable form _(such as **lcov**)_, run:
+- To convert generated final coverage report into more human readable form _(such as **lcov**)_, run:
 
-```sh
-$ yarn coverage:dev
-```
+  ```sh
+  $ yarn coverage:dev
+  ```
 
 ### Integration Tests
 
