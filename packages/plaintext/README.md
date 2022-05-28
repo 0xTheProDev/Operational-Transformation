@@ -1,16 +1,16 @@
 # `@otjs/plaintext`
 
+[![Sponsor](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white)](https://github.com/sponsors/Progyan1997)
 [![Npm Version](https://img.shields.io/npm/v/@otjs/plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext)
-[![Node Version](https://img.shields.io/node/v/@otjs/plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext)
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext)
 [![Types](https://img.shields.io/npm/types/@otjs/plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext)
 [![License](https://img.shields.io/npm/l/@otjs/plaintext?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/packages/plaintext/LICENSE)
 [![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext)
 [![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/plaintext?style=for-the-badge)](https://www.npmjs.com/package/@otjs/plaintext)
-[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
-[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation)
 [![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/plaintext?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Stars](https://img.shields.io/github/stars/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/stargazers)
+[![Forks](https://img.shields.io/github/forks/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/network/members)
 [![Discussions](https://img.shields.io/github/discussions/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/discussions)
 
 ## Description
