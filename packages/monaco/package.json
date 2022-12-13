@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "description": "Plain Text Editor Adapter for Monaco Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/monaco#readme",
+  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/monaco#readme",
   "keywords": [
     "collaborative",
     "editor",
@@ -28,10 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+    "url": "git+https://github.com/0xTheProDev/Operational-Transformation.git"
   },
   "bugs": {
-    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+    "url": "https://github.com/0xTheProDev/Operational-Transformation/discussions"
   },
   "scripts": {
     "prebuild": "yarn clean",

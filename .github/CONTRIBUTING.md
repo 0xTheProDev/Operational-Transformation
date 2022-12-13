@@ -8,7 +8,7 @@ In this guide, you will get an overview of the contribution workflow from engagi
 
 ## New Contributor Guidelines
 
-See the [README](https://github.com/Progyan1997/Operational-Transformation#readme) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution:
+See the [README](https://github.com/0xTheProDev/Operational-Transformation#readme) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution:
 
 - [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
 - [Set up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
@@ -21,16 +21,16 @@ Below you will find the process and workflow used to review and merge your valua
 
 ### Step 0 : Find an issue
 
-[![script](./images/Issues.jpeg)](https://github.com/Progyan1997/Operational-Transformation/issues)
+[![script](./images/Issues.jpeg)](https://github.com/0xTheProDev/Operational-Transformation/issues)
 
-- Take a look at the Existing Issues or visit [Discussions Section](https://github.com/Progyan1997/Operational-Transformation/discussions/30) to engage into discussion about feature request or bug reporting.
+- Take a look at the Existing Issues or visit [Discussions Section](https://github.com/0xTheProDev/Operational-Transformation/discussions/30) to engage into discussion about feature request or bug reporting.
 - If the issue doesn't exist in our issue tracker, the maintainer will yield a issue from the discussion with proper description and milestone.
 - Once you select an issue, subscribe to it and interact with the maintainer/reporter in regular interval to describe your willingness or progress towards that issue.
 - Note: Every pull request in this project should have an associated issue registered.
 
 ### Step 1 : Fork the Project
 
-[![script1](./images/PullRequest.jpeg)](https://github.com/Progyan1997/Operational-Transformation.git)
+[![script1](./images/PullRequest.jpeg)](https://github.com/0xTheProDev/Operational-Transformation.git)
 
 - Fork this Repository. This will create a local copy of this Repository on your Github Profile.
   Keep a reference to the original project in `upstream` remote as shown below.
@@ -38,7 +38,7 @@ Below you will find the process and workflow used to review and merge your valua
 ```bash
 $ git clone https://github.com/<your-username>/Operational-Transformation
 $ cd Operational-Transformation
-$ git remote add upstream https://github.com/Progyan1997/Operational-Transformation
+$ git remote add upstream https://github.com/0xTheProDev/Operational-Transformation
 $ git fetch upstream
 ```
 
@@ -102,7 +102,7 @@ $ git push -u origin <branch_bame>
 
 ### Step 6 : Pull Request
 
-[![script](./images/PR.jpeg)](https://github.com/Progyan1997/Operational-Transformation/pulls)
+[![script](./images/PR.jpeg)](https://github.com/0xTheProDev/Operational-Transformation/pulls)
 
 - Go to your repository in browser and click on compare and pull requests.
   Then add a title and description to your pull request that explains your contribution and submit it.

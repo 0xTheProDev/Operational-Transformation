@@ -8,24 +8,24 @@
 
 ---
 
-[![Build](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/build.yml/badge.svg)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/build.yml)
-[![Tests](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/tests.yml/badge.svg)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/tests.yml)
-[![Deployment](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/deploy.yml/badge.svg?branch=v0.2.1)](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/deploy.yml)
-[![Code Quality](https://github.com/Progyan1997/Operational-Transformation/actions/workflows/quality.yml/badge.svg)](https://github.com/Progyan1997/Operational-Transformation/security/code-scanning)
-[![Code Coverage](https://codecov.io/gh/Progyan1997/Operational-Transformation/branch/main/graph/badge.svg?token=R0T5YH3XX3)](https://codecov.io/gh/Progyan1997/Operational-Transformation)
+[![Build](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/build.yml/badge.svg)](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/build.yml)
+[![Tests](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/tests.yml/badge.svg)](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/tests.yml)
+[![Deployment](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/deploy.yml/badge.svg?branch=v0.2.1)](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/deploy.yml)
+[![Code Quality](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/quality.yml/badge.svg)](https://github.com/0xTheProDev/Operational-Transformation/security/code-scanning)
+[![Code Coverage](https://codecov.io/gh/0xTheProDev/Operational-Transformation/branch/main/graph/badge.svg?token=R0T5YH3XX3)](https://codecov.io/gh/0xTheProDev/Operational-Transformation)
 
-[![Version](https://img.shields.io/github/lerna-json/v/Progyan1997/Operational-Transformation?style=for-the-badge)](https://lerna.js.org)
+[![Version](https://img.shields.io/github/lerna-json/v/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://lerna.js.org)
 [![Built With](https://img.shields.io/badge/built%20with-webpack-green?style=for-the-badge)](https://webpack.js.org)
 [![Tested With](https://img.shields.io/badge/tested%20with-jest-yellowgreen?style=for-the-badge)](https://jestjs.io)
 [![Typed With](https://img.shields.io/badge/typed%20with-TypeScript-blue?style=for-the-badge)](https://www.typescriptlang.org)
 [![Styled With](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge&label=styled%20with)](https://prettier.io)
 [![License](https://img.shields.io/badge/license-MIT-yellow?style=for-the-badge)](LICENSE)
-[![Open Issues](https://img.shields.io/github/issues-raw/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/issues)
-[![Closed Issues](https://img.shields.io/github/issues-closed-raw/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/issues?q=is%3Aissue+is%3Aclosed)
-[![Open Pulls](https://img.shields.io/github/issues-pr-raw/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/pulls)
-[![Closed Pulls](https://img.shields.io/github/issues-pr-closed-raw/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/pulls?q=is%3Apr+is%3Aclosed)
-[![Contributors](https://img.shields.io/github/contributors/Progyan1997/Operational-Transformation?style=for-the-badge)](https://github.com/Progyan1997/Operational-Transformation/graphs/contributors)
-[![Activity](https://img.shields.io/github/last-commit/Progyan1997/Operational-Transformation?style=for-the-badge&label=most%20recent%20activity)](https://github.com/Progyan1997/Operational-Transformation/pulse)
+[![Open Issues](https://img.shields.io/github/issues-raw/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/issues)
+[![Closed Issues](https://img.shields.io/github/issues-closed-raw/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/issues?q=is%3Aissue+is%3Aclosed)
+[![Open Pulls](https://img.shields.io/github/issues-pr-raw/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/pulls)
+[![Closed Pulls](https://img.shields.io/github/issues-pr-closed-raw/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/pulls?q=is%3Apr+is%3Aclosed)
+[![Contributors](https://img.shields.io/github/contributors/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/graphs/contributors)
+[![Activity](https://img.shields.io/github/last-commit/0xTheProDev/Operational-Transformation?style=for-the-badge&label=most%20recent%20activity)](https://github.com/0xTheProDev/Operational-Transformation/pulse)
 
 ## Description
 
@@ -42,13 +42,13 @@
   </thead>
   <tbody>
     <tr title="ace">
-      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/ace">ace</a></td>
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/ace">ace</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/ace" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/ace?style=for-the-badge"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/ace" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/ace?style=for-the-badge"/></a></td>
       <td><a href="https://www.npmjs.com/package/ace-builds" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/ace/peer/ace-builds?style=for-the-badge"/></a></td>
     </tr>
     <tr title="firebase-ace">
-      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-ace">firebase-ace</a></td>
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/firebase-ace">firebase-ace</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-ace" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/firebase-ace?style=for-the-badge"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-ace" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/firebase-ace?style=for-the-badge"/></a></td>
       <td>
@@ -57,7 +57,7 @@
       </td>
     </tr>
     <tr title="firebase-monaco">
-      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-monaco">firebase-monaco</a></td>
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/firebase-monaco">firebase-monaco</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/firebase-monaco?style=for-the-badge"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-monaco" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/firebase-monaco?style=for-the-badge"/></a></td>
       <td>
@@ -66,43 +66,43 @@
       </td>
     </tr>
     <tr title="firebase-plaintext">
-      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-plaintext">firebase-plaintext</a></td>
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/firebase-plaintext">firebase-plaintext</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/firebase-plaintext?style=for-the-badge"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/firebase-plaintext" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/firebase-plaintext?style=for-the-badge"/></a></td>
       <td><a href="https://www.npmjs.com/package/firebase"><img src="https://img.shields.io/npm/dependency-version/@otjs/firebase-plaintext/peer/firebase?style=for-the-badge"/></a></td>
     </tr>
     <tr title="monaco">
-      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/monaco">monaco</a></td>
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/monaco">monaco</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/monaco" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/monaco?style=for-the-badge"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/monaco" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/monaco?style=for-the-badge"/></a></td>
       <td><a href="https://www.npmjs.com/package/monaco-editor" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/monaco/peer/monaco-editor?style=for-the-badge"/></a></td>
     </tr>
     <tr title="plaintext">
-      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext">plaintext</a></td>
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/plaintext">plaintext</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/plaintext" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/plaintext?style=for-the-badge"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/plaintext" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/plaintext?style=for-the-badge"/></a></td>
       <td>-</td>
     </tr>
     <tr title="plaintext-editor">
-      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext-editor">plaintext-editor</a></td>
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/plaintext-editor">plaintext-editor</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/plaintext-editor" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/plaintext-editor?style=for-the-badge"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/plaintext-editor" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/plaintext-editor?style=for-the-badge"/></a></td>
       <td>-</td>
     </tr>
     <tr title="state-machine">
-      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/state-machine">state-machine</a></td>
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/state-machine">state-machine</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/state-machine" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/state-machine?style=for-the-badge"/></a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/state-machine" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/state-machine?style=for-the-badge"/></a></td>
       <td>-</td>
     </tr>
     <tr title="types">
-      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/types">types</a></td>
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/types">types</a></td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
     </tr>
     <tr title="utils">
-      <td><a href="https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/utils">utils</a></td>
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/utils">utils</a></td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
@@ -175,7 +175,7 @@ We are using [codecov.io](https://about.codecov.io) to track progress over Code 
 
 ## Reporting a Bug
 
-Head on to [**Discussion**](https://github.com/Progyan1997/Operational-Transformation/discussions) section to report a bug or to ask for any feature. Use this [template](https://github.com/Progyan1997/Operational-Transformation/discussions/30) to make it structural and helpful for the maintainer and the contributors. Feel to add your queries about using this library as well under _Q & A_ section of it. Remember, do not create any Issues by yourself, maintainers of this repository will open one if deemed necessary.
+Head on to [**Discussion**](https://github.com/0xTheProDev/Operational-Transformation/discussions) section to report a bug or to ask for any feature. Use this [template](https://github.com/0xTheProDev/Operational-Transformation/discussions/30) to make it structural and helpful for the maintainer and the contributors. Feel to add your queries about using this library as well under _Q & A_ section of it. Remember, do not create any Issues by yourself, maintainers of this repository will open one if deemed necessary.
 
 ## Changelog
 

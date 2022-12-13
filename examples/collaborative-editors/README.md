@@ -8,7 +8,7 @@ This example can help you get familiar with the API usage of `@otjs/firebase-ace
 
 ## Prerequisites
 
-If you followed the [installation](https://github.com/Progyan1997/Operational-Transformation#installation) steps successfully, you would have `lerna` and `yarn` installed globally.
+If you followed the [installation](https://github.com/0xTheProDev/Operational-Transformation#installation) steps successfully, you would have `lerna` and `yarn` installed globally.
 
 Before running this example, it's necessary to build all the packages using `yarn build` in the root (Operational-Transformation) directory.
 

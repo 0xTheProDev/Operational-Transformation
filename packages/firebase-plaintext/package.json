@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "description": "Database Adapter implementation for Firebase to use with Plain Text Editor",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/firebase-plaintext#readme",
+  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/firebase-plaintext#readme",
   "keywords": [
     "event-bus",
     "eventual-consistency",
@@ -27,10 +27,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+    "url": "git+https://github.com/0xTheProDev/Operational-Transformation.git"
   },
   "bugs": {
-    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+    "url": "https://github.com/0xTheProDev/Operational-Transformation/discussions"
   },
   "engines": {
     "node": ">=10.10.0"

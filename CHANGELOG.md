@@ -23,79 +23,79 @@ Good to have: commit or PR links.
 
 -->
 
-## [v0.2.1](https://github.com/Progyan1997/Operational-Transformation/tree/v0.2.1)
+## [v0.2.1](https://github.com/0xTheProDev/Operational-Transformation/tree/v0.2.1)
 
 ### Security
 
 #### Peer Dependency
 
-- Bump ace-builds from 1.4.13 to 1.4.14 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump firebase from 9.0.2 to 9.6.10 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump monaco-editor from 0.27.0 to 0.33.0 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump ace-builds from 1.4.13 to 1.4.14 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump firebase from 9.0.2 to 9.6.10 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump monaco-editor from 0.27.0 to 0.33.0 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
 
 #### Dev Dependency
 
-- Bump api-extractor from 7.19.3 to 7.20.0 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump babel-jest from 27.4.5 to 27.5.1 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump canvas from 2.8.0 to 2.9.1 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump firebase-tools from 9.23.3 to 10.6.0 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump jest from 27.4.5 to 27.5.1 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump lint-staged from 11.2.6 to 12.3.7 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump preset-env from 7.16.5 to 7.16.11 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump prettier from 2.5.1 to 2.6.2 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump ts-loader from 9.2.6 to 9.2.8 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump typescript from 4.5.4 to 4.6.3 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump webpack from 5.65.0 to 5.71.0 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
-- Bump webpack-cli from 4.9.1 to 4.9.2 [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/101) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/102)
+- Bump api-extractor from 7.19.3 to 7.20.0 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump babel-jest from 27.4.5 to 27.5.1 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump canvas from 2.8.0 to 2.9.1 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump firebase-tools from 9.23.3 to 10.6.0 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump jest from 27.4.5 to 27.5.1 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump lint-staged from 11.2.6 to 12.3.7 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump preset-env from 7.16.5 to 7.16.11 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump prettier from 2.5.1 to 2.6.2 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump ts-loader from 9.2.6 to 9.2.8 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump typescript from 4.5.4 to 4.6.3 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump webpack from 5.65.0 to 5.71.0 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
+- Bump webpack-cli from 4.9.1 to 4.9.2 [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/101) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/102)
 
-## [v0.2.0](https://github.com/Progyan1997/Operational-Transformation/tree/v0.2.0)
+## [v0.2.0](https://github.com/0xTheProDev/Operational-Transformation/tree/v0.2.0)
 
 ### Added
 
-- Add package `@otjs/firebase-plaintext` that implements Database Adapter interface for Plain Text Editor using Firebase Realtime Database as source of truth. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/5) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/23)
-- Add package `@otjs/ace` that implements Editor Adapter interface for Plain Text Editor using Ace Editor instance as presentation. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/46) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/59)
-- Add package `@otjs/monaco` that implements Editor Adapter interface for Plain Text Editor using Monaco Editor instance as presentation. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/6) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/27)
-- Add package `@otjs/firebase-monaco` that integrates Firebase and Monaco adapter out of the box to create standalone package ready to be used. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/36) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/37)
-- Add Cursor Widget in Ace Adapter to hightlight User Name beside cursor whenever a change is being made. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/76) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/81)
-- Add Cursor Widget in Monaco Adapter to hightlight User Name beside cursor whenever a change is being made. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/29) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/40)
-- Add Integration Test suite for `@otjs/ace`. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/77) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/85)
+- Add package `@otjs/firebase-plaintext` that implements Database Adapter interface for Plain Text Editor using Firebase Realtime Database as source of truth. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/5) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/23)
+- Add package `@otjs/ace` that implements Editor Adapter interface for Plain Text Editor using Ace Editor instance as presentation. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/46) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/59)
+- Add package `@otjs/monaco` that implements Editor Adapter interface for Plain Text Editor using Monaco Editor instance as presentation. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/6) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/27)
+- Add package `@otjs/firebase-monaco` that integrates Firebase and Monaco adapter out of the box to create standalone package ready to be used. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/36) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/37)
+- Add Cursor Widget in Ace Adapter to hightlight User Name beside cursor whenever a change is being made. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/76) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/81)
+- Add Cursor Widget in Monaco Adapter to hightlight User Name beside cursor whenever a change is being made. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/29) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/40)
+- Add Integration Test suite for `@otjs/ace`. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/77) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/85)
 
 ### Changed
 
-- Rename package scope to `@otjs/*`. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/33) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/34)
-- Update `@otjs/firebase-ace` with API for User Name announcement. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/83) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/84)
+- Rename package scope to `@otjs/*`. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/33) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/34)
+- Update `@otjs/firebase-ace` with API for User Name announcement. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/83) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/84)
 
 ### Fixed
 
-- Classname for Remote Cursor or Selection for Ace Editor. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/60) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/75)
-- Classname for Remote Cursor or Selection for Monaco Editor. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/61) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/62)
-- Missing testcase for `@otjs/ace` Integration Test suite. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/88) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/89)
+- Classname for Remote Cursor or Selection for Ace Editor. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/60) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/75)
+- Classname for Remote Cursor or Selection for Monaco Editor. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/61) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/62)
+- Missing testcase for `@otjs/ace` Integration Test suite. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/88) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/89)
 
 ### Security
 
-- Bump tmpl from 1.0.4 to 1.0.5 [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/41)
+- Bump tmpl from 1.0.4 to 1.0.5 [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/41)
 
 ### Documentation
 
-- Add LICENSE Information to root README. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/14) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/20)
-- Integrated Codecov.io to track progress over Test workflow. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/3) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/24)
-- Add Bug Reporting instructions to each package documentation. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/18) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/31)
-- Update root README along with Version & Dependency matrix for all packages. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/4) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/39)
-- Update documentation in each package. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/2) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/44)
-- Add Code of Conduct for the community guidelines. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/54) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/56)
-- Add Contributing Guidelines for the community engagement. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/55) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/57)
-- Fix hyperlinks in Contributing Guidelines. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/64) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/65)
-- Add Security Guidelines to report vulnerabilities. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/52) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/80)
-- Add Issue and Pull Request guidelines for the community engagement. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/53) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/86)
-- Add README for example use-case of `@otjs/*` packages as Realtime Collaborative Editor. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/67) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/71)
+- Add LICENSE Information to root README. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/14) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/20)
+- Integrated Codecov.io to track progress over Test workflow. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/3) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/24)
+- Add Bug Reporting instructions to each package documentation. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/18) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/31)
+- Update root README along with Version & Dependency matrix for all packages. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/4) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/39)
+- Update documentation in each package. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/2) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/44)
+- Add Code of Conduct for the community guidelines. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/54) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/56)
+- Add Contributing Guidelines for the community engagement. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/55) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/57)
+- Fix hyperlinks in Contributing Guidelines. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/64) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/65)
+- Add Security Guidelines to report vulnerabilities. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/52) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/80)
+- Add Issue and Pull Request guidelines for the community engagement. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/53) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/86)
+- Add README for example use-case of `@otjs/*` packages as Realtime Collaborative Editor. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/67) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/71)
 
-## [v0.1.1](https://github.com/Progyan1997/Operational-Transformation/tree/v0.1.1)
+## [v0.1.1](https://github.com/0xTheProDev/Operational-Transformation/tree/v0.1.1)
 
 ### Fixed
 
-- Enable usage of the library in both Web (Browsers) and Node. Change `library.globalObject` to use `this` in Webpack Config. [Tracker](https://github.com/Progyan1997/Operational-Transformation/issues/21) [Work Log](https://github.com/Progyan1997/Operational-Transformation/pull/22)
+- Enable usage of the library in both Web (Browsers) and Node. Change `library.globalObject` to use `this` in Webpack Config. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/21) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/22)
 
-## [v0.1.0](https://github.com/Progyan1997/Operational-Transformation/tree/v0.1.0)
+## [v0.1.0](https://github.com/0xTheProDev/Operational-Transformation/tree/v0.1.0)
 
 ### Added
 

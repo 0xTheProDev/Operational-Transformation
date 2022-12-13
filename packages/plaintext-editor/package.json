@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "description": "A Editor Client to wrap a Plain Text Editor to have collaborative experience based on OT.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/plaintext-editor#readme",
+  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/plaintext-editor#readme",
   "keywords": [
     "collaborative",
     "editor",
@@ -29,10 +29,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+    "url": "git+https://github.com/0xTheProDev/Operational-Transformation.git"
   },
   "bugs": {
-    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+    "url": "https://github.com/0xTheProDev/Operational-Transformation/discussions"
   },
   "engines": {
     "node": ">=10.0.0"

@@ -4,7 +4,7 @@
   "private": true,
   "description": "Common Types and Interfaces regarding OTs",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/Progyan1997/Operational-Transformation/tree/main/packages/types#readme",
+  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/types#readme",
   "license": "MIT",
   "main": "src/index.ts",
   "directories": {
@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Progyan1997/Operational-Transformation.git"
+    "url": "git+https://github.com/0xTheProDev/Operational-Transformation.git"
   },
   "bugs": {
-    "url": "https://github.com/Progyan1997/Operational-Transformation/discussions"
+    "url": "https://github.com/0xTheProDev/Operational-Transformation/discussions"
   },
   "engines": {
     "node": ">=10.0.0"
