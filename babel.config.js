@@ -2,5 +2,5 @@
  * Minimal Babel Config to get past Transformation via babel-jest
  */
 module.exports = {
-  presets: ["@babel/preset-env"],
+  presets: [["@babel/preset-env", { modules: "cjs" }]],
 };

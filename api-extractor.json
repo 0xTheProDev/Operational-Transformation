@@ -340,7 +340,13 @@
       "ae-internal-missing-underscore": {
         "logLevel": "none"
         // "addToApiReportFile": true
+      },
+
+      "ae-wrong-input-file-type": {
+        "logLevel": "none"
+        // "addToApiReportFile": true
       }
+
       //
       // . . .
     },

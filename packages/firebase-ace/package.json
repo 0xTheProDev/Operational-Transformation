@@ -47,8 +47,8 @@
   "devDependencies": {
     "@otjs/types": "^0.0.0",
     "@otjs/utils": "^0.0.0",
-    "@types/ace": "0.0.47",
-    "firebase": "9.6.10",
+    "@types/ace": "0.0.48",
+    "firebase": "9.15.0",
     "mitt": "3.0.0"
   },
   "dependencies": {
@@ -58,8 +58,8 @@
     "@otjs/plaintext-editor": "0.2.1"
   },
   "peerDependencies": {
-    "ace-builds": "^1.4.14",
-    "firebase": "^9.6.10"
+    "ace-builds": "^1.14.0",
+    "firebase": "^9.15.0"
   },
   "peerDependenciesMeta": {
     "firebase": {

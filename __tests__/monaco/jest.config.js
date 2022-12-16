@@ -15,8 +15,6 @@ module.exports = {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
     ...baseConfig.moduleNameMapper,
   },
-  // Name of the package
-  name: package.name,
   // Run tests from one or more projects
   projects: null,
   // The root directory that Jest should scan for tests and modules within
@@ -29,8 +27,8 @@ module.exports = {
   testMatch: [`<rootDir>/${package.rootDir}/__tests__/*.[jt]s?(x)`],
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.(jsx?)$": "babel-jest",
+    "node_modules/monaco-editor/.+\\.jsx?$": "babel-jest",
   },
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  transformIgnorePatterns: ["node_modules/(?!(monaco-editor)/)"],
+  transformIgnorePatterns: ["<rootDir>/node_modules/(?!(monaco-editor)/)"],
 };

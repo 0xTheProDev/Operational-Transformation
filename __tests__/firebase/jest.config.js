@@ -1,6 +1,7 @@
 const baseConfig = require("../../jest.config");
 const package = require("./package.json");
 
+/** @type {import("@jest/types").Config.InitialOptions} */
 module.exports = {
   ...baseConfig,
   // The directory where Jest should output its coverage files
@@ -12,8 +13,6 @@ module.exports = {
     "@otjs/firebase-plaintext/(.*)": "<rootDir>/packages/firebase-plaintext/$1",
     ...baseConfig.moduleNameMapper,
   },
-  // Name of the package
-  name: package.name,
   // Run tests from one or more projects
   projects: null,
   // The root directory that Jest should scan for tests and modules within

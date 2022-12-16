@@ -25,7 +25,7 @@
 const firebaseConfig = require("../firebase.json");
 
 const schema: string = "http";
-const host: string = "localhost";
+const host: string = "127.0.0.1";
 
 const port: number = firebaseConfig.emulators.database.port;
 const dbName: string = firebaseConfig.emulators.database.name;
