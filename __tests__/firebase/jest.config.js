@@ -1,6 +1,7 @@
 const baseConfig = require("../../jest.config");
 const package = require("./package.json");
 
+/** @type {import("@jest/types").Config.InitialOptions} */
 module.exports = {
   ...baseConfig,
   // The directory where Jest should output its coverage files
