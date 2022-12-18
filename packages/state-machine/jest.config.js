@@ -7,8 +7,6 @@ module.exports = {
   coverageDirectory: `<rootDir>/coverage-${package.rootDir}`,
   // Name should be displayed on Test Report
   displayName: "State Machine",
-  // Name of the package
-  name: package.name,
   // Run tests from one or more projects
   projects: null,
   // The root directory that Jest should scan for tests and modules within

@@ -14,8 +14,6 @@ module.exports = {
     "@otjs/plaintext-editor": `<rootDir>/packages/${package.rootDir}/__mocks__/editor-client.mock`,
     ...baseConfig.moduleNameMapper,
   },
-  // Name of the package
-  name: package.name,
   // Run tests from one or more projects
   projects: null,
   // The root directory that Jest should scan for tests and modules within
