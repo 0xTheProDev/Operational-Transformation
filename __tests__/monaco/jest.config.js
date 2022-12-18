@@ -15,8 +15,6 @@ module.exports = {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
     ...baseConfig.moduleNameMapper,
   },
-  // Name of the package
-  name: package.name,
   // Run tests from one or more projects
   projects: null,
   // The root directory that Jest should scan for tests and modules within

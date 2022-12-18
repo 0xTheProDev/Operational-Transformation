@@ -13,8 +13,6 @@ module.exports = {
     "@otjs/firebase-plaintext/(.*)": "<rootDir>/packages/firebase-plaintext/$1",
     ...baseConfig.moduleNameMapper,
   },
-  // Name of the package
-  name: package.name,
   // Run tests from one or more projects
   projects: null,
   // The root directory that Jest should scan for tests and modules within

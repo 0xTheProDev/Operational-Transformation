@@ -12,7 +12,7 @@
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@otjs/ace": "^0.2.0",
-    "ace-builds": "1.4.14"
+    "@otjs/ace": "0.2.1",
+    "ace-builds": "1.14.0"
   }
 }
