@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-require("regenerator-runtime/runtime");
+import "regenerator-runtime/runtime";
 
 Object.defineProperty(window, "matchMedia", {
   writable: true,
