@@ -1,0 +1,71 @@
+{
+  "name": "@otjs/supabase-plaintext",
+  "version": "0.2.1",
+  "description": "Database Adapter implementation for Supabase to use with Plain Text Editor",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/supabase-plaintext#readme",
+  "keywords": [
+    "event-bus",
+    "eventual-consistency",
+    "supabase",
+    "operational-transformation",
+    "typescript"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "index.d.ts",
+  "rootDir": "supabase-plaintext",
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xTheProDev/Operational-Transformation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/0xTheProDev/Operational-Transformation/discussions"
+  },
+  "engines": {
+    "node": ">=10.10.0"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "yarn build:lib && yarn build:dts",
+    "build:lib": "webpack",
+    "build:dts": "api-extractor run",
+    "clean": "rimraf lib typings index.d.ts"
+  },
+  "devDependencies": {
+    "@otjs/plaintext": "0.2.1",
+    "@otjs/plaintext-editor": "0.2.1",
+    "@otjs/types": "^0.0.0",
+    "@otjs/utils": "^0.0.0",
+    "@supabase/supabase-js": "2.4.0"
+  },
+  "dependencies": {
+    "mitt": "3.0.0"
+  },
+  "peerDependencies": {
+    "@otjs/plaintext": "^0.2.0",
+    "@otjs/plaintext-editor": "^0.2.0",
+    "@supabase/supabase-js": "^2.4.0"
+  },
+  "peerDependenciesMeta": {
+    "@otjs/plaintext": {
+      "optional": false
+    },
+    "@otjs/plaintext-editor": {
+      "optional": false
+    },
+    "@supabase/supabase-js": {
+      "optional": false
+    }
+  }
+}

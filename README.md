@@ -95,6 +95,12 @@
       <td><a href="https://www.npmjs.com/package/@otjs/state-machine" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/state-machine?style=for-the-badge"/></a></td>
       <td>-</td>
     </tr>
+    <tr title="supabase-plaintext">
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/supabase-plaintext">supabase-plaintext</a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/supabase-plaintext" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/supabase-plaintext?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/supabase-plaintext" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/supabase-plaintext?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/supabase"><img src="https://img.shields.io/npm/dependency-version/@otjs/supabase-plaintext/peer/@supabase/supabase-js?style=for-the-badge"/></a></td>
+    </tr>
     <tr title="types">
       <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/types">types</a></td>
       <td>-</td>
