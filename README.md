@@ -14,6 +14,7 @@
 [![Code Quality](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/quality.yml/badge.svg)](https://github.com/0xTheProDev/Operational-Transformation/security/code-scanning)
 [![Code Coverage](https://codecov.io/gh/0xTheProDev/Operational-Transformation/branch/main/graph/badge.svg?token=R0T5YH3XX3)](https://codecov.io/gh/0xTheProDev/Operational-Transformation)
 
+[![Sponsor](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white)](https://github.com/sponsors/0xTheProDev)
 [![Version](https://img.shields.io/github/lerna-json/v/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://lerna.js.org)
 [![Built With](https://img.shields.io/badge/built%20with-webpack-green?style=for-the-badge)](https://webpack.js.org)
 [![Tested With](https://img.shields.io/badge/tested%20with-jest-yellowgreen?style=for-the-badge)](https://jestjs.io)
