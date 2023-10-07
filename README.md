@@ -90,6 +90,12 @@
       <td><a href="https://www.npmjs.com/package/@otjs/plaintext-editor" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/plaintext-editor?style=for-the-badge"/></a></td>
       <td>-</td>
     </tr>
+    <tr title="quill">
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/quill">quill</a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/quill" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/quill?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@otjs/quill" target="_blank"><img src="https://img.shields.io/npm/dm/@otjs/quill?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/quill" target="_blank"><img src="https://img.shields.io/npm/dependency-version/@otjs/quill/peer/quill?style=for-the-badge"/></a></td>
+    </tr>
     <tr title="state-machine">
       <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/state-machine">state-machine</a></td>
       <td><a href="https://www.npmjs.com/package/@otjs/state-machine" target="_blank"><img src="https://img.shields.io/npm/v/@otjs/state-machine?style=for-the-badge"/></a></td>

@@ -1,57 +1,51 @@
-# `@otjs/monaco`
+# `@otjs/quill`
 
 [![Sponsor](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white)](https://github.com/sponsors/0xTheProDev)
-[![Npm Version](https://img.shields.io/npm/v/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
-[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
-[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
-[![Types](https://img.shields.io/npm/types/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
-[![License](https://img.shields.io/npm/l/@otjs/monaco?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/blob/main/packages/monaco/LICENSE)
-[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
-[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
-[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/monaco?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Npm Version](https://img.shields.io/npm/v/@otjs/quill?style=for-the-badge)](https://www.npmjs.com/package/@otjs/quill)
+[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/quill?style=for-the-badge)](https://www.npmjs.com/package/@otjs/quill)
+[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/quill?style=for-the-badge)](https://www.npmjs.com/package/@otjs/quill)
+[![Types](https://img.shields.io/npm/types/@otjs/quill?style=for-the-badge)](https://www.npmjs.com/package/@otjs/quill)
+[![License](https://img.shields.io/npm/l/@otjs/quill?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/blob/main/packages/quill/LICENSE)
+[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/quill?style=for-the-badge)](https://www.npmjs.com/package/@otjs/quill)
+[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/quill?style=for-the-badge)](https://www.npmjs.com/package/@otjs/quill)
+[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/quill?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/blob/main/.github/SECURITY.md)
 [![Stars](https://img.shields.io/github/stars/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/stargazers)
 [![Forks](https://img.shields.io/github/forks/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/network/members)
 [![Discussions](https://img.shields.io/github/discussions/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/discussions)
 
 ## Description
 
-> Editor Adapter implementation for Monaco.
+> Editor Adapter implementation for Quill.
 
 ## Installation
 
-- To install using [Pnpm](https://pnpm.io) _(recommended)_:
+- To install using [Yarn](https://yarnpkg.com) _(recommended)_:
 
   ```sh
-  pnpm add @otjs/ace
-  ```
-
-- To install using [Yarn](https://yarnpkg.com):
-
-  ```sh
-  yarn add @otjs/monaco
+  $ yarn add @otjs/quill
   ```
 
 - To install using [Npm](https://www.npmjs.com):
 
   ```sh
-  npm i @otjs/monaco --save
+  $ npm i @otjs/quill --save
   ```
 
 ### Peer Dependencies
 
 Make sure to install all the peer dependencies beforehand:
 
-[![Monaco Editor](https://img.shields.io/npm/dependency-version/@otjs/monaco/peer/monaco-editor?style=for-the-badge)](https://microsoft.github.io/monaco-editor)
+[![Quill Editor](https://img.shields.io/npm/dependency-version/@otjs/quill/peer/quill?style=for-the-badge)](https://quilljs.com)
 
 ## Usage
 
 ---
 
 ```ts
-import { MonacoAdapter } from "@otjs/monaco";
+import { QuillAdapter } from "@otjs/quill";
 
-const monacoAdapter = new MonacoAdapter({
-  editor:                   // Monaco Editor Instance
+const quillAdapter = new QuillAdapter({
+  editor:                   // Quill Editor Instance
   announcementDuration:     // Duration (in ms) of User Name Announcement beside Cursor (optional)
   bindEvents:               // Boolean on whether or not to emit events from Adapter (optional)
 });
@@ -61,7 +55,7 @@ const monacoAdapter = new MonacoAdapter({
 
 ## Testing
 
-We don't have any Unit Test Suite for `@otjs/monaco`. Please refer to root [README](https://github.com/0xTheProDev/Operational-Transformation/blob/main/README.md) for details regarding Integration Test Suite that concerns monaco.
+We don't have any Unit Test Suite for `@otjs/quill`. Please refer to root [README](https://github.com/0xTheProDev/Operational-Transformation/blob/main/README.md) for details regarding Integration Test Suite that concerns quill.
 
 ## Reporting a Bug
 
@@ -77,4 +71,4 @@ See [Contributing Guidelines](https://github.com/0xTheProDev/Operational-Transfo
 
 ## License
 
-This project is licensed under the terms of the MIT license, see [LICENSE](https://github.com/0xTheProDev/Operational-Transformation/blob/main/packages/monaco/LICENSE) for more details.
+This project is licensed under the terms of the MIT license, see [LICENSE](https://github.com/0xTheProDev/Operational-Transformation/blob/main/packages/quill/LICENSE) for more details.
