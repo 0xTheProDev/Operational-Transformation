@@ -22,7 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { NoopError } from "../../utils/src";
+import { NoopError } from "@otjs/utils";
 import { ITextOperation, TTextOperationAttributes } from "./operation";
 
 /**
@@ -38,7 +38,7 @@ export class InsertOperation implements ITextOperation {
 
   constructor(
     text: string,
-    attributes: TTextOperationAttributes | null = null
+    attributes: TTextOperationAttributes | null = null,
   ) {
     this._attributes = attributes;
     this._text = text;

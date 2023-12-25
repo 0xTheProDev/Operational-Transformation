@@ -36,7 +36,7 @@ function _defaultResolver(...args: any[]): Primitive | null {
     return null;
   }
 
-  return args[0] as Primitive;
+  return args[0];
 }
 
 /**
