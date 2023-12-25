@@ -113,18 +113,18 @@
 
 ## Installation
 
-This repository uses monorepo architecture for hosting packages. We are using [Lerna](https://lerna.js.org) to manage workspaces and publishing of individual packages, where as [Yarn](https://yarnpkg.com) is used as package manager to symlink and install 3rd Party Dependencies.
+This repository uses monorepo architecture for hosting packages. We are using [Lerna](https://lerna.js.org) to manage workspaces and publishing of individual packages, where as [Pnpm](https://pnpm.io) is used as package manager to symlink and install External Dependencies.
 
-- To install using Lerna _(recommended)_:
+- To install using Pnpm _(recommended)_:
 
   ```sh
-  $ lerna bootstrap
+  pnpm install -r
   ```
 
-- To install using Yarn:
+- To install using Lerna:
 
   ```sh
-  $ yarn
+  lerna bootstrap
   ```
 
 ## Testing
@@ -134,32 +134,32 @@ We are using [Jest](https://jestjs.io) extensively to form our Unit Test Suite a
 - To run all the unit test suites in local dev environment, run the following after dependencies have been installed:
 
   ```sh
-  $ yarn test
+  pnpm test
   ```
 
 - To run unit tests in CI environment, run:
 
   ```sh
-  $ yarn test:ci
+  pnpm test:ci
   ```
 
 - To run integration tests in CI environment, run:
 
   ```sh
-  $ yarn test:firebase
-  $ yarn test:monaco
+  pnpm test:firebase
+  pnpm test:monaco
   ```
 
 - To merge all the individual code coverage report and generate final test coverage report, run:
 
   ```sh
-  $ yarn coverage
+  pnpm run coverage
   ```
 
 - To convert generated final coverage report into more human readable form _(such as **lcov**)_, run:
 
   ```sh
-  $ yarn coverage:dev
+  pnpm run coverage:dev
   ```
 
 ### Integration Tests

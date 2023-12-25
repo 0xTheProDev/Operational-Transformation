@@ -22,20 +22,21 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IMemoizedFunction, Primitive } from "@otjs/types";
+import { ICallable, IMemoizedFunction, Primitive } from "@otjs/types";
 
 /**
  * @internal
  * Default resolver function for memoize.
+ *
  * @param key - First Parameter of Function call expression.
  * @returns Returns first parameter as is if it is a Primitive value, else null is returned.
  */
-function _defaultResolver(key: any): Primitive | null {
-  if (key == null || typeof key === "object") {
+function _defaultResolver(...args: any[]): Primitive | null {
+  if (args[0] == null || typeof args[0] === "object") {
     return null;
   }
 
-  return key;
+  return args[0] as Primitive;
 }
 
 /**
@@ -51,18 +52,18 @@ function _defaultResolver(key: any): Primitive | null {
  * invoke `func` if key is found to be `null`.
  * @returns Returns the new memoized function with IDisposable interface.
  */
-export function memoize<T extends Function>(
-  fn: T,
-  resolver: (...args: any[]) => Primitive | null = _defaultResolver
-): T & IMemoizedFunction {
-  let map: Map<Primitive, unknown> | null;
+export function memoize<P extends any[], R extends unknown>(
+  fn: ICallable<P, R>,
+  resolver: (...args: P) => Primitive | null = _defaultResolver,
+): IMemoizedFunction<P, R> {
+  let map: Map<Primitive, R> | null;
 
-  const memoizedFn = (...args: any[]): unknown => {
-    const cache: Map<Primitive, unknown> = map || new Map();
+  const memoizedFn = (...args: P): R => {
+    const cache: Map<Primitive, R> = map || new Map();
     const key: Primitive | null = resolver(...args);
 
     if (key !== null && cache.has(key)) {
-      return cache.get(key);
+      return cache.get(key)!;
     }
 
     const val = fn(...args);
@@ -84,6 +85,5 @@ export function memoize<T extends Function>(
     map = null;
   };
 
-  // @ts-expect-error
   return memoizedFn;
 }

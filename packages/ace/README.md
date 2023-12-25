@@ -19,16 +19,22 @@
 
 ## Installation
 
-- To install using [Yarn](https://yarnpkg.com) _(recommended)_:
+- To install using [Pnpm](https://pnpm.io) _(recommended)_:
 
   ```sh
-  $ yarn add @otjs/ace
+  pnpm add @otjs/ace
+  ```
+
+- To install using [Yarn](https://yarnpkg.com):
+
+  ```sh
+  yarn add @otjs/ace
   ```
 
 - To install using [Npm](https://www.npmjs.com):
 
   ```sh
-  $ npm i @otjs/ace --save
+  npm i @otjs/ace --save
   ```
 
 ### Peer Dependencies

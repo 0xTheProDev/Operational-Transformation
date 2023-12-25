@@ -37,31 +37,29 @@ type DataRefArg = {
  * Returns Firebase Database Reference for Checkpoint Data.
  * @param dataRef - Root Database Reference.
  */
-export const getCheckpointRef: (dataRef: DataRefArg) => DatabaseReference =
-  memoize(
-    ({ databaseRef }: DataRefArg) => child(databaseRef, "checkpoint"),
-    () => Symbol.for("checkpoint")
-  );
+export const getCheckpointRef = memoize(
+  ({ databaseRef }: DataRefArg) => child(databaseRef, "checkpoint"),
+  () => Symbol.for("checkpoint"),
+);
 
 /**
  * @internal
  * Returns Firebase Database Reference for History Data.
  * @param dataRef - Root Database Reference.
  */
-export const getHistoryRef: (dataRef: DataRefArg) => DatabaseReference =
-  memoize(
-    ({ databaseRef }: DataRefArg) => child(databaseRef, "history"),
-    () => Symbol.for("history")
-  );
+export const getHistoryRef = memoize(
+  ({ databaseRef }: DataRefArg) => child(databaseRef, "history"),
+  () => Symbol.for("history"),
+);
 
 /**
  * @internal
  * Returns Firebase Database Reference for Users Data.
  * @param dataRef - Root Database Reference.
  */
-export const getUsersRef: (dataRef: DataRefArg) => DatabaseReference = memoize(
+export const getUsersRef = memoize(
   ({ databaseRef }: DataRefArg) => child(databaseRef, "users"),
-  () => Symbol.for("users")
+  () => Symbol.for("users"),
 );
 
 /** Argument for Revision Reference */
@@ -77,12 +75,10 @@ type RevisionRefArg = {
  * Returns Firebase Database Reference for Color for given User.
  * @param revisionRef - Root Database Reference and Unique User Id.
  */
-export const getRevisionRef: (
-  revisionRef: RevisionRefArg
-) => DatabaseReference = memoize(
+export const getRevisionRef = memoize(
   ({ databaseRef, revisionId }: RevisionRefArg) =>
     child(databaseRef, `history/${revisionId}`),
-  ({ revisionId }: RevisionRefArg) => Symbol.for(revisionId)
+  ({ revisionId }: RevisionRefArg) => Symbol.for(revisionId),
 );
 
 /** Argument for User Reference */
@@ -103,36 +99,33 @@ const userRefResolver = ({ userId }: UserRefArg): Primitive => {
  * Returns Firebase Database Reference for Color for given User.
  * @param userRef - Root Database Reference and Unique User Id.
  */
-export const getUserColorRef: (userRef: UserRefArg) => DatabaseReference =
-  memoize(
-    ({ databaseRef, userId }: UserRefArg) =>
-      child(databaseRef, `users/${userId}/color`),
-    userRefResolver
-  );
+export const getUserColorRef = memoize(
+  ({ databaseRef, userId }: UserRefArg) =>
+    child(databaseRef, `users/${userId}/color`),
+  userRefResolver,
+);
 
 /**
  * @internal
  * Returns Firebase Database Reference for Cursor for given User.
  * @param userRef - Root Database Reference and Unique User Id.
  */
-export const getUserCursorRef: (userRef: UserRefArg) => DatabaseReference =
-  memoize(
-    ({ databaseRef, userId }: UserRefArg) =>
-      child(databaseRef, `users/${userId}/cursor`),
-    userRefResolver
-  );
+export const getUserCursorRef = memoize(
+  ({ databaseRef, userId }: UserRefArg) =>
+    child(databaseRef, `users/${userId}/cursor`),
+  userRefResolver,
+);
 
 /**
  * @internal
  * Returns Firebase Database Reference for User Name for given User.
  * @param userRef - Root Database Reference and Unique User Id.
  */
-export const getUserNameRef: (userRef: UserRefArg) => DatabaseReference =
-  memoize(
-    ({ databaseRef, userId }: UserRefArg) =>
-      child(databaseRef, `users/${userId}/name`),
-    userRefResolver
-  );
+export const getUserNameRef = memoize(
+  ({ databaseRef, userId }: UserRefArg) =>
+    child(databaseRef, `users/${userId}/name`),
+  userRefResolver,
+);
 
 /* istanbul ignore next */
 /**
@@ -141,12 +134,12 @@ export const getUserNameRef: (userRef: UserRefArg) => DatabaseReference =
  */
 export function clearCache(): IDisposable {
   return new DisposableCollection(
-    getCheckpointRef as unknown as IDisposable,
-    getHistoryRef as unknown as IDisposable,
-    getRevisionRef as unknown as IDisposable,
-    getUsersRef as unknown as IDisposable,
-    getUserColorRef as unknown as IDisposable,
-    getUserCursorRef as unknown as IDisposable,
-    getUserNameRef as unknown as IDisposable
+    getCheckpointRef,
+    getHistoryRef,
+    getRevisionRef,
+    getUsersRef,
+    getUserColorRef,
+    getUserCursorRef,
+    getUserNameRef,
   );
 }

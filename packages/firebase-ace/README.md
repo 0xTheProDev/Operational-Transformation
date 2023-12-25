@@ -19,16 +19,22 @@
 
 ## Installation
 
-- To install using [Yarn](https://yarnpkg.com) _(recommended)_:
+- To install using [Pnpm](https://pnpm.io) _(recommended)_:
 
   ```sh
-  $ yarn add @otjs/firebase-ace
+  pnpm add @otjs/ace
+  ```
+
+- To install using [Yarn](https://yarnpkg.com):
+
+  ```sh
+  yarn add @otjs/firebase-ace
   ```
 
 - To install using [Npm](https://www.npmjs.com):
 
   ```sh
-  $ npm i @otjs/firebase-ace --save
+  npm i @otjs/firebase-ace --save
   ```
 
 ### Peer Dependencies
@@ -62,7 +68,7 @@ We are using [Jest](https://jestjs.io) to form our Unit Test Suite. [Nyc _(forme
 To run all the unit test suites in local dev environment, run the following after dependencies have been installed:
 
 ```sh
-$ yarn test
+yarn test
 ```
 
 ## Reporting a Bug

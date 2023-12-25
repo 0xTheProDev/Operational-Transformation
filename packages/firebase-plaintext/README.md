@@ -20,16 +20,22 @@
 
 ## Installation
 
-- To install using [Yarn](https://yarnpkg.com) _(recommended)_:
+- To install using [Pnpm](https://pnpm.io) _(recommended)_:
 
   ```sh
-  $ yarn add @otjs/firebase-plaintext
+  pnpm add @otjs/ace
+  ```
+
+- To install using [Yarn](https://yarnpkg.com):
+
+  ```sh
+  yarn add @otjs/firebase-plaintext
   ```
 
 - To install using [Npm](https://www.npmjs.com):
 
   ```sh
-  $ npm i @otjs/firebase-plaintext --save
+  npm i @otjs/firebase-plaintext --save
   ```
 
 ### Peer Dependencies

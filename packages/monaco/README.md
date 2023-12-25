@@ -19,16 +19,22 @@
 
 ## Installation
 
-- To install using [Yarn](https://yarnpkg.com) _(recommended)_:
+- To install using [Pnpm](https://pnpm.io) _(recommended)_:
 
   ```sh
-  $ yarn add @otjs/monaco
+  pnpm add @otjs/ace
+  ```
+
+- To install using [Yarn](https://yarnpkg.com):
+
+  ```sh
+  yarn add @otjs/monaco
   ```
 
 - To install using [Npm](https://www.npmjs.com):
 
   ```sh
-  $ npm i @otjs/monaco --save
+  npm i @otjs/monaco --save
   ```
 
 ### Peer Dependencies
