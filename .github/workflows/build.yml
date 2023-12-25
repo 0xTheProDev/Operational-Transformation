@@ -48,11 +48,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - name: Install Lerna
-        run: pnpm add -g lerna@4
-
       - name: Install Dependencies
-        run: lerna bootstrap --ignore-scripts
+        run: pnpm install --frozen-lockfile
 
       - name: Build Artifacts
         run: pnpm build
