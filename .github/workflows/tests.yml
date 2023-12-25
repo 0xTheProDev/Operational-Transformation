@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 ---
 name: Tests
 on:
@@ -13,18 +14,18 @@ on:
       - "!**.md"
       - "!examples/**/*.js"
       - "!examples/**/*.json"
-  # pull_request:
-  #   branches:
-  #     - main
-  #   paths:
-  #     - "*.js"
-  #     - "*.json"
-  #     - "*.yaml"
-  #     - "__tests__/**"
-  #     - "packages/**"
-  #     - "!**.md"
-  #     - "!examples/**/*.js"
-  #     - "!examples/**/*.json"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "*.js"
+      - "*.json"
+      - "*.yaml"
+      - "__tests__/**"
+      - "packages/**"
+      - "!**.md"
+      - "!examples/**/*.js"
+      - "!examples/**/*.json"
 
 jobs:
   unit:
@@ -33,24 +34,27 @@ jobs:
     strategy:
       matrix:
         node-version: ["20.10"]
+        pnpm-version: ["8.12"]
     steps:
-      - uses: actions/checkout@v2
+      - name: Setup Workspace Environment
+        run: |-
+          sudo apt-get update
+          sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+
+      - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: ${{ matrix.pnpm-version }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           cache: "pnpm"
           node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - name: Install Lerna
-        run: pnpm add -g lerna@4
-
       - name: Install Dependencies
-        run: lerna bootstrap --ignore-scripts
+        run: pnpm install
 
       - name: Run Tests
         run: "pnpm test:ci"
@@ -67,24 +71,27 @@ jobs:
     strategy:
       matrix:
         node-version: ["20.10"]
+        pnpm-version: ["8.12"]
     steps:
-      - uses: actions/checkout@v2
+      - name: Setup Workspace Environment
+        run: |-
+          sudo apt-get update
+          sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+
+      - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: ${{ matrix.pnpm-version }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           cache: "pnpm"
           node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - name: Install Lerna
-        run: pnpm add -g lerna@4
-
       - name: Install Dependencies
-        run: lerna bootstrap --ignore-scripts
+        run: pnpm install
 
       - name: Run Tests
         run: "pnpm test:ace"
@@ -102,24 +109,27 @@ jobs:
     strategy:
       matrix:
         node-version: ["20.10"]
+        pnpm-version: ["8.12"]
     steps:
-      - uses: actions/checkout@v2
+      - name: Setup Workspace Environment
+        run: |-
+          sudo apt-get update
+          sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+
+      - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: ${{ matrix.pnpm-version }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           cache: "pnpm"
           node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - name: Install Lerna
-        run: pnpm add -g lerna@4
-
       - name: Install Dependencies
-        run: lerna bootstrap --ignore-scripts
+        run: pnpm install
 
       - name: Add Realtime Database Rules
         uses: jsdaniell/create-json@1.1.2
@@ -143,24 +153,27 @@ jobs:
     strategy:
       matrix:
         node-version: ["20.10"]
+        pnpm-version: ["8.12"]
     steps:
-      - uses: actions/checkout@v2
+      - name: Setup Workspace Environment
+        run: |-
+          sudo apt-get update
+          sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+
+      - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: ${{ matrix.pnpm-version }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           cache: "pnpm"
           node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - name: Install Lerna
-        run: pnpm add -g lerna@4
-
       - name: Install Dependencies
-        run: lerna bootstrap --ignore-scripts
+        run: pnpm install
 
       - name: Run Tests
         run: "pnpm test:monaco"
@@ -178,14 +191,20 @@ jobs:
     strategy:
       matrix:
         node-version: ["20.10"]
+        pnpm-version: ["8.12"]
     steps:
-      - uses: actions/checkout@v2
+      - name: Setup Workspace Environment
+        run: |-
+          sudo apt-get update
+          sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+
+      - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: ${{ matrix.pnpm-version }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           cache: "pnpm"
           node-version: ${{ matrix.node-version }}
