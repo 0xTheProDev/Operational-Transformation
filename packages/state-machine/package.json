@@ -45,5 +45,9 @@
     "clean": "rimraf lib typings index.d.ts",
     "test": "TEST_ENV=true jest --colors",
     "test:watch": "yarn test --watch"
+  },
+  "devDependencies": {
+    "@otjs/types": "workspace:*",
+    "@otjs/utils": "workspace:*"
   }
 }
