@@ -13,7 +13,7 @@
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@otjs/firebase-plaintext": "0.2.1",
+    "@otjs/firebase-plaintext": "workspace:*",
     "firebase": "9.15.0"
   }
 }

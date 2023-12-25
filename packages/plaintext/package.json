@@ -47,6 +47,6 @@
     "test:watch": "yarn test --watch"
   },
   "devDependencies": {
-    "@otjs/utils": "^0.0.0"
+    "@otjs/utils": "workspace:*"
   }
 }

@@ -48,8 +48,8 @@
   },
   "devDependencies": {
     "@otjs/plaintext": "0.2.1",
-    "@otjs/types": "^0.0.0",
-    "@otjs/utils": "^0.0.0"
+    "@otjs/types": "workspace:*",
+    "@otjs/utils": "workspace:*"
   },
   "dependencies": {
     "@otjs/state-machine": "0.2.1",
