@@ -13,18 +13,18 @@ on:
       - "!**.md"
       - "!examples/**/*.js"
       - "!examples/**/*.json"
-  pull_request:
-    branches:
-      - main
-    paths:
-      - "*.js"
-      - "*.json"
-      - "*.yaml"
-      - "__tests__/**"
-      - "packages/**"
-      - "!**.md"
-      - "!examples/**/*.js"
-      - "!examples/**/*.json"
+  # pull_request:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - "*.js"
+  #     - "*.json"
+  #     - "*.yaml"
+  #     - "__tests__/**"
+  #     - "packages/**"
+  #     - "!**.md"
+  #     - "!examples/**/*.js"
+  #     - "!examples/**/*.json"
 
 jobs:
   unit:
