@@ -335,6 +335,9 @@ importers:
       '@otjs/types':
         specifier: workspace:*
         version: link:../types
+      '@otjs/utils':
+        specifier: workspace:*
+        version: 'link:'
 
 packages:
 
