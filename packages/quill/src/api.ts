@@ -22,20 +22,20 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import * as monaco from "monaco-editor";
+import * as quill from "quill";
 
 /**
  * @public
- * Constructor Options to instantiate a Monaco Adapter
+ * Constructor Options to instantiate a Quill Adapter
  */
-export type TMonacoAdapterConstructionOptions = {
-  /** Monaco Editor Instance. */
-  editor: monaco.editor.IStandaloneCodeEditor;
+export type TQuillAdapterConstructionOptions = {
+  /** Quill Editor Instance. */
+  editor: quill.Quill;
   /**
    * Duration (in ms) of User Name Announcement beside Cursor.
    * Infinity means it will never be hidden. (optional, defaults to 1000)
    */
   announcementDuration?: number;
-  /** Bind Event Handlers to Monaco (optional, defaults to `false`). */
+  /** Bind Event Handlers to Quill (optional, defaults to `false`). */
   bindEvents?: boolean;
 };

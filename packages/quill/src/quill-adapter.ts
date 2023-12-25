@@ -22,18 +22,20 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import * as monaco from "monaco-editor";
+import * as quill from "quill";
 import mitt, { Emitter, Handler } from "mitt";
 import {
   IPlainTextOperation,
   ITextOperation,
   PlainTextOperation,
+  TTextOperationAttributes,
 } from "@otjs/plaintext";
 import {
   Cursor,
   EditorAdapterEvent,
   ICursor,
   IEditorAdapter,
+  TCursor,
   TEditorAdapterCursorParams,
   TEditorAdapterEventArgs,
 } from "@otjs/plaintext-editor";
@@ -45,13 +47,17 @@ import {
   DisposableCollection,
   EndOfLineSequence,
 } from "@otjs/utils";
-import { TMonacoAdapterConstructionOptions } from "./api";
+import { TQuillAdapterConstructionOptions } from "./api";
 import { createCursorWidget, disposeCursorWidgets } from "./cursor-widget.impl";
 import { ITextModelWithUndoRedo } from "./text-model";
 
+/** Type Definition for Quill Delta */
+type TextChangeHandlerParamters = Parameters<quill.TextChangeHandler>;
+type Delta = TextChangeHandlerParamters[0];
+
 /**
  * @public
- * Create Editor Adapter for Plain Text Editor using Quill as Editor.
+ * Create Editor Adapter for Rich Text Editor using Quill as Editor.
  * @param constructorOptions - A Configuration Object consisting Quill Editor Instance.
  */
 export class QuillAdapter implements IEditorAdapter {
@@ -67,16 +73,16 @@ export class QuillAdapter implements IEditorAdapter {
   protected _originalUndo: Handler<void> | null = null;
   protected _originalRedo: Handler<void> | null = null;
   protected _lastDocLines: string[] = [];
-  protected _lastCursorRange: monaco.Selection | null = null;
-  protected _monaco: monaco.editor.IStandaloneCodeEditor;
+  protected _lastCursorRange: quill.RangeStatic | null = null;
+  protected _quill: quill.Quill;
   protected _emitter: Emitter<TEditorAdapterEventArgs> = mitt();
 
   constructor({
     editor,
     announcementDuration = 1000,
     bindEvents = false,
-  }: TMonacoAdapterConstructionOptions) {
-    this._monaco = editor;
+  }: TQuillAdapterConstructionOptions) {
+    this._quill = editor;
     this._announcementDuration = announcementDuration;
     this._bindEvents = bindEvents;
 
@@ -114,25 +120,22 @@ export class QuillAdapter implements IEditorAdapter {
       return;
     }
 
+    this._quill.on("text-change", this._onChange);
+    this._quill.on("selection-change", this._onCursorActivity);
+
     this._toDispose.push(
-      this._monaco.onDidBlurEditorWidget(() => {
-        this._onBlur();
-      }),
-      this._monaco.onDidFocusEditorWidget(() => {
-        this._onFocus();
-      }),
-      this._monaco.onDidChangeModel((ev: monaco.editor.IModelChangedEvent) => {
-        this._onModelChange(ev);
-      }),
-      this._monaco.onDidChangeModelContent(
-        (ev: monaco.editor.IModelContentChangedEvent) => {
-          this._onChange(ev);
-        },
-      ),
-      this._monaco.onDidChangeCursorPosition(
-        (ev: monaco.editor.ICursorPositionChangedEvent) => {
-          this._onCursorActivity(ev);
-        },
+      // this._quill.onDidBlurEditorWidget(() => {
+      //   this._onBlur();
+      // }),
+      // this._quill.onDidFocusEditorWidget(() => {
+      //   this._onFocus();
+      // }),
+      // this._quill.onDidChangeModel((ev: monaco.editor.IModelChangedEvent) => {
+      //   this._onModelChange(ev);
+      // }),
+      Disposable.create(() => this._quill.off("text-change", this._onChange)),
+      Disposable.create(() =>
+        this._quill.off("selection-change", this._onCursorActivity),
       ),
     );
   }
@@ -171,27 +174,15 @@ export class QuillAdapter implements IEditorAdapter {
   }
 
   registerUndo(undoCallback: Handler<void>): void {
-    const model = this._getModel();
-
-    /* istanbul ignore if */
-    if (!model) {
-      return;
-    }
-
-    this._originalUndo = model.undo;
-    model.undo = this._undoCallback = undoCallback;
+    const history = this._quill.history;
+    this._originalUndo = history.undo;
+    history.undo = this._undoCallback = undoCallback;
   }
 
   registerRedo(redoCallback: Handler<void>): void {
-    const model = this._getModel();
-
-    /* istanbul ignore if */
-    if (!model) {
-      return;
-    }
-
-    this._originalRedo = model.redo;
-    model.redo = this._redoCallback = redoCallback;
+    const history = this._quill.history;
+    this._originalRedo = history.redo;
+    history.redo = this._redoCallback = redoCallback;
   }
 
   deregisterUndo(undoCallback?: Handler<void>): void {
@@ -199,16 +190,11 @@ export class QuillAdapter implements IEditorAdapter {
       return;
     }
 
-    const model = this._getModel();
-
-    /* istanbul ignore if */
-    if (!model) {
-      return;
-    }
+    const history = this._quill.history;
 
     /* istanbul ignore else */
-    if (model.undo !== this._originalUndo) {
-      model.undo = this._originalUndo;
+    if (this._originalUndo != null && history.undo !== this._originalUndo) {
+      history.undo = this._originalUndo;
     }
 
     this._originalUndo = null;
@@ -219,31 +205,19 @@ export class QuillAdapter implements IEditorAdapter {
       return;
     }
 
-    const model = this._getModel();
-
-    /* istanbul ignore if */
-    if (!model) {
-      return;
-    }
+    const history = this._quill.history;
 
     /* istanbul ignore else */
-    if (model.redo !== this._originalRedo) {
-      model.redo = this._originalRedo;
+    if (this._originalRedo != null && history.redo !== this._originalRedo) {
+      history.redo = this._originalRedo;
     }
 
     this._originalRedo = null;
   }
 
   getCursor(): ICursor | null {
-    const model = this._getModel();
-
-    /* istanbul ignore if */
-    if (!model) {
-      return null;
-    }
-
     /** Fallback to last cursor change */
-    let selection = this._monaco.getSelection() ?? this._lastCursorRange;
+    let selection = this._quill.getSelection() ?? this._lastCursorRange;
 
     /* istanbul ignore if */
     if (selection == null) {
@@ -251,11 +225,8 @@ export class QuillAdapter implements IEditorAdapter {
     }
 
     /** Obtain selection indexes */
-    const startPos = selection.getStartPosition();
-    const endPos = selection.getEndPosition();
-
-    let start = model.getOffsetAt(startPos);
-    let end = model.getOffsetAt(endPos);
+    const start = selection.index;
+    const end = selection.index + selection.length;
 
     /** Return cursor position */
     return new Cursor(start, end);
@@ -264,25 +235,11 @@ export class QuillAdapter implements IEditorAdapter {
   setCursor(cursor: ICursor): void {
     const { position, selectionEnd } = cursor.toJSON();
 
-    const model = this._getModel();
-
-    /* istanbul ignore if */
-    if (!model) {
-      return;
-    }
-
-    let start = model.getPositionAt(position);
-    let end = model.getPositionAt(selectionEnd);
+    /** Calculate the length of the selection */
+    const length = selectionEnd - position;
 
     /** Create Selection in the Editor */
-    this._monaco.setSelection(
-      new monaco.Selection(
-        start.lineNumber,
-        start.column,
-        end.lineNumber,
-        end.column,
-      ),
-    );
+    this._quill.setSelection(position, length);
   }
 
   setOtherCursor({
@@ -303,13 +260,6 @@ export class QuillAdapter implements IEditorAdapter {
       "Client Id, User Name and User Color must be strings.",
     );
 
-    const model = this._getModel();
-
-    /* istanbul ignore if */
-    if (!model) {
-      return Disposable.create(() => {});
-    }
-
     /** Remove non-alphanumeric characters to create valid classname */
     const cursorColorTitle = cursorColor.replace(/,/g, "_").replace(/\W+/g, "");
     const className = `remote-client-${cursorColorTitle}`;
@@ -324,22 +274,18 @@ export class QuillAdapter implements IEditorAdapter {
     const { position, selectionEnd } = cursor.toJSON();
 
     /** Get co-ordinate position in Editor */
-    let start = model.getPositionAt(position);
-    let end = model.getPositionAt(selectionEnd);
+    const start = this._getPositionAt(position);
+    const end = this._getPositionAt(selectionEnd);
 
-    /** Find Range of Selection */
-    const range = new monaco.Range(
-      start.lineNumber,
-      start.column,
-      end.lineNumber,
-      end.column,
-    );
+    /** Find DOM Leaves on Selection */
+    const [startLeaf, endLeaf] = [
+      this._quill.getLeaf(start),
+      this._quill.getLeaf(end),
+    ];
 
     /** Add decoration to the Editor */
     const decorationClassName =
-      position === selectionEnd
-        ? `${className}-cursor`
-        : `${className}-selection`;
+      start === end ? `${className}-cursor` : `${className}-selection`;
     const decorations = this._monaco.deltaDecorations(
       [],
       [
@@ -376,30 +322,11 @@ export class QuillAdapter implements IEditorAdapter {
   }
 
   getText(): string {
-    const model = this._getModel();
-
-    /* istanbul ignore if */
-    if (!model) {
-      return "";
-    }
-
-    return model.getValue();
+    return this._quill.getText().trim();
   }
 
   setText(text: string): void {
-    const model = this._getModel();
-
-    /* istanbul ignore if */
-    if (!model) {
-      return;
-    }
-
-    this._applyEdits([
-      {
-        range: model.getFullModelRange(),
-        text,
-      },
-    ]);
+    this._quill.setText(text, "silent");
   }
 
   setInitiated(): void {
@@ -423,12 +350,12 @@ export class QuillAdapter implements IEditorAdapter {
     }
 
     const changes: monaco.editor.IIdentifiedSingleEditOperation[] =
-      this._transformOpsIntoMonacoChanges(operation.entries(), model);
+      this._transformOpsIntoQuillChanges(operation.entries(), model);
 
     /* istanbul ignore else */
     if (changes.length) {
       /** Changes exists to be applied */
-      this._applyChangesToMonaco(changes);
+      this._applyChangesToQuill(changes);
     }
 
     /* istanbul ignore else */
@@ -457,21 +384,21 @@ export class QuillAdapter implements IEditorAdapter {
     }
 
     // @ts-expect-error
-    this._monaco = null;
+    this._quill = null;
     this._initiated = false;
   }
 
   /**
    * Returns Text Model associated with editor instance.
    */
-  protected _getModel(): ITextModelWithUndoRedo | void {
-    /* istanbul ignore if */
-    if (!this._monaco) {
-      return;
-    }
+  // protected _getModel(): ITextModelWithUndoRedo | void {
+  //   /* istanbul ignore if */
+  //   if (!this._quill) {
+  //     return;
+  //   }
 
-    return this._monaco.getModel() as ITextModelWithUndoRedo;
-  }
+  //   return this._quill as ITextModelWithUndoRedo;
+  // }
 
   /**
    * Apply Edit Operations onto Monaco Model.
@@ -494,9 +421,9 @@ export class QuillAdapter implements IEditorAdapter {
    * Handles `Blur` event in Monaco editor.
    */
   protected _onBlur(): void {
-    const currentSelecton = this._monaco.getSelection();
+    const currentSelecton = this._quill.getSelection();
 
-    if (!currentSelecton || currentSelecton.isEmpty()) {
+    if (!currentSelecton) {
       this._trigger(EditorAdapterEvent.Blur, undefined);
     }
   }
@@ -511,65 +438,66 @@ export class QuillAdapter implements IEditorAdapter {
   /**
    * Handles `ModelChange` event in Monaco editor.
    */
-  protected _onModelChange(_ev: monaco.editor.IModelChangedEvent): void {
-    const newModel = this._getModel();
+  // protected _onModelChange(_ev: monaco.editor.IModelChangedEvent): void {
+  //   const newModel = this._getModel();
 
-    /* istanbul ignore if */
-    if (!newModel) {
-      return;
-    }
+  //   /* istanbul ignore if */
+  //   if (!newModel) {
+  //     return;
+  //   }
 
-    /* istanbul ignore else */
-    if (this._undoCallback) {
-      this._originalUndo = newModel.undo;
-      newModel.undo = this._undoCallback;
-    }
+  //   /* istanbul ignore else */
+  //   if (this._undoCallback) {
+  //     this._originalUndo = newModel.undo;
+  //     newModel.undo = this._undoCallback;
+  //   }
 
-    /* istanbul ignore else */
-    if (this._redoCallback) {
-      this._originalRedo = newModel.redo;
-      newModel.redo = this._redoCallback;
-    }
+  //   /* istanbul ignore else */
+  //   if (this._redoCallback) {
+  //     this._originalRedo = newModel.redo;
+  //     newModel.redo = this._redoCallback;
+  //   }
 
-    const oldLinesCount = this._lastDocLines.length;
-    const oldLastColumLength = this._lastDocLines[oldLinesCount - 1].length;
-    const oldRange = new monaco.Range(
-      1,
-      1,
-      oldLinesCount,
-      oldLastColumLength + 1,
-    );
-    const oldValue = this._getPreviousContentInRange();
+  //   const oldLinesCount = this._lastDocLines.length;
+  //   const oldLastColumLength = this._lastDocLines[oldLinesCount - 1].length;
+  //   const oldRange = new monaco.Range(
+  //     1,
+  //     1,
+  //     oldLinesCount,
+  //     oldLastColumLength + 1,
+  //   );
+  //   const oldValue = this._getPreviousContentInRange();
 
-    this._onChange({
-      changes: [
-        {
-          range: oldRange,
-          rangeOffset: 0,
-          rangeLength: oldValue.length,
-          text: newModel.getValue(),
-        },
-      ],
-    });
-  }
+  //   this._onChange({
+  //     changes: [
+  //       {
+  //         range: oldRange,
+  //         rangeOffset: 0,
+  //         rangeLength: oldValue.length,
+  //         text: newModel.getValue(),
+  //       },
+  //     ],
+  //   });
+  // }
 
   /**
-   * Handles `ModelContentChange` event in Monaco editor.
+   * Handles `text-change` event in Quill editor.
    */
   protected _onChange(
-    ev: Partial<monaco.editor.IModelContentChangedEvent>,
+    delta: Delta,
+    oldContents: Delta,
+    source: quill.Sources,
   ): void {
     /** Ignore if change is being applied by itself. */
     if (this._ignoreChanges || !this._initiated) {
       return;
     }
 
-    const model = this._getModel()!;
     const content = this._getPreviousContentInRange();
     const contentLength = content.length;
 
     /* istanbul ignore if */
-    if (!ev.changes || ev.changes.length === 0) {
+    if (delta.length() === 0) {
       /** If no change information received */
       const op = new PlainTextOperation().retain(contentLength);
       this._trigger(EditorAdapterEvent.Change, {
@@ -579,13 +507,13 @@ export class QuillAdapter implements IEditorAdapter {
       return;
     }
 
-    const [operation, inverse] = this._operationFromMonacoChange(
-      ev.changes,
+    const [operation, inverse] = this._operationFromQuillChange(
+      delta,
       contentLength,
     );
 
     /** Cache current content to use during next change trigger */
-    this._lastDocLines = model.getLinesContent();
+    // this._lastDocLines = model.getLinesContent();
 
     this._trigger(EditorAdapterEvent.Change, {
       operation,
@@ -594,24 +522,37 @@ export class QuillAdapter implements IEditorAdapter {
   }
 
   /**
-   * Handles `CursorPositionChange` event in Monaco editor.
+   * Handles `selection-change` event in Quill editor.
    */
-  protected _onCursorActivity(
-    ev: monaco.editor.ICursorPositionChangedEvent,
-  ): void {
+  protected _onCursorActivity(): // range: quill.RangeStatic, oldRange: quill.RangeStatic, source: quill.Sources
+  void {
     /** Ignore if the change is done by Third-party Widgets */
-    if (ev.reason === monaco.editor.CursorChangeReason.RecoverFromMarkers) {
-      return;
-    }
+    // if (source === 'silent') {
+    //   return;
+    // }
 
     this._trigger(EditorAdapterEvent.Cursor, undefined);
+  }
+
+  protected _getPositionAt(index: number): number {
+    const contentLength = this._quill.getLength();
+    const maxIndex = contentLength ? contentLength - 1 : 0;
+
+    index = index < 0 ? 0 : index;
+    index = index > maxIndex ? maxIndex : index;
+
+    return index;
+  }
+
+  protected _isValidLeaf(leaf: any): boolean {
+    return leaf && leaf[0] && leaf[0].domNode && leaf[1] >= 0;
   }
 
   /**
    * Returns content from editor model for given range or whole content.
    * @param range - Range of the editor to pick content from (optional).
    */
-  protected _getPreviousContentInRange(range?: monaco.Range): string {
+  protected _getPreviousContentInRange(range?: quill.RangeStatic): string {
     const model = this._getModel();
     const eol = model ? model.getEOL() : EndOfLineSequence.LF;
 
@@ -643,12 +584,12 @@ export class QuillAdapter implements IEditorAdapter {
   }
 
   /**
-   * Transform Monaco Content changes into pair of Text Operation that are inverse of each other.
-   * @param changes - Set of Changes from Monaco Model Content Change Event.
+   * Transform Quill Content changes into pair of Text Operation that are inverse of each other.
+   * @param delta - Delta of Changes from Quill Text Change Event.
    * @param contentLength - Current Size of the Content string.
    */
-  protected _operationFromMonacoChange(
-    changes: monaco.editor.IModelContentChange[],
+  protected _operationFromQuillChange(
+    delta: Delta,
     contentLength: number,
   ): [operation: IPlainTextOperation, inverse: IPlainTextOperation] {
     /** Text Operation respective of current changes */
@@ -657,63 +598,93 @@ export class QuillAdapter implements IEditorAdapter {
     /** Text Operation respective of invert changes */
     let reverseOp: IPlainTextOperation = new PlainTextOperation();
 
-    /* istanbul ignore if */
-    if (changes.length > 1) {
-      const first = changes[0];
-      const last = changes[changes.length - 1];
+    let cursor = 0;
 
-      if (first.rangeOffset > last.rangeOffset) {
-        changes = changes.reverse();
-      }
-    }
-
-    let skippedChars = 0;
-
-    for (const change of changes) {
-      const { range, text, rangeOffset, rangeLength } = <
-        Omit<monaco.editor.IModelContentChange, "range"> & {
-          range: monaco.Range;
+    delta.forEach((op) => {
+      if (op.insert != null) {
+        if (typeof op.insert !== "string") {
+          return;
         }
-      >change;
-      const retain = rangeOffset - skippedChars;
 
-      try {
-        mainOp = mainOp.retain(retain);
-        reverseOp = reverseOp.retain(retain);
-      } catch (err) /* istanbul ignore next */ {
-        this._trigger(EditorAdapterEvent.Error, {
-          err: err as Error,
-          operation: mainOp.toString(),
-          retain,
-        });
-        throw err;
-      }
-
-      if (!text && !range.isEmpty()) {
-        mainOp = mainOp.delete(rangeLength);
-        reverseOp = reverseOp.insert(this._getPreviousContentInRange(range));
-      } else if (text && !range.isEmpty()) {
-        mainOp = mainOp.delete(rangeLength).insert(text);
-        reverseOp = reverseOp
-          .insert(this._getPreviousContentInRange(range))
-          .delete(text);
+        mainOp = mainOp.insert(
+          op.insert,
+          op.attributes as unknown as TTextOperationAttributes,
+        );
+        reverseOp = reverseOp.delete(op.insert);
+      } else if (op.delete != null) {
+        mainOp = mainOp.delete(op.delete);
+        reverseOp = reverseOp.insert(
+          this._getPreviousContentInRange(op.delete),
+        );
+        cursor += op.delete;
       } else {
-        mainOp = mainOp.insert(text);
-        reverseOp = reverseOp.delete(text);
-      }
+        if (typeof op.retain !== "number") {
+          return;
+        }
 
-      skippedChars = skippedChars + retain + rangeLength;
-    }
+        mainOp = mainOp.retain(op.retain);
+        reverseOp = reverseOp.retain(op.retain);
+        cursor += op.retain;
+      }
+    });
+
+    /**
+     * ops: [
+        { retain: 3 },
+        { attributes: { bold: true }, retain: 1 }
+     ]
+
+      ops: [
+        { retain: 4 },
+        { attributes: { header: 2 }, retain: 1}
+      ]
+     */
+
+    // for (const change of changes) {
+    //   const { range, text, rangeOffset, rangeLength } = <
+    //     Omit<monaco.editor.IModelContentChange, "range"> & {
+    //       range: monaco.Range;
+    //     }
+    //   >change;
+    //   const retain = rangeOffset - skippedChars;
+
+    //   try {
+    //     mainOp = mainOp.retain(retain);
+    //     reverseOp = reverseOp.retain(retain);
+    //   } catch (err) /* istanbul ignore next */ {
+    //     this._trigger(EditorAdapterEvent.Error, {
+    //       err: err as Error,
+    //       operation: mainOp.toString(),
+    //       retain,
+    //     });
+    //     throw err;
+    //   }
+
+    //   if (!text && !range.isEmpty()) {
+    //     mainOp = mainOp.delete(rangeLength);
+    //     reverseOp = reverseOp.insert(this._getPreviousContentInRange(range));
+    //   } else if (text && !range.isEmpty()) {
+    //     mainOp = mainOp.delete(rangeLength).insert(text);
+    //     reverseOp = reverseOp
+    //       .insert(this._getPreviousContentInRange(range))
+    //       .delete(text);
+    //   } else {
+    //     mainOp = mainOp.insert(text);
+    //     reverseOp = reverseOp.delete(text);
+    //   }
+
+    //   skippedChars = skippedChars + retain + rangeLength;
+    // }
 
     try {
-      mainOp = mainOp.retain(contentLength - skippedChars);
-      reverseOp = reverseOp.retain(contentLength - skippedChars);
+      mainOp = mainOp.retain(contentLength - cursor);
+      reverseOp = reverseOp.retain(contentLength - cursor);
     } catch (err) /* istanbul ignore next */ {
       this._trigger(EditorAdapterEvent.Error, {
         err: err as Error,
         operation: mainOp.toString(),
+        skippedChars: cursor,
         contentLength,
-        skippedChars,
       });
       throw err;
     }
@@ -721,11 +692,11 @@ export class QuillAdapter implements IEditorAdapter {
   }
 
   /**
-   * Transforms Individual Text Operations into Edit Operations for Monaco.
+   * Transforms Individual Text Operations into Edit Operations for Quill.
    * @param ops - List of Individual Text Operations.
-   * @param model - Monaco Text Model.
+   * @param model - Quill Text Model.
    */
-  protected _transformOpsIntoMonacoChanges(
+  protected _transformOpsIntoQuillChanges(
     ops: IterableIterator<[index: number, operation: ITextOperation]>,
     model: monaco.editor.ITextModel,
   ): monaco.editor.IIdentifiedSingleEditOperation[] {
@@ -783,10 +754,10 @@ export class QuillAdapter implements IEditorAdapter {
   }
 
   /**
-   * Applies Edit Operations into Monaco editor model.
+   * Applies Edit Operations into Quill editor model.
    * @param changes - List of Edit Operations.
    */
-  protected _applyChangesToMonaco(
+  protected _applyChangesToQuill(
     changes: monaco.editor.IIdentifiedSingleEditOperation[],
   ): void {
     const readOnly = this._monaco.getOption(

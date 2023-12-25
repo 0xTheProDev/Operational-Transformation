@@ -224,7 +224,7 @@ export class MonacoAdapter
     }
 
     /** Fallback to last cursor change */
-    let selection = this._monaco.getSelection() ?? this._lastCursorRange;
+    const selection = this._monaco.getSelection() ?? this._lastCursorRange;
 
     /* istanbul ignore if */
     if (selection == null) {
@@ -235,8 +235,8 @@ export class MonacoAdapter
     const startPos = selection.getStartPosition();
     const endPos = selection.getEndPosition();
 
-    let start = model.getOffsetAt(startPos);
-    let end = model.getOffsetAt(endPos);
+    const start = model.getOffsetAt(startPos);
+    const end = model.getOffsetAt(endPos);
 
     /** Return cursor position */
     return new Cursor(start, end);
@@ -252,8 +252,8 @@ export class MonacoAdapter
       return;
     }
 
-    let start = model.getPositionAt(position);
-    let end = model.getPositionAt(selectionEnd);
+    const start = model.getPositionAt(position);
+    const end = model.getPositionAt(selectionEnd);
 
     /** Create Selection in the Editor */
     this._monaco.setSelection(
@@ -305,8 +305,8 @@ export class MonacoAdapter
     const { position, selectionEnd } = cursor.toJSON();
 
     /** Get co-ordinate position in Editor */
-    let start = model.getPositionAt(position);
-    let end = model.getPositionAt(selectionEnd);
+    const start = model.getPositionAt(position);
+    const end = model.getPositionAt(selectionEnd);
 
     /** Find Range of Selection */
     const range = new monaco.Range(
