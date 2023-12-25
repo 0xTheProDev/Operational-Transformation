@@ -35,19 +35,20 @@ jobs:
     strategy:
       matrix:
         node-version: ["20.10"]
+        pnpm-version: ["8.12"]
     steps:
-      - name: 'Setup Workspace Env (Temporary)'
+      - name: Setup Workspace Environment
         run: |-
           sudo apt-get update
           sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: ${{ matrix.pnpm-version }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           cache: "pnpm"
           node-version: ${{ matrix.node-version }}
