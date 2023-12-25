@@ -19,7 +19,5 @@
   ],
   "npmClient": "pnpm",
   "npmClientArgs": ["--frozen-lockfile"],
-  "useWorkspaces": true,
-  "packages": ["packages/*", "__tests__/*", "examples/*"],
   "version": "0.2.1"
 }
