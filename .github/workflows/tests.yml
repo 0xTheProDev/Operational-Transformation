@@ -7,6 +7,7 @@ on:
     paths:
       - "*.js"
       - "*.json"
+      - "*.yaml"
       - "__tests__/**"
       - "packages/**"
       - "!**.md"
@@ -18,6 +19,7 @@ on:
     paths:
       - "*.js"
       - "*.json"
+      - "*.yaml"
       - "__tests__/**"
       - "packages/**"
       - "!**.md"
@@ -28,33 +30,30 @@ jobs:
   unit:
     name: Unit Test Modules
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["20.10"]
     steps:
       - uses: actions/checkout@v2
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - uses: actions/setup-node@v2
         with:
-          node-version: "18.x"
+          cache: "pnpm"
+          node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            $HOME/.npm
-            $HOME/.yarn-cache
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-
       - name: Install Lerna
-        run: yarn global add lerna@4
+        run: pnpm add -g lerna@4
 
       - name: Install Dependencies
-        run: lerna bootstrap
+        run: lerna bootstrap --ignore-scripts
 
       - name: Run Tests
-        run: "yarn test:ci"
+        run: "pnpm test:ci"
 
       - uses: actions/upload-artifact@v2
         with:
@@ -65,33 +64,30 @@ jobs:
   ace:
     name: Ace Integration
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["20.10"]
     steps:
       - uses: actions/checkout@v2
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - uses: actions/setup-node@v2
         with:
-          node-version: "18.x"
+          cache: "pnpm"
+          node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            $HOME/.npm
-            $HOME/.yarn-cache
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-
       - name: Install Lerna
-        run: yarn global add lerna@4
+        run: pnpm add -g lerna@4
 
       - name: Install Dependencies
-        run: lerna bootstrap
+        run: lerna bootstrap --ignore-scripts
 
       - name: Run Tests
-        run: "yarn test:ace"
+        run: "pnpm test:ace"
 
       - uses: actions/upload-artifact@v2
         with:
@@ -103,32 +99,27 @@ jobs:
     name: Firebase Integration
     runs-on: ubuntu-latest
     environment: test
+    strategy:
+      matrix:
+        node-version: ["20.10"]
     steps:
       - uses: actions/checkout@v2
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - uses: actions/setup-node@v2
         with:
-          node-version: "18.x"
+          cache: "pnpm"
+          node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            $HOME/.npm
-            $HOME/.yarn-cache
-            $HOME/.cache
-            $HOME/firebase
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-
       - name: Install Lerna
-        run: yarn global add lerna@4
+        run: pnpm add -g lerna@4
 
       - name: Install Dependencies
-        run: lerna bootstrap
+        run: lerna bootstrap --ignore-scripts
 
       - name: Add Realtime Database Rules
         uses: jsdaniell/create-json@1.1.2
@@ -138,7 +129,7 @@ jobs:
           dir: "__tests__/firebase/.firebase/"
 
       - name: Run Tests
-        run: "yarn test:firebase"
+        run: "pnpm test:firebase"
 
       - uses: actions/upload-artifact@v2
         with:
@@ -149,33 +140,30 @@ jobs:
   monaco:
     name: Monaco Integration
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["20.10"]
     steps:
       - uses: actions/checkout@v2
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - uses: actions/setup-node@v2
         with:
-          node-version: "18.x"
+          cache: "pnpm"
+          node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            $HOME/.npm
-            $HOME/.yarn-cache
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-
       - name: Install Lerna
-        run: yarn global add lerna@4
+        run: pnpm add -g lerna@4
 
       - name: Install Dependencies
-        run: lerna bootstrap
+        run: lerna bootstrap --ignore-scripts
 
       - name: Run Tests
-        run: "yarn test:monaco"
+        run: "pnpm test:monaco"
 
       - uses: actions/upload-artifact@v2
         with:
@@ -187,27 +175,29 @@ jobs:
     name: Generate Coverage Report
     needs: [unit, ace, firebase, monaco]
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["20.10"]
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/cache@v2
+      - uses: pnpm/action-setup@v2
         with:
-          path: |
-            node_modules
-            $HOME/.npm
-            $HOME/.yarn-cache
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
+          version: 8
+
+      - uses: actions/setup-node@v2
+        with:
+          cache: "pnpm"
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install Dependencies
-        run: yarn
+        run: pnpm
 
       - uses: actions/download-artifact@v2
 
       - name: Generate Coverage Report
-        run: yarn coverage
+        run: pnpm coverage
 
       - name: Upload Coverage Report to Codecov
         uses: codecov/codecov-action@v2

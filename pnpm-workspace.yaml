@@ -1,0 +1,9 @@
+packages:
+  # All Library Packages of this Monorepo
+  - 'packages/*'
+
+  # Integration Test Suite with 3rd Party Dependency
+  - '__tests__/*'
+
+  # Example Applications
+  - 'examples/*'

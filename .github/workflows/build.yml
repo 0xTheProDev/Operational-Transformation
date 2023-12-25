@@ -7,6 +7,7 @@ on:
     paths:
       - "*.js"
       - "*.json"
+      - "*.yaml"
       - "packages/**"
       - "!**.md"
       - "!examples/**/*.js"
@@ -19,6 +20,7 @@ on:
     paths:
       - "*.js"
       - "*.json"
+      - "*.yaml"
       - "packages/**"
       - "!**.md"
       - "!examples/**/*.js"
@@ -30,30 +32,27 @@ jobs:
   build:
     name: Build Artifacts
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["20.10"]
     steps:
       - uses: actions/checkout@v2
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - uses: actions/setup-node@v2
         with:
-          node-version: "18.x"
+          cache: "pnpm"
+          node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            $HOME/.npm
-            $HOME/.yarn-cache
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-
       - name: Install Lerna
-        run: yarn global add lerna@4
+        run: pnpm add -g lerna@4
 
       - name: Install Dependencies
         run: lerna bootstrap --ignore-scripts
 
       - name: Build Artifacts
-        run: yarn build
+        run: pnpm build

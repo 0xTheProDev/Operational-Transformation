@@ -24,11 +24,10 @@
     "type": "git",
     "url": "https://github.com/0xTheProDev/Operational-Transformation.git"
   },
-  "workspaces": [
-    "packages/*",
-    "__tests__/*",
-    "examples/*"
-  ],
+  "engines": {
+    "node": ">= 20",
+    "pnpm": ">= 8"
+  },
   "devDependencies": {
     "@babel/core": "7.20.12",
     "@babel/preset-env": "7.20.2",

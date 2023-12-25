@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/lerna.json",
   "command": {
     "run": {
-      "npmClient": "yarn",
+      "npmClient": "pnpm",
       "scope": "@otjs/*"
     },
     "version": {
@@ -13,10 +13,11 @@
   "ignoreChanges": [
     "**/__mocks__/**",
     "**/__tests__/**",
+    "examples/**",
     "**/*.md",
     "**/*.yml"
   ],
-  "npmClient": "yarn",
+  "npmClient": "pnpm",
   "npmClientArgs": ["--frozen-lockfile"],
   "packages": ["packages/*"],
   "useWorkspaces": true,
