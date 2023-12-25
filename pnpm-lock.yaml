@@ -87,7 +87,7 @@ importers:
   __tests__/ace:
     devDependencies:
       '@otjs/ace':
-        specifier: 0.2.1
+        specifier: workspace:*
         version: link:../../packages/ace
       ace-builds:
         specifier: 1.14.0
@@ -96,7 +96,7 @@ importers:
   __tests__/firebase:
     devDependencies:
       '@otjs/firebase-plaintext':
-        specifier: 0.2.1
+        specifier: workspace:*
         version: link:../../packages/firebase-plaintext
       firebase:
         specifier: 9.15.0
@@ -105,7 +105,7 @@ importers:
   __tests__/monaco:
     devDependencies:
       '@otjs/monaco':
-        specifier: 0.2.1
+        specifier: workspace:*
         version: link:../../packages/monaco
       monaco-editor:
         specifier: 0.34.1
@@ -114,10 +114,10 @@ importers:
   examples/collaborative-editors:
     dependencies:
       '@otjs/firebase-ace':
-        specifier: ^0.2.0
+        specifier: workspace:*
         version: link:../../packages/firebase-ace
       '@otjs/firebase-monaco':
-        specifier: ^0.2.0
+        specifier: workspace:*
         version: link:../../packages/firebase-monaco
       firebase:
         specifier: 9.15.0
@@ -173,10 +173,10 @@ importers:
         specifier: 0.2.1
         version: link:../plaintext-editor
       '@otjs/types':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../types
       '@otjs/utils':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../utils
       '@types/ace':
         specifier: 0.0.48
@@ -204,10 +204,10 @@ importers:
         version: 1.14.0
     devDependencies:
       '@otjs/types':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../types
       '@otjs/utils':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../utils
       '@types/ace':
         specifier: 0.0.48
@@ -235,10 +235,10 @@ importers:
         version: link:../plaintext-editor
     devDependencies:
       '@otjs/types':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../types
       '@otjs/utils':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../utils
       firebase:
         specifier: 9.15.0
@@ -263,10 +263,10 @@ importers:
         specifier: 0.2.1
         version: link:../plaintext-editor
       '@otjs/types':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../types
       '@otjs/utils':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../utils
       firebase:
         specifier: 9.15.0
@@ -285,10 +285,10 @@ importers:
         specifier: 0.2.1
         version: link:../plaintext-editor
       '@otjs/types':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../types
       '@otjs/utils':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../utils
       monaco-editor:
         specifier: 0.34.1
@@ -297,7 +297,7 @@ importers:
   packages/plaintext:
     devDependencies:
       '@otjs/utils':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../utils
 
   packages/plaintext-editor:
@@ -313,10 +313,10 @@ importers:
         specifier: 0.2.1
         version: link:../plaintext
       '@otjs/types':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../types
       '@otjs/utils':
-        specifier: ^0.0.0
+        specifier: workspace:*
         version: link:../utils
 
   packages/state-machine: {}
