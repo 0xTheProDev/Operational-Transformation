@@ -296,6 +296,9 @@ importers:
 
   packages/plaintext:
     devDependencies:
+      '@otjs/types':
+        specifier: workspace:*
+        version: link:../types
       '@otjs/utils':
         specifier: workspace:*
         version: link:../utils
@@ -319,11 +322,25 @@ importers:
         specifier: workspace:*
         version: link:../utils
 
-  packages/state-machine: {}
+  packages/state-machine:
+    devDependencies:
+      '@otjs/types':
+        specifier: workspace:*
+        version: link:../types
+      '@otjs/utils':
+        specifier: workspace:*
+        version: link:../utils
 
   packages/types: {}
 
-  packages/utils: {}
+  packages/utils:
+    devDependencies:
+      '@otjs/types':
+        specifier: workspace:*
+        version: link:../types
+      '@otjs/utils':
+        specifier: workspace:*
+        version: 'link:'
 
 packages:
 
