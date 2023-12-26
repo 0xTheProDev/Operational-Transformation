@@ -7,8 +7,8 @@
   "scripts": {
     "start": "firebase emulators:start",
     "test": "TEST_ENV=true jest --colors",
-    "test:ci": "firebase emulators:exec \"yarn test --ci --silent\"",
-    "test:watch": "yarn test --watch"
+    "test:ci": "firebase emulators:exec \"pnpm run test --ci --silent\"",
+    "test:watch": "pnpm run test --watch"
   },
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "license": "MIT",

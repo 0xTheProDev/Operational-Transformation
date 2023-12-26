@@ -36,7 +36,7 @@ jobs:
     strategy:
       matrix:
         node-version: ["20.10"]
-        pnpm-version: ["8.12"]
+        pnpm-version: [8]
     steps:
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:

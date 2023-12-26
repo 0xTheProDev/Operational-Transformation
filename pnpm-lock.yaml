@@ -32,9 +32,6 @@ importers:
       canvas:
         specifier: 2.10.2
         version: 2.10.2
-      check-yarn-lock:
-        specifier: 0.2.1
-        version: 0.2.1
       firebase-tools:
         specifier: 11.18.0
         version: 11.18.0
@@ -4699,14 +4696,6 @@ packages:
 
   /chardet@0.7.0:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
-    dev: true
-
-  /check-yarn-lock@0.2.1:
-    resolution: {integrity: sha512-OsLJxTPupkPQnTfUDmLHSOXxhUdYXQmCOP+MGlvda8Ycyxecdwbax8D0roO21ByDZ0QJPtudz/n+fk5lYyfh+w==}
-    hasBin: true
-    dependencies:
-      chalk: 2.4.2
-      ramda: 0.24.1
     dev: true
 
   /chokidar@3.5.3:
@@ -10766,10 +10755,6 @@ packages:
   /quick-lru@4.0.1:
     resolution: {integrity: sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==}
     engines: {node: '>=8'}
-    dev: true
-
-  /ramda@0.24.1:
-    resolution: {integrity: sha512-HEm619G8PaZMfkqCa23qiOe7r3R0brPu7ZgOsgKUsnvLhd0qhc/vTjkUovomgPWa5ECBa08fJZixth9LaoBo5w==}
     dev: true
 
   /randombytes@2.1.0:
