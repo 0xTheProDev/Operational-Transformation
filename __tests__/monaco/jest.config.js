@@ -27,18 +27,8 @@ module.exports = {
   testMatch: [`<rootDir>/${package.rootDir}/__tests__/*.[jt]s?(x)`],
   // A map from regular expressions to paths to transformers
   transform: {
-    "node_modules/monaco-editor/.+\\.(j|t)sx?$": [
-      "babel-jest",
-      {
-        presets: [
-          [
-            "@babel/preset-env",
-            { modules: "cjs", targets: { node: "current" } },
-          ],
-        ],
-      },
-    ],
+    "node_modules/monaco-editor/.+\\.(j|t)sx?$": "babel-jest",
   },
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  transformIgnorePatterns: ["<rootDir>/node_modules/(?!(monaco-editor)/)"],
+  transformIgnorePatterns: ["/node_modules/(?!(monaco-editor)/)"],
 };
