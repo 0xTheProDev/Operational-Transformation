@@ -62,7 +62,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: coverage-unit-tests
-          path: coverage-root/coverage-final.json
+          path: coverage-unit/coverage-final.json
           if-no-files-found: error
 
   ace:
