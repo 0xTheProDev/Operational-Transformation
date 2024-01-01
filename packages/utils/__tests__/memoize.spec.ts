@@ -42,7 +42,7 @@ describe("Test memoize function", () => {
 
   it("should allow external function to set key", () => {
     const mockFn = jest.fn();
-    const memoizedFn = memoize(mockFn, () => 0);
+    const memoizedFn = memoize(mockFn, (..._args) => 0);
     memoizedFn(1, 2);
     memoizedFn(1, 2);
     expect(mockFn).toHaveBeenCalledTimes(1);
@@ -66,7 +66,7 @@ describe("Test memoize function", () => {
 
   it("should not memoize return values if null is set as key", () => {
     const mockFn = jest.fn();
-    const memoizedFn = memoize(mockFn, () => null);
+    const memoizedFn = memoize(mockFn, (..._args) => null);
     memoizedFn(1, 2);
     memoizedFn(1, 2);
     expect(mockFn).toHaveBeenCalledTimes(2);

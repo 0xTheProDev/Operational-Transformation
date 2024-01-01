@@ -42,11 +42,11 @@
     "build:dts": "api-extractor run",
     "clean": "rimraf lib typings index.d.ts",
     "test": "TEST_ENV=true jest --colors",
-    "test:watch": "yarn test --watch"
+    "test:watch": "pnpm run test --watch"
   },
   "devDependencies": {
-    "@otjs/types": "^0.0.0",
-    "@otjs/utils": "^0.0.0",
+    "@otjs/types": "workspace:*",
+    "@otjs/utils": "workspace:*",
     "firebase": "9.15.0",
     "mitt": "3.0.0",
     "monaco-editor": "0.34.1"

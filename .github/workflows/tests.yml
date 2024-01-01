@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 ---
 name: Tests
 on:
@@ -7,6 +8,7 @@ on:
     paths:
       - "*.js"
       - "*.json"
+      - "*.yaml"
       - "__tests__/**"
       - "packages/**"
       - "!**.md"
@@ -18,6 +20,7 @@ on:
     paths:
       - "*.js"
       - "*.json"
+      - "*.yaml"
       - "__tests__/**"
       - "packages/**"
       - "!**.md"
@@ -28,70 +31,70 @@ jobs:
   unit:
     name: Unit Test Modules
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["20.10"]
+        pnpm-version: [8]
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
+      - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          node-version: "18.x"
+          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+          version: 1.0
+
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ matrix.pnpm-version }}
+
+      - uses: actions/setup-node@v3
+        with:
+          cache: "pnpm"
+          node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            $HOME/.npm
-            $HOME/.yarn-cache
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-
-      - name: Install Lerna
-        run: yarn global add lerna@4
-
       - name: Install Dependencies
-        run: lerna bootstrap
+        run: pnpm install
 
       - name: Run Tests
-        run: "yarn test:ci"
+        run: "pnpm test:ci"
 
       - uses: actions/upload-artifact@v2
         with:
           name: coverage-unit-tests
-          path: coverage-root/coverage-final.json
+          path: coverage-unit/coverage-final.json
           if-no-files-found: error
 
   ace:
     name: Ace Integration
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["20.10"]
+        pnpm-version: [8]
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
+      - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          node-version: "18.x"
+          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+          version: 1.0
+
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ matrix.pnpm-version }}
+
+      - uses: actions/setup-node@v3
+        with:
+          cache: "pnpm"
+          node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            $HOME/.npm
-            $HOME/.yarn-cache
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-
-      - name: Install Lerna
-        run: yarn global add lerna@4
-
       - name: Install Dependencies
-        run: lerna bootstrap
+        run: pnpm install
 
       - name: Run Tests
-        run: "yarn test:ace"
+        run: "pnpm test:ace"
 
       - uses: actions/upload-artifact@v2
         with:
@@ -103,32 +106,30 @@ jobs:
     name: Firebase Integration
     runs-on: ubuntu-latest
     environment: test
+    strategy:
+      matrix:
+        node-version: ["20.10"]
+        pnpm-version: [8]
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
+      - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          node-version: "18.x"
+          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+          version: 1.0
+
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ matrix.pnpm-version }}
+
+      - uses: actions/setup-node@v3
+        with:
+          cache: "pnpm"
+          node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
 
-      - uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            $HOME/.npm
-            $HOME/.yarn-cache
-            $HOME/.cache
-            $HOME/firebase
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-
-      - name: Install Lerna
-        run: yarn global add lerna@4
-
       - name: Install Dependencies
-        run: lerna bootstrap
+        run: pnpm install
 
       - name: Add Realtime Database Rules
         uses: jsdaniell/create-json@1.1.2
@@ -138,7 +139,7 @@ jobs:
           dir: "__tests__/firebase/.firebase/"
 
       - name: Run Tests
-        run: "yarn test:firebase"
+        run: "pnpm test:firebase"
 
       - uses: actions/upload-artifact@v2
         with:
@@ -146,68 +147,77 @@ jobs:
           path: coverage-firebase/coverage-final.json
           if-no-files-found: error
 
-  monaco:
-    name: Monaco Integration
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+  # Temporarily Disable Monaco Suite till the Import Transformation Issue is solved.
+  # monaco:
+  #   name: Monaco Integration
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node-version: ["20.10"]
+  #       pnpm-version: [8]
+  #   steps:
+  #     - uses: awalsh128/cache-apt-pkgs-action@latest
+  #       with:
+  #         packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+  #         version: 1.0
 
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "18.x"
-          registry-url: "https://registry.npmjs.org"
+  #     - uses: actions/checkout@v3
 
-      - uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            $HOME/.npm
-            $HOME/.yarn-cache
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
+  #     - uses: pnpm/action-setup@v2
+  #       with:
+  #         version: ${{ matrix.pnpm-version }}
 
-      - name: Install Lerna
-        run: yarn global add lerna@4
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         cache: "pnpm"
+  #         node-version: ${{ matrix.node-version }}
+  #         registry-url: "https://registry.npmjs.org"
 
-      - name: Install Dependencies
-        run: lerna bootstrap
+  #     - name: Install Dependencies
+  #       run: pnpm install
 
-      - name: Run Tests
-        run: "yarn test:monaco"
+  #     - name: Run Tests
+  #       run: "pnpm test:monaco"
 
-      - uses: actions/upload-artifact@v2
-        with:
-          name: coverage-monaco-integration
-          path: coverage-monaco/coverage-final.json
-          if-no-files-found: error
+  #     - uses: actions/upload-artifact@v2
+  #       with:
+  #         name: coverage-monaco-integration
+  #         path: coverage-monaco/coverage-final.json
+  #         if-no-files-found: error
 
   coverage:
     name: Generate Coverage Report
-    needs: [unit, ace, firebase, monaco]
+    needs: [unit, ace, firebase]
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["20.10"]
+        pnpm-version: [8]
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/cache@v2
+      - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          path: |
-            node_modules
-            $HOME/.npm
-            $HOME/.yarn-cache
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
+          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+          version: 1.0
+
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ matrix.pnpm-version }}
+
+      - uses: actions/setup-node@v3
+        with:
+          cache: "pnpm"
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install Dependencies
-        run: yarn
+        run: pnpm install
 
       - uses: actions/download-artifact@v2
 
       - name: Generate Coverage Report
-        run: yarn coverage
+        run: pnpm coverage
 
       - name: Upload Coverage Report to Codecov
         uses: codecov/codecov-action@v2

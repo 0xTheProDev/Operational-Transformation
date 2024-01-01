@@ -28,6 +28,10 @@
   },
   "scripts": {
     "test": "TEST_ENV=true jest --colors",
-    "test:watch": "yarn test --watch"
+    "test:watch": "pnpm run test --watch"
+  },
+  "devDependencies": {
+    "@otjs/types": "workspace:*",
+    "@otjs/utils": "workspace:*"
   }
 }

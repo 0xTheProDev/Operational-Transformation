@@ -6,13 +6,13 @@
   "rootDir": "__tests__/monaco",
   "scripts": {
     "test": "TEST_ENV=true jest --colors",
-    "test:ci": "yarn test --ci --silent",
-    "test:watch": "yarn test --watch"
+    "test:ci": "pnpm run test --ci --silent",
+    "test:watch": "pnpm run test --watch"
   },
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@otjs/monaco": "0.2.1",
+    "@otjs/monaco": "workspace:*",
     "monaco-editor": "0.34.1"
   }
 }

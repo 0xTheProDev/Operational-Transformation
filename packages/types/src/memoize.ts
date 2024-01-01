@@ -25,6 +25,15 @@
 import { IDisposable } from "./disposable";
 
 /**
+ * Interface for Callables (Methods, Functions, Proxies or Specialised Object that can be Invoked).
+ */
+export interface ICallable<P extends any[], R extends unknown> {
+  (...args: P): R;
+}
+
+/**
  * Interface for Memoized Function - Extends Function and IDisposable interface.
  */
-export interface IMemoizedFunction extends Function, IDisposable {}
+export interface IMemoizedFunction<P extends any[], R extends unknown>
+  extends IDisposable,
+    ICallable<P, R> {}

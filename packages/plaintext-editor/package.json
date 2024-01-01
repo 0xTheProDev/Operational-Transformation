@@ -44,12 +44,12 @@
     "build:dts": "api-extractor run",
     "clean": "rimraf lib typings index.d.ts",
     "test": "TEST_ENV=true jest --colors",
-    "test:watch": "yarn test --watch"
+    "test:watch": "pnpm run test --watch"
   },
   "devDependencies": {
     "@otjs/plaintext": "0.2.1",
-    "@otjs/types": "^0.0.0",
-    "@otjs/utils": "^0.0.0"
+    "@otjs/types": "workspace:*",
+    "@otjs/utils": "workspace:*"
   },
   "dependencies": {
     "@otjs/state-machine": "0.2.1",
