@@ -61,7 +61,7 @@ const aceAdapter = new AceAdapter({
 
 ## Testing
 
-We don't have any Unit Test Suite for `@otjs/ace`. Please refer to root [README](https://github.com/0xTheProDev/Operational-Transformation/blob/main/README.md) for details regarding Integration Test Suite that concerns ace.
+We don't have any Unit Test Suite for `@otjs/ace`. Please refer to root [README](https://github.com/0xTheProDev/Operational-Transformation/blob/main/README.md) for details regarding Integration Test Suite that concerns Ace.
 
 ## Reporting a Bug
 

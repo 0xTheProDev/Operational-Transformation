@@ -30,7 +30,7 @@ import { ICursor } from "./cursor";
  * @public
  * Editor Adapter Events - Events exposed by Editor Adapter.
  */
-export enum EditorAdapterEvent {
+export const enum EditorAdapterEvent {
   Error = "error",
   Blur = "blur",
   Focus = "focus",

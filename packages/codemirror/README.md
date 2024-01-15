@@ -1,57 +1,57 @@
-# `@otjs/monaco`
+# `@otjs/codemirror`
 
 [![Sponsor](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white)](https://github.com/sponsors/0xTheProDev)
-[![Npm Version](https://img.shields.io/npm/v/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
-[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
-[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
-[![Types](https://img.shields.io/npm/types/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
-[![License](https://img.shields.io/npm/l/@otjs/monaco?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/blob/main/packages/monaco/LICENSE)
-[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
-[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
-[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/monaco?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/blob/main/.github/SECURITY.md)
+[![Npm Version](https://img.shields.io/npm/v/@otjs/codemirror?style=for-the-badge)](https://www.npmjs.com/package/@otjs/codemirror)
+[![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/codemirror?style=for-the-badge)](https://www.npmjs.com/package/@otjs/codemirror)
+[![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/codemirror?style=for-the-badge)](https://www.npmjs.com/package/@otjs/codemirror)
+[![Types](https://img.shields.io/npm/types/@otjs/codemirror?style=for-the-badge)](https://www.npmjs.com/package/@otjs/codemirror)
+[![License](https://img.shields.io/npm/l/@otjs/codemirror?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/blob/main/packages/codemirror/LICENSE)
+[![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/codemirror?style=for-the-badge)](https://www.npmjs.com/package/@otjs/codemirror)
+[![Dependents](https://img.shields.io/librariesio/dependents/npm/@otjs/codemirror?style=for-the-badge)](https://www.npmjs.com/package/@otjs/codemirror)
+[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@otjs/codemirror?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/blob/main/.github/SECURITY.md)
 [![Stars](https://img.shields.io/github/stars/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/stargazers)
 [![Forks](https://img.shields.io/github/forks/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/network/members)
 [![Discussions](https://img.shields.io/github/discussions/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/discussions)
 
 ## Description
 
-> Editor Adapter implementation for Monaco.
+> Editor Adapter implementation for CodeMirror.
 
 ## Installation
 
 - To install using [Pnpm](https://pnpm.io) _(recommended)_:
 
   ```sh
-  pnpm add @otjs/ace
+  pnpm add @otjs/codemirror
   ```
 
 - To install using [Yarn](https://yarnpkg.com):
 
   ```sh
-  yarn add @otjs/monaco
+  yarn add @otjs/codemirror
   ```
 
 - To install using [Npm](https://www.npmjs.com):
 
   ```sh
-  npm i @otjs/monaco --save
+  npm i @otjs/codemirror --save
   ```
 
 ### Peer Dependencies
 
 Make sure to install all the peer dependencies beforehand:
 
-[![Monaco Editor](https://img.shields.io/npm/dependency-version/@otjs/firebase-monaco/peer/monaco-editor?style=for-the-badge)](https://microsoft.github.io/monaco-editor)
+[![CodeMirror Editor](https://img.shields.io/npm/dependency-version/@otjs/codemirror/peer/codemirror?style=for-the-badge)](https://codemirror.net/)
 
 ## Usage
 
 ---
 
 ```ts
-import { MonacoAdapter } from "@otjs/monaco";
+import { CodeMirrorAdapter } from "@otjs/codemirror";
 
-const monacoAdapter = new MonacoAdapter({
-  editor:                   // Monaco Editor Instance
+const codeMirrorAdapter = new CodeMirrorAdapter({
+  editor:                   // CodeMirror Editor Instance
   announcementDuration:     // Duration (in ms) of User Name Announcement beside Cursor (optional)
   bindEvents:               // Boolean on whether or not to emit events from Adapter (optional)
 });
@@ -61,7 +61,7 @@ const monacoAdapter = new MonacoAdapter({
 
 ## Testing
 
-We don't have any Unit Test Suite for `@otjs/monaco`. Please refer to root [README](https://github.com/0xTheProDev/Operational-Transformation/blob/main/README.md) for details regarding Integration Test Suite that concerns Monaco.
+We don't have any Unit Test Suite for `@otjs/codemirror`. Please refer to root [README](https://github.com/0xTheProDev/Operational-Transformation/blob/main/README.md) for details regarding Integration Test Suite that concerns CodeMirror.
 
 ## Reporting a Bug
 
@@ -77,4 +77,4 @@ See [Contributing Guidelines](https://github.com/0xTheProDev/Operational-Transfo
 
 ## License
 
-This project is licensed under the terms of the MIT license, see [LICENSE](https://github.com/0xTheProDev/Operational-Transformation/blob/main/packages/monaco/LICENSE) for more details.
+This project is licensed under the terms of the MIT license, see [LICENSE](https://github.com/0xTheProDev/Operational-Transformation/blob/main/packages/codemirror/LICENSE) for more details.

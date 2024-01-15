@@ -269,6 +269,17 @@ export class EditorClient
     this._undoManager = null;
   }
 
+<<<<<<< HEAD
+=======
+  /** Trigger an event with optional payload */
+  protected _trigger<Key extends keyof TEditorClientEventArgs>(
+    event: Key,
+    payload: TEditorClientEventArgs[Key],
+  ): void {
+    this._emitter.emit(event, payload);
+  }
+
+>>>>>>> 6bfc2a1 (Code mirror WIP)
   /** Trigger `Synced` event with boolean payload */
   protected _emitSynced() {
     this._trigger(

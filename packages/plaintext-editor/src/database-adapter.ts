@@ -30,7 +30,7 @@ import { ICursor, TCursor } from "./cursor";
  * @public
  * Database Adapter Events - Events exposed by Database Adapter.
  */
-export enum DatabaseAdapterEvent {
+export const enum DatabaseAdapterEvent {
   Ready = "ready",
   Retry = "retry",
   Error = "error",

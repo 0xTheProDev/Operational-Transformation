@@ -31,7 +31,7 @@ import { IEditorAdapter } from "./editor-adapter";
  * @public
  * Editor Client Events - Wrapper Packages must attach listener to bubble events up.
  */
-export enum EditorClientEvent {
+export const enum EditorClientEvent {
   Undo = "undo",
   Redo = "redo",
   Ready = "ready",

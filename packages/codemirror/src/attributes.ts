@@ -22,9 +22,48 @@
  * See LICENSE file in the root directory for more details.
  */
 
-export const enum EndOfLineSequence {
-  /** Unix Style Line Endings (Line Feed) */
-  LF = "\n",
-  /** Windows Style Line Endings (Carriage Return) */
-  CRLF = "\r\n",
+/**
+ * Text Attributes for Rich Text Content.
+ */
+export const enum TextAttributes {
+  Bold = "b",
+  Italic = "i",
+  UnderLine = "u",
+  Strike = "s",
+  Font = "f",
+  FontSize = "fs",
+  Color = "c",
+  BackgroundColor = "bc",
+  EntitySentinel = "ent",
 }
+
+/**
+ * Line Attributes for Rich Text Content.
+ */
+export const enum LineAttributes {
+  Sentinel = "l",
+  Indent = "li",
+  Align = "la",
+  ListItem = "lt",
+}
+
+/**
+ * List Types for Rich Text Content.
+ */
+export const enum ListType {
+  None = 0,
+  Ordered = "o",
+  Unordered = "u",
+  Todo = "t",
+  TodoChecked = "tc",
+}
+
+type AttributeParameterMap = {
+  [LineAttributes.Align]: number;
+  [LineAttributes.Indent]: number;
+  [LineAttributes.ListItem]: ListType;
+};
+
+export type AttributeParameter<A> = A extends keyof AttributeParameterMap
+  ? AttributeParameterMap[A]
+  : unknown;

@@ -32,7 +32,7 @@ import { IWrappedOperation } from "./wrapped-operation";
  * @internal
  * Internal States of Undo Redo Stack Manager.
  */
-export enum UndoManagerState {
+export const enum UndoManagerState {
   Normal = "normal",
   Undoing = "undoing",
   Redoing = "redoing",

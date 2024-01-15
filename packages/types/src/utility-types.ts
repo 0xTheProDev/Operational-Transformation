@@ -26,3 +26,13 @@
  * Primitive Data Types in JavaScript/TypeScript.
  */
 export type Primitive = string | number | bigint | boolean | symbol;
+
+/**
+ * Extract Values of a Record as Union of Types.
+ */
+export type Values<R> = R extends Record<
+  infer _K extends string | number | symbol,
+  infer T
+>
+  ? T
+  : never;

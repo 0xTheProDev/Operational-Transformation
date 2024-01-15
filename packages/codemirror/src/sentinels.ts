@@ -22,9 +22,17 @@
  * See LICENSE file in the root directory for more details.
  */
 
-export const enum EndOfLineSequence {
-  /** Unix Style Line Endings (Line Feed) */
-  LF = "\n",
-  /** Windows Style Line Endings (Carriage Return) */
-  CRLF = "\r\n",
-}
+export const Sentinels = {
+  /**
+   * A special character we insert at the beginning of lines so we can attach attributes to it to represent
+   * "line attributes."  E000 is from the unicode "private use" range.
+   */
+  LINE_SENTINEL_CHARACTER: "\uE000",
+
+  /**
+   * A special character used to represent any "entity" inserted into the document (e.g. an image).
+   */
+  ENTITY_SENTINEL_CHARACTER: "\uE001",
+} as const;
+
+export type Sentinels = typeof Sentinels;

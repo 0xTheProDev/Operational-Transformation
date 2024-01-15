@@ -22,9 +22,24 @@
  * See LICENSE file in the root directory for more details.
  */
 
-export const enum EndOfLineSequence {
-  /** Unix Style Line Endings (Line Feed) */
-  LF = "\n",
-  /** Windows Style Line Endings (Carriage Return) */
-  CRLF = "\r\n",
+export class Span {
+  protected readonly _pos: number;
+  protected readonly _length: number;
+
+  constructor(pos: number, length: number) {
+    this._pos = pos;
+    this._length = length;
+  }
+
+  get end(): number {
+    return this._pos + this._length;
+  }
+
+  get length() {
+    return this._length;
+  }
+
+  get pos() {
+    return this._pos;
+  }
 }
