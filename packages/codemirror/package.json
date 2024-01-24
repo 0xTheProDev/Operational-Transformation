@@ -45,6 +45,7 @@
     "@otjs/plaintext-editor": "0.2.1",
     "@otjs/types": "workspace:*",
     "@otjs/utils": "workspace:*",
+    "@types/codemirror": "5.60.15",
     "codemirror": "5.52.2"
   },
   "dependencies": {

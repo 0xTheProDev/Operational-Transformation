@@ -75,7 +75,7 @@ const NullAnnotation = {
 export class AnnotationList {
   head_: Node;
   changeHandler_: any;
-  constructor(changeHandler: any) {
+  constructor(changeHandler: (oldNode: Node, newNode: Node) => void) {
     // There's always a head node; to avoid special cases.
     this.head_ = new Node(0, NullAnnotation);
     this.changeHandler_ = changeHandler;

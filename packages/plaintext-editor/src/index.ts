@@ -32,3 +32,4 @@ export * from "./operation-metadata";
 export * from "./remote-client";
 export * from "./undo-manager";
 export * from "./wrapped-operation";
+export * from "./wrapped-operation.impl";

@@ -22,11 +22,18 @@
  * See LICENSE file in the root directory for more details.
  */
 
+import { Editor as CodeMirror, EditorChange } from "codemirror";
+import { PlainTextOperation } from "@otjs/plaintext";
+import { WrappedOperation } from "@otjs/plaintext-editor";
+import { RichTextChange, RichTextCodeMirror } from "./rich-text-codemirror";
 // const TextOperation = firepad.TextOperation;
 // const WrappedOperation = firepad.WrappedOperation;
 // const Cursor = firepad.Cursor;
 
 class RichTextCodeMirrorAdapter {
+  cm: CodeMirror;
+  rtcm: RichTextCodeMirror;
+
   constructor(rtcm) {
     this.rtcm = rtcm;
     this.cm = rtcm.codeMirror;
@@ -58,7 +65,7 @@ class RichTextCodeMirrorAdapter {
     this.callbacks = cb;
   }
 
-  onChange(_, changes) {
+  onChange(_: CodeMirror, changes: EditorChange[]) {
     if (changes[0].origin !== "RTCMADAPTER") {
       const pair = RichTextCodeMirrorAdapter.operationFromCodeMirrorChanges(
         changes,
@@ -331,108 +338,121 @@ class RichTextCodeMirrorAdapter {
 
     return new WrappedOperation(inverse, meta.invert());
   }
+
+  // Converts a CodeMirror change object into a TextOperation and its inverse
+  // and returns them as a two-element array.
+  static operationFromCodeMirrorChanges(
+    changes: RichTextChange[],
+    cm: CodeMirror,
+  ): [PlainTextOperation, PlainTextOperation] {
+    // Approach: Replay the changes, beginning with the most recent one, and
+    // construct the operation and its inverse. We have to convert the position
+    // in the pre-change coordinate system to an index. We have a method to
+    // convert a position in the coordinate system after all changes to an index,
+    // namely CodeMirror's `indexFromPos` method. We can use the information of
+    // a single change object to convert a post-change coordinate system to a
+    // pre-change coordinate system. We can now proceed inductively to get a
+    // pre-change coordinate system for all changes in the linked list.
+    // A disadvantage of this approach is its complexity `O(n^2)` in the length
+    // of the linked list of changes.
+
+    let docEndLength = codemirrorLength(cm);
+    let operation = new PlainTextOperation().retain(docEndLength);
+    let inverse = new PlainTextOperation().retain(docEndLength);
+
+    for (let i = changes.length - 1; i >= 0; i--) {
+      const change = changes[i];
+      const fromIndex = change.start;
+      const restLength = docEndLength - fromIndex - change.text.length;
+
+      operation = new PlainTextOperation()
+        .retain(fromIndex)
+        ["delete"](change.removed.length)
+        .insert(change.text, change.attributes)
+        .retain(restLength)
+        .compose(operation);
+
+      inverse = inverse.compose(
+        new PlainTextOperation()
+          .retain(fromIndex)
+          ["delete"](change.text.length)
+          .insert(change.removed, change.removedAttributes)
+          .retain(restLength),
+      );
+
+      docEndLength += change.removed.length - change.text.length;
+    }
+
+    return [operation, inverse];
+  }
+
+  // Converts an attributes changed object to an operation and its inverse.
+  static operationFromAttributesChanges(changes, cm) {
+    const docEndLength = codemirrorLength(cm);
+
+    const operation = new TextOperation(),
+      inverse = new TextOperation();
+    let pos = 0;
+
+    for (let i = 0; i < changes.length; i++) {
+      const change = changes[i];
+      const toRetain = change.start - pos;
+      assert(toRetain >= 0); // changes should be in order and non-overlapping.
+      operation.retain(toRetain);
+      inverse.retain(toRetain);
+
+      const length = change.end - change.start;
+      operation.retain(length, change.attributes);
+      inverse.retain(length, change.attributesInverse);
+      pos = change.start + length;
+    }
+
+    operation.retain(docEndLength - pos);
+    inverse.retain(docEndLength - pos);
+
+    return [operation, inverse];
+  }
 }
 
-function cmpPos({ line, ch }, { line, ch }) {
-  if (line < line) {
+type Position = {
+  line: number;
+  ch: number;
+};
+
+function cmpPos(
+  { line: l1, ch: c1 }: Position,
+  { line: l2, ch: c2 }: Position,
+) {
+  if (l1 < l2) {
     return -1;
   }
-  if (line > line) {
+  if (l1 > l2) {
     return 1;
   }
-  if (ch < ch) {
+  if (c1 < c2) {
     return -1;
   }
-  if (ch > ch) {
+  if (c1 > c2) {
     return 1;
   }
   return 0;
 }
-function posEq(a, b) {
+
+function posEq(a: Position, b: Position) {
   return cmpPos(a, b) === 0;
 }
-function posLe(a, b) {
+
+function posLe(a: Position, b: Position) {
   return cmpPos(a, b) <= 0;
 }
 
-function codemirrorLength(cm) {
+function codemirrorLength(cm: CodeMirror) {
   const lastLine = cm.lineCount() - 1;
   return cm.indexFromPos({ line: lastLine, ch: cm.getLine(lastLine).length });
 }
 
-// Converts a CodeMirror change object into a TextOperation and its inverse
-// and returns them as a two-element array.
-RichTextCodeMirrorAdapter.operationFromCodeMirrorChanges = (changes, cm) => {
-  // Approach: Replay the changes, beginning with the most recent one, and
-  // construct the operation and its inverse. We have to convert the position
-  // in the pre-change coordinate system to an index. We have a method to
-  // convert a position in the coordinate system after all changes to an index,
-  // namely CodeMirror's `indexFromPos` method. We can use the information of
-  // a single change object to convert a post-change coordinate system to a
-  // pre-change coordinate system. We can now proceed inductively to get a
-  // pre-change coordinate system for all changes in the linked list.
-  // A disadvantage of this approach is its complexity `O(n^2)` in the length
-  // of the linked list of changes.
-
-  let docEndLength = codemirrorLength(cm);
-  let operation = new TextOperation().retain(docEndLength);
-  let inverse = new TextOperation().retain(docEndLength);
-
-  for (let i = changes.length - 1; i >= 0; i--) {
-    const change = changes[i];
-    const fromIndex = change.start;
-    const restLength = docEndLength - fromIndex - change.text.length;
-
-    operation = new TextOperation()
-      .retain(fromIndex)
-      ["delete"](change.removed.length)
-      .insert(change.text, change.attributes)
-      .retain(restLength)
-      .compose(operation);
-
-    inverse = inverse.compose(
-      new TextOperation()
-        .retain(fromIndex)
-        ["delete"](change.text.length)
-        .insert(change.removed, change.removedAttributes)
-        .retain(restLength),
-    );
-
-    docEndLength += change.removed.length - change.text.length;
-  }
-
-  return [operation, inverse];
-};
-
-// Converts an attributes changed object to an operation and its inverse.
-RichTextCodeMirrorAdapter.operationFromAttributesChanges = (changes, cm) => {
-  const docEndLength = codemirrorLength(cm);
-
-  const operation = new TextOperation(),
-    inverse = new TextOperation();
-  let pos = 0;
-
-  for (let i = 0; i < changes.length; i++) {
-    const change = changes[i];
-    const toRetain = change.start - pos;
-    assert(toRetain >= 0); // changes should be in order and non-overlapping.
-    operation.retain(toRetain);
-    inverse.retain(toRetain);
-
-    const length = change.end - change.start;
-    operation.retain(length, change.attributes);
-    inverse.retain(length, change.attributesInverse);
-    pos = change.start + length;
-  }
-
-  operation.retain(docEndLength - pos);
-  inverse.retain(docEndLength - pos);
-
-  return [operation, inverse];
-};
-
 // Throws an error if the first argument is falsy. Useful for debugging.
-function assert(b, msg) {
+function assert(b: boolean, msg?: string) {
   if (!b) {
     throw new Error(msg || "assertion error");
   }
@@ -441,9 +461,12 @@ function assert(b, msg) {
 // Bind a method to an object, so it doesn't matter whether you call
 // object.method() directly or pass object.method as a reference to another
 // function.
-function bind(obj, method) {
-  const fn = obj[method];
-  obj[method] = function (...args) {
+function bind<T extends Object>(
+  obj: T,
+  method: keyof { [M in keyof T]: M extends Function ? M : never },
+) {
+  const fn = obj[method] as Function;
+  obj[method] = function (...args: any[]) {
     fn.apply(obj, args);
   };
 }

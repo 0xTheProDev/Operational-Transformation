@@ -22,6 +22,10 @@
  * See LICENSE file in the root directory for more details.
  */
 
+import { Editor as CodeMirror, EditorChange, Position } from "codemirror";
+import { AnnotationList } from "./annotation-list";
+import { LineAttributes, TextAttributes } from "./attributes";
+import { EntityManager } from "./entity-manager";
 // const AnnotationList = firepad.AnnotationList;
 // const Span = firepad.Span;
 // const utils = firepad.utils;
@@ -36,7 +40,7 @@ const DynamicStyleAttributes = {
   c: "color",
   bc: "background-color",
   fs: "font-size",
-  li: function (indent: number) {
+  li: function (indent: number): `padding-left: ${number}px` {
     return `padding-left: ${indent * 40}px`;
   },
 };
@@ -44,8 +48,25 @@ const DynamicStyleAttributes = {
 // A cache of dynamically-created styles so we can re-use them.
 const StyleCache_ = {};
 
+export type RichTextChange = {
+  start: number;
+  end: number;
+  removed: string;
+  removedAttributes: Object;
+  attributes: Object;
+  text: string;
+  origin: string | undefined;
+};
+
 export class RichTextCodeMirror {
-  constructor(codeMirror, entityManager: EntityManager, options: Object) {
+  codeMirror: CodeMirror;
+  annotationList_: AnnotationList;
+
+  constructor(
+    codeMirror: CodeMirror,
+    entityManager: EntityManager,
+    options: Object,
+  ) {
     this.codeMirror = codeMirror;
     this.options_ = options || {};
     this.entityManager_ = entityManager;
@@ -686,10 +707,13 @@ export class RichTextCodeMirror {
     }
   }
 
-  onCodeMirrorChange_(cm, cmChanges) {
+  onCodeMirrorChange_(
+    cm: CodeMirror,
+    cmChanges: EditorChange | EditorChange[],
+  ): RichTextChange[] {
     // Handle single change objects and linked lists of change objects.
     if (typeof cmChanges.from === "object") {
-      const changeArray = [];
+      const changeArray: EditorChange[] = [];
       while (cmChanges) {
         changeArray.push(cmChanges);
         cmChanges = cmChanges.next;
@@ -697,7 +721,9 @@ export class RichTextCodeMirror {
       cmChanges = changeArray;
     }
 
-    const changes = this.convertCoordinateSystemForChanges_(cmChanges);
+    const changes = this.convertCoordinateSystemForChanges_(
+      cmChanges as EditorChange[],
+    );
     const newChanges = [];
 
     for (let i = 0; i < changes.length; i++) {
@@ -769,7 +795,7 @@ export class RichTextCodeMirror {
     }
   }
 
-  convertCoordinateSystemForChanges_(changes) {
+  convertCoordinateSystemForChanges_(changes: EditorChange[]) {
     // We have to convert the positions in the pre-change coordinate system to indexes.
     // CodeMirror's `indexFromPos` method does this for the current state of the editor.
     // We can use the information of a single change object to convert a post-change
@@ -779,10 +805,16 @@ export class RichTextCodeMirror {
     // linked list of changes.
 
     const self = this;
-    let indexFromPos = (pos) => self.codeMirror.indexFromPos(pos);
+    let indexFromPos = (pos: Position) => self.codeMirror.indexFromPos(pos);
 
-    function updateIndexFromPos(indexFromPos, { from, to, text, removed }) {
-      return (pos) => {
+    function updateIndexFromPos(
+      indexFromPos: {
+        (pos: Position): number;
+        (arg0: { line: number; ch: any }): number;
+      },
+      { from, to, text, removed }: EditorChange,
+    ) {
+      return (pos: Position) => {
         if (posLe(pos, from)) {
           return indexFromPos(pos);
         }
@@ -806,7 +838,7 @@ export class RichTextCodeMirror {
         }
         return (
           indexFromPos(from) +
-          sumLengths(removed.slice(0, pos.line - from.line)) +
+          sumLengths(removed!.slice(0, pos.line - from.line)) +
           1 +
           pos.ch
         );
@@ -820,7 +852,7 @@ export class RichTextCodeMirror {
 
       const start = indexFromPos(change.from);
 
-      const removedText = change.removed.join("\n");
+      const removedText = change.removed!.join("\n");
       const text = change.text.join("\n");
       newChanges.unshift({
         start,
@@ -839,7 +871,7 @@ export class RichTextCodeMirror {
    * @param changes
    * @private
    */
-  markLineSentinelCharactersForChanges_(changes) {
+  markLineSentinelCharactersForChanges_(changes: EditorChange[]) {
     // TODO: This doesn't handle multiple changes correctly (overlapping, out-of-oder, etc.).
     // But In practice, people using firepad for rich-text editing don't batch multiple changes
     // together, so this isn't quite as bad as it seems.
@@ -852,8 +884,8 @@ export class RichTextCodeMirror {
         ch = change.from.ch;
 
       if (
-        change.removed.length > 1 ||
-        change.removed[0].includes(LineSentinelCharacter)
+        change.removed!.length > 1 ||
+        change.removed![0].includes(LineSentinelCharacter)
       ) {
         // We removed 1+ newlines or line sentinel characters.
         startLine = Math.min(startLine, line);
@@ -877,7 +909,10 @@ export class RichTextCodeMirror {
     this.markLineSentinelCharactersForChangedLines_(startLine, endLine);
   }
 
-  markLineSentinelCharactersForChangedLines_(startLine, endLine) {
+  markLineSentinelCharactersForChangedLines_(
+    startLine: number,
+    endLine: number,
+  ) {
     // Back up to first list item.
     if (startLine < Number.MAX_VALUE) {
       while (startLine > 0 && this.lineIsListItemOrIndented_(startLine - 1)) {
@@ -1278,13 +1313,13 @@ export class RichTextCodeMirror {
 
   unindent() {
     this.updateLineAttributesForSelection((attributes) => {
-      const indent = attributes[ATTR.LINE_INDENT];
+      const indent = attributes[LineAttributes.Indent];
 
       if (indent && indent > 1) {
-        attributes[ATTR.LINE_INDENT] = indent - 1;
+        attributes[LineAttributes.Indent] = indent - 1;
       } else {
-        delete attributes[ATTR.LIST_TYPE];
-        delete attributes[ATTR.LINE_INDENT];
+        delete attributes[LineAttributes.ListItem];
+        delete attributes[LineAttributes.Indent];
       }
     });
   }
@@ -1292,12 +1327,12 @@ export class RichTextCodeMirror {
   getText() {
     return this.codeMirror
       .getValue()
-      .replace(new RegExp(LineSentinelCharacter, "g"), "");
+      .replace(new RegExp(LineAttributes.Sentinel, "g"), "");
   }
 
-  areLineSentinelCharacters_(text) {
+  areLineSentinelCharacters_(text: string) {
     for (let i = 0; i < text.length; i++) {
-      if (text[i] !== LineSentinelCharacter) return false;
+      if (text[i] !== LineAttributes.Sentinel) return false;
     }
     return true;
   }
@@ -1309,9 +1344,9 @@ utils.makeEventEmitter(RichTextCodeMirror, [
   "newLine",
 ]);
 
-const LineSentinelCharacter = firepad.sentinelConstants.LINE_SENTINEL_CHARACTER;
-const EntitySentinelCharacter =
-  firepad.sentinelConstants.ENTITY_SENTINEL_CHARACTER;
+// const LineSentinelCharacter = firepad.sentinelConstants.LINE_SENTINEL_CHARACTER;
+// const EntitySentinelCharacter =
+//   firepad.sentinelConstants.ENTITY_SENTINEL_CHARACTER;
 
 function cmpPos({ line, ch }, { line, ch }) {
   return line - line || ch - ch;
@@ -1344,22 +1379,24 @@ function sumLengths(strArr) {
  * @constructor
  */
 class RichTextAnnotation {
-  constructor(attributes) {
+  attributes: Record<string, any>;
+
+  constructor(attributes?: Record<string, any>) {
     this.attributes = attributes || {};
   }
 
-  equals(other) {
+  equals(other: unknown) {
     if (!(other instanceof RichTextAnnotation)) {
       return false;
     }
-    let attr;
-    for (attr in this.attributes) {
+
+    for (const attr in this.attributes) {
       if (other.attributes[attr] !== this.attributes[attr]) {
         return false;
       }
     }
 
-    for (attr in other.attributes) {
+    for (const attr in other.attributes) {
       if (other.attributes[attr] !== this.attributes[attr]) {
         return false;
       }
@@ -1369,7 +1406,7 @@ class RichTextAnnotation {
   }
 }
 
-function emptyAttributes(attributes) {
+function emptyAttributes(attributes: Record<string, unknown>) {
   for (const attr in attributes) {
     return false;
   }
