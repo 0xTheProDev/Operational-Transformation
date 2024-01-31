@@ -24,12 +24,8 @@
 
 import { Editor as CodeMirror, EditorChange, Position } from "codemirror";
 import { AnnotationList } from "./annotation-list";
-import { LineAttributes, TextAttributes } from "./attributes";
+import { LineAttributes } from "./attributes";
 import { EntityManager } from "./entity-manager";
-// const AnnotationList = firepad.AnnotationList;
-// const Span = firepad.Span;
-// const utils = firepad.utils;
-// const ATTR = firepad.AttributeConstants;
 import { Span } from "./span";
 
 const RichTextClassPrefixDefault = "cmrt-";
@@ -1371,39 +1367,6 @@ function sumLengths(strArr) {
     sum += strArr[i].length;
   }
   return sum + strArr.length - 1;
-}
-
-/**
- * Used for the annotations we store in our AnnotationList.
- * @param attributes
- * @constructor
- */
-class RichTextAnnotation {
-  attributes: Record<string, any>;
-
-  constructor(attributes?: Record<string, any>) {
-    this.attributes = attributes || {};
-  }
-
-  equals(other: unknown) {
-    if (!(other instanceof RichTextAnnotation)) {
-      return false;
-    }
-
-    for (const attr in this.attributes) {
-      if (other.attributes[attr] !== this.attributes[attr]) {
-        return false;
-      }
-    }
-
-    for (const attr in other.attributes) {
-      if (other.attributes[attr] !== this.attributes[attr]) {
-        return false;
-      }
-    }
-
-    return true;
-  }
 }
 
 function emptyAttributes(attributes: Record<string, unknown>) {
