@@ -1,0 +1,56 @@
+{
+  "name": "@otjs/player",
+  "version": "0.2.1",
+  "description": "Playback Component for Plain Text Operations.",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/player#readme",
+  "keywords": [
+    "collaborative",
+    "editor",
+    "eventual-consistency",
+    "operational-transformation",
+    "plaintext",
+    "typescript"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "index.d.ts",
+  "rootDir": "player",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xTheProDev/Operational-Transformation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/0xTheProDev/Operational-Transformation/discussions"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "yarn build:lib && yarn build:dts",
+    "build:lib": "webpack",
+    "build:dts": "api-extractor run",
+    "clean": "rimraf lib typings index.d.ts",
+    "test": "TEST_ENV=true jest --colors",
+    "test:watch": "pnpm run test --watch"
+  },
+  "devDependencies": {
+    "@otjs/types": "workspace:*",
+    "@otjs/utils": "workspace:*"
+  },
+  "dependencies": {
+    "mitt": "3.0.1"
+  }
+}
