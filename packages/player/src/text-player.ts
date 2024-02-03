@@ -22,8 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IDisposable } from "@otjs/types";
-import { Handler } from "mitt";
+import { IDisposable, IEventEmitter } from "@otjs/types";
 
 /**
  * @public
@@ -49,32 +48,15 @@ export enum TextPlayerEvent {
 export type TTextPlayerEventArgs = {
   [TextPlayerEvent.Abort]: void;
   [TextPlayerEvent.Ended]: void;
+  [TextPlayerEvent.Error]: void;
+  [TextPlayerEvent.Pause]: void;
+  [TextPlayerEvent.Play]: void;
+  [TextPlayerEvent.Playing]: void;
+  [TextPlayerEvent.RateChange]: void;
+  [TextPlayerEvent.Seeked]: void;
+  [TextPlayerEvent.Seeking]: void;
+  [TextPlayerEvent.TimeUpdate]: void;
 };
-
-/**
- * @internal
- * Text Player Event Emitter Interface - Interface that handles raising Event for Text Player to outside world.
- */
-export interface ITextPlayerEventEmitter {
-  /**
-   * Add listener to Text Player.
-   * @param event - Event name.
-   * @param listener - Event handler callback.
-   */
-  on<Key extends keyof TTextPlayerEventArgs>(
-    event: Key,
-    listener: Handler<TTextPlayerEventArgs[Key]>,
-  ): void;
-  /**
-   * Remove listener to Text Player.
-   * @param event - Event name.
-   * @param listener - Event handler callback (optional).
-   */
-  off<Key extends keyof TTextPlayerEventArgs>(
-    event: Key,
-    listener?: Handler<TTextPlayerEventArgs[Key]>,
-  ): void;
-}
 
 /**
  * @internal
@@ -86,7 +68,9 @@ export type PlaybackRate = 0.25 | 0.5 | 1.0 | 2.0 | 4.0;
  * @public
  * Text Player Interface - Interface that handles playback of Collaborative Text Content.
  */
-export interface ITextPlayer extends IDisposable, ITextPlayerEventEmitter {
+export interface ITextPlayer
+  extends IDisposable,
+    IEventEmitter<TextPlayerEvent, TTextPlayerEventArgs> {
   /**
    * A double-precision floating-point value indicating the current playback time in seconds;
    * if the content has not started to play and has not been seeked, this value is the content's
@@ -136,4 +120,4 @@ export interface ILiveTextPlayer extends ITextPlayer {
   seek(timeInMs: number): void;
 }
 
-export { IDisposable };
+export { IDisposable, IEventEmitter };
