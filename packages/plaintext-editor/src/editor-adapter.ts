@@ -23,7 +23,7 @@
  */
 
 import { IPlainTextOperation } from "@otjs/plaintext";
-import { IDisposable } from "@otjs/types";
+import { IDisposable, IEventEmitter } from "@otjs/types";
 import { Handler } from "mitt";
 import { ICursor } from "./cursor";
 
@@ -96,30 +96,14 @@ export type TEditorAdapterCursorParams = {
  * @public
  * Editor Adapter Interface - This Interface should be implemented over Plain Text Editor to have OT functionalities.
  */
-export interface IEditorAdapter extends IDisposable {
+export interface IEditorAdapter
+  extends IDisposable,
+    IEventEmitter<EditorAdapterEvent, TEditorAdapterEventArgs> {
   /**
    * Returns whether or not Editor Adapter instance will emit event.
    * Toggling this value will set/reset event listeners on Editor.
    */
   events: boolean;
-  /**
-   * Add listener to Editor Adapter.
-   * @param event - Event name.
-   * @param listener - Event handler callback.
-   */
-  on<Key extends keyof TEditorAdapterEventArgs>(
-    event: Key,
-    listener: Handler<TEditorAdapterEventArgs[Key]>
-  ): void;
-  /**
-   * Remove listener to Editor Adapter.
-   * @param event - Event name.
-   * @param listener - Event handler callback (optional).
-   */
-  off<Key extends keyof TEditorAdapterEventArgs>(
-    event: Key,
-    listener?: Handler<TEditorAdapterEventArgs[Key]>
-  ): void;
   /**
    * Add Undo callback to maintain sync while doing Undo in Plain Text Editor.
    * @param callback - Undo Event Handler.

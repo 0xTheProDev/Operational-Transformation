@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@otjs/state-machine": "0.2.1",
-    "mitt": "3.0.0"
+    "mitt": "3.0.1"
   },
   "peerDependencies": {
     "@otjs/plaintext": "^0.2.0"

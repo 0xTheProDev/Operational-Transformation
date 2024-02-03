@@ -23,8 +23,7 @@
  */
 
 import { ITransitionHandler } from "@otjs/state-machine";
-import { IDisposable } from "@otjs/types";
-import { Handler } from "mitt";
+import { IDisposable, IEventEmitter } from "@otjs/types";
 import { IDatabaseAdapter } from "./database-adapter";
 import { IEditorAdapter } from "./editor-adapter";
 
@@ -86,29 +85,14 @@ export type TEditorClientConstructionOptions = {
  * @public
  * Editor Client Interface - Public APIs to interact with Collaborative Editor.
  */
-export interface IEditorClient extends IDisposable, ITransitionHandler {
-  /**
-   * Add listener to Editor Client.
-   * @param event - Event name.
-   * @param listener - Event handler callback.
-   */
-  on<Key extends keyof TEditorClientEventArgs>(
-    event: Key,
-    listener: Handler<TEditorClientEventArgs[Key]>
-  ): void;
-  /**
-   * Remove listener to Editor Client.
-   * @param event - Event name.
-   * @param listener - Event handler callback (optional).
-   */
-  off<Key extends keyof TEditorClientEventArgs>(
-    event: Key,
-    listener?: Handler<TEditorClientEventArgs[Key]>
-  ): void;
+export interface IEditorClient
+  extends IDisposable,
+    IEventEmitter<EditorClientEvent, TEditorClientEventArgs>,
+    ITransitionHandler {
   /**
    * Clears undo redo stack of current Editor model.
    */
   clearUndoRedoStack(): void;
 }
 
-export { IDisposable };
+export { IDisposable, IEventEmitter };

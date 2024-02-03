@@ -24,8 +24,11 @@
 
 import { TAceAdapterConstructionOptions } from "@otjs/ace";
 import { TFirebaseAdapterConstructionOptions } from "@otjs/firebase-plaintext";
-import { TEditorClientEventArgs } from "@otjs/plaintext-editor";
-import { IDisposable } from "@otjs/types";
+import {
+  EditorClientEvent,
+  TEditorClientEventArgs,
+} from "@otjs/plaintext-editor";
+import { IDisposable, IEventEmitter } from "@otjs/types";
 import { Handler } from "mitt";
 
 /**
@@ -40,7 +43,9 @@ export type TFireAceEditorConstructionOptions =
  * @public
  * FireAce Editor Interface - Public APIs to interact with Collaborative Editor.
  */
-export interface IFireAceEditor extends IDisposable {
+export interface IFireAceEditor
+  extends IDisposable,
+    IEventEmitter<EditorClientEvent, TEditorClientEventArgs> {
   /** Returns if the Editor has already been disposed. */
   disposed: boolean;
   /** Returns Text Content of the Editor. Can be used to both get and set. Returns empty string if already disposed. */
@@ -57,24 +62,6 @@ export interface IFireAceEditor extends IDisposable {
    * Returns false if at least one operation has been performed after initialisation for the first time, True otherwise.
    */
   isHistoryEmpty(): boolean;
-  /**
-   * Add listener to FireAce Editor.
-   * @param event - Event name.
-   * @param listener - Event handler callback.
-   */
-  on<Key extends keyof TEditorClientEventArgs>(
-    event: Key,
-    listener: Handler<TEditorClientEventArgs[Key]>
-  ): void;
-  /**
-   * Remove listener to FireAce Editor.
-   * @param event - Event name.
-   * @param listener - Event handler callback (optional).
-   */
-  off<Key extends keyof TEditorClientEventArgs>(
-    event: Key,
-    listener?: Handler<TEditorClientEventArgs[Key]>
-  ): void;
 }
 
-export { IDisposable };
+export { IDisposable, IEventEmitter };

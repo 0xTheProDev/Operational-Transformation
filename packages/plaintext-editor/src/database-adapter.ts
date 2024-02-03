@@ -24,8 +24,7 @@
 
 import { ICursor, TCursor } from "./cursor";
 import { IPlainTextOperation } from "@otjs/plaintext";
-import { IDisposable } from "@otjs/types";
-import { Handler } from "mitt";
+import { IDisposable, IEventEmitter } from "@otjs/types";
 
 /**
  * @public
@@ -87,25 +86,9 @@ export type TDatabaseAdapterEventArgs = {
  * @public
  * Database Adapter Interface - This Interface should be implemented over Persistence Layer to have OT capabilities.
  */
-export interface IDatabaseAdapter extends IDisposable {
-  /**
-   * Add listener to Database Adapter.
-   * @param event - Event name.
-   * @param listener - Event handler callback.
-   */
-  on<Key extends keyof TDatabaseAdapterEventArgs>(
-    event: Key,
-    listener: Handler<TDatabaseAdapterEventArgs[Key]>
-  ): void;
-  /**
-   * Remove listener to Database Adapter.
-   * @param event - Event name.
-   * @param listener - Event handler callback (optional).
-   */
-  off<Key extends keyof TDatabaseAdapterEventArgs>(
-    event: Key,
-    listener?: Handler<TDatabaseAdapterEventArgs[Key]>
-  ): void;
+export interface IDatabaseAdapter
+  extends IDisposable,
+    IEventEmitter<DatabaseAdapterEvent, TDatabaseAdapterEventArgs> {
   /**
    * Tests if any operation has been done yet on the document.
    */

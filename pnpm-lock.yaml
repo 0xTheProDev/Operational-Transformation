@@ -154,8 +154,8 @@ importers:
         specifier: ^1.14.0
         version: 1.14.0
       mitt:
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1
     devDependencies:
       '@otjs/plaintext':
         specifier: 0.2.1
@@ -207,8 +207,8 @@ importers:
         specifier: 9.15.0
         version: 9.15.0
       mitt:
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1
 
   packages/firebase-monaco:
     dependencies:
@@ -235,8 +235,8 @@ importers:
         specifier: 9.15.0
         version: 9.15.0
       mitt:
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1
       monaco-editor:
         specifier: 0.34.1
         version: 0.34.1
@@ -244,8 +244,8 @@ importers:
   packages/firebase-plaintext:
     dependencies:
       mitt:
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1
     devDependencies:
       '@otjs/plaintext':
         specifier: 0.2.1
@@ -266,8 +266,8 @@ importers:
   packages/monaco:
     dependencies:
       mitt:
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1
     devDependencies:
       '@otjs/plaintext':
         specifier: 0.2.1
@@ -297,12 +297,25 @@ importers:
         specifier: 0.2.1
         version: link:../state-machine
       mitt:
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1
     devDependencies:
       '@otjs/plaintext':
         specifier: 0.2.1
         version: link:../plaintext
+      '@otjs/types':
+        specifier: workspace:*
+        version: link:../types
+      '@otjs/utils':
+        specifier: workspace:*
+        version: link:../utils
+
+  packages/player:
+    dependencies:
+      mitt:
+        specifier: 3.0.1
+        version: 3.0.1
+    devDependencies:
       '@otjs/types':
         specifier: workspace:*
         version: link:../types
@@ -319,7 +332,11 @@ importers:
         specifier: workspace:*
         version: link:../utils
 
-  packages/types: {}
+  packages/types:
+    devDependencies:
+      mitt:
+        specifier: 3.0.1
+        version: 3.0.1
 
   packages/utils:
     devDependencies:
@@ -8766,8 +8783,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /mitt@3.0.0:
-    resolution: {integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==}
+  /mitt@3.0.1:
+    resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
 
   /mkdirp@0.5.6:
     resolution: {integrity: sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==}

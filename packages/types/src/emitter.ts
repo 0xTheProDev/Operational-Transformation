@@ -22,10 +22,32 @@
  * See LICENSE file in the root directory for more details.
  */
 
-export * from "./cancelable";
-export * from "./operation";
-export * from "./disposable";
-export * from "./emitter";
-export * from "./memoize";
-export * from "./thenable";
-export * from "./utility-types";
+import { Handler } from "mitt";
+
+/**
+ * @internal
+ * Event Emitter Interface - Generic Interface that handles raising Event to outside world.
+ */
+export interface IEventEmitter<
+  Event extends string,
+  EventArgs extends Record<Event, any>,
+> {
+  /**
+   * Adds event listener.
+   * @param event - Event name.
+   * @param listener - Event handler callback.
+   */
+  on<Key extends keyof EventArgs>(
+    event: Key,
+    listener: Handler<EventArgs[Key]>,
+  ): void;
+  /**
+   * Removes event listener.
+   * @param event - Event name.
+   * @param listener - Event handler callback (optional).
+   */
+  off<Key extends keyof EventArgs>(
+    event: Key,
+    listener?: Handler<EventArgs[Key]>,
+  ): void;
+}
