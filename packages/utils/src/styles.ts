@@ -22,7 +22,9 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { assert, getRgb, DOMFailureError } from "@otjs/utils";
+import { assert } from "./assert";
+import { getRgb } from "./colors";
+import { DOMFailureError } from "./errors";
 
 /**
  * Set of Injected ClassNames in DOM.
@@ -64,7 +66,7 @@ export async function addStyleRule({
   if (errorCount > MAX_ERROR_ON_DOM_OPERATION) {
     classNamesInprogress.delete(className);
     throw new DOMFailureError(
-      `Failed to inject styles for class ${className}.`
+      `Failed to inject styles for class ${className}.`,
     );
   }
 
@@ -111,7 +113,7 @@ export async function createTooltipNode({
   if (errorCount > MAX_ERROR_ON_DOM_OPERATION) {
     classNamesInprogress.delete(className);
     throw new DOMFailureError(
-      `Failed to create tooltip with class ${className}.`
+      `Failed to create tooltip with class ${className}.`,
     );
   }
 
@@ -154,7 +156,7 @@ export async function createWidgetNode({
   if (errorCount > MAX_ERROR_ON_DOM_OPERATION) {
     classNamesInprogress.delete(className);
     throw new DOMFailureError(
-      `Failed to create widget with class ${className}.`
+      `Failed to create widget with class ${className}.`,
     );
   }
 

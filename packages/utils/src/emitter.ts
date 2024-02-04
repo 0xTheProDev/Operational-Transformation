@@ -22,34 +22,40 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { Handler } from "mitt";
+import { IEventEmitter, IEventHandler } from "@otjs/types";
+import mitt, { Emitter } from "mitt";
 
 /**
  * @internal
- * Event Emitter Interface - Generic Interface that handles raising Event to outside world.
+ * Base Class for Event Emitter - This must be extended by Classes with a requirement to fulfill IEventEmitter interface.
  */
-export interface IEventEmitter<
+export abstract class EventEmitter<
   Event extends string,
   EventArgs extends Record<Event, any>,
-> {
-  /**
-   * Adds event listener.
-   * @param event - Event name.
-   * @param listener - Event handler callback.
-   */
+> implements IEventEmitter<Event, EventArgs>
+{
+  /** Event Emitter Instance that dispatces event given in the Map */
+  protected readonly _emitter: Emitter<EventArgs> = mitt();
+
   on<Key extends keyof EventArgs>(
     event: Key,
-    listener: Handler<EventArgs[Key]>,
-  ): void;
-  /**
-   * Removes event listener.
-   * @param event - Event name.
-   * @param listener - Event handler callback (optional).
-   */
+    listener: IEventHandler<EventArgs[Key]>,
+  ): void {
+    this._emitter.on(event, listener);
+  }
+
   off<Key extends keyof EventArgs>(
     event: Key,
-    listener?: Handler<EventArgs[Key]>,
-  ): void;
-}
+    listener?: IEventHandler<EventArgs[Key]>,
+  ): void {
+    this._emitter.off(event, listener);
+  }
 
-export { Handler as IEventHandler };
+  /** Trigger an event with optional payload */
+  protected _trigger<Key extends keyof EventArgs>(
+    event: Key,
+    payload: EventArgs[Key],
+  ): void {
+    this._emitter.emit(event, payload);
+  }
+}

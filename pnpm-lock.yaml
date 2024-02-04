@@ -153,9 +153,6 @@ importers:
       ace-builds:
         specifier: ^1.14.0
         version: 1.14.0
-      mitt:
-        specifier: 3.0.1
-        version: 3.0.1
     devDependencies:
       '@otjs/plaintext':
         specifier: 0.2.1
@@ -242,10 +239,6 @@ importers:
         version: 0.34.1
 
   packages/firebase-plaintext:
-    dependencies:
-      mitt:
-        specifier: 3.0.1
-        version: 3.0.1
     devDependencies:
       '@otjs/plaintext':
         specifier: 0.2.1
@@ -264,10 +257,6 @@ importers:
         version: 9.15.0
 
   packages/monaco:
-    dependencies:
-      mitt:
-        specifier: 3.0.1
-        version: 3.0.1
     devDependencies:
       '@otjs/plaintext':
         specifier: 0.2.1
@@ -296,26 +285,10 @@ importers:
       '@otjs/state-machine':
         specifier: 0.2.1
         version: link:../state-machine
-      mitt:
-        specifier: 3.0.1
-        version: 3.0.1
     devDependencies:
       '@otjs/plaintext':
         specifier: 0.2.1
         version: link:../plaintext
-      '@otjs/types':
-        specifier: workspace:*
-        version: link:../types
-      '@otjs/utils':
-        specifier: workspace:*
-        version: link:../utils
-
-  packages/player:
-    dependencies:
-      mitt:
-        specifier: 3.0.1
-        version: 3.0.1
-    devDependencies:
       '@otjs/types':
         specifier: workspace:*
         version: link:../types
@@ -339,13 +312,14 @@ importers:
         version: 3.0.1
 
   packages/utils:
+    dependencies:
+      mitt:
+        specifier: 3.0.1
+        version: 3.0.1
     devDependencies:
       '@otjs/types':
         specifier: workspace:*
         version: link:../types
-      '@otjs/utils':
-        specifier: workspace:*
-        version: 'link:'
 
 packages:
 

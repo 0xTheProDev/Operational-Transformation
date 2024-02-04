@@ -31,7 +31,9 @@
     "test:watch": "pnpm run test --watch"
   },
   "devDependencies": {
-    "@otjs/types": "workspace:*",
-    "@otjs/utils": "workspace:*"
+    "@otjs/types": "workspace:*"
+  },
+  "dependencies": {
+    "mitt": "3.0.1"
   }
 }

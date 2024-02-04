@@ -39,7 +39,6 @@ import {
   onValue,
   remove,
 } from "firebase/database";
-import mitt, { Emitter, Handler } from "mitt";
 import {
   IPlainTextOperation,
   PlainTextOperation,
@@ -63,6 +62,7 @@ import {
   CancelableCollection,
   Disposable,
   DisposableCollection,
+  EventEmitter,
   InvalidOperationError,
   ThenableCollection,
   TransactionFailureError,
@@ -93,7 +93,10 @@ import { TFirebaseAdapterConstructionOptions } from "./external-types";
  * Create Database Adapter for Plain Text Editor using Firebase as Source of Truth for Persistence.
  * @param constructorOptions - A Configuration Object consisting Database Reference and User Information.
  */
-export class FirebaseAdapter implements IDatabaseAdapter {
+export class FirebaseAdapter
+  extends EventEmitter<DatabaseAdapterEvent, TDatabaseAdapterEventArgs>
+  implements IDatabaseAdapter
+{
   protected readonly _toCancel: ICancelableCollection =
     new CancelableCollection();
   protected readonly _toDispose: IDisposableCollection =
@@ -111,7 +114,6 @@ export class FirebaseAdapter implements IDatabaseAdapter {
   protected _userName: string | null = null;
   protected _userCursor: ICursor | null = null;
   protected _databaseRef: DatabaseReference;
-  protected _emitter: Emitter<TDatabaseAdapterEventArgs> = mitt();
 
   /**
    * This is used for two purposes:
@@ -145,6 +147,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
     userColor,
     userName,
   }: TFirebaseAdapterConstructionOptions) {
+    super();
     this._databaseRef = databaseRef;
 
     /** Add User Information */
@@ -166,8 +169,8 @@ export class FirebaseAdapter implements IDatabaseAdapter {
           if (snapshot.val() === true) {
             this._initializeUserData();
           }
-        })
-      )
+        }),
+      ),
     );
 
     /** Once we're initialized, start tracking users' cursors. */
@@ -221,28 +224,6 @@ export class FirebaseAdapter implements IDatabaseAdapter {
     return this._userId == clientId;
   }
 
-  on<Key extends keyof TDatabaseAdapterEventArgs>(
-    event: Key,
-    listener: Handler<TDatabaseAdapterEventArgs[Key]>
-  ): void {
-    return this._emitter.on(event, listener);
-  }
-
-  off<Key extends keyof TDatabaseAdapterEventArgs>(
-    event: Key,
-    listener?: Handler<TDatabaseAdapterEventArgs[Key]>
-  ): void {
-    return this._emitter.off(event, listener);
-  }
-
-  /** Trigger an event with optional payload */
-  protected _trigger<Key extends keyof TDatabaseAdapterEventArgs>(
-    event: Key,
-    payload: TDatabaseAdapterEventArgs[Key]
-  ): void {
-    return this._emitter.emit(event, payload);
-  }
-
   /**
    * Setup user indicator data and hooks in `users` node in Firebase ref.
    */
@@ -252,24 +233,24 @@ export class FirebaseAdapter implements IDatabaseAdapter {
         getUserColorRef({
           databaseRef: this._databaseRef,
           userId: this._userId,
-        })
+        }),
       ),
       onDisconnect(
         getUserCursorRef({
           databaseRef: this._databaseRef,
           userId: this._userId,
-        })
+        }),
       ),
       onDisconnect(
         getUserNameRef({
           databaseRef: this._databaseRef,
           userId: this._userId,
-        })
-      )
+        }),
+      ),
     );
 
     this._toCancel.forEach((cancelable: ICancelable) =>
-      this._toResolve.push((cancelable as OnDisconnect).remove())
+      this._toResolve.push((cancelable as OnDisconnect).remove()),
     );
 
     this.sendCursor(this._userCursor);
@@ -286,8 +267,8 @@ export class FirebaseAdapter implements IDatabaseAdapter {
       Disposable.create(
         onValue(checkPointNode, this._handleCheckPointRevision, {
           onlyOnce: true,
-        })
-      )
+        }),
+      ),
     );
   }
 
@@ -341,14 +322,14 @@ export class FirebaseAdapter implements IDatabaseAdapter {
   protected _monitorHistoryStartingAt(revision: number): void {
     const historyRef = query(
       getHistoryRef({ databaseRef: this._databaseRef }),
-      startAt(null, revisionToId(revision))
+      startAt(null, revisionToId(revision)),
     );
 
     this._toDispose.push(
       Disposable.create(onChildAdded(historyRef, this._revisionAdded)),
       Disposable.create(
-        onValue(historyRef, this._handleInitialRevisions, { onlyOnce: true })
-      )
+        onValue(historyRef, this._handleInitialRevisions, { onlyOnce: true }),
+      ),
     );
   }
 
@@ -379,7 +360,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
     while (pending[revisionId] != null) {
       const revision: TParsedRevision | null = parseRevision(
         this._document,
-        pending[revisionId]
+        pending[revisionId],
       );
 
       /* istanbul ignore if */
@@ -445,7 +426,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
 
       const revision: TParsedRevision | null = parseRevision(
         this._document,
-        pending[revisionId]
+        pending[revisionId],
       );
 
       /* istanbul ignore if */
@@ -477,7 +458,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
   async sendOperation(operation: IPlainTextOperation): Promise<boolean> {
     assert(
       this._disposed === false,
-      "Cannot send operation after Adapter has been disposed!"
+      "Cannot send operation after Adapter has been disposed!",
     );
 
     /** If we're not ready yet, do nothing right now, and trigger a retry when we're ready. */
@@ -486,7 +467,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
         DatabaseAdapterEvent.Ready,
         /* istanbul ignore next */ () => {
           this._trigger(DatabaseAdapterEvent.Retry, undefined);
-        }
+        },
       );
       return false;
     }
@@ -494,7 +475,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
     /** Sanity check that this operation is valid. */
     if (!this._document.canMergeWith(operation)) {
       const error = new InvalidOperationError(
-        "sendOperation() called with an invalid operation."
+        "sendOperation() called with an invalid operation.",
       );
       this._trigger(DatabaseAdapterEvent.Error, {
         err: error,
@@ -525,7 +506,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
    */
   protected async _doTransaction(
     revisionId: string,
-    revisionData: TOperationData
+    revisionData: TOperationData,
   ): Promise<boolean> {
     const revisionNode: DatabaseReference = getRevisionRef({
       databaseRef: this._databaseRef,
@@ -543,7 +524,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
         },
         {
           applyLocally: false,
-        }
+        },
       );
 
       return committed;
@@ -590,7 +571,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
    */
   protected _saveCheckpoint(
     revision: number,
-    document: TPlainTextOperation
+    document: TPlainTextOperation,
   ): void {
     const checkPointNode = getCheckpointRef({ databaseRef: this._databaseRef });
     const checkPointData: TCheckPointData = {
@@ -605,7 +586,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
         if (current == null || revisionFromId(current.id) < revision) {
           return checkPointData;
         }
-      }
+      },
     ).catch(
       /* istanbul ignore next */ (error) => {
         if (this._disposed) {
@@ -623,7 +604,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
           });
         }
         /** Ignore any other Error */
-      }
+      },
     );
   }
 
@@ -635,12 +616,12 @@ export class FirebaseAdapter implements IDatabaseAdapter {
   setUserId(userId: string): void {
     assert(
       this._disposed === false,
-      "Cannot set User Id after Adapter has been disposed!"
+      "Cannot set User Id after Adapter has been disposed!",
     );
 
     assert(
       typeof userId === "string",
-      new TypeError("User Id must be a String.")
+      new TypeError("User Id must be a String."),
     );
 
     /* istanbul ignore if */
@@ -658,14 +639,14 @@ export class FirebaseAdapter implements IDatabaseAdapter {
           getUserColorRef({
             databaseRef: this._databaseRef,
             userId: this._userId,
-          })
+          }),
         ),
         remove(
           getUserCursorRef({
             databaseRef: this._databaseRef,
             userId: this._userId,
-          })
-        )
+          }),
+        ),
       );
       this._toCancel.cancel();
     }
@@ -677,12 +658,12 @@ export class FirebaseAdapter implements IDatabaseAdapter {
   setUserColor(userColor: string): void {
     assert(
       this._disposed === false,
-      "Cannot set User Color after Adapter has been disposed!"
+      "Cannot set User Color after Adapter has been disposed!",
     );
 
     assert(
       typeof userColor === "string",
-      new TypeError("User Color must be a String.")
+      new TypeError("User Color must be a String."),
     );
 
     /* istanbul ignore if */
@@ -701,7 +682,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
   setUserName(userName: string | null = null): void {
     assert(
       this._disposed === false,
-      "Cannot set User Name after Adapter has been disposed!"
+      "Cannot set User Name after Adapter has been disposed!",
     );
 
     /* istanbul ignore if */
@@ -711,7 +692,7 @@ export class FirebaseAdapter implements IDatabaseAdapter {
 
     assert(
       typeof userName === "string",
-      new TypeError("User Name must be a String.")
+      new TypeError("User Name must be a String."),
     );
 
     const userNameRef = getUserNameRef({
@@ -725,12 +706,12 @@ export class FirebaseAdapter implements IDatabaseAdapter {
   async sendCursor(cursor: ICursor | null): Promise<void> {
     assert(
       this._disposed === false,
-      "Cannot send cursor after Adapter has been disposed!"
+      "Cannot send cursor after Adapter has been disposed!",
     );
 
     assert(
       cursor == null || typeof cursor.toJSON === "function",
-      new TypeError("Cursor must be null or ICursor implementation.")
+      new TypeError("Cursor must be null or ICursor implementation."),
     );
 
     const cursorRef = getUserCursorRef({
@@ -795,16 +776,16 @@ export class FirebaseAdapter implements IDatabaseAdapter {
     this._toDispose.push(
       Disposable.create(onChildAdded(usersRef, this._cursorChanged)),
       Disposable.create(onChildChanged(usersRef, this._cursorChanged)),
-      Disposable.create(onChildRemoved(usersRef, this._cursorRemoved))
+      Disposable.create(onChildRemoved(usersRef, this._cursorRemoved)),
     );
   }
 }
 
 export {
+  EventEmitter,
   ICancelable,
   ICancelableCollection,
-  IDisposable,
   IDisposableCollection,
-  IThenable,
   IThenableCollection,
-} from "@otjs/types";
+};
+export { IDisposable, IEventEmitter, IThenable } from "@otjs/types";

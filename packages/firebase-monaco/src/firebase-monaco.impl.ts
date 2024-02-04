@@ -30,7 +30,7 @@ import {
   IEditorClient,
   TEditorClientEventArgs,
 } from "@otjs/plaintext-editor";
-import { Handler } from "mitt";
+import { IEventHandler } from "@otjs/types";
 import {
   IFireMonacoEditor,
   TFireMonacoEditorConstructionOptions,
@@ -168,14 +168,14 @@ export class FireMonacoEditor implements IFireMonacoEditor {
 
   on<Key extends keyof TEditorClientEventArgs>(
     event: Key,
-    listener: Handler<TEditorClientEventArgs[Key]>
+    listener: IEventHandler<TEditorClientEventArgs[Key]>,
   ): void {
     this._editorClient.on(event, listener);
   }
 
   off<Key extends keyof TEditorClientEventArgs>(
     event: Key,
-    listener?: Handler<TEditorClientEventArgs[Key]>
+    listener?: IEventHandler<TEditorClientEventArgs[Key]>,
   ): void {
     this._editorClient.off(event, listener);
   }

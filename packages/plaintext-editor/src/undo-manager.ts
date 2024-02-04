@@ -23,8 +23,7 @@
  */
 
 import { IPlainTextOperation } from "@otjs/plaintext";
-import { IDisposable } from "@otjs/types";
-import { Handler } from "mitt";
+import { IDisposable, IEventHandler } from "@otjs/types";
 import { IWrappedOperation } from "./wrapped-operation";
 
 /**
@@ -53,13 +52,13 @@ export interface IUndoManager extends IDisposable {
    * stack. The function is expected to call the `add` method with the inverse
    * of the operation, which pushes the inverse on the redo stack.
    */
-  performUndo(callback: Handler<IWrappedOperation>): void;
+  performUndo(callback: IEventHandler<IWrappedOperation>): void;
   /**
    * Perform a redo by calling a function with the latest operation on the redo
    * stack. The function is expected to call the `add` method with the inverse
    * of the operation, which pushes the inverse on the undo stack.
    */
-  performRedo(callback: Handler<IWrappedOperation>): void;
+  performRedo(callback: IEventHandler<IWrappedOperation>): void;
   /**
    * Is the undo stack not empty?
    */
