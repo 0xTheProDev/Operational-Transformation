@@ -22,9 +22,9 @@
  * See LICENSE file in the root directory for more details.
  */
 
+import { child, DatabaseReference } from "firebase/database";
 import { IDisposable, Primitive } from "@otjs/types";
 import { memoize, DisposableCollection } from "@otjs/utils";
-import { child, DatabaseReference } from "firebase/database";
 
 /** Argument for Data Reference */
 type DataRefArg = {

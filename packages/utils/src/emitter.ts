@@ -22,12 +22,12 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IEventEmitter, IEventHandler } from "@otjs/types";
 import mitt, { Emitter } from "mitt";
+import { IEventEmitter, IEventHandler } from "@otjs/types";
 
 /**
  * @internal
- * Base Class for Event Emitter - This must be extended by Classes with a requirement to fulfill IEventEmitter interface.
+ * Abstract Base Class for Event Emitter - This must be extended by Classes with a requirement to fulfill IEventEmitter interface.
  */
 export abstract class EventEmitter<
   Event extends string,
