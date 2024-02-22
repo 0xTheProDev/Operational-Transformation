@@ -23,6 +23,16 @@ Good to have: commit or PR links.
 
 -->
 
+## [v0.2.2](https://github.com/0xTheProDev/Operational-Transformation/tree/v0.2.2)
+
+### Changed
+
+- Uniform Event Emitter interface and implementation extended across all event-driven modules. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/122) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/121)
+
+### Documentation
+
+- Changed preferred package manager from `yarn` to `pnpm` and updated documentation accordingly. [Tracker](https://github.com/0xTheProDev/Operational-Transformation/issues/118) [Work Log](https://github.com/0xTheProDev/Operational-Transformation/pull/119)
+
 ## [v0.2.1](https://github.com/0xTheProDev/Operational-Transformation/tree/v0.2.1)
 
 ### Security

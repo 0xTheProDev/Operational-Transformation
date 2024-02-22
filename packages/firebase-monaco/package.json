@@ -1,6 +1,6 @@
 {
   "name": "@otjs/firebase-monaco",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Real-time collaborative editor with out of the box binding with Firebase and Monaco Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/firebase-monaco#readme",
@@ -52,10 +52,10 @@
     "monaco-editor": "0.34.1"
   },
   "dependencies": {
-    "@otjs/firebase-plaintext": "0.2.1",
-    "@otjs/monaco": "0.2.1",
-    "@otjs/plaintext": "0.2.1",
-    "@otjs/plaintext-editor": "0.2.1"
+    "@otjs/firebase-plaintext": "0.2.2",
+    "@otjs/monaco": "0.2.2",
+    "@otjs/plaintext": "0.2.2",
+    "@otjs/plaintext-editor": "0.2.2"
   },
   "peerDependencies": {
     "firebase": "^9.15.0",

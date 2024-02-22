@@ -7,7 +7,16 @@
     },
     "version": {
       "allowBranch": "main",
-      "message": "(release) @otjs/*: Publish %s for all Packages"
+      "conventionalCommits": true,
+      "changelog": false,
+      "exact": true,
+      "message": "chore(release): Publish %s of @otjs Packages",
+      "npmClientArgs": ["-P", "--frozen-lockfile"],
+      "private": false,
+      "signoffGitCommit": true,
+      "signGitCommit": true,
+      "signGitTag": true,
+      "syncDistVersion": true
     }
   },
   "ignoreChanges": [
@@ -19,5 +28,5 @@
   ],
   "npmClient": "pnpm",
   "npmClientArgs": ["--frozen-lockfile"],
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

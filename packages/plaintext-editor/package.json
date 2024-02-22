@@ -1,6 +1,6 @@
 {
   "name": "@otjs/plaintext-editor",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A Editor Client to wrap a Plain Text Editor to have collaborative experience based on OT.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/plaintext-editor#readme",
@@ -47,12 +47,12 @@
     "test:watch": "pnpm run test --watch"
   },
   "devDependencies": {
-    "@otjs/plaintext": "0.2.1",
+    "@otjs/plaintext": "0.2.2",
     "@otjs/types": "workspace:*",
     "@otjs/utils": "workspace:*"
   },
   "dependencies": {
-    "@otjs/state-machine": "0.2.1"
+    "@otjs/state-machine": "0.2.2"
   },
   "peerDependencies": {
     "@otjs/plaintext": "^0.2.0"
