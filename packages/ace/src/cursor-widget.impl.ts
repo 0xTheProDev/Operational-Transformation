@@ -22,6 +22,7 @@
  * See LICENSE file in the root directory for more details.
  */
 
+import { debounce, DebouncedFunc } from "lodash";
 import { IDisposable } from "@otjs/types";
 import {
   createTooltipNode,
@@ -29,7 +30,6 @@ import {
   Disposable,
   DisposableCollection,
 } from "@otjs/utils";
-import { debounce, DebouncedFunc } from "lodash";
 import {
   ICursorWidget,
   TCursorWidgetConstructionOptions,
@@ -91,7 +91,7 @@ class CursorWidget implements ICursorWidget {
     this._widget = new TooltipMarker(
       this._editor.session,
       this._position!,
-      this._widgetNode
+      this._widgetNode,
     );
     this._hideTooltip = debounce(this._hideTooltip, this._duration);
     this._editor.session.addDynamicMarker(this._widget, true);
@@ -201,7 +201,7 @@ const widgets: Map<string, ICursorWidget> = new Map();
  * @param options - Construction Options for the Cursor Widget.
  */
 export function createCursorWidget(
-  options: TCursorWidgetConstructionOptions
+  options: TCursorWidgetConstructionOptions,
 ): void {
   const { clientId, range, userName } = options;
 

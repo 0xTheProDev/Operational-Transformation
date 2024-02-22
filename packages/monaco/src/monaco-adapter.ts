@@ -23,7 +23,6 @@
  */
 
 import * as monaco from "monaco-editor";
-import mitt, { Emitter, Handler } from "mitt";
 import {
   IPlainTextOperation,
   ITextOperation,
@@ -37,13 +36,14 @@ import {
   TEditorAdapterCursorParams,
   TEditorAdapterEventArgs,
 } from "@otjs/plaintext-editor";
-import { IDisposable, IDisposableCollection } from "@otjs/types";
+import { IDisposable, IDisposableCollection, IEventHandler } from "@otjs/types";
 import {
   addStyleRule,
   assert,
   Disposable,
   DisposableCollection,
   EndOfLineSequence,
+  EventEmitter,
 } from "@otjs/utils";
 import { TMonacoAdapterConstructionOptions } from "./api";
 import { createCursorWidget, disposeCursorWidgets } from "./cursor-widget.impl";
@@ -54,7 +54,10 @@ import { ITextModelWithUndoRedo } from "./text-model";
  * Create Editor Adapter for Plain Text Editor using Monaco as Editor.
  * @param constructorOptions - A Configuration Object consisting Monaco Editor Instance.
  */
-export class MonacoAdapter implements IEditorAdapter {
+export class MonacoAdapter
+  extends EventEmitter<EditorAdapterEvent, TEditorAdapterEventArgs>
+  implements IEditorAdapter
+{
   protected readonly _toDispose: IDisposableCollection =
     new DisposableCollection();
 
@@ -62,20 +65,20 @@ export class MonacoAdapter implements IEditorAdapter {
   protected _bindEvents: boolean;
   protected _initiated: boolean = false;
   protected _ignoreChanges: boolean = false;
-  protected _undoCallback: Handler<void> | null = null;
-  protected _redoCallback: Handler<void> | null = null;
-  protected _originalUndo: Handler<void> | null = null;
-  protected _originalRedo: Handler<void> | null = null;
+  protected _undoCallback: IEventHandler<void> | null = null;
+  protected _redoCallback: IEventHandler<void> | null = null;
+  protected _originalUndo: IEventHandler<void> | null = null;
+  protected _originalRedo: IEventHandler<void> | null = null;
   protected _lastDocLines: string[] = [];
   protected _lastCursorRange: monaco.Selection | null = null;
   protected _monaco: monaco.editor.IStandaloneCodeEditor;
-  protected _emitter: Emitter<TEditorAdapterEventArgs> = mitt();
 
   constructor({
     editor,
     announcementDuration = 1000,
     bindEvents = false,
   }: TMonacoAdapterConstructionOptions) {
+    super();
     this._monaco = editor;
     this._announcementDuration = announcementDuration;
     this._bindEvents = bindEvents;
@@ -91,7 +94,7 @@ export class MonacoAdapter implements IEditorAdapter {
   set events(bindEvents: boolean) {
     assert(
       typeof bindEvents === "boolean",
-      "events property takes only boolean value"
+      "events property takes only boolean value",
     );
 
     if (this._bindEvents === bindEvents) {
@@ -127,13 +130,13 @@ export class MonacoAdapter implements IEditorAdapter {
       this._monaco.onDidChangeModelContent(
         (ev: monaco.editor.IModelContentChangedEvent) => {
           this._onChange(ev);
-        }
+        },
       ),
       this._monaco.onDidChangeCursorPosition(
         (ev: monaco.editor.ICursorPositionChangedEvent) => {
           this._onCursorActivity(ev);
-        }
-      )
+        },
+      ),
     );
   }
 
@@ -148,29 +151,7 @@ export class MonacoAdapter implements IEditorAdapter {
     this._bindEvents = false;
   }
 
-  on<Key extends keyof TEditorAdapterEventArgs>(
-    event: Key,
-    listener: Handler<TEditorAdapterEventArgs[Key]>
-  ): void {
-    return this._emitter?.on(event, listener);
-  }
-
-  off<Key extends keyof TEditorAdapterEventArgs>(
-    event: Key,
-    listener?: Handler<TEditorAdapterEventArgs[Key]>
-  ): void {
-    return this._emitter?.off(event, listener);
-  }
-
-  /** Trigger an event with optional payload */
-  protected _trigger<Key extends keyof TEditorAdapterEventArgs>(
-    event: Key,
-    payload: TEditorAdapterEventArgs[Key]
-  ): void {
-    return this._emitter!.emit(event, payload);
-  }
-
-  registerUndo(undoCallback: Handler<void>): void {
+  registerUndo(undoCallback: IEventHandler<void>): void {
     const model = this._getModel();
 
     /* istanbul ignore if */
@@ -182,7 +163,7 @@ export class MonacoAdapter implements IEditorAdapter {
     model.undo = this._undoCallback = undoCallback;
   }
 
-  registerRedo(redoCallback: Handler<void>): void {
+  registerRedo(redoCallback: IEventHandler<void>): void {
     const model = this._getModel();
 
     /* istanbul ignore if */
@@ -194,7 +175,7 @@ export class MonacoAdapter implements IEditorAdapter {
     model.redo = this._redoCallback = redoCallback;
   }
 
-  deregisterUndo(undoCallback?: Handler<void>): void {
+  deregisterUndo(undoCallback?: IEventHandler<void>): void {
     if (undoCallback != null && this._undoCallback !== undoCallback) {
       return;
     }
@@ -214,7 +195,7 @@ export class MonacoAdapter implements IEditorAdapter {
     this._originalUndo = null;
   }
 
-  deregisterRedo(redoCallback?: Handler<void>): void {
+  deregisterRedo(redoCallback?: IEventHandler<void>): void {
     if (redoCallback != null && this._redoCallback !== redoCallback) {
       return;
     }
@@ -280,8 +261,8 @@ export class MonacoAdapter implements IEditorAdapter {
         start.lineNumber,
         start.column,
         end.lineNumber,
-        end.column
-      )
+        end.column,
+      ),
     );
   }
 
@@ -293,14 +274,14 @@ export class MonacoAdapter implements IEditorAdapter {
   }: TEditorAdapterCursorParams): IDisposable {
     assert(
       typeof cursor === "object" && typeof cursor.toJSON === "function",
-      "Cursor must be an implementation of ICursor"
+      "Cursor must be an implementation of ICursor",
     );
 
     assert(
       typeof clientId === "string" &&
         typeof cursorColor === "string" &&
         (userName == null || typeof userName === "string"),
-      "Client Id, User Name and User Color must be strings."
+      "Client Id, User Name and User Color must be strings.",
     );
 
     const model = this._getModel();
@@ -332,7 +313,7 @@ export class MonacoAdapter implements IEditorAdapter {
       start.lineNumber,
       start.column,
       end.lineNumber,
-      end.column
+      end.column,
     );
 
     /** Add decoration to the Editor */
@@ -352,7 +333,7 @@ export class MonacoAdapter implements IEditorAdapter {
               monaco.editor.TrackedRangeStickiness.NeverGrowsWhenTypingAtEdges,
           },
         },
-      ]
+      ],
     );
 
     /** Add Cursor Widget to the editor */
@@ -478,7 +459,7 @@ export class MonacoAdapter implements IEditorAdapter {
    * @param changes - Set of Monaco Model Content Changes.
    */
   protected _applyEdits(
-    changes: monaco.editor.IIdentifiedSingleEditOperation[]
+    changes: monaco.editor.IIdentifiedSingleEditOperation[],
   ): void {
     const model = this._getModel();
 
@@ -537,7 +518,7 @@ export class MonacoAdapter implements IEditorAdapter {
       1,
       1,
       oldLinesCount,
-      oldLastColumLength + 1
+      oldLastColumLength + 1,
     );
     const oldValue = this._getPreviousContentInRange();
 
@@ -557,7 +538,7 @@ export class MonacoAdapter implements IEditorAdapter {
    * Handles `ModelContentChange` event in Monaco editor.
    */
   protected _onChange(
-    ev: Partial<monaco.editor.IModelContentChangedEvent>
+    ev: Partial<monaco.editor.IModelContentChangedEvent>,
   ): void {
     /** Ignore if change is being applied by itself. */
     if (this._ignoreChanges || !this._initiated) {
@@ -581,7 +562,7 @@ export class MonacoAdapter implements IEditorAdapter {
 
     const [operation, inverse] = this._operationFromMonacoChange(
       ev.changes,
-      contentLength
+      contentLength,
     );
 
     /** Cache current content to use during next change trigger */
@@ -597,7 +578,7 @@ export class MonacoAdapter implements IEditorAdapter {
    * Handles `CursorPositionChange` event in Monaco editor.
    */
   protected _onCursorActivity(
-    ev: monaco.editor.ICursorPositionChangedEvent
+    ev: monaco.editor.ICursorPositionChangedEvent,
   ): void {
     /** Ignore if the change is done by Third-party Widgets */
     if (ev.reason === monaco.editor.CursorChangeReason.RecoverFromMarkers) {
@@ -649,7 +630,7 @@ export class MonacoAdapter implements IEditorAdapter {
    */
   protected _operationFromMonacoChange(
     changes: monaco.editor.IModelContentChange[],
-    contentLength: number
+    contentLength: number,
   ): [operation: IPlainTextOperation, inverse: IPlainTextOperation] {
     /** Text Operation respective of current changes */
     let mainOp: IPlainTextOperation = new PlainTextOperation();
@@ -727,7 +708,7 @@ export class MonacoAdapter implements IEditorAdapter {
    */
   protected _transformOpsIntoMonacoChanges(
     ops: IterableIterator<[index: number, operation: ITextOperation]>,
-    model: monaco.editor.ITextModel
+    model: monaco.editor.ITextModel,
   ): monaco.editor.IIdentifiedSingleEditOperation[] {
     let index = 0;
     const changes: monaco.editor.IIdentifiedSingleEditOperation[] = [];
@@ -750,7 +731,7 @@ export class MonacoAdapter implements IEditorAdapter {
               pos.lineNumber,
               pos.column,
               pos.lineNumber,
-              pos.column
+              pos.column,
             ),
             text: op.textContent(),
             forceMoveMarkers: true,
@@ -768,7 +749,7 @@ export class MonacoAdapter implements IEditorAdapter {
               from.lineNumber,
               from.column,
               to.lineNumber,
-              to.column
+              to.column,
             ),
             text: "",
             forceMoveMarkers: true,
@@ -787,10 +768,10 @@ export class MonacoAdapter implements IEditorAdapter {
    * @param changes - List of Edit Operations.
    */
   protected _applyChangesToMonaco(
-    changes: monaco.editor.IIdentifiedSingleEditOperation[]
+    changes: monaco.editor.IIdentifiedSingleEditOperation[],
   ): void {
     const readOnly = this._monaco.getOption(
-      monaco.editor.EditorOption.readOnly
+      monaco.editor.EditorOption.readOnly,
     );
 
     if (readOnly) {
@@ -805,4 +786,5 @@ export class MonacoAdapter implements IEditorAdapter {
   }
 }
 
-export { IDisposable, IDisposableCollection } from "@otjs/types";
+export type { EventEmitter };
+export { IDisposable, IDisposableCollection, IEventEmitter } from "@otjs/types";

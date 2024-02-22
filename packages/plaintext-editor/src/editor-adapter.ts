@@ -23,8 +23,7 @@
  */
 
 import { IPlainTextOperation } from "@otjs/plaintext";
-import { IDisposable, IEventEmitter } from "@otjs/types";
-import { Handler } from "mitt";
+import { IDisposable, IEventEmitter, IEventHandler } from "@otjs/types";
 import { ICursor } from "./cursor";
 
 /**
@@ -108,22 +107,22 @@ export interface IEditorAdapter
    * Add Undo callback to maintain sync while doing Undo in Plain Text Editor.
    * @param callback - Undo Event Handler.
    */
-  registerUndo(callback: Handler<void>): void;
+  registerUndo(callback: IEventHandler<void>): void;
   /**
    * Add Redo callback to maintain sync while doing Redo in Plain Text Editor.
    * @param callback - Redo Event Handler.
    */
-  registerRedo(callback: Handler<void>): void;
+  registerRedo(callback: IEventHandler<void>): void;
   /**
    * Remove Undo callback from Plain Text Editor.
    * @param callback - Undo Event Handler (optional).
    */
-  deregisterUndo(callback?: Handler<void>): void;
+  deregisterUndo(callback?: IEventHandler<void>): void;
   /**
    * Remove Redo callback from Plain Text Editor.
    * @param callback - Redo Event Handler (optional).
    */
-  deregisterRedo(callback?: Handler<void>): void;
+  deregisterRedo(callback?: IEventHandler<void>): void;
   /**
    * Returns Cursor position of current User in Editor.
    */

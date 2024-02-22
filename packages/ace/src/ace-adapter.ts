@@ -35,15 +35,15 @@ import {
   ITextOperation,
   PlainTextOperation,
 } from "@otjs/plaintext";
-import { IDisposable, IDisposableCollection } from "@otjs/types";
+import { IDisposable, IDisposableCollection, IEventHandler } from "@otjs/types";
 import {
   addStyleRule,
   assert,
   Disposable,
   DisposableCollection,
   EndOfLineSequence,
+  EventEmitter,
 } from "@otjs/utils";
-import mitt, { Emitter, Handler } from "mitt";
 import { TAceAdapterConstructionOptions } from "./api";
 import { createCursorWidget, disposeCursorWidgets } from "./cursor-widget.impl";
 
@@ -57,7 +57,10 @@ const Range: typeof AceAjax.Range = ace.require("ace/range").Range;
  * Create Editor Adapter for Plain Text Editor using Ace as Editor.
  * @param constructorOptions - A Configuration Object consisting Ace Editor Instance.
  */
-export class AceAdapter implements IEditorAdapter {
+export class AceAdapter
+  extends EventEmitter<EditorAdapterEvent, TEditorAdapterEventArgs>
+  implements IEditorAdapter
+{
   protected _ace: AceAjax.Editor;
   protected readonly _toDispose: IDisposableCollection =
     new DisposableCollection();
@@ -68,19 +71,19 @@ export class AceAdapter implements IEditorAdapter {
   protected _bindEvents: boolean;
   protected _initiated: boolean = false;
   protected _ignoreChanges: boolean = false;
-  protected _undoCallback: Handler<void> | null = null;
-  protected _redoCallback: Handler<void> | null = null;
-  protected _originalUndo: Handler<void> | null = null;
-  protected _originalRedo: Handler<void> | null = null;
+  protected _undoCallback: IEventHandler<void> | null = null;
+  protected _redoCallback: IEventHandler<void> | null = null;
+  protected _originalUndo: IEventHandler<void> | null = null;
+  protected _originalRedo: IEventHandler<void> | null = null;
   protected _lastDocLines: string[] = [];
   protected _lastCursorRange: AceAjax.Range | null = null;
-  protected _emitter: Emitter<TEditorAdapterEventArgs> = mitt();
 
   constructor({
     editor,
     announcementDuration = 1000,
     bindEvents = false,
   }: TAceAdapterConstructionOptions) {
+    super();
     this._ace = editor;
     this._announcementDuration = announcementDuration;
     this._aceSession = this._ace.getSession();
@@ -99,7 +102,7 @@ export class AceAdapter implements IEditorAdapter {
   set events(bindEvents: boolean) {
     assert(
       typeof bindEvents === "boolean",
-      "events property takes only boolean value"
+      "events property takes only boolean value",
     );
 
     if (this._bindEvents === bindEvents) {
@@ -145,39 +148,17 @@ export class AceAdapter implements IEditorAdapter {
     this._bindEvents = false;
   }
 
-  on<Key extends keyof TEditorAdapterEventArgs>(
-    event: Key,
-    listener: Handler<TEditorAdapterEventArgs[Key]>
-  ): void {
-    return this._emitter?.on(event, listener);
-  }
-
-  off<Key extends keyof TEditorAdapterEventArgs>(
-    event: Key,
-    listener?: Handler<TEditorAdapterEventArgs[Key]>
-  ): void {
-    return this._emitter?.off(event, listener);
-  }
-
-  /** Trigger an event with optional payload */
-  protected _trigger<Key extends keyof TEditorAdapterEventArgs>(
-    event: Key,
-    payload: TEditorAdapterEventArgs[Key]
-  ): void {
-    return this._emitter!.emit(event, payload);
-  }
-
-  registerUndo(undoCallback: Handler<void>): void {
+  registerUndo(undoCallback: IEventHandler<void>): void {
     this._originalUndo = this._ace.undo;
     this._ace.undo = this._undoCallback = undoCallback;
   }
 
-  registerRedo(redoCallback: Handler<void>): void {
+  registerRedo(redoCallback: IEventHandler<void>): void {
     this._originalRedo = this._ace.redo;
     this._ace.redo = this._redoCallback = redoCallback;
   }
 
-  deregisterUndo(undoCallback?: Handler<void>): void {
+  deregisterUndo(undoCallback?: IEventHandler<void>): void {
     if (undoCallback != null && this._undoCallback !== undoCallback) {
       return;
     }
@@ -190,7 +171,7 @@ export class AceAdapter implements IEditorAdapter {
     this._originalUndo = null;
   }
 
-  deregisterRedo(redoCallback?: Handler<void>): void {
+  deregisterRedo(redoCallback?: IEventHandler<void>): void {
     if (redoCallback != null && this._redoCallback !== redoCallback) {
       return;
     }
@@ -208,10 +189,10 @@ export class AceAdapter implements IEditorAdapter {
 
     try {
       start = this._aceDocument.positionToIndex(
-        this._aceSession.selection.getRange().start
+        this._aceSession.selection.getRange().start,
       );
       end = this._aceDocument.positionToIndex(
-        this._aceSession.selection.getRange().end
+        this._aceSession.selection.getRange().end,
       );
     } catch (err) /* istanbul ignore next */ {
       console.log("Failed to get cursor position from Ace editor: ", err);
@@ -224,7 +205,7 @@ export class AceAdapter implements IEditorAdapter {
         console.log(
           "Couldn't figure out the cursor range:",
           err2,
-          "-- setting it to 0:0."
+          "-- setting it to 0:0.",
         );
 
         return null;
@@ -247,7 +228,7 @@ export class AceAdapter implements IEditorAdapter {
 
     /** Create Selection in the Editor */
     this._aceSession.selection.setSelectionRange(
-      new Range(start.row, start.column, end.row, end.column)
+      new Range(start.row, start.column, end.row, end.column),
     );
   }
 
@@ -259,12 +240,12 @@ export class AceAdapter implements IEditorAdapter {
   }: TEditorAdapterCursorParams): IDisposable {
     assert(
       typeof cursor === "object" && typeof cursor.toJSON === "function",
-      "Cursor must be an implementation of ICursor"
+      "Cursor must be an implementation of ICursor",
     );
 
     assert(
       typeof clientId === "string" && typeof cursorColor === "string",
-      "Client Id and User Color must be strings."
+      "Client Id and User Color must be strings.",
     );
 
     /** Remove non-alphanumeric characters to create valid classname */
@@ -290,7 +271,7 @@ export class AceAdapter implements IEditorAdapter {
     let originalClipRows = cursorRange.clipRows;
     cursorRange.clipRows = /* istanbul ignore next */ function (
       firstRow: number,
-      lastRow: number
+      lastRow: number,
     ): AceAjax.Range {
       const range = originalClipRows.call(cursorRange, firstRow, lastRow);
       range.isEmpty = function () {
@@ -308,13 +289,13 @@ export class AceAdapter implements IEditorAdapter {
     // @ts-expect-error
     cursorRange.start = this._aceDocument.createAnchor(
       cursorRange.start.row,
-      cursorRange.start.column
+      cursorRange.start.column,
     );
 
     // @ts-expect-error
     cursorRange.end = this._aceDocument.createAnchor(
       cursorRange.end.row,
-      cursorRange.end.column
+      cursorRange.end.column,
     );
 
     // @ts-expect-error
@@ -322,7 +303,7 @@ export class AceAdapter implements IEditorAdapter {
       cursorRange,
       decorationClassName,
       "text",
-      false
+      false,
     );
 
     /** Add Cursor Widget to the editor */
@@ -449,7 +430,7 @@ export class AceAdapter implements IEditorAdapter {
    * @param changes - Set of Changes from Ace Editor Change Event.
    */
   protected _operationFromACEChange(
-    change: AceAjax.EditorChangeEvent
+    change: AceAjax.EditorChangeEvent,
   ): [operation: IPlainTextOperation, inverse: IPlainTextOperation] {
     const { action, lines, start: startPosition } = change;
 
@@ -485,7 +466,7 @@ export class AceAdapter implements IEditorAdapter {
    * @param ops - List of Individual Text Operations.
    */
   protected _applyOperationToACE(
-    ops: IterableIterator<[index: number, operation: ITextOperation]>
+    ops: IterableIterator<[index: number, operation: ITextOperation]>,
   ) {
     let index = 0;
     let opValue: IteratorResult<[index: number, operation: ITextOperation]>;
@@ -503,7 +484,7 @@ export class AceAdapter implements IEditorAdapter {
           /** Insert Operation */
           this._aceDocument.insert(
             this._aceDocument.indexToPosition(index, 0),
-            op.textContent()
+            op.textContent(),
           );
           index += op.textContent()!.length;
           break;
@@ -513,7 +494,7 @@ export class AceAdapter implements IEditorAdapter {
           const start = this._aceDocument.indexToPosition(index, 0);
           const end = this._aceDocument.indexToPosition(
             index + op.characterCount(),
-            0
+            0,
           );
           const range = Range.fromPoints(start, end);
           this._aceDocument.remove(range);
@@ -525,4 +506,5 @@ export class AceAdapter implements IEditorAdapter {
   }
 }
 
-export { IDisposable, IDisposableCollection } from "@otjs/types";
+export type { EventEmitter };
+export { IDisposable, IDisposableCollection, IEventEmitter } from "@otjs/types";

@@ -22,9 +22,9 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { ICursor, TCursor } from "./cursor";
 import { IPlainTextOperation } from "@otjs/plaintext";
 import { IDisposable, IEventEmitter } from "@otjs/types";
+import { ICursor, TCursor } from "./cursor";
 
 /**
  * @public

@@ -23,8 +23,8 @@
  */
 
 import { IPlainTextOperation } from "@otjs/plaintext";
+import { IEventHandler } from "@otjs/types";
 import { assert } from "@otjs/utils";
-import { Handler } from "mitt";
 import { IUndoManager } from "./undo-manager";
 import { IWrappedOperation } from "./wrapped-operation";
 
@@ -59,7 +59,7 @@ export class UndoManager implements IUndoManager {
   constructor(maxItems: number = UndoManager.MAX_ITEM_IN_STACK) {
     assert(
       maxItems > 0,
-      "Maximum size of Undo/Redo stack should at least be greater than 0"
+      "Maximum size of Undo/Redo stack should at least be greater than 0",
     );
     this._maxItems = maxItems;
   }
@@ -67,7 +67,7 @@ export class UndoManager implements IUndoManager {
   dispose(): void {
     assert(
       this._state === UndoManagerState.Normal,
-      "Cannot dispose UndoManager while an undo/redo is in-progress"
+      "Cannot dispose UndoManager while an undo/redo is in-progress",
     );
 
     this._undoStack = [];
@@ -77,13 +77,13 @@ export class UndoManager implements IUndoManager {
   /** Add an operation to stack while no undo/redo is in-progress */
   protected _addOnNormalState(
     operation: IWrappedOperation,
-    compose: boolean
+    compose: boolean,
   ): void {
     let toPushOperation: IWrappedOperation = operation;
 
     if (this._compose && compose && this._undoStack.length > 0) {
       toPushOperation = operation.compose(
-        this._undoStack.pop()!
+        this._undoStack.pop()!,
       ) as IWrappedOperation;
     }
 
@@ -134,7 +134,7 @@ export class UndoManager implements IUndoManager {
   /** Update Undo/Redo stack on incoming operation during Undo/Redo event */
   protected _transformStack(
     stack: IPlainTextOperation[],
-    operation: IPlainTextOperation
+    operation: IPlainTextOperation,
   ): IWrappedOperation[] {
     const newStack: IPlainTextOperation[] = [];
     const reverseStack: IPlainTextOperation[] = [
@@ -160,7 +160,7 @@ export class UndoManager implements IUndoManager {
     this._redoStack = this._transformStack(this._redoStack, operation);
   }
 
-  performUndo(callback: Handler<IWrappedOperation>): void {
+  performUndo(callback: IEventHandler<IWrappedOperation>): void {
     assert(this._undoStack.length > 0, "Undo not possible");
 
     this._state = UndoManagerState.Undoing;
@@ -168,7 +168,7 @@ export class UndoManager implements IUndoManager {
     this._state = UndoManagerState.Normal;
   }
 
-  performRedo(callback: Handler<IWrappedOperation>): void {
+  performRedo(callback: IEventHandler<IWrappedOperation>): void {
     assert(this._redoStack.length > 0, "Redo not possible");
 
     this._state = UndoManagerState.Redoing;

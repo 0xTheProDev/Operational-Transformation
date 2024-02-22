@@ -29,7 +29,6 @@ import {
   TEditorClientEventArgs,
 } from "@otjs/plaintext-editor";
 import { IDisposable, IEventEmitter } from "@otjs/types";
-import { Handler } from "mitt";
 
 /**
  * @public

@@ -48,9 +48,6 @@
     "@types/ace": "0.0.48",
     "@types/lodash": "4.14.191"
   },
-  "dependencies": {
-    "mitt": "3.0.1"
-  },
   "peerDependencies": {
     "@otjs/plaintext": "^0.2.0",
     "@otjs/plaintext-editor": "^0.2.0",

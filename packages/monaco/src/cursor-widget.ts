@@ -22,8 +22,8 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { IDisposable } from "@otjs/types";
 import * as monaco from "monaco-editor";
+import { IDisposable } from "@otjs/types";
 
 /**
  * @internal

@@ -26,7 +26,11 @@
  * See LICENSE file in the root directory for more details.
  */
 
-import { addStyleRule, createTooltipNode, createWidgetNode } from "@otjs/utils";
+import {
+  addStyleRule,
+  createTooltipNode,
+  createWidgetNode,
+} from "../src/styles";
 
 describe("Style Utility Functions", () => {
   describe("Test addStyleRule", () => {

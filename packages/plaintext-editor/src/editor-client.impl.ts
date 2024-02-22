@@ -24,8 +24,7 @@
 
 import { IPlainTextOperation } from "@otjs/plaintext";
 import { IStateMachine, StateMachine } from "@otjs/state-machine";
-import { assert, NoopError } from "@otjs/utils";
-import mitt, { Emitter, Handler } from "mitt";
+import { assert, EventEmitter, NoopError } from "@otjs/utils";
 import { ICursor } from "./cursor";
 import { Cursor } from "./cursor.impl";
 import {
@@ -62,11 +61,13 @@ import { WrappedOperation } from "./wrapped-operation.impl";
  * @param databaseAdapter - Database Adapter instance.
  * @param editorAdapter - Editor Adapter instance.
  */
-export class EditorClient implements IEditorClient {
+export class EditorClient
+  extends EventEmitter<EditorClientEvent, TEditorClientEventArgs>
+  implements IEditorClient
+{
   protected readonly _databaseAdapter: IDatabaseAdapter;
   protected readonly _editorAdapter: IEditorAdapter;
 
-  protected readonly _emitter: Emitter<TEditorClientEventArgs> = mitt();
   protected readonly _remoteClients: TRemoteClientMap = new Map();
   protected readonly _stateMachine: IStateMachine = new StateMachine(this);
   protected readonly _undoManager: IUndoManager = new UndoManager();
@@ -80,24 +81,11 @@ export class EditorClient implements IEditorClient {
     databaseAdapter,
     editorAdapter,
   }: TEditorClientConstructionOptions) {
+    super();
     this._databaseAdapter = databaseAdapter;
     this._editorAdapter = editorAdapter;
     this._initDatabaseAdapter();
     this._initEditorAdapter();
-  }
-
-  on<Key extends keyof TEditorClientEventArgs>(
-    event: Key,
-    listener: Handler<TEditorClientEventArgs[Key]>
-  ): void {
-    this._emitter.on(event, listener);
-  }
-
-  off<Key extends keyof TEditorClientEventArgs>(
-    event: Key,
-    listener?: Handler<TEditorClientEventArgs[Key]>
-  ): void {
-    this._emitter.off(event, listener);
   }
 
   clearUndoRedoStack(): void {
@@ -108,8 +96,8 @@ export class EditorClient implements IEditorClient {
     assert(
       !this._disposed,
       new NoopError(
-        "Can not call `sendOperation` after editor client have been disposed!"
-      )
+        "Can not call `sendOperation` after editor client have been disposed!",
+      ),
     );
     this._databaseAdapter.sendOperation(operation);
   }
@@ -118,8 +106,8 @@ export class EditorClient implements IEditorClient {
     assert(
       !this._disposed,
       new NoopError(
-        "Can not call `applyOperation` after editor client have been disposed!"
-      )
+        "Can not call `applyOperation` after editor client have been disposed!",
+      ),
     );
     this._editorAdapter.applyOperation(operation);
     this._updateCursor();
@@ -153,32 +141,32 @@ export class EditorClient implements IEditorClient {
   protected _initDatabaseAdapter() {
     this._databaseAdapter.on(
       DatabaseAdapterEvent.Ready,
-      this._handleDatabaseReady
+      this._handleDatabaseReady,
     );
 
     this._databaseAdapter.on(
       DatabaseAdapterEvent.Retry,
-      this._handleDatabaseRetry
+      this._handleDatabaseRetry,
     );
 
     this._databaseAdapter.on(
       DatabaseAdapterEvent.InitialRevision,
-      this._handleInitialRevision
+      this._handleInitialRevision,
     );
 
     this._databaseAdapter.on(
       DatabaseAdapterEvent.Acknowledge,
-      this._handleDatabaseAcknowledge
+      this._handleDatabaseAcknowledge,
     );
 
     this._databaseAdapter.on(
       DatabaseAdapterEvent.CursorChange,
-      this._handleCursorChange
+      this._handleCursorChange,
     );
 
     this._databaseAdapter.on(
       DatabaseAdapterEvent.Operation,
-      this._handleIncomingOperation
+      this._handleIncomingOperation,
     );
 
     this._databaseAdapter.on(DatabaseAdapterEvent.Error, this._onError);
@@ -200,32 +188,32 @@ export class EditorClient implements IEditorClient {
   protected _tearDownDatabaseAdapter() {
     this._databaseAdapter.off(
       DatabaseAdapterEvent.Ready,
-      this._handleDatabaseReady
+      this._handleDatabaseReady,
     );
 
     this._databaseAdapter.off(
       DatabaseAdapterEvent.Retry,
-      this._handleDatabaseRetry
+      this._handleDatabaseRetry,
     );
 
     this._databaseAdapter.off(
       DatabaseAdapterEvent.InitialRevision,
-      this._handleInitialRevision
+      this._handleInitialRevision,
     );
 
     this._databaseAdapter.off(
       DatabaseAdapterEvent.Acknowledge,
-      this._handleDatabaseAcknowledge
+      this._handleDatabaseAcknowledge,
     );
 
     this._databaseAdapter.off(
       DatabaseAdapterEvent.CursorChange,
-      this._handleCursorChange
+      this._handleCursorChange,
     );
 
     this._databaseAdapter.off(
       DatabaseAdapterEvent.Operation,
-      this._handleIncomingOperation
+      this._handleIncomingOperation,
     );
 
     this._databaseAdapter.off(DatabaseAdapterEvent.Error, this._onError);
@@ -281,25 +269,17 @@ export class EditorClient implements IEditorClient {
     this._undoManager = null;
   }
 
-  /** Trigger an event with optional payload */
-  protected _trigger<Key extends keyof TEditorClientEventArgs>(
-    event: Key,
-    payload: TEditorClientEventArgs[Key]
-  ): void {
-    this._emitter.emit(event, payload);
-  }
-
   /** Trigger `Synced` event with boolean payload */
   protected _emitSynced() {
     this._trigger(
       EditorClientEvent.Synced,
-      this._stateMachine.isSynchronized()
+      this._stateMachine.isSynchronized(),
     );
   }
 
   /** Handles `error` event from Database Adapter or Editor Adapter */
   protected _onError = (
-    err: TEditorAdapterError | TDatabaseAdapterError
+    err: TEditorAdapterError | TDatabaseAdapterError,
   ): void => {
     this._trigger(EditorClientEvent.Error, err);
   };
@@ -329,7 +309,7 @@ export class EditorClient implements IEditorClient {
 
   /** Handles `operation` event from Database Adapter */
   protected _handleIncomingOperation = (
-    operation: IPlainTextOperation
+    operation: IPlainTextOperation,
   ): void => {
     this._stateMachine.applyServer(operation);
   };
@@ -438,7 +418,7 @@ export class EditorClient implements IEditorClient {
     const { operation, cursor } = wrappedOperation;
 
     this._undoManager.add(
-      this._editorAdapter.invertOperation(wrappedOperation)
+      this._editorAdapter.invertOperation(wrappedOperation),
     );
     this._editorAdapter.applyOperation(operation);
 
@@ -486,3 +466,5 @@ export class EditorClient implements IEditorClient {
     return client;
   }
 }
+
+export type { EventEmitter };

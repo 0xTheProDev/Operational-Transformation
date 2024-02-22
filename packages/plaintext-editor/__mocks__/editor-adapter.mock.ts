@@ -24,8 +24,8 @@
 
 import mitt, { Emitter, Handler } from "mitt";
 import { IPlainTextOperation, ITextOperation } from "@otjs/plaintext";
-import { assert } from "@otjs/utils";
 import { IDisposable } from "@otjs/types";
+import { assert } from "@otjs/utils";
 import { ICursor } from "../src/cursor";
 import {
   EditorAdapterEvent,
@@ -47,7 +47,7 @@ export interface IMockEditorAdapter extends IEditorAdapter {
   /** Trigger an event with optional payload. */
   emit<Key extends keyof TMockEditorAdapterEventArgs>(
     event: Key,
-    payload?: TMockEditorAdapterEventArgs[Key]
+    payload?: TMockEditorAdapterEventArgs[Key],
   ): void;
   /** Disposes cursor inside editor Adapter */
   disposeCursor(): void;
@@ -95,7 +95,7 @@ const editorAdapter: IMockEditorAdapter = Object.freeze({
     void,
     [
       EditorAdapterEvent,
-      Handler<TMockEditorAdapterEventArgs[EditorAdapterEvent]>
+      Handler<TMockEditorAdapterEventArgs[EditorAdapterEvent]>,
     ]
   >((ev, handler) => {
     emitter.on(ev, handler);
@@ -104,7 +104,7 @@ const editorAdapter: IMockEditorAdapter = Object.freeze({
     void,
     [
       EditorAdapterEvent,
-      Handler<TMockEditorAdapterEventArgs[EditorAdapterEvent]>
+      Handler<TMockEditorAdapterEventArgs[EditorAdapterEvent]>,
     ]
   >((ev, handler) => {
     emitter.off(ev, handler);
@@ -151,7 +151,7 @@ const editorAdapter: IMockEditorAdapter = Object.freeze({
     applyOperation(operation);
   }),
   invertOperation: jest.fn<IPlainTextOperation, [IPlainTextOperation]>(
-    (operation) => operation.invert(content)
+    (operation) => operation.invert(content),
   ),
 });
 
