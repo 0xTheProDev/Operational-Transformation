@@ -10,7 +10,7 @@
 
 [![Build](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/build.yml/badge.svg)](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/build.yml)
 [![Tests](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/tests.yml/badge.svg)](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/tests.yml)
-[![Deployment](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/deploy.yml/badge.svg?branch=v0.2.1)](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/deploy.yml)
+[![Deployment](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/deploy.yml/badge.svg?branch=v0.2.2)](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/deploy.yml)
 [![Code Quality](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/quality.yml/badge.svg)](https://github.com/0xTheProDev/Operational-Transformation/security/code-scanning)
 [![Code Coverage](https://codecov.io/gh/0xTheProDev/Operational-Transformation/branch/main/graph/badge.svg?token=R0T5YH3XX3)](https://codecov.io/gh/0xTheProDev/Operational-Transformation)
 
