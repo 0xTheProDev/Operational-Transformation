@@ -86,7 +86,7 @@ describe("Test Awaiting Confirm State", () => {
       expect(
         awaitingConfirm
           .applyClient(client as IStateMachine, incomingOp)
-          .isAwaitingWithBuffer()
+          .isAwaitingWithBuffer(),
       ).toBe(true);
     });
   });
@@ -100,7 +100,7 @@ describe("Test Awaiting Confirm State", () => {
       expect(
         awaitingConfirm
           .applyServer(client as IStateMachine, incomingOp)
-          .isAwaitingConfirm()
+          .isAwaitingConfirm(),
       ).toBe(true);
     });
 
@@ -117,7 +117,7 @@ describe("Test Awaiting Confirm State", () => {
   describe("#serverAck", () => {
     it("should return Synchronized state", () => {
       expect(
-        awaitingConfirm.serverAck(client as IStateMachine).isSynchronized()
+        awaitingConfirm.serverAck(client as IStateMachine).isSynchronized(),
       ).toBe(true);
     });
   });
@@ -125,7 +125,7 @@ describe("Test Awaiting Confirm State", () => {
   describe("#serverRetry", () => {
     it("should return same instance", () => {
       expect(awaitingConfirm.serverRetry(client as IStateMachine)).toEqual(
-        awaitingConfirm
+        awaitingConfirm,
       );
     });
   });

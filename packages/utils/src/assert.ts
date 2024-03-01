@@ -31,7 +31,7 @@ import { AssertionError } from "./errors";
  */
 export function assert(
   statement: boolean | undefined,
-  message: string | Error
+  message: string | Error,
 ): void {
   if (statement == null || statement === false) {
     const err =

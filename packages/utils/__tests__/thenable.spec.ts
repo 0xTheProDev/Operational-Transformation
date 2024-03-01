@@ -57,7 +57,7 @@ describe("Test Thenable Collection", () => {
       const thenableCollection = new ThenableCollection();
       thenableCollection.push(
         Promise.resolve(),
-        Promise.resolve().then(handlerFn)
+        Promise.resolve().then(handlerFn),
       );
       await thenableCollection.all();
       expect(handlerFn).toHaveBeenCalled();
@@ -78,7 +78,7 @@ describe("Test Thenable Collection", () => {
     it("should return a single Thenable comprising of all Theanables in the collection", async () => {
       const thenableCollection = new ThenableCollection(
         Promise.resolve(1),
-        Promise.resolve(3)
+        Promise.resolve(3),
       );
       const results = (await thenableCollection.all()) as any[];
       const values = results.map((result) => result.value);
@@ -94,7 +94,7 @@ describe("Test Thenable Collection", () => {
     it("should not throw error if any Thenable in the collection gets rejected", () => {
       const thenableCollection = new ThenableCollection(
         Promise.resolve(),
-        Promise.reject()
+        Promise.reject(),
       );
       expect(async () => await thenableCollection.all()).not.toThrow();
     });

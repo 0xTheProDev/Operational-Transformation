@@ -79,7 +79,7 @@ export class PlainTextOperation implements IPlainTextOperation {
 
   retain(
     n: number,
-    attributes: TTextOperationAttributes | null = null
+    attributes: TTextOperationAttributes | null = null,
   ): IPlainTextOperation {
     assert(n >= 0, "Retain expects a positive integer.");
 
@@ -106,7 +106,7 @@ export class PlainTextOperation implements IPlainTextOperation {
 
   insert(
     str: string,
-    attributes: TTextOperationAttributes | null = null
+    attributes: TTextOperationAttributes | null = null,
   ): IPlainTextOperation {
     assert(typeof str === "string", "Insert expects a string.");
 
@@ -206,11 +206,11 @@ export class PlainTextOperation implements IPlainTextOperation {
   apply(
     prevContent: string,
     prevAttributes: TTextOperationAttributes[] = [],
-    attributes: TTextOperationAttributes[] = []
+    attributes: TTextOperationAttributes[] = [],
   ): string {
     assert(
       prevContent.length === this._baseLength,
-      "The operation's base length must be equal to the string's length."
+      "The operation's base length must be equal to the string's length.",
     );
 
     const contentSlices: string[] = [];
@@ -223,12 +223,12 @@ export class PlainTextOperation implements IPlainTextOperation {
 
         assert(
           nextCursorPosition <= prevContent.length,
-          "Operation can't retain more characters than are left in the string."
+          "Operation can't retain more characters than are left in the string.",
         );
 
         // Copy skipped part of the retained string
         contentSlices.push(
-          prevContent.slice(cursorPosition, nextCursorPosition)
+          prevContent.slice(cursorPosition, nextCursorPosition),
         );
 
         // Copy (and potentially update) attributes for each char in retained string
@@ -242,7 +242,7 @@ export class PlainTextOperation implements IPlainTextOperation {
 
             assert(
               updatedAttributes[attr] != false,
-              "Expected attribute value to be true"
+              "Expected attribute value to be true",
             );
           }
 
@@ -257,7 +257,7 @@ export class PlainTextOperation implements IPlainTextOperation {
 
             assert(
               updatedAttributes[attr] != false,
-              "Expected attribute value to be true"
+              "Expected attribute value to be true",
             );
           }
 
@@ -279,7 +279,7 @@ export class PlainTextOperation implements IPlainTextOperation {
             insertAttributes[attr] = opAttributes[attr];
             assert(
               insertAttributes[attr] != false,
-              "Expected attribute value to be true"
+              "Expected attribute value to be true",
             );
           }
 
@@ -293,14 +293,14 @@ export class PlainTextOperation implements IPlainTextOperation {
 
     assert(
       cursorPosition === prevContent.length,
-      "The operation didn't operate on the whole string."
+      "The operation didn't operate on the whole string.",
     );
 
     const content = contentSlices.join("");
 
     assert(
       content.length === attributes.length,
-      "Attributes length did not match content length."
+      "Attributes length did not match content length.",
     );
 
     return content;
@@ -323,7 +323,7 @@ export class PlainTextOperation implements IPlainTextOperation {
         const deleteCount = op.characterCount();
         inverse.insert(
           content.slice(cursorPosition, cursorPosition + deleteCount),
-          op.getAttributes()
+          op.getAttributes(),
         );
         cursorPosition += deleteCount;
       }
@@ -449,7 +449,7 @@ export class PlainTextOperation implements IPlainTextOperation {
    * @param opIterator - Iterator Protocol Object containing Text Operation
    */
   protected _nextTextOp(
-    opIterator: IterableIterator<[index: number, operation: ITextOperation]>
+    opIterator: IterableIterator<[index: number, operation: ITextOperation]>,
   ): ITextOperation | null {
     const opIteratorResult: [index: number, operation: ITextOperation] | void =
       opIterator.next().value;
@@ -466,7 +466,7 @@ export class PlainTextOperation implements IPlainTextOperation {
   protected _composeAttributes(
     first: TTextOperationAttributes | null,
     second: TTextOperationAttributes | null,
-    firstOpIsInsert: boolean
+    firstOpIsInsert: boolean,
   ): TTextOperationAttributes {
     const merged: TTextOperationAttributes = {};
 
@@ -488,7 +488,7 @@ export class PlainTextOperation implements IPlainTextOperation {
   compose(otherOperation: IPlainTextOperation): IPlainTextOperation {
     assert(
       this.canMergeWith(otherOperation),
-      "The base length of the second operation has to be the target length of the first operation"
+      "The base length of the second operation has to be the target length of the first operation",
     );
 
     const operation = new PlainTextOperation();
@@ -520,11 +520,11 @@ export class PlainTextOperation implements IPlainTextOperation {
 
       assert(
         op1 != null,
-        "Cannot compose operations: first operation is too short."
+        "Cannot compose operations: first operation is too short.",
       );
       assert(
         op2 != null,
-        "Cannot compose operations: first operation is too long."
+        "Cannot compose operations: first operation is too long.",
       );
 
       if (op1 == null || op2 == null) {
@@ -536,7 +536,7 @@ export class PlainTextOperation implements IPlainTextOperation {
         const attributes = this._composeAttributes(
           op1.getAttributes(),
           op2.getAttributes(),
-          false
+          false,
         );
 
         if (op1.characterCount() > op2.characterCount()) {
@@ -578,13 +578,13 @@ export class PlainTextOperation implements IPlainTextOperation {
         const attributes = this._composeAttributes(
           op1.getAttributes(),
           op2.getAttributes(),
-          true
+          true,
         );
 
         if (op1.textContent().length > op2.characterCount()) {
           operation.insert(
             op1.textContent().slice(0, op2.characterCount()),
-            attributes
+            attributes,
           );
           op1.setTextContent(op1.textContent().slice(op2.characterCount()));
 
@@ -636,7 +636,7 @@ export class PlainTextOperation implements IPlainTextOperation {
    */
   protected _transformAttributes(
     attributes1: TTextOperationAttributes | null,
-    attributes2: TTextOperationAttributes | null
+    attributes2: TTextOperationAttributes | null,
   ): [TTextOperationAttributes, TTextOperationAttributes] {
     const attributes1prime: TTextOperationAttributes = {};
     const attributes2prime: TTextOperationAttributes = {};
@@ -675,11 +675,11 @@ export class PlainTextOperation implements IPlainTextOperation {
   }
 
   transform(
-    operation: IPlainTextOperation
+    operation: IPlainTextOperation,
   ): [IPlainTextOperation, IPlainTextOperation] {
     assert(
       operation.isEqualBaseLength(this._baseLength),
-      "Both operations have to have the same base length"
+      "Both operations have to have the same base length",
     );
 
     const operation1prime = new PlainTextOperation();
@@ -719,11 +719,11 @@ export class PlainTextOperation implements IPlainTextOperation {
 
       assert(
         op1 != null,
-        "Cannot transform operations: first operation is too short."
+        "Cannot transform operations: first operation is too short.",
       );
       assert(
         op2 != null,
-        "Cannot transform operations: first operation is too long."
+        "Cannot transform operations: first operation is too long.",
       );
 
       if (op1 == null || op2 == null) {
@@ -736,7 +736,7 @@ export class PlainTextOperation implements IPlainTextOperation {
         let cursorPosition: number = 0;
         const attributesPrime = this._transformAttributes(
           op1.getAttributes(),
-          op2.getAttributes()
+          op2.getAttributes(),
         );
 
         if (op1.characterCount() > op2.characterCount()) {
@@ -830,7 +830,7 @@ export class PlainTextOperation implements IPlainTextOperation {
 
       assert(
         false,
-        `The two operations aren't compatible:\nop1: ${op1}\nop2: ${op2}`
+        `The two operations aren't compatible:\nop1: ${op1}\nop2: ${op2}`,
       );
     }
 
@@ -900,7 +900,7 @@ export class PlainTextOperation implements IPlainTextOperation {
 
       assert(
         Number.isInteger(op),
-        "invalid number found, can not assign to retain or delete operation."
+        "invalid number found, can not assign to retain or delete operation.",
       );
 
       if (op < 0) {

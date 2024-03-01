@@ -83,8 +83,8 @@ export class StateMachine implements IStateMachine {
     assert(
       this._handler != null,
       new NoopError(
-        "Can not call `applyOperation` after state machine have been disposed!"
-      )
+        "Can not call `applyOperation` after state machine have been disposed!",
+      ),
     );
     this._handler!.applyOperation(operation);
   }
@@ -93,8 +93,8 @@ export class StateMachine implements IStateMachine {
     assert(
       this._handler != null,
       new NoopError(
-        "Can not call `sendOperation` after state machine have been disposed!"
-      )
+        "Can not call `sendOperation` after state machine have been disposed!",
+      ),
     );
     this._handler!.sendOperation(operation);
   }

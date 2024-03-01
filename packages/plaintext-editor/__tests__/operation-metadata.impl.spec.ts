@@ -56,12 +56,12 @@ describe("Operation Metadata", () => {
       const cursorAfterOther = new Cursor(4, 9);
       const operationMetaOther = new OperationMetadata(
         cursorBeforeOther,
-        cursorAfterOther
+        cursorAfterOther,
       );
 
       const composedMeta = new OperationMetadata(
         cursorBefore,
-        cursorAfterOther
+        cursorAfterOther,
       );
       expect(operationMeta.compose(operationMetaOther)).toEqual(composedMeta);
     });
@@ -79,7 +79,7 @@ describe("Operation Metadata", () => {
 
       const transformedMeta = new OperationMetadata(
         cursorBeforeTransformed,
-        cursorAfterTransformed
+        cursorAfterTransformed,
       );
       expect(operationMeta.transform(operation)).toEqual(transformedMeta);
     });

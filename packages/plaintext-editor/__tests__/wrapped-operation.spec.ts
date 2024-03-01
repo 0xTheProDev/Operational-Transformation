@@ -46,7 +46,7 @@ describe("Wrapped Operation", () => {
 
       const operation = new WrappedOperation(
         new PlainTextOperation(),
-        operationMeta
+        operationMeta,
       )
         .retain(retainCount)
         .insert(insertText)
@@ -117,7 +117,7 @@ describe("Wrapped Operation", () => {
     it("should create retain operation", () => {
       const retainCount = 32;
       const operation = new WrappedOperation(new PlainTextOperation()).retain(
-        retainCount
+        retainCount,
       );
       expect(operation.valueOf()).toEqual([retainCount]);
     });
@@ -133,7 +133,7 @@ describe("Wrapped Operation", () => {
 
     it("should not create any new op if 0 characters retained", () => {
       const operation = new WrappedOperation(new PlainTextOperation()).retain(
-        0
+        0,
       );
       expect(operation.valueOf()).toEqual([]);
     });
@@ -149,7 +149,7 @@ describe("Wrapped Operation", () => {
     it("should create insert operation", () => {
       const insertText = "Hello World";
       const operation = new WrappedOperation(new PlainTextOperation()).insert(
-        insertText
+        insertText,
       );
       expect(operation.valueOf()).toEqual([insertText]);
     });
@@ -198,7 +198,7 @@ describe("Wrapped Operation", () => {
     it("should not create any new op if empty string inserted", () => {
       const operation = new WrappedOperation(new PlainTextOperation()).insert(
         "",
-        null
+        null,
       );
       expect(operation.valueOf()).toEqual([]);
     });
@@ -208,7 +208,7 @@ describe("Wrapped Operation", () => {
     it("should create delete operation", () => {
       const deleteCount = 32;
       const operation = new WrappedOperation(new PlainTextOperation()).delete(
-        deleteCount
+        deleteCount,
       );
       expect(operation.valueOf()).toEqual([-deleteCount]);
     });
@@ -225,14 +225,14 @@ describe("Wrapped Operation", () => {
     it("should convert into number of character deleted if deleted text is passed as param", () => {
       const deleteText = "Hello World";
       const operation = new WrappedOperation(new PlainTextOperation()).delete(
-        deleteText
+        deleteText,
       );
       expect(operation.valueOf()).toEqual([-deleteText.length]);
     });
 
     it("should not create any new op if 0 characters deleted", () => {
       const operation = new WrappedOperation(new PlainTextOperation()).delete(
-        0
+        0,
       );
       expect(operation.valueOf()).toEqual([]);
     });
@@ -290,14 +290,14 @@ describe("Wrapped Operation", () => {
         insertText = "Hello";
       const operation = new WrappedOperation(
         new PlainTextOperation(),
-        operationMeta
+        operationMeta,
       )
         .retain(retainCount)
         .insert(insertText)
         .delete(deleteCount);
 
       expect((operation.clone() as WrappedOperation).cursor).toEqual(
-        cursorAfter
+        cursorAfter,
       );
     });
   });
@@ -335,7 +335,7 @@ describe("Wrapped Operation", () => {
       const content = "Hello World";
       const operation = new WrappedOperation(new PlainTextOperation()).retain(
         12,
-        null
+        null,
       );
       const fn = () => operation.apply(content);
       expect(fn).toThrow();
@@ -362,7 +362,7 @@ describe("Wrapped Operation", () => {
       const operationMeta = new OperationMetadata(cursorBefore, null);
       const operation = new WrappedOperation(
         new PlainTextOperation(),
-        operationMeta
+        operationMeta,
       )
         .retain(6)
         .insert("Me")
@@ -370,7 +370,7 @@ describe("Wrapped Operation", () => {
       const invertedOperationMeta = new OperationMetadata(null, cursorBefore);
       const invertedOperation = new WrappedOperation(
         new PlainTextOperation(),
-        invertedOperationMeta
+        invertedOperationMeta,
       )
         .retain(6)
         .insert("World")
@@ -391,24 +391,24 @@ describe("Wrapped Operation", () => {
         .insert("!")
         .retain(5);
       const transformedOperation = new WrappedOperation(
-        new PlainTextOperation()
+        new PlainTextOperation(),
       )
         .retain(4)
         .insert("!")
         .retain(2);
       expect(operation1.transform(operation2)).toContainEqual(
-        transformedOperation
+        transformedOperation,
       );
     });
 
     it("should transform cursor positions of two operation such that they can be reversed", () => {
       const operationMeta1 = new OperationMetadata(
         new Cursor(0, 0),
-        new Cursor(2, 4)
+        new Cursor(2, 4),
       );
       const operation1 = new WrappedOperation(
         new PlainTextOperation(),
-        operationMeta1
+        operationMeta1,
       )
         .retain(2)
         .insert("Me")
@@ -416,18 +416,18 @@ describe("Wrapped Operation", () => {
         .retain(2);
       const operationMeta2 = new OperationMetadata(
         new Cursor(3, 3),
-        new Cursor(4, 4)
+        new Cursor(4, 4),
       );
       const operation2 = new WrappedOperation(
         new PlainTextOperation(),
-        operationMeta2
+        operationMeta2,
       )
         .retain(3)
         .insert("!")
         .retain(5);
       const [, transformedOperation] = operation1.transform(operation2) as [
         WrappedOperation,
-        WrappedOperation
+        WrappedOperation,
       ];
       expect(transformedOperation.cursor).toEqual(new Cursor(4, 4));
     });
@@ -463,11 +463,11 @@ describe("Wrapped Operation", () => {
     it("should return a wrapped operation that combines cursor movement of two individual ones applied sequentially", () => {
       const operationMeta = new OperationMetadata(
         new Cursor(2, 9),
-        new Cursor(3, 5)
+        new Cursor(3, 5),
       );
       const operation = new WrappedOperation(
         new PlainTextOperation(),
-        operationMeta
+        operationMeta,
       )
         .retain(6)
         .insert("Me")
@@ -475,17 +475,17 @@ describe("Wrapped Operation", () => {
       const cursorAfter = new Cursor(4, 7);
       const otherOperationMeta = new OperationMetadata(
         new Cursor(3, 9),
-        cursorAfter
+        cursorAfter,
       );
       const otherOperation = new WrappedOperation(
         new PlainTextOperation(),
-        otherOperationMeta
+        otherOperationMeta,
       )
         .retain(6)
         .insert("World")
         .delete("Me");
       const composedOperation = operation.compose(
-        otherOperation
+        otherOperation,
       ) as WrappedOperation;
       expect(composedOperation.cursor).toEqual(cursorAfter);
     });
@@ -494,11 +494,11 @@ describe("Wrapped Operation", () => {
       const cursorAfter = new Cursor(4, 7);
       const operationMeta = new OperationMetadata(
         new Cursor(2, 9),
-        cursorAfter
+        cursorAfter,
       );
       const operation = new WrappedOperation(
         new PlainTextOperation(),
-        operationMeta
+        operationMeta,
       )
         .retain(6)
         .insert("Me")
@@ -508,7 +508,7 @@ describe("Wrapped Operation", () => {
         .insert("World")
         .delete("Me");
       const composedOperation = operation.compose(
-        otherOperation
+        otherOperation,
       ) as WrappedOperation;
       expect(composedOperation.cursor).toEqual(cursorAfter);
     });
@@ -521,7 +521,7 @@ describe("Wrapped Operation", () => {
         .insert("Me")
         .delete(5);
       const otherOperation = new WrappedOperation(
-        new PlainTextOperation()
+        new PlainTextOperation(),
       ).retain(12);
       expect(operation.shouldBeComposedWith(otherOperation)).toEqual(true);
     });
@@ -565,7 +565,7 @@ describe("Wrapped Operation", () => {
         .delete(5);
       const otherOperation = new PlainTextOperation().retain(12);
       expect(operation.shouldBeComposedWithInverted(otherOperation)).toEqual(
-        true
+        true,
       );
     });
 
@@ -577,7 +577,7 @@ describe("Wrapped Operation", () => {
         .retain(8)
         .insert("!");
       expect(operation.shouldBeComposedWithInverted(otherOperation)).toEqual(
-        true
+        true,
       );
     });
 
@@ -589,7 +589,7 @@ describe("Wrapped Operation", () => {
         .retain(6)
         .insert("!");
       expect(operation.shouldBeComposedWithInverted(otherOperation)).toEqual(
-        true
+        true,
       );
     });
 
@@ -601,7 +601,7 @@ describe("Wrapped Operation", () => {
         .retain(6)
         .delete("!");
       expect(operation.shouldBeComposedWithInverted(otherOperation)).toEqual(
-        true
+        true,
       );
     });
 
@@ -613,7 +613,7 @@ describe("Wrapped Operation", () => {
         .retain(6)
         .delete("!");
       expect(operation.shouldBeComposedWithInverted(otherOperation)).toEqual(
-        false
+        false,
       );
     });
   });

@@ -69,7 +69,7 @@ describe("Retain Operation", () => {
     it("should return false if compared with additional operation attributes", () => {
       const retainOperation = new RetainOperation(32, { attr1: "value1" });
       expect(
-        retainOperation.attributesEqual({ attr1: "value1", attr2: "value2" })
+        retainOperation.attributesEqual({ attr1: "value1", attr2: "value2" }),
       ).toBe(false);
     });
 

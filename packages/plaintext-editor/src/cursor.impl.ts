@@ -112,7 +112,7 @@ export class Cursor implements ICursor {
 
     return new Cursor(
       newPosition,
-      this._transformIndex(operation, this._selectionEnd)
+      this._transformIndex(operation, this._selectionEnd),
     );
   }
 

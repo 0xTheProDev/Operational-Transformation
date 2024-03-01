@@ -347,7 +347,7 @@ describe("Plain Text Operation", () => {
         .delete("Me");
 
       const composedOperation = operation.compose(
-        otherOperation
+        otherOperation,
       ) as IPlainTextOperation;
       expect(composedOperation.apply(content)).toBe(content);
     });
@@ -423,7 +423,7 @@ describe("Plain Text Operation", () => {
       const otherOperation = new PlainTextOperation().retain(6).delete("!");
 
       expect(operation.shouldBeComposedWithInverted(otherOperation)).toBe(
-        false
+        false,
       );
     });
   });
@@ -455,7 +455,7 @@ describe("Plain Text Operation", () => {
         .retain(2);
 
       expect(operation1.transform(operation2)).toContainEqual(
-        transformedOperation
+        transformedOperation,
       );
     });
   });

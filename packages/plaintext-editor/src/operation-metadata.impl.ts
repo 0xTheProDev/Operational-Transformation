@@ -56,7 +56,7 @@ export class OperationMetadata implements IOperationMetadata {
   transform(operation: IPlainTextOperation): IOperationMetadata {
     return new OperationMetadata(
       this._cursorBefore ? this._cursorBefore.transform(operation) : null,
-      this._cursorAfter ? this._cursorAfter.transform(operation) : null
+      this._cursorAfter ? this._cursorAfter.transform(operation) : null,
     );
   }
 

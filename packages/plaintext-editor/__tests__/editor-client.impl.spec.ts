@@ -169,7 +169,7 @@ describe("Editor Client", () => {
         databaseAdapter.emit(DatabaseAdapterEvent.Retry);
         expect(databaseAdapter.sendOperation).toHaveBeenNthCalledWith(
           2,
-          operation
+          operation,
         );
       });
     });
@@ -381,7 +381,7 @@ describe("Editor Client", () => {
         editorAdapter.emit("redo");
         databaseAdapter.emit(DatabaseAdapterEvent.Acknowledge);
         expect(editorAdapter.applyOperation).toHaveBeenCalledWith(
-          inverse.invert(currentContent)
+          inverse.invert(currentContent),
         );
       });
     });

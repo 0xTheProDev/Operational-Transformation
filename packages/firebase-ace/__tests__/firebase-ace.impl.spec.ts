@@ -92,7 +92,7 @@ describe("Test FireAce Editor", () => {
   it("should create an Editor Client from Firebase and Monaco Adapters", () => {
     expect(editorClientCtor).toHaveBeenCalledWith(
       expect.any(FirebaseAdapter),
-      expect.any(AceAdapter)
+      expect.any(AceAdapter),
     );
   });
 

@@ -71,7 +71,7 @@ describe("Test Synchronized State", () => {
       expect(
         synchronized
           .applyClient(client as IStateMachine, operation)
-          .isAwaitingConfirm()
+          .isAwaitingConfirm(),
       ).toBe(true);
     });
 
@@ -92,7 +92,7 @@ describe("Test Synchronized State", () => {
         transform: (op: IOperation) => [op, op],
       };
       expect(
-        synchronized.applyServer(client as IStateMachine, operation)
+        synchronized.applyServer(client as IStateMachine, operation),
       ).toEqual(synchronized);
     });
 

@@ -38,7 +38,7 @@ export class RetainOperation implements ITextOperation {
 
   constructor(
     characterCount: number,
-    attributes: TTextOperationAttributes | null = null
+    attributes: TTextOperationAttributes | null = null,
   ) {
     this._attributes = attributes;
     this._characterCount = characterCount;

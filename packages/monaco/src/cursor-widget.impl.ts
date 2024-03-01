@@ -103,7 +103,7 @@ class CursorWidget implements ICursorWidget {
     this._toDispose.push(
       this._editor.onDidScrollChange(() => {
         this._updateTooltipPosition();
-      })
+      }),
     );
 
     this._updateWidgetPosition();
@@ -189,7 +189,7 @@ class CursorWidget implements ICursorWidget {
         this._hideTooltip();
         this._timer = null;
       },
-      this._duration
+      this._duration,
     );
   }
 
@@ -248,7 +248,7 @@ class CursorWidget implements ICursorWidget {
  * @param options - Contruction Options for the Cursor Widget.
  */
 export function createCursorWidget(
-  options: TCursorWidgetConstructionOptions
+  options: TCursorWidgetConstructionOptions,
 ): void {
   const { clientId, range, userName } = options;
 

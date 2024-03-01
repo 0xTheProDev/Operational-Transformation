@@ -42,7 +42,7 @@ export class ThenableCollection implements IThenableCollection {
 
   push(...thenables: IThenable[]): void {
     this._thenables.push(
-      ...thenables.map((thenable) => Promise.resolve(thenable))
+      ...thenables.map((thenable) => Promise.resolve(thenable)),
     );
   }
 

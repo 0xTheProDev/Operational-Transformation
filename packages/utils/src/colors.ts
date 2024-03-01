@@ -27,7 +27,7 @@
  * @param hex - Hexadecimal represenation of color.
  */
 export function hexToRgb(
-  hex: string
+  hex: string,
 ): [red: number, green: number, blue: number] {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 
@@ -44,7 +44,7 @@ export function hexToRgb(
  * Returns RGB color code from any format.
  */
 export function getRgb(
-  color: string
+  color: string,
 ): [red: number, green: number, blue: number] {
   if (color.startsWith("#")) {
     /** Hexadecimal Color Code */

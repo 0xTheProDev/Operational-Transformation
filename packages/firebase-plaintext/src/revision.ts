@@ -63,7 +63,7 @@ export function revisionFromId(revisionId: string): number {
   assert(
     revisionId.length > 0 &&
       revisionId[0] === characters[revisionId.length + 8],
-    "Invalid `revisionId` given to function `revisionFromId`"
+    "Invalid `revisionId` given to function `revisionFromId`",
   );
 
   let revision: number = 0;
@@ -84,7 +84,7 @@ export function revisionFromId(revisionId: string): number {
  */
 export function parseRevision(
   document: IPlainTextOperation,
-  data: TRevision
+  data: TRevision,
 ): TParsedRevision | null {
   // We could do some of this validation via security rules.  But it's nice to be robust, just in case.
   if (typeof data.a !== "string" || typeof data.o !== "object") {

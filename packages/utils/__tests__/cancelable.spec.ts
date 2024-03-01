@@ -43,14 +43,14 @@ describe("Cancelable", () => {
 
       it("return false for non-empty collection of Cancelable", () => {
         const cancelableCollection = new CancelableCollection(
-          Cancelable.create(() => {})
+          Cancelable.create(() => {}),
         );
         expect(cancelableCollection.canceled).toBe(false);
       });
 
       it("return true for canceled collection of Cancelable", () => {
         const cancelableCollection = new CancelableCollection(
-          Cancelable.create(() => {})
+          Cancelable.create(() => {}),
         );
         cancelableCollection.cancel();
         expect(cancelableCollection.canceled).toBe(true);
@@ -71,7 +71,7 @@ describe("Cancelable", () => {
         const cancelableCollection = new CancelableCollection();
         cancelableCollection.push(
           Cancelable.create(() => {}),
-          Cancelable.create(cleanupFn)
+          Cancelable.create(cleanupFn),
         );
         cancelableCollection.cancel();
         expect(cleanupFn).toHaveBeenCalled();
@@ -86,7 +86,7 @@ describe("Cancelable", () => {
         };
         const cancelableCollection = new CancelableCollection(cancelable);
         cancelableCollection.forEach((item: unknown) =>
-          (item as { remove: () => void }).remove()
+          (item as { remove: () => void }).remove(),
         );
         expect(cancelable.remove).toHaveBeenCalled();
       });
@@ -96,7 +96,7 @@ describe("Cancelable", () => {
       it("should cancel each Cancelable instance", () => {
         const cleanupFn = jest.fn();
         const cancelableCollection = new CancelableCollection(
-          Cancelable.create(cleanupFn)
+          Cancelable.create(cleanupFn),
         );
         cancelableCollection.cancel();
         expect(cleanupFn).toHaveBeenCalled();
@@ -104,7 +104,7 @@ describe("Cancelable", () => {
 
       it("should reset Cancelable collection", () => {
         const cancelableCollection = new CancelableCollection(
-          Cancelable.create(() => {})
+          Cancelable.create(() => {}),
         );
         cancelableCollection.cancel();
         expect(cancelableCollection.canceled).toBe(true);
@@ -112,7 +112,7 @@ describe("Cancelable", () => {
 
       it("should return gracefuly if canceled already", () => {
         const cancelableCollection = new CancelableCollection(
-          Cancelable.create(() => {})
+          Cancelable.create(() => {}),
         );
         cancelableCollection.cancel();
         expect(() => cancelableCollection.cancel()).not.toThrow();

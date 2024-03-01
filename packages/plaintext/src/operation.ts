@@ -72,7 +72,7 @@ export interface ITextOperation {
    * @param otherAttributes - Another Text Operation Attributes.
    */
   attributesEqual(
-    otherAttributes: TTextOperationAttributes | null | void
+    otherAttributes: TTextOperationAttributes | null | void,
   ): boolean;
   /**
    * Tests if two Individual Text Operation have same Character Count or not.

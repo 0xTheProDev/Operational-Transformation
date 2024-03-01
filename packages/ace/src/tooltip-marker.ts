@@ -43,7 +43,7 @@ export class TooltipMarker {
   constructor(
     session: AceAjax.IEditSession,
     position: AceAjax.Position,
-    tooltipWidget: HTMLElement
+    tooltipWidget: HTMLElement,
   ) {
     this._session = session;
     this._position = position;
@@ -62,7 +62,7 @@ export class TooltipMarker {
     _: string[],
     markerLayer: any,
     __: AceAjax.IEditSession,
-    layerConfig: AceAjax.VirtualRenderer
+    layerConfig: AceAjax.VirtualRenderer,
   ): void {
     /* istanbul ignore if */
     if (this._position === null) {
@@ -71,7 +71,7 @@ export class TooltipMarker {
 
     const screenPosition = this._session.documentToScreenPosition(
       this._position.row,
-      this._position.column
+      this._position.column,
     );
 
     const top: number = markerLayer.$getTop(screenPosition.row, layerConfig);

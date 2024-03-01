@@ -38,7 +38,7 @@ describe("Undo Manager", () => {
     const operation = new PlainTextOperation().retain(15);
     const operationMeta = new OperationMetadata(
       new Cursor(0, 0),
-      new Cursor(4, 9)
+      new Cursor(4, 9),
     );
     wrappedOperation = new WrappedOperation(operation, operationMeta);
   });

@@ -44,7 +44,7 @@ export class WrappedOperation implements IWrappedOperation {
 
   constructor(
     operation: IPlainTextOperation,
-    metadata: IOperationMetadata | null = null
+    metadata: IOperationMetadata | null = null,
   ) {
     this._metadata = metadata;
     this._operation = operation;
@@ -76,7 +76,7 @@ export class WrappedOperation implements IWrappedOperation {
 
   retain(
     n: number,
-    attributes?: TTextOperationAttributes | null
+    attributes?: TTextOperationAttributes | null,
   ): IWrappedOperation {
     this._operation.retain(n, attributes);
     return this;
@@ -84,7 +84,7 @@ export class WrappedOperation implements IWrappedOperation {
 
   insert(
     str: string,
-    attributes?: TTextOperationAttributes | null
+    attributes?: TTextOperationAttributes | null,
   ): IWrappedOperation {
     this._operation.insert(str, attributes);
     return this;
@@ -102,7 +102,7 @@ export class WrappedOperation implements IWrappedOperation {
   clone(): IWrappedOperation {
     return new WrappedOperation(
       this._operation.clone(),
-      this._metadata?.clone()
+      this._metadata?.clone(),
     );
   }
 
@@ -114,7 +114,7 @@ export class WrappedOperation implements IWrappedOperation {
   apply(
     prevContent: string,
     prevAttributes?: TTextOperationAttributes[],
-    attributes?: TTextOperationAttributes[]
+    attributes?: TTextOperationAttributes[],
   ): string {
     return this._operation.apply(prevContent, prevAttributes, attributes);
   }
@@ -122,7 +122,7 @@ export class WrappedOperation implements IWrappedOperation {
   invert(content: string): IWrappedOperation {
     return new WrappedOperation(
       this._operation.invert(content),
-      this._metadata?.invert()
+      this._metadata?.invert(),
     );
   }
 
@@ -131,7 +131,7 @@ export class WrappedOperation implements IWrappedOperation {
    * @param operation - Another Operation
    */
   protected _getPlainTextOperation(
-    operation: IPlainTextOperation | IWrappedOperation
+    operation: IPlainTextOperation | IWrappedOperation,
   ): IPlainTextOperation {
     return (operation as IWrappedOperation).operation ?? operation;
   }
@@ -141,20 +141,20 @@ export class WrappedOperation implements IWrappedOperation {
    * @param operation - Another Operation
    */
   protected _getOperationMetadata(
-    operation: IPlainTextOperation | IWrappedOperation
+    operation: IPlainTextOperation | IWrappedOperation,
   ): IOperationMetadata | null {
     return (operation as IWrappedOperation).metadata;
   }
 
   shouldBeComposedWith(
-    other: IPlainTextOperation | IWrappedOperation
+    other: IPlainTextOperation | IWrappedOperation,
   ): boolean {
     const operation = this._getPlainTextOperation(other);
     return this._operation.shouldBeComposedWith(operation);
   }
 
   shouldBeComposedWithInverted(
-    other: IPlainTextOperation | IWrappedOperation
+    other: IPlainTextOperation | IWrappedOperation,
   ): boolean {
     const operation = this._getPlainTextOperation(other);
     return this._operation.shouldBeComposedWithInverted(operation);
@@ -165,7 +165,7 @@ export class WrappedOperation implements IWrappedOperation {
    * @param otherMetadata - Metadata instance to composed with.
    */
   protected _composeMetadata(
-    otherMetadata: IOperationMetadata | null
+    otherMetadata: IOperationMetadata | null,
   ): IOperationMetadata | null {
     if (!this._metadata) {
       return otherMetadata;
@@ -185,25 +185,25 @@ export class WrappedOperation implements IWrappedOperation {
     const operation = this._getPlainTextOperation(other);
     return new WrappedOperation(
       this._operation.compose(operation),
-      composedMetadata
+      composedMetadata,
     );
   }
 
   transform(
-    other: IPlainTextOperation | IWrappedOperation
+    other: IPlainTextOperation | IWrappedOperation,
   ): [IWrappedOperation, IWrappedOperation] {
     const operation = this._getPlainTextOperation(other);
     const [pair0, pair1] = this._operation.transform(operation);
 
     const wrappedPair0 = new WrappedOperation(
       pair0,
-      this._metadata?.transform(operation)
+      this._metadata?.transform(operation),
     );
 
     const metadata = this._getOperationMetadata(other);
     const wrappedPair1 = new WrappedOperation(
       pair1,
-      metadata?.transform(this._operation)
+      metadata?.transform(this._operation),
     );
 
     return [wrappedPair0, wrappedPair1];

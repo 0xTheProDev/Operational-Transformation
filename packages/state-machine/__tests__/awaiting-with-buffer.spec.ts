@@ -92,7 +92,7 @@ describe("Test Awaiting With Buffer State", () => {
       expect(
         awaitingWithBuffer
           .applyClient(client as IStateMachine, incomingOp)
-          .isAwaitingWithBuffer()
+          .isAwaitingWithBuffer(),
       ).toBe(true);
     });
   });
@@ -106,7 +106,7 @@ describe("Test Awaiting With Buffer State", () => {
       expect(
         awaitingWithBuffer
           .applyServer(client as IStateMachine, incomingOp)
-          .isAwaitingWithBuffer()
+          .isAwaitingWithBuffer(),
       ).toBe(true);
     });
 
@@ -125,7 +125,7 @@ describe("Test Awaiting With Buffer State", () => {
       expect(
         awaitingWithBuffer
           .serverAck(client as IStateMachine)
-          .isAwaitingConfirm()
+          .isAwaitingConfirm(),
       ).toBe(true);
     });
 
@@ -140,7 +140,7 @@ describe("Test Awaiting With Buffer State", () => {
       expect(
         awaitingWithBuffer
           .serverRetry(client as IStateMachine)
-          .isAwaitingConfirm()
+          .isAwaitingConfirm(),
       ).toBe(true);
     });
 

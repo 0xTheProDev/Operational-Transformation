@@ -43,14 +43,14 @@ describe("Disposable", () => {
 
       it("return false for non-empty collection of Disposable", () => {
         const disposableCollection = new DisposableCollection(
-          Disposable.create(() => {})
+          Disposable.create(() => {}),
         );
         expect(disposableCollection.disposed).toBe(false);
       });
 
       it("return true for disposed collection of Disposable", () => {
         const disposableCollection = new DisposableCollection(
-          Disposable.create(() => {})
+          Disposable.create(() => {}),
         );
         disposableCollection.dispose();
         expect(disposableCollection.disposed).toBe(true);
@@ -71,7 +71,7 @@ describe("Disposable", () => {
         const disposableCollection = new DisposableCollection();
         disposableCollection.push(
           Disposable.create(() => {}),
-          Disposable.create(cleanupFn)
+          Disposable.create(cleanupFn),
         );
         disposableCollection.dispose();
         expect(cleanupFn).toHaveBeenCalled();
@@ -82,7 +82,7 @@ describe("Disposable", () => {
       it("should dispose each Disposable instance", () => {
         const cleanupFn = jest.fn();
         const disposableCollection = new DisposableCollection(
-          Disposable.create(cleanupFn)
+          Disposable.create(cleanupFn),
         );
         disposableCollection.dispose();
         expect(cleanupFn).toHaveBeenCalled();
@@ -90,7 +90,7 @@ describe("Disposable", () => {
 
       it("should reset Disposable collection", () => {
         const disposableCollection = new DisposableCollection(
-          Disposable.create(() => {})
+          Disposable.create(() => {}),
         );
         disposableCollection.dispose();
         expect(disposableCollection.disposed).toBe(true);
@@ -98,7 +98,7 @@ describe("Disposable", () => {
 
       it("should return gracefuly if canceled already", () => {
         const disposableCollection = new DisposableCollection(
-          Disposable.create(() => {})
+          Disposable.create(() => {}),
         );
         disposableCollection.dispose();
         expect(() => disposableCollection.dispose()).not.toThrow();

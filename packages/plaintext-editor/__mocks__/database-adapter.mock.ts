@@ -50,7 +50,7 @@ export interface IMockDatabaseAdapter extends IDatabaseAdapter {
   /** Trigger an event with optional payload. */
   emit<Key extends keyof TDatabaseAdapterEventArgs>(
     event: Key,
-    payload?: TDatabaseAdapterEventArgs[Key]
+    payload?: TDatabaseAdapterEventArgs[Key],
   ): void;
   /** Get current User object attached to the adapter */
   getUser(): TDatabaseAdapterConfig;
@@ -66,7 +66,7 @@ const databaseAdapter: IMockDatabaseAdapter = Object.freeze({
     void,
     [
       DatabaseAdapterEvent,
-      Handler<TDatabaseAdapterEventArgs[DatabaseAdapterEvent]>
+      Handler<TDatabaseAdapterEventArgs[DatabaseAdapterEvent]>,
     ]
   >((ev, handler) => {
     emitter.on(ev, handler);
@@ -75,7 +75,7 @@ const databaseAdapter: IMockDatabaseAdapter = Object.freeze({
     void,
     [
       DatabaseAdapterEvent,
-      Handler<TDatabaseAdapterEventArgs[DatabaseAdapterEvent]>
+      Handler<TDatabaseAdapterEventArgs[DatabaseAdapterEvent]>,
     ]
   >((ev, handler) => {
     emitter.off(ev, handler);
@@ -126,7 +126,7 @@ export function getDatabaseAdapter(
     userId: "user",
     userName: "User",
     userColor: "#ff00f3",
-  }
+  },
 ): IMockDatabaseAdapter {
   databaseRef ||= ref;
   user ||= userConfig;

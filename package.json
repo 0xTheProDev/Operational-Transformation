@@ -18,7 +18,7 @@
     "test:monaco": "pnpm run --filter '@otjs-tests/monaco' test:ci",
     "test:watch": "pnpm run test --watch",
     "lint": "pnpm run lint:prettier",
-    "lint:prettier": "prettier --write {packages,examples}/**/*.ts",
+    "lint:prettier": "prettier --write {packages,examples}/**/*.{js,json,ts}",
     "release": "lerna version --no-private --exact"
   },
   "repository": {

@@ -73,7 +73,7 @@ describe("Insert Operation", () => {
         attr1: "value1",
       });
       expect(
-        insertOperation.attributesEqual({ attr1: "value1", attr2: "value2" })
+        insertOperation.attributesEqual({ attr1: "value1", attr2: "value2" }),
       ).toBe(false);
     });
 

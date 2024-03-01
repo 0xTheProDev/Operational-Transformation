@@ -56,7 +56,7 @@ export interface IPlainTextOperation {
    */
   retain(
     n: number,
-    attributes?: TTextOperationAttributes | null
+    attributes?: TTextOperationAttributes | null,
   ): IPlainTextOperation;
   /**
    * Insert a string at the current position.
@@ -65,7 +65,7 @@ export interface IPlainTextOperation {
    */
   insert(
     str: string,
-    attributes?: TTextOperationAttributes | null
+    attributes?: TTextOperationAttributes | null,
   ): IPlainTextOperation;
   /**
    * Delete a string at the current position.
@@ -94,7 +94,7 @@ export interface IPlainTextOperation {
   apply(
     prevContent: string,
     prevAttributes?: TTextOperationAttributes[],
-    attributes?: TTextOperationAttributes[]
+    attributes?: TTextOperationAttributes[],
   ): string;
   /**
    * Computes the inverse of an operation. The inverse of an operation is the
@@ -138,7 +138,7 @@ export interface IPlainTextOperation {
    * @param operation - Concurrent Operation to be composed with.
    */
   transform(
-    operation: IPlainTextOperation
+    operation: IPlainTextOperation,
   ): [IPlainTextOperation, IPlainTextOperation];
   /**
    * Tests whether next operation can be chained with current one, i.e.,
