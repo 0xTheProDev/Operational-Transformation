@@ -1,5 +1,5 @@
 /**
- * Copyright © 2021 Progyan Bhattacharya
+ * Copyright © 2021 - 2024 Progyan Bhattacharya
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -75,8 +75,8 @@ describe("Revision", () => {
         parseRevision(
           document,
           // @ts-expect-error
-          { a: "Author" }
-        )
+          { a: "Author" },
+        ),
       ).not.toThrow();
     });
 
@@ -85,8 +85,8 @@ describe("Revision", () => {
         parseRevision(
           document,
           // @ts-expect-error
-          { a: "Author" }
-        )
+          { a: "Author" },
+        ),
       ).toBe(null);
     });
 
@@ -95,8 +95,8 @@ describe("Revision", () => {
         parseRevision(
           document,
           // @ts-expect-error
-          { a: 25, o: [5] }
-        )
+          { a: 25, o: [5] },
+        ),
       ).not.toThrow();
     });
 
@@ -105,8 +105,8 @@ describe("Revision", () => {
         parseRevision(
           document,
           // @ts-expect-error
-          { a: "Author", o: null }
-        )
+          { a: "Author", o: null },
+        ),
       ).toBe(null);
     });
 

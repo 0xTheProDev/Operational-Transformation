@@ -1,5 +1,5 @@
 /**
- * Copyright © 2021 Progyan Bhattacharya
+ * Copyright © 2021 - 2024 Progyan Bhattacharya
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -108,8 +108,8 @@ describe("Test Firebase Adapter", () => {
       expect(() =>
         firebaseAdapter.setUserId(
           // @ts-expect-error
-          24
-        )
+          24,
+        ),
       ).toThrowError(TypeError);
     });
 
@@ -136,8 +136,8 @@ describe("Test Firebase Adapter", () => {
       expect(() =>
         firebaseAdapter.setUserColor(
           // @ts-expect-error
-          false
-        )
+          false,
+        ),
       ).toThrowError(TypeError);
     });
 
@@ -165,8 +165,8 @@ describe("Test Firebase Adapter", () => {
       expect(() =>
         firebaseAdapter.setUserName(
           // @ts-expect-error
-          Symbol()
-        )
+          Symbol(),
+        ),
       ).toThrowError(TypeError);
     });
 
@@ -198,8 +198,8 @@ describe("Test Firebase Adapter", () => {
       expect(
         firebaseAdapter.sendCursor(
           // @ts-expect-error
-          "Cursor"
-        )
+          "Cursor",
+        ),
       ).rejects.toThrowError(TypeError);
     });
 
@@ -237,7 +237,7 @@ describe("Test Firebase Adapter", () => {
       firebaseAdapter._disposed = true;
 
       expect(
-        firebaseAdapter.sendOperation(new PlainTextOperation())
+        firebaseAdapter.sendOperation(new PlainTextOperation()),
       ).rejects.toThrow();
 
       // @ts-expect-error
@@ -251,7 +251,7 @@ describe("Test Firebase Adapter", () => {
       firebaseAdapter._ready = false;
 
       const commited = await firebaseAdapter.sendOperation(
-        new PlainTextOperation()
+        new PlainTextOperation(),
       );
       expect(commited).toBe(false);
 
@@ -266,7 +266,7 @@ describe("Test Firebase Adapter", () => {
       firebaseAdapter._ready = true;
 
       const promise = firebaseAdapter.sendOperation(
-        new PlainTextOperation().delete("Text")
+        new PlainTextOperation().delete("Text"),
       );
       expect(promise).rejects.toThrow();
 
@@ -301,7 +301,7 @@ describe("Test Firebase Adapter", () => {
       firebaseAdapter._ready = true;
 
       const commited = await firebaseAdapter.sendOperation(
-        new PlainTextOperation().insert("World")
+        new PlainTextOperation().insert("World"),
       );
       expect(commited).toBe(true);
 
@@ -321,7 +321,7 @@ describe("Test Firebase Adapter", () => {
       FirebaseAdapter.CHECKPOINT_FREQUENCY = 2;
 
       await firebaseAdapter.sendOperation(
-        new PlainTextOperation().retain(5).insert("!")
+        new PlainTextOperation().retain(5).insert("!"),
       );
       const checkpointRef = await get(child(databaseRef, "checkpoint"));
       expect(checkpointRef.val()).toEqual({
@@ -364,12 +364,12 @@ describe("Test Firebase Adapter", () => {
       const onAcknowledgementFn = jest.fn();
       firebaseAdapter.on(DatabaseAdapterEvent.Acknowledge, onAcknowledgementFn);
       await firebaseAdapter.sendOperation(
-        new PlainTextOperation().insert(" ").retain(6)
+        new PlainTextOperation().insert(" ").retain(6),
       );
       expect(onAcknowledgementFn).toHaveBeenCalled();
       firebaseAdapter.off(
         DatabaseAdapterEvent.Acknowledge,
-        onAcknowledgementFn
+        onAcknowledgementFn,
       );
 
       // @ts-expect-error

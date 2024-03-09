@@ -1,5 +1,5 @@
 /**
- * Copyright © 2021 Progyan Bhattacharya
+ * Copyright © 2021 - 2024 Progyan Bhattacharya
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -97,7 +97,7 @@ describe("Database Reference", () => {
     it("should return Reference to User's Cursor path in Database", () => {
       const userCursorRef = getUserCursorRef({ databaseRef, userId: "user1" });
       expect(userCursorRef.toString()).toBe(
-        getDatabaseURL("users/user1/cursor")
+        getDatabaseURL("users/user1/cursor"),
       );
     });
   });

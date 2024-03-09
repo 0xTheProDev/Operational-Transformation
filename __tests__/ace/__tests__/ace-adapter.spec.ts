@@ -1,5 +1,5 @@
 /**
- * Copyright © 2021 Progyan Bhattacharya
+ * Copyright © 2021 - 2024 Progyan Bhattacharya
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -145,8 +145,8 @@ describe("Test Ace Adapter", () => {
           positionStart.row,
           positionStart.column,
           positionEnd.row,
-          positionEnd.column
-        )
+          positionEnd.column,
+        ),
       );
       expect(aceAdapter.getCursor()).toEqual(new Cursor(start, end));
     });
@@ -162,8 +162,8 @@ describe("Test Ace Adapter", () => {
           positionStart.row,
           positionStart.column,
           positionEnd.row,
-          positionEnd.column
-        )
+          positionEnd.column,
+        ),
       );
       expect(aceAdapter.getCursor()).toEqual(new Cursor(end, start));
     });
@@ -212,7 +212,7 @@ describe("Test Ace Adapter", () => {
         aceAdapter.setOtherCursor({
           // @ts-expect-error
           cursor: null,
-        })
+        }),
       ).toThrow();
     });
 
@@ -222,7 +222,7 @@ describe("Test Ace Adapter", () => {
           // @ts-expect-error
           clientId: 23,
           cursor: new Cursor(3, 3),
-        })
+        }),
       ).toThrow();
     });
 
@@ -233,7 +233,7 @@ describe("Test Ace Adapter", () => {
           userColor: null,
           clientId: "user2",
           cursor: new Cursor(2, 7),
-        })
+        }),
       ).toThrow();
     });
 
@@ -252,7 +252,7 @@ describe("Test Ace Adapter", () => {
             clazz: "remote-client-09c-cursor",
             inFront: false,
           }),
-        ])
+        ]),
       );
     });
 
@@ -271,7 +271,7 @@ describe("Test Ace Adapter", () => {
             clazz: "remote-client-0ff-selection",
             inFront: false,
           }),
-        ])
+        ]),
       );
     });
 
@@ -291,7 +291,7 @@ describe("Test Ace Adapter", () => {
             clazz: "remote-client-09c-cursor",
             inFront: false,
           }),
-        ])
+        ]),
       );
     });
   });
@@ -463,7 +463,7 @@ describe("Test Ace Adapter", () => {
         aceDocument.indexToPosition(11, 0),
       ];
       aceDocument.remove(
-        new Range(start.row, start.column, end.row, end.column)
+        new Range(start.row, start.column, end.row, end.column),
       );
       expect(onChangeFn).toHaveBeenCalledWith({
         operation: new PlainTextOperation().retain(5).delete(" World"),
@@ -498,8 +498,8 @@ describe("Test Ace Adapter", () => {
           positionStart.row,
           positionStart.column,
           positionEnd.row,
-          positionEnd.column
-        )
+          positionEnd.column,
+        ),
       );
       expect(onCursorActivity).toHaveBeenCalled();
     });

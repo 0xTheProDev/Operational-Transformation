@@ -1,5 +1,5 @@
 /**
- * Copyright © 2021 Progyan Bhattacharya
+ * Copyright © 2021 - 2024 Progyan Bhattacharya
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -146,8 +146,8 @@ describe("Test Monaco Adapter", () => {
           positionStart.lineNumber,
           positionStart.column,
           positionEnd.lineNumber,
-          positionEnd.column
-        )
+          positionEnd.column,
+        ),
       );
       expect(monacoAdapter.getCursor()).toEqual(new Cursor(start, end));
     });
@@ -164,8 +164,8 @@ describe("Test Monaco Adapter", () => {
           positionStart.lineNumber,
           positionStart.column,
           positionEnd.lineNumber,
-          positionEnd.column
-        )
+          positionEnd.column,
+        ),
       );
       expect(monacoAdapter.getCursor()).toEqual(new Cursor(end, start));
     });
@@ -205,7 +205,7 @@ describe("Test Monaco Adapter", () => {
         monacoAdapter.setOtherCursor({
           // @ts-expect-error
           cursor: null,
-        })
+        }),
       ).toThrow();
     });
 
@@ -215,7 +215,7 @@ describe("Test Monaco Adapter", () => {
           // @ts-expect-error
           clientId: 23,
           cursor: new Cursor(3, 3),
-        })
+        }),
       ).toThrow();
     });
 
@@ -226,7 +226,7 @@ describe("Test Monaco Adapter", () => {
           userColor: null,
           clientId: "user2",
           cursor: new Cursor(2, 7),
-        })
+        }),
       ).toThrow();
     });
 
@@ -243,8 +243,8 @@ describe("Test Monaco Adapter", () => {
           start.lineNumber,
           start.column,
           start.lineNumber,
-          start.column
-        )
+          start.column,
+        ),
       );
       expect(decoration).toEqual(
         expect.arrayContaining([
@@ -257,7 +257,7 @@ describe("Test Monaco Adapter", () => {
                   .NeverGrowsWhenTypingAtEdges,
             }),
           }),
-        ])
+        ]),
       );
     });
 
@@ -274,8 +274,8 @@ describe("Test Monaco Adapter", () => {
           start.lineNumber,
           start.column,
           end.lineNumber,
-          end.column
-        )
+          end.column,
+        ),
       );
       expect(decoration).toEqual(
         expect.arrayContaining([
@@ -288,7 +288,7 @@ describe("Test Monaco Adapter", () => {
                   .NeverGrowsWhenTypingAtEdges,
             }),
           }),
-        ])
+        ]),
       );
     });
 
@@ -305,8 +305,8 @@ describe("Test Monaco Adapter", () => {
           start.lineNumber,
           start.column,
           start.lineNumber,
-          start.column
-        )
+          start.column,
+        ),
       );
 
       disposable.dispose();
@@ -321,7 +321,7 @@ describe("Test Monaco Adapter", () => {
                   .NeverGrowsWhenTypingAtEdges,
             }),
           }),
-        ])
+        ]),
       );
     });
   });
