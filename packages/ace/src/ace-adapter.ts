@@ -50,7 +50,9 @@ import { createCursorWidget, disposeCursorWidgets } from "./cursor-widget.impl";
 /**
  * Range Constructor for Ace Editor
  */
-const Range: typeof AceAjax.Range = ace.require("ace/range").Range;
+const Range: typeof AceAjax.Range = (ace.require || ace.acequire)(
+  "ace/range",
+).Range;
 
 /**
  * @public
