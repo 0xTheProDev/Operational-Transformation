@@ -3,7 +3,7 @@
   "version": "0.2.2",
   "description": "Real-time collaborative editor with out of the box binding with Firebase and Monaco Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/firebase-monaco#readme",
+  "homepage": "https://ot.js.org",
   "keywords": [
     "collaborative",
     "editor",

@@ -3,7 +3,7 @@
   "version": "0.2.2",
   "description": "State machine to manage Consistency of Operations across multiple clients.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/state-machine#readme",
+  "homepage": "https://ot.js.org",
   "keywords": [
     "event-bus",
     "eventual-consistency",

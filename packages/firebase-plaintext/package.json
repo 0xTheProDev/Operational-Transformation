@@ -3,7 +3,7 @@
   "version": "0.2.2",
   "description": "Database Adapter implementation for Firebase to use with Plain Text Editor",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/firebase-plaintext#readme",
+  "homepage": "https://ot.js.org",
   "keywords": [
     "event-bus",
     "eventual-consistency",

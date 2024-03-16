@@ -3,7 +3,7 @@
   "version": "0.2.2",
   "description": "Operational Transformational Logic for Plain Text.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/plaintext#readme",
+  "homepage": "https://ot.js.org",
   "keywords": [
     "collaborative",
     "editor",

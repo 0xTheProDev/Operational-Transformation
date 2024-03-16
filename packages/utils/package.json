@@ -5,7 +5,7 @@
   "sideEffects": false,
   "description": "Utility functions to help implement different OT packages.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/utils#readme",
+  "homepage": "https://ot.js.org",
   "license": "MIT",
   "main": "src/index.ts",
   "rootDir": "utils",

@@ -3,7 +3,7 @@
   "version": "0.2.2",
   "description": "Plain Text Editor Adapter for Ace Editor.",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/ace#readme",
+  "homepage": "https://ot.js.org",
   "keywords": [
     "ace",
     "collaborative",

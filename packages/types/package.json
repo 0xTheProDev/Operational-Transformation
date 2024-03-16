@@ -4,7 +4,7 @@
   "private": true,
   "description": "Common Types and Interfaces regarding OTs",
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
-  "homepage": "https://github.com/0xTheProDev/Operational-Transformation/tree/main/packages/types#readme",
+  "homepage": "https://ot.js.org",
   "license": "MIT",
   "main": "src/index.ts",
   "directories": {
