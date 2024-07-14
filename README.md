@@ -1,7 +1,7 @@
 # Operational Transformation
 
 <p align="center">
-  <a href="https://en.wikipedia.org/wiki/Operational_transformation" target="_blank">
+  <a href="https://ot.js.org" target="_blank">
     <img src=".github/images/otjs-logo.png" alt="@otjs" />
   </a>
 </p>
@@ -107,6 +107,35 @@
       <td>-</td>
       <td>-</td>
       <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Deprecated Packages
+
+<table>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Downloads</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr title="plaintext">
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/v0.1.1/packages/plaintext">plaintext</a></td>
+      <td><a href="https://www.npmjs.com/package/@operational-transformation/plaintext" target="_blank"><img src="https://img.shields.io/npm/v/@operational-transformation/plaintext?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@operational-transformation/plaintext" target="_blank"><img src="https://img.shields.io/npm/dm/@operational-transformation/plaintext?style=for-the-badge"/></a></td>
+    </tr>
+    <tr title="plaintext-editor">
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/v0.1.1/packages/plaintext-editor">plaintext-editor</a></td>
+      <td><a href="https://www.npmjs.com/package/@operational-transformation/plaintext-editor" target="_blank"><img src="https://img.shields.io/npm/v/@operational-transformation/plaintext-editor?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@operational-transformation/plaintext-editor" target="_blank"><img src="https://img.shields.io/npm/dm/@operational-transformation/plaintext-editor?style=for-the-badge"/></a></td>
+    </tr>
+    <tr title="state-machine">
+      <td><a href="https://github.com/0xTheProDev/Operational-Transformation/tree/v0.1.1/packages/state-machine">state-machine</a></td>
+      <td><a href="https://www.npmjs.com/package/@operational-transformation/state-machine" target="_blank"><img src="https://img.shields.io/npm/v/@operational-transformation/state-machine?style=for-the-badge"/></a></td>
+      <td><a href="https://www.npmjs.com/package/@operational-transformation/state-machine" target="_blank"><img src="https://img.shields.io/npm/dm/@operational-transformation/state-machine?style=for-the-badge"/></a></td>
     </tr>
   </tbody>
 </table>
