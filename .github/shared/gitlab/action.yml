@@ -1,0 +1,72 @@
+---
+name: "Mirror Repository"
+description: "Mirror GitHub Repository into GitLab Workspace."
+
+inputs:
+  followTags:
+    description: "Enable this flag to push Tags alongside."
+    required: false
+    default: "false"
+
+  forcePush:
+    description: "Enable this flag to overwrite Git history."
+    required: false
+    default: "false"
+
+  hostName:
+    description: "Provide hostname for self-hosted GitLab instance."
+    required: false
+    default: "gitlab.com"
+
+  password:
+    description: "Password or Access Token for GitLab User."
+    required: true
+
+  projectId:
+    description: "Project Id for the target Repository."
+    required: true
+
+  userName:
+    description: "Username for GitLab User."
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Mirror Repository
+      shell: bash
+      env:
+        FOLLOW_TAGS: "${{ inputs.followTags }}"
+        FORCE_PUSH: "${{ inputs.forcePush }}"
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
+        GITLAB_HOSTNAME: ${{ inputs.hostName }}
+        GITLAB_PASSWORD: ${{ inputs.password }}
+        GITLAB_PROJECT_ID: ${{ inputs.projectId }}
+        GITLAB_USERNAME: ${{ inputs.userName }}
+      run: |-
+        url="https://$GITLAB_HOSTNAME/$GITLAB_USERNAME/$GITLAB_PROJECT_ID.git"
+        branch=$(git symbolic-ref --short HEAD)
+
+        git config core.askPass "$GITHUB_ACTION_PATH/ask-pass.sh"
+        git config credential.username "$GITLAB_USERNAME"
+        git config credential.helper cache
+        git config pull.ff only
+        git remote add mirror $url
+        git fetch mirror
+
+        if [ "${FORCE_PUSH:-}" = "true" ]
+        then
+          git push --force mirror $branch
+        else
+          git push mirror $branch
+        fi
+
+        if [ "${FOLLOW_TAGS:-}" = "true" ]
+        then
+          git push --tags mirror
+        fi
+
+# Ref: https://haya14busa.github.io/github-action-brandings/
+branding:
+  icon: "git-pull-request"
+  color: "blue"
