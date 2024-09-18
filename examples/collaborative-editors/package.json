@@ -13,13 +13,13 @@
   "dependencies": {
     "@otjs/firebase-ace": "workspace:*",
     "@otjs/firebase-monaco": "workspace:*",
-    "firebase": "9.15.0",
-    "monaco-editor": "0.34.1",
-    "uuid": "9.0.0"
+    "firebase": "10.13.1",
+    "monaco-editor": "0.51.0",
+    "uuid": "10.0.0"
   },
   "devDependencies": {
     "@types/ace": "0.0.48",
-    "@types/uuid": "9.0.0",
+    "@types/uuid": "10.0.0",
     "css-loader": "6.7.3",
     "monaco-editor-webpack-plugin": "7.0.1",
     "source-map-loader": "4.0.1",

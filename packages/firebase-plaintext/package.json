@@ -47,7 +47,7 @@
     "@otjs/plaintext-editor": "0.2.2",
     "@otjs/types": "workspace:*",
     "@otjs/utils": "workspace:*",
-    "firebase": "9.15.0"
+    "firebase": "10.13.1"
   },
   "peerDependencies": {
     "@otjs/plaintext": "^0.2.0",

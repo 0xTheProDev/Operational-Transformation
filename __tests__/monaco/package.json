@@ -13,6 +13,6 @@
   "license": "MIT",
   "devDependencies": {
     "@otjs/monaco": "workspace:*",
-    "monaco-editor": "0.34.1"
+    "monaco-editor": "0.51.0"
   }
 }

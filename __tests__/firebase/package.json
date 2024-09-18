@@ -14,6 +14,6 @@
   "license": "MIT",
   "devDependencies": {
     "@otjs/firebase-plaintext": "workspace:*",
-    "firebase": "9.15.0"
+    "firebase": "10.13.1"
   }
 }
