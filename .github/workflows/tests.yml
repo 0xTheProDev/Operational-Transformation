@@ -36,25 +36,11 @@ jobs:
         node-version: ["20.10"]
         pnpm-version: [8]
     steps:
-      - uses: awalsh128/cache-apt-pkgs-action@latest
+      - name: Prepare Environment
+        uses: ./.github/shared/setup
         with:
-          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-          version: 1.0
-
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: ${{ matrix.pnpm-version }}
-
-      - uses: actions/setup-node@v3
-        with:
-          cache: "pnpm"
           node-version: ${{ matrix.node-version }}
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Install Dependencies
-        run: pnpm install
+          pnpm-version: ${{ matrix.pnpm-version }}
 
       - name: Run Tests
         run: "pnpm test:ci"
@@ -73,25 +59,11 @@ jobs:
         node-version: ["20.10"]
         pnpm-version: [8]
     steps:
-      - uses: awalsh128/cache-apt-pkgs-action@latest
+      - name: Prepare Environment
+        uses: ./.github/shared/setup
         with:
-          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-          version: 1.0
-
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: ${{ matrix.pnpm-version }}
-
-      - uses: actions/setup-node@v3
-        with:
-          cache: "pnpm"
           node-version: ${{ matrix.node-version }}
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Install Dependencies
-        run: pnpm install
+          pnpm-version: ${{ matrix.pnpm-version }}
 
       - name: Run Tests
         run: "pnpm test:ace"
@@ -111,25 +83,11 @@ jobs:
         node-version: ["20.10"]
         pnpm-version: [8]
     steps:
-      - uses: awalsh128/cache-apt-pkgs-action@latest
+      - name: Prepare Environment
+        uses: ./.github/shared/setup
         with:
-          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-          version: 1.0
-
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: ${{ matrix.pnpm-version }}
-
-      - uses: actions/setup-node@v3
-        with:
-          cache: "pnpm"
           node-version: ${{ matrix.node-version }}
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Install Dependencies
-        run: pnpm install
+          pnpm-version: ${{ matrix.pnpm-version }}
 
       - name: Add Realtime Database Rules
         uses: jsdaniell/create-json@1.1.2
@@ -156,25 +114,11 @@ jobs:
   #       node-version: ["20.10"]
   #       pnpm-version: [8]
   #   steps:
-  #     - uses: awalsh128/cache-apt-pkgs-action@latest
+  #     - name: Prepare Environment
+  #       uses: ./.github/shared/setup
   #       with:
-  #         packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-  #         version: 1.0
-
-  #     - uses: actions/checkout@v3
-
-  #     - uses: pnpm/action-setup@v2
-  #       with:
-  #         version: ${{ matrix.pnpm-version }}
-
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         cache: "pnpm"
   #         node-version: ${{ matrix.node-version }}
-  #         registry-url: "https://registry.npmjs.org"
-
-  #     - name: Install Dependencies
-  #       run: pnpm install
+  #         pnpm-version: ${{ matrix.pnpm-version }}
 
   #     - name: Run Tests
   #       run: "pnpm test:monaco"
@@ -194,25 +138,11 @@ jobs:
         node-version: ["20.10"]
         pnpm-version: [8]
     steps:
-      - uses: awalsh128/cache-apt-pkgs-action@latest
+      - name: Prepare Environment
+        uses: ./.github/shared/setup
         with:
-          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-          version: 1.0
-
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: ${{ matrix.pnpm-version }}
-
-      - uses: actions/setup-node@v3
-        with:
-          cache: "pnpm"
           node-version: ${{ matrix.node-version }}
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Install Dependencies
-        run: pnpm install
+          pnpm-version: ${{ matrix.pnpm-version }}
 
       - uses: actions/download-artifact@v2
 
