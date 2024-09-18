@@ -162,7 +162,8 @@ jobs:
       - uses: actions/download-artifact@v4
 
       - name: Generate Coverage Report
-        run:
+        shell: bash
+        run: |
           dirs=$(ls -d *coverage-*)
           mkdir -p coverage-all coverage
           for dir in $dirs
