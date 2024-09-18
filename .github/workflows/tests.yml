@@ -99,7 +99,7 @@ jobs:
           pnpm-version: ${{ matrix.pnpm-version }}
 
       - name: Add Realtime Database Rules
-        uses: jsdaniell/create-json@1.1.2
+        uses: jsdaniell/create-json@v1.2.3
         with:
           name: "database.rules.json"
           json: ${{ secrets.FIREBASE_DATABASE_JSON }}
