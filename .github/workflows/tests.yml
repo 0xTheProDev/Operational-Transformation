@@ -17,15 +17,15 @@ on:
   pull_request:
     branches:
       - main
-    # paths:
-    #   - "*.js"
-    #   - "*.json"
-    #   - "*.yml"
-    #   - "__tests__/**"
-    #   - "packages/**"
-    #   - "!**.md"
-    #   - "!examples/**/*.js"
-    #   - "!examples/**/*.json"
+    paths:
+      - "*.js"
+      - "*.json"
+      - "*.yml"
+      - "__tests__/**"
+      - "packages/**"
+      - "!**.md"
+      - "!examples/**/*.js"
+      - "!examples/**/*.json"
 
 jobs:
   unit:
