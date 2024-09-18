@@ -44,7 +44,7 @@
     "build:dts": "api-extractor run",
     "clean": "rimraf lib typings index.d.ts",
     "test": "TEST_ENV=true jest --colors",
-    "test:watch": "ppnpm run test --watch"
+    "test:watch": "pnpm run test --watch"
   },
   "devDependencies": {
     "@otjs/utils": "workspace:*"

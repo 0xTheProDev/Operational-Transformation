@@ -182,13 +182,13 @@ We are using [Jest](https://jestjs.io) extensively to form our Unit Test Suite a
 - To merge all the individual code coverage report and generate final test coverage report, run:
 
   ```sh
-  ppnpm run coverage
+  pnpm run coverage
   ```
 
 - To convert generated final coverage report into more human readable form _(such as **lcov**)_, run:
 
   ```sh
-  ppnpm run coverage:dev
+  pnpm run coverage:dev
   ```
 
 ### Integration Tests
