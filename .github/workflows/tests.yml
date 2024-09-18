@@ -31,19 +31,12 @@ jobs:
   unit:
     name: Unit Test Modules
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ["20.10"]
-        pnpm-version: [9]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Prepare Environment
         uses: ./.github/shared/setup
-        with:
-          node-version: ${{ matrix.node-version }}
-          pnpm-version: ${{ matrix.pnpm-version }}
 
       - name: Run Tests
         run: "pnpm test:ci"
@@ -57,19 +50,12 @@ jobs:
   ace:
     name: Ace Integration
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ["20.10"]
-        pnpm-version: [9]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Prepare Environment
         uses: ./.github/shared/setup
-        with:
-          node-version: ${{ matrix.node-version }}
-          pnpm-version: ${{ matrix.pnpm-version }}
 
       - name: Run Tests
         run: "pnpm test:ace"
@@ -84,19 +70,12 @@ jobs:
     name: Firebase Integration
     runs-on: ubuntu-latest
     environment: test
-    strategy:
-      matrix:
-        node-version: ["20.10"]
-        pnpm-version: [9]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Prepare Environment
         uses: ./.github/shared/setup
-        with:
-          node-version: ${{ matrix.node-version }}
-          pnpm-version: ${{ matrix.pnpm-version }}
 
       - name: Add Realtime Database Rules
         uses: jsdaniell/create-json@v1.2.3
@@ -118,19 +97,12 @@ jobs:
   # monaco:
   #   name: Monaco Integration
   #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       node-version: ["20.10"]
-  #       pnpm-version: [9]
   #   steps:
   #     - name: Checkout Repository
   #       uses: actions/checkout@v4
 
   #     - name: Prepare Environment
   #       uses: ./.github/shared/setup
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
-  #         pnpm-version: ${{ matrix.pnpm-version }}
 
   #     - name: Run Tests
   #       run: "pnpm test:monaco"
@@ -146,19 +118,12 @@ jobs:
     needs: [unit, ace, firebase]
     runs-on: ubuntu-latest
     environment: test
-    strategy:
-      matrix:
-        node-version: ["20.10"]
-        pnpm-version: [9]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Prepare Environment
         uses: ./.github/shared/setup
-        with:
-          node-version: ${{ matrix.node-version }}
-          pnpm-version: ${{ matrix.pnpm-version }}
 
       - uses: actions/download-artifact@v4
 

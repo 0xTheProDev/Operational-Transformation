@@ -2,12 +2,6 @@
 name: "Setup Environment"
 description: "Install dependencies in the most efficient way for Node/Bun project."
 
-inputs:
-  node-version:
-    description: "Node Version"
-  pnpm-version:
-    description: "Pnpm Version"
-
 runs:
   using: "composite"
   steps:
@@ -19,15 +13,13 @@ runs:
 
     - name: Setup Pnpm
       uses: pnpm/action-setup@v4
-      with:
-        version: ${{ inputs.pnpm-version }}
 
     - name: Setup Environment
       uses: 0xTheProDev/setup-js@v1
       with:
         cache: pnpm
         registry-url: "https://registry.npmjs.org"
-        version: ${{ inputs.node-version }}
+        version-file: .nvmrc
 
 branding:
   icon: "package"
