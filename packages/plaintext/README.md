@@ -54,7 +54,7 @@ We are using [Jest](https://jestjs.io) to form our Unit Test Suite. [Nyc _(forme
 To run all the unit test suites in local dev environment, run the following after dependencies have been installed:
 
 ```sh
-yarn test
+pnpm test
 ```
 
 ## Reporting a Bug

@@ -28,7 +28,7 @@
   },
   "scripts": {
     "test": "TEST_ENV=true jest --colors",
-    "test:watch": "pnpm run test --watch"
+    "test:watch": "ppnpm run test --watch"
   },
   "devDependencies": {
     "@otjs/types": "workspace:*"

@@ -36,8 +36,8 @@
     "node": ">=10.10.0"
   },
   "scripts": {
-    "prebuild": "yarn clean",
-    "build": "yarn build:lib && yarn build:dts",
+    "prebuild": "pnpm run clean",
+    "build": "pnpm run build:lib && pnpm run build:dts",
     "build:lib": "webpack",
     "build:dts": "api-extractor run",
     "clean": "rimraf lib typings index.d.ts"

@@ -6,8 +6,8 @@
   "rootDir": "__tests__/ace",
   "scripts": {
     "test": "TEST_ENV=true jest --colors",
-    "test:ci": "pnpm run test --ci --silent",
-    "test:watch": "pnpm run test --watch"
+    "test:ci": "ppnpm run test --ci --silent",
+    "test:watch": "ppnpm run test --watch"
   },
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
   "license": "MIT",

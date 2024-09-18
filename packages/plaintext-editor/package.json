@@ -38,13 +38,13 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "prebuild": "yarn clean",
-    "build": "yarn build:lib && yarn build:dts",
+    "prebuild": "pnpm run clean",
+    "build": "pnpm run build:lib && pnpm run build:dts",
     "build:lib": "webpack",
     "build:dts": "api-extractor run",
     "clean": "rimraf lib typings index.d.ts",
     "test": "TEST_ENV=true jest --colors",
-    "test:watch": "pnpm run test --watch"
+    "test:watch": "ppnpm run test --watch"
   },
   "devDependencies": {
     "@otjs/plaintext": "0.2.2",

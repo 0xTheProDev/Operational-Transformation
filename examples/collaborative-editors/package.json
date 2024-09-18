@@ -5,7 +5,7 @@
   "description": "Example usage of @otjs library as Real-time collaborative editor.",
   "main": "index.html",
   "scripts": {
-    "start": "firebase emulators:exec \"yarn start:app\"",
+    "start": "firebase emulators:exec \"pnpm run start:app\"",
     "start:app": "webpack serve --hot --progress"
   },
   "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
