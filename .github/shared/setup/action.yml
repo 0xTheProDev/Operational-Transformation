@@ -17,9 +17,6 @@ runs:
         packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
         version: 1.0
 
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-
     - name: Setup Pnpm
       uses: pnpm/action-setup@v4
       with:

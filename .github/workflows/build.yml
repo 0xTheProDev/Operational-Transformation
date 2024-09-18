@@ -38,6 +38,9 @@ jobs:
         node-version: ["20.10"]
         pnpm-version: [8]
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Prepare Environment
         uses: ./.github/shared/setup
         with:

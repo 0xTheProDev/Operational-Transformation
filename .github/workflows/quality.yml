@@ -8,8 +8,8 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - "packages/**/*.ts"
+    # paths:
+    #   - "packages/**/*.ts"
 
 jobs:
   analyze:
