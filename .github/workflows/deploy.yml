@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         node-version: ["20.10"]
-        pnpm-version: [8]
+        pnpm-version: [9]
     steps:
       - name: Prepare Environment
         uses: ./.github/shared/setup
