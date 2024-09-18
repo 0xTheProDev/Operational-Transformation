@@ -8,7 +8,7 @@ on:
     paths:
       - "*.js"
       - "*.json"
-      - "*.yaml"
+      - "*.yml"
       - "__tests__/**"
       - "packages/**"
       - "!**.md"
@@ -20,7 +20,7 @@ on:
     paths:
       - "*.js"
       - "*.json"
-      - "*.yaml"
+      - "*.yml"
       - "__tests__/**"
       - "packages/**"
       - "!**.md"
@@ -36,30 +36,19 @@ jobs:
         node-version: ["20.10"]
         pnpm-version: [8]
     steps:
-      - uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-          version: 1.0
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
+      - name: Prepare Environment
+        uses: ./.github/shared/setup
         with:
-          version: ${{ matrix.pnpm-version }}
-
-      - uses: actions/setup-node@v3
-        with:
-          cache: "pnpm"
           node-version: ${{ matrix.node-version }}
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Install Dependencies
-        run: pnpm install
+          pnpm-version: ${{ matrix.pnpm-version }}
 
       - name: Run Tests
         run: "pnpm test:ci"
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: coverage-unit-tests
           path: coverage-unit/coverage-final.json
@@ -73,30 +62,19 @@ jobs:
         node-version: ["20.10"]
         pnpm-version: [8]
     steps:
-      - uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-          version: 1.0
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
+      - name: Prepare Environment
+        uses: ./.github/shared/setup
         with:
-          version: ${{ matrix.pnpm-version }}
-
-      - uses: actions/setup-node@v3
-        with:
-          cache: "pnpm"
           node-version: ${{ matrix.node-version }}
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Install Dependencies
-        run: pnpm install
+          pnpm-version: ${{ matrix.pnpm-version }}
 
       - name: Run Tests
         run: "pnpm test:ace"
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: coverage-ace-integration
           path: coverage-ace/coverage-final.json
@@ -111,25 +89,14 @@ jobs:
         node-version: ["20.10"]
         pnpm-version: [8]
     steps:
-      - uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-          version: 1.0
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
+      - name: Prepare Environment
+        uses: ./.github/shared/setup
         with:
-          version: ${{ matrix.pnpm-version }}
-
-      - uses: actions/setup-node@v3
-        with:
-          cache: "pnpm"
           node-version: ${{ matrix.node-version }}
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Install Dependencies
-        run: pnpm install
+          pnpm-version: ${{ matrix.pnpm-version }}
 
       - name: Add Realtime Database Rules
         uses: jsdaniell/create-json@1.1.2
@@ -141,7 +108,7 @@ jobs:
       - name: Run Tests
         run: "pnpm test:firebase"
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: coverage-firebase-integration
           path: coverage-firebase/coverage-final.json
@@ -156,25 +123,14 @@ jobs:
   #       node-version: ["20.10"]
   #       pnpm-version: [8]
   #   steps:
-  #     - uses: awalsh128/cache-apt-pkgs-action@latest
-  #       with:
-  #         packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-  #         version: 1.0
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v4
 
-  #     - uses: actions/checkout@v3
-
-  #     - uses: pnpm/action-setup@v2
+  #     - name: Prepare Environment
+  #       uses: ./.github/shared/setup
   #       with:
-  #         version: ${{ matrix.pnpm-version }}
-
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         cache: "pnpm"
   #         node-version: ${{ matrix.node-version }}
-  #         registry-url: "https://registry.npmjs.org"
-
-  #     - name: Install Dependencies
-  #       run: pnpm install
+  #         pnpm-version: ${{ matrix.pnpm-version }}
 
   #     - name: Run Tests
   #       run: "pnpm test:monaco"
@@ -189,38 +145,37 @@ jobs:
     name: Generate Coverage Report
     needs: [unit, ace, firebase]
     runs-on: ubuntu-latest
+    environment: test
     strategy:
       matrix:
         node-version: ["20.10"]
         pnpm-version: [8]
     steps:
-      - uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-          version: 1.0
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
+      - name: Prepare Environment
+        uses: ./.github/shared/setup
         with:
-          version: ${{ matrix.pnpm-version }}
-
-      - uses: actions/setup-node@v3
-        with:
-          cache: "pnpm"
           node-version: ${{ matrix.node-version }}
-          registry-url: "https://registry.npmjs.org"
+          pnpm-version: ${{ matrix.pnpm-version }}
 
-      - name: Install Dependencies
-        run: pnpm install
-
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
 
       - name: Generate Coverage Report
-        run: pnpm coverage
+        shell: bash
+        run: |
+          dirs=$(ls -d *coverage-*)
+          mkdir -p coverage-all coverage
+          for dir in $dirs
+          do
+            cp "$dir/coverage-final.json" "coverage-all/$dir.json"
+          done
+          pnpm coverage
 
       - name: Upload Coverage Report to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v4
         with:
           directory: ./coverage
           fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}

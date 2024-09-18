@@ -7,7 +7,6 @@
     "clean": "lerna run clean --no-private",
     "build": "lerna run build --no-private",
     "start:editors": "pnpm run --filter '@otjs-examples/collaborative-editors' start",
-    "precoverage": "./scripts/merge-coverage-reports.sh",
     "coverage": "nyc merge coverage-all coverage/coverage.json",
     "coverage:clean": "rimraf coverage-* coverage",
     "coverage:dev": "nyc report -t coverage --report-dir coverage --reporter=lcov",

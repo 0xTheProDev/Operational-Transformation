@@ -8,7 +8,7 @@ on:
     paths:
       - "*.js"
       - "*.json"
-      - "*.yaml"
+      - "*.yml"
       - "packages/**"
       - "!**.md"
       - "!examples/**/*.js"
@@ -21,7 +21,7 @@ on:
     paths:
       - "*.js"
       - "*.json"
-      - "*.yaml"
+      - "*.yml"
       - "packages/**"
       - "!**.md"
       - "!examples/**/*.js"
@@ -38,25 +38,14 @@ jobs:
         node-version: ["20.10"]
         pnpm-version: [8]
     steps:
-      - uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-          version: 1.0
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
+      - name: Prepare Environment
+        uses: ./.github/shared/setup
         with:
-          version: ${{ matrix.pnpm-version }}
-
-      - uses: actions/setup-node@v3
-        with:
-          cache: "pnpm"
           node-version: ${{ matrix.node-version }}
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Install Dependencies
-        run: pnpm install
+          pnpm-version: ${{ matrix.pnpm-version }}
 
       - name: Build Artifacts
         run: pnpm build

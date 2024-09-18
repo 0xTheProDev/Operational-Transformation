@@ -21,9 +21,9 @@ jobs:
           fetch-depth: 0
 
       - name: Mirror Repository
-        uses: ./.github/shared/gitlab
+        uses: 0xTheProDev/gitlab-mirror@v1
         with:
-          followTags: true
+          follow-tags: true
           password: ${{ secrets.GITLAB_PAT }}
-          projectId: "Operational-Transformation"
-          userName: "0xTheProDev"
+          project-id: "Operational-Transformation"
+          username: "0xTheProDev"
