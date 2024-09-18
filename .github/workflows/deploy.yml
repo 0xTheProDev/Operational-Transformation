@@ -10,16 +10,9 @@ jobs:
   deploy:
     name: Deploy Package
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ["20.10"]
-        pnpm-version: [8]
     steps:
       - name: Prepare Environment
         uses: ./.github/shared/setup
-        with:
-          node-version: ${{ matrix.node-version }}
-          pnpm-version: ${{ matrix.pnpm-version }}
 
       - name: Build Artifacts
         run: pnpm build

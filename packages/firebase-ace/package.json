@@ -36,8 +36,8 @@
     "url": "https://github.com/0xTheProDev/Operational-Transformation/discussions"
   },
   "scripts": {
-    "prebuild": "yarn clean",
-    "build": "yarn build:lib && yarn build:dts",
+    "prebuild": "pnpm run clean",
+    "build": "pnpm run build:lib && pnpm run build:dts",
     "build:lib": "webpack",
     "build:dts": "api-extractor run",
     "clean": "rimraf lib typings index.d.ts",
@@ -48,7 +48,7 @@
     "@otjs/types": "workspace:*",
     "@otjs/utils": "workspace:*",
     "@types/ace": "0.0.48",
-    "firebase": "9.15.0",
+    "firebase": "10.13.1",
     "mitt": "3.0.1"
   },
   "dependencies": {
