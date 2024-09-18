@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - commit-message:
+      prefix: chore(workflow)
+    directory: "/"
+    package-ecosystem: "github-actions"
+    reviewers:
+      - 0xTheProDev
+    schedule:
+      interval: "weekly"
+
+  - commit-message:
+      include: scope
+      prefix: chore
+    directory: /
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
+    package-ecosystem: npm
+    reviewers:
+      - 0xTheProDev
+    schedule:
+      interval: daily
+    versioning-strategy: increase-if-necessary

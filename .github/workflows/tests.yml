@@ -48,7 +48,7 @@ jobs:
       - name: Run Tests
         run: "pnpm test:ci"
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: coverage-unit-tests
           path: coverage-unit/coverage-final.json
@@ -74,7 +74,7 @@ jobs:
       - name: Run Tests
         run: "pnpm test:ace"
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: coverage-ace-integration
           path: coverage-ace/coverage-final.json
@@ -108,7 +108,7 @@ jobs:
       - name: Run Tests
         run: "pnpm test:firebase"
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: coverage-firebase-integration
           path: coverage-firebase/coverage-final.json
@@ -159,13 +159,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
           pnpm-version: ${{ matrix.pnpm-version }}
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
 
       - name: Generate Coverage Report
         run: pnpm coverage
 
       - name: Upload Coverage Report to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v4
         with:
           directory: ./coverage
           fail_ci_if_error: true
