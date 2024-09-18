@@ -145,6 +145,7 @@ jobs:
     name: Generate Coverage Report
     needs: [unit, ace, firebase]
     runs-on: ubuntu-latest
+    environment: test
     strategy:
       matrix:
         node-version: ["20.10"]
@@ -177,3 +178,4 @@ jobs:
         with:
           directory: ./coverage
           fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
