@@ -12,7 +12,7 @@ runs:
         version: 1.0
 
     - name: Setup Environment
-      uses: 0xTheProDev/setup-js@c0c49ac
+      uses: 0xTheProDev/setup-js@c0c49ac6d2b6d33876ce0176aea8e4a6bbcb8a71
       with:
         cache: pnpm
         registry-url: "https://registry.npmjs.org"
