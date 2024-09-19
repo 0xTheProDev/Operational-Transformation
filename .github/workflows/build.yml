@@ -18,16 +18,16 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - "*.js"
-      - "*.json"
-      - "*.yml"
-      - "packages/**"
-      - "!**.md"
-      - "!examples/**/*.js"
-      - "!examples/**/*.json"
-      - "!packages/**/__mocks__/**"
-      - "!packages/**/__tests__/**"
+    # paths:
+    #   - "*.js"
+    #   - "*.json"
+    #   - "*.yml"
+    #   - "packages/**"
+    #   - "!**.md"
+    #   - "!examples/**/*.js"
+    #   - "!examples/**/*.json"
+    #   - "!packages/**/__mocks__/**"
+    #   - "!packages/**/__tests__/**"
 
 jobs:
   build:
