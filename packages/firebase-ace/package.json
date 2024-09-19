@@ -47,7 +47,7 @@
   "devDependencies": {
     "@otjs/types": "workspace:*",
     "@otjs/utils": "workspace:*",
-    "@types/ace": "0.0.48",
+    "@types/ace": "0.0.52",
     "firebase": "10.13.1",
     "mitt": "3.0.1"
   },
