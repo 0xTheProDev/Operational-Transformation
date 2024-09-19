@@ -11,11 +11,8 @@ runs:
         packages: build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
         version: 1.0
 
-    - name: Setup Pnpm
-      uses: pnpm/action-setup@v4
-
     - name: Setup Environment
-      uses: 0xTheProDev/setup-js@v1
+      uses: 0xTheProDev/setup-js@v1.2
       with:
         cache: pnpm
         registry-url: "https://registry.npmjs.org"
