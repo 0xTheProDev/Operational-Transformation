@@ -46,7 +46,7 @@
     "@otjs/types": "workspace:*",
     "@otjs/utils": "workspace:*",
     "@types/ace": "0.0.52",
-    "@types/lodash": "4.17.9"
+    "@types/lodash": "4.17.10"
   },
   "peerDependencies": {
     "@otjs/plaintext": "^0.2.0",
