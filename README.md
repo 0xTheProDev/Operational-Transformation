@@ -1,3 +1,5 @@
+<!-- markdownlint-configure-file { "MD033": false, "MD045" : false } -->
+
 # Operational Transformation
 
 <p align="center">
@@ -12,12 +14,12 @@
 [![Tests](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/tests.yml/badge.svg)](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/tests.yml)
 [![Deployment](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/deploy.yml/badge.svg?branch=v0.2.2)](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/deploy.yml)
 [![Code Quality](https://github.com/0xTheProDev/Operational-Transformation/actions/workflows/quality.yml/badge.svg)](https://github.com/0xTheProDev/Operational-Transformation/security/code-scanning)
-[![Code Coverage](https://codecov.io/gh/0xTheProDev/Operational-Transformation/branch/main/graph/badge.svg?token=R0T5YH3XX3)](https://codecov.io/gh/0xTheProDev/Operational-Transformation)
 
 [![Sponsor](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white)](https://github.com/sponsors/0xTheProDev)
 [![Version](https://img.shields.io/github/lerna-json/v/0xTheProDev/Operational-Transformation?style=for-the-badge)](https://lerna.js.org)
 [![Built With](https://img.shields.io/badge/built%20with-webpack-green?style=for-the-badge)](https://webpack.js.org)
 [![Tested With](https://img.shields.io/badge/tested%20with-jest-yellowgreen?style=for-the-badge)](https://jestjs.io)
+[![Code Coverage](https://img.shields.io/codecov/c/github/0xTheProDev/Operational-Transformation?style=for-the-badge&token=R0T5YH3XX3)](https://codecov.io/github/0xTheProDev/Operational-Transformation)
 [![Typed With](https://img.shields.io/badge/typed%20with-TypeScript-blue?style=for-the-badge)](https://www.typescriptlang.org)
 [![Styled With](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge&label=styled%20with)](https://prettier.io)
 [![License](https://img.shields.io/badge/license-MIT-yellow?style=for-the-badge)](LICENSE)
@@ -217,5 +219,8 @@ See [Contributing Guidelines](.github/CONTRIBUTING.md).
 
 ## License
 
-This project is licensed under the terms of the MIT license,
-see [LICENSE](LICENSE) for more details.
+This project is licensed under the terms of the MIT license, see [LICENSE](LICENSE) for more details.
+
+<a href="https://github.com/0xTheProDev">
+  <img src=".github/images/the-pro-dev-original.png" alt="The Pro Dev" height="120" width="120"/>
+</a>
