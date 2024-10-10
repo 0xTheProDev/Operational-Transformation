@@ -1,9 +1,12 @@
+<!-- markdownlint-configure-file { "MD033": false, "MD045" : false } -->
+
 # `@otjs/monaco`
 
 [![Sponsor](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white)](https://github.com/sponsors/0xTheProDev)
 [![Npm Version](https://img.shields.io/npm/v/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
 [![Weekly Downloads](https://img.shields.io/npm/dw/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
 [![Minified Zipped Size](https://img.shields.io/bundlephobia/minzip/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
+[![Code Coverage](https://img.shields.io/codecov/c/github/0xTheProDev/Operational-Transformation?style=for-the-badge&token=R0T5YH3XX3)](https://codecov.io/github/0xTheProDev/Operational-Transformation)
 [![Types](https://img.shields.io/npm/types/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
 [![License](https://img.shields.io/npm/l/@otjs/monaco?style=for-the-badge)](https://github.com/0xTheProDev/Operational-Transformation/blob/main/packages/monaco/LICENSE)
 [![Dependencies](https://img.shields.io/librariesio/release/npm/@otjs/monaco?style=for-the-badge)](https://www.npmjs.com/package/@otjs/monaco)
@@ -78,3 +81,7 @@ See [Contributing Guidelines](https://github.com/0xTheProDev/Operational-Transfo
 ## License
 
 This project is licensed under the terms of the MIT license, see [LICENSE](https://github.com/0xTheProDev/Operational-Transformation/blob/main/packages/monaco/LICENSE) for more details.
+
+<a href="https://github.com/0xTheProDev">
+  <img src=".github/images/the-pro-dev-original.png" alt="The Pro Dev" height="120" width="120"/>
+</a>
