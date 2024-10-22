@@ -48,7 +48,7 @@
     "@otjs/types": "workspace:*",
     "@otjs/utils": "workspace:*",
     "@types/ace": "0.0.52",
-    "firebase": "10.14.1",
+    "firebase": "11.0.0",
     "mitt": "3.0.1"
   },
   "dependencies": {
