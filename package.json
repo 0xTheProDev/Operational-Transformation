@@ -29,12 +29,12 @@
     "pnpm": ">= 9"
   },
   "devDependencies": {
-    "@babel/core": "7.25.8",
-    "@babel/preset-env": "7.25.8",
+    "@babel/core": "7.25.9",
+    "@babel/preset-env": "7.25.9",
     "@microsoft/api-extractor": "7.47.11",
-    "@types/jest": "29.5.13",
-    "@types/node": "22.7.6",
-    "@types/regenerator-runtime": "0.13.7",
+    "@types/jest": "29.5.14",
+    "@types/node": "22.7.9",
+    "@types/regenerator-runtime": "0.13.8",
     "babel-jest": "29.7.0",
     "canvas": "2.11.2",
     "firebase-tools": "13.22.1",
