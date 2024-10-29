@@ -29,11 +29,11 @@
     "pnpm": ">= 9"
   },
   "devDependencies": {
-    "@babel/core": "7.25.9",
-    "@babel/preset-env": "7.25.9",
+    "@babel/core": "7.26.0",
+    "@babel/preset-env": "7.26.0",
     "@microsoft/api-extractor": "7.47.11",
     "@types/jest": "29.5.14",
-    "@types/node": "22.7.9",
+    "@types/node": "22.8.2",
     "@types/regenerator-runtime": "0.13.8",
     "babel-jest": "29.7.0",
     "canvas": "2.11.2",
