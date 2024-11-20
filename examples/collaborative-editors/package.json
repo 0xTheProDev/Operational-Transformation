@@ -13,9 +13,9 @@
   "dependencies": {
     "@otjs/firebase-ace": "workspace:*",
     "@otjs/firebase-monaco": "workspace:*",
-    "firebase": "11.0.1",
+    "firebase": "11.0.2",
     "monaco-editor": "0.52.0",
-    "uuid": "11.0.2"
+    "uuid": "11.0.3"
   },
   "devDependencies": {
     "@types/ace": "0.0.52",
