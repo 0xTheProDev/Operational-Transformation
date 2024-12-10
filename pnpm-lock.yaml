@@ -70,13 +70,13 @@ importers:
         version: 29.2.5(@babel/core@7.26.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.26.0))(jest@29.7.0(@types/node@22.10.1))(typescript@5.7.2)
       ts-loader:
         specifier: 9.5.1
-        version: 9.5.1(typescript@5.7.2)(webpack@5.97.0(webpack-cli@5.1.4))
+        version: 9.5.1(typescript@5.7.2)(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))
       typescript:
         specifier: 5.7.2
         version: 5.7.2
       webpack:
         specifier: 5.97.0
-        version: 5.97.0(webpack-cli@5.1.4)
+        version: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
       webpack-cli:
         specifier: 5.1.4
         version: 5.1.4(webpack@5.97.0)
@@ -105,8 +105,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/monaco
       monaco-editor:
-        specifier: 0.52.0
-        version: 0.52.0
+        specifier: 0.52.2
+        version: 0.52.2
 
   examples/collaborative-editors:
     dependencies:
@@ -120,8 +120,8 @@ importers:
         specifier: 11.0.2
         version: 11.0.2
       monaco-editor:
-        specifier: 0.52.0
-        version: 0.52.0
+        specifier: 0.52.2
+        version: 0.52.2
       uuid:
         specifier: 11.0.3
         version: 11.0.3
@@ -134,19 +134,19 @@ importers:
         version: 10.0.0
       css-loader:
         specifier: 7.1.2
-        version: 7.1.2(webpack@5.97.0(webpack-cli@5.1.4))
+        version: 7.1.2(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))
       monaco-editor-webpack-plugin:
         specifier: 7.1.0
-        version: 7.1.0(monaco-editor@0.52.0)(webpack@5.97.0(webpack-cli@5.1.4))
+        version: 7.1.0(monaco-editor@0.52.2)(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))
       source-map-loader:
         specifier: 5.0.0
-        version: 5.0.0(webpack@5.97.0(webpack-cli@5.1.4))
+        version: 5.0.0(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))
       style-loader:
         specifier: 4.0.0
-        version: 4.0.0(webpack@5.97.0(webpack-cli@5.1.4))
+        version: 4.0.0(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))
       webpack-dev-server:
         specifier: 5.1.0
-        version: 5.1.0(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4))
+        version: 5.1.0(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))
 
   packages/ace:
     dependencies:
@@ -235,8 +235,8 @@ importers:
         specifier: 3.0.1
         version: 3.0.1
       monaco-editor:
-        specifier: 0.52.0
-        version: 0.52.0
+        specifier: 0.52.2
+        version: 0.52.2
 
   packages/firebase-plaintext:
     devDependencies:
@@ -271,8 +271,8 @@ importers:
         specifier: workspace:*
         version: link:../utils
       monaco-editor:
-        specifier: 0.52.0
-        version: 0.52.0
+        specifier: 0.52.2
+        version: 0.52.2
 
   packages/plaintext:
     devDependencies:
@@ -4581,8 +4581,8 @@ packages:
       monaco-editor: '>= 0.31.0'
       webpack: ^4.5.0 || 5.x
 
-  monaco-editor@0.52.0:
-    resolution: {integrity: sha512-OeWhNpABLCeTqubfqLMXGsqf6OmPU6pHM85kF3dhy6kq5hnhuVS1p3VrEW/XhWHc71P2tHyS5JFySD8mgs1crw==}
+  monaco-editor@0.52.2:
+    resolution: {integrity: sha512-GEQWEZmfkOGLdd3XK8ryrfWz3AIP8YymVXiPHEdewrUq7mh0qrKrfHLNCXcbB6sTnMLnOZ3ztSiKcciFUkIJwQ==}
 
   moo@0.5.2:
     resolution: {integrity: sha512-iSAJLHYKnX41mKcJKjqvnAN9sf0LMDTXDEvFv+ffuRR9a1MIuXLjMNL6EsnDHSkKLTWNqQQ5uo61P4EbU4NU+Q==}
@@ -8725,19 +8725,19 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@xtuc/long': 4.2.2
 
-  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4))':
+  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))':
     dependencies:
-      webpack: 5.97.0(webpack-cli@5.1.4)
+      webpack: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
       webpack-cli: 5.1.4(webpack@5.97.0)
 
-  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4))':
+  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))':
     dependencies:
-      webpack: 5.97.0(webpack-cli@5.1.4)
+      webpack: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
       webpack-cli: 5.1.4(webpack@5.97.0)
 
-  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4))':
+  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))':
     dependencies:
-      webpack: 5.97.0(webpack-cli@5.1.4)
+      webpack: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
       webpack-cli: 5.1.4(webpack@5.97.0)
 
   '@xtuc/ieee754@1.2.0': {}
@@ -9617,7 +9617,7 @@ snapshots:
 
   crypto-random-string@2.0.0: {}
 
-  css-loader@7.1.2(webpack@5.97.0(webpack-cli@5.1.4)):
+  css-loader@7.1.2(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0))):
     dependencies:
       icss-utils: 5.1.0(postcss@8.4.47)
       postcss: 8.4.47
@@ -9628,7 +9628,7 @@ snapshots:
       postcss-value-parser: 4.2.0
       semver: 7.6.3
     optionalDependencies:
-      webpack: 5.97.0(webpack-cli@5.1.4)
+      webpack: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
 
   cssesc@3.0.0: {}
 
@@ -12004,13 +12004,13 @@ snapshots:
 
   modify-values@1.0.1: {}
 
-  monaco-editor-webpack-plugin@7.1.0(monaco-editor@0.52.0)(webpack@5.97.0(webpack-cli@5.1.4)):
+  monaco-editor-webpack-plugin@7.1.0(monaco-editor@0.52.2)(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0))):
     dependencies:
       loader-utils: 2.0.4
-      monaco-editor: 0.52.0
-      webpack: 5.97.0(webpack-cli@5.1.4)
+      monaco-editor: 0.52.2
+      webpack: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
 
-  monaco-editor@0.52.0: {}
+  monaco-editor@0.52.2: {}
 
   moo@0.5.2: {}
 
@@ -13265,11 +13265,11 @@ snapshots:
 
   source-map-js@1.2.1: {}
 
-  source-map-loader@5.0.0(webpack@5.97.0(webpack-cli@5.1.4)):
+  source-map-loader@5.0.0(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0))):
     dependencies:
       iconv-lite: 0.6.3
       source-map-js: 1.2.1
-      webpack: 5.97.0(webpack-cli@5.1.4)
+      webpack: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
 
   source-map-support@0.5.13:
     dependencies:
@@ -13448,9 +13448,9 @@ snapshots:
 
   stubs@3.0.0: {}
 
-  style-loader@4.0.0(webpack@5.97.0(webpack-cli@5.1.4)):
+  style-loader@4.0.0(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0))):
     dependencies:
-      webpack: 5.97.0(webpack-cli@5.1.4)
+      webpack: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
 
   superstatic@9.1.0(encoding@0.1.13):
     dependencies:
@@ -13540,14 +13540,14 @@ snapshots:
 
   temp-dir@1.0.0: {}
 
-  terser-webpack-plugin@5.3.10(webpack@5.97.0(webpack-cli@5.1.4)):
+  terser-webpack-plugin@5.3.10(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0))):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.2
       terser: 5.37.0
-      webpack: 5.97.0(webpack-cli@5.1.4)
+      webpack: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
 
   terser@5.37.0:
     dependencies:
@@ -13649,7 +13649,7 @@ snapshots:
       '@jest/types': 29.6.3
       babel-jest: 29.7.0(@babel/core@7.26.0)
 
-  ts-loader@9.5.1(typescript@5.7.2)(webpack@5.97.0(webpack-cli@5.1.4)):
+  ts-loader@9.5.1(typescript@5.7.2)(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0))):
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.15.0
@@ -13657,7 +13657,7 @@ snapshots:
       semver: 7.5.4
       source-map: 0.7.4
       typescript: 5.7.2
-      webpack: 5.97.0(webpack-cli@5.1.4)
+      webpack: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
 
   tsconfig-paths@4.2.0:
     dependencies:
@@ -13854,9 +13854,9 @@ snapshots:
   webpack-cli@5.1.4(webpack@5.97.0):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4))
-      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4))
-      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4))
+      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))
+      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))
+      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))
       colorette: 2.0.20
       commander: 10.0.1
       cross-spawn: 7.0.3
@@ -13865,10 +13865,10 @@ snapshots:
       import-local: 3.1.0
       interpret: 3.1.1
       rechoir: 0.8.0
-      webpack: 5.97.0(webpack-cli@5.1.4)
+      webpack: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
       webpack-merge: 5.10.0
 
-  webpack-dev-middleware@7.4.2(webpack@5.97.0(webpack-cli@5.1.4)):
+  webpack-dev-middleware@7.4.2(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0))):
     dependencies:
       colorette: 2.0.20
       memfs: 4.11.2
@@ -13877,9 +13877,9 @@ snapshots:
       range-parser: 1.2.1
       schema-utils: 4.2.0
     optionalDependencies:
-      webpack: 5.97.0(webpack-cli@5.1.4)
+      webpack: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
 
-  webpack-dev-server@5.1.0(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4)):
+  webpack-dev-server@5.1.0(webpack-cli@5.1.4(webpack@5.97.0))(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0))):
     dependencies:
       '@types/bonjour': 3.5.13
       '@types/connect-history-api-fallback': 1.5.4
@@ -13907,10 +13907,10 @@ snapshots:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack-dev-middleware: 7.4.2(webpack@5.97.0(webpack-cli@5.1.4))
+      webpack-dev-middleware: 7.4.2(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))
       ws: 8.18.0
     optionalDependencies:
-      webpack: 5.97.0(webpack-cli@5.1.4)
+      webpack: 5.97.0(webpack-cli@5.1.4(webpack@5.97.0))
       webpack-cli: 5.1.4(webpack@5.97.0)
     transitivePeerDependencies:
       - bufferutil
@@ -13926,7 +13926,7 @@ snapshots:
 
   webpack-sources@3.2.3: {}
 
-  webpack@5.97.0(webpack-cli@5.1.4):
+  webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)):
     dependencies:
       '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.6
@@ -13948,7 +13948,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(webpack@5.97.0(webpack-cli@5.1.4))
+      terser-webpack-plugin: 5.3.10(webpack@5.97.0(webpack-cli@5.1.4(webpack@5.97.0)))
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     optionalDependencies:
