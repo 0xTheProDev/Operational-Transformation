@@ -24,6 +24,6 @@
     "monaco-editor-webpack-plugin": "7.1.0",
     "source-map-loader": "5.0.0",
     "style-loader": "4.0.0",
-    "webpack-dev-server": "5.1.0"
+    "webpack-dev-server": "5.2.0"
   }
 }
