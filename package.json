@@ -36,7 +36,7 @@
     "@types/node": "22.10.2",
     "@types/regenerator-runtime": "0.13.8",
     "babel-jest": "29.7.0",
-    "canvas": "2.11.2",
+    "canvas": "3.0.0",
     "firebase-tools": "13.29.1",
     "husky": "9.1.7",
     "identity-obj-proxy": "3.0.0",
