@@ -70,7 +70,7 @@ importers:
         version: 29.2.5(@babel/core@7.26.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.26.0))(jest@29.7.0(@types/node@22.10.10))(typescript@5.7.3)
       ts-loader:
         specifier: 9.5.2
-        version: 9.5.2(typescript@5.7.3)(webpack@5.97.1(webpack-cli@6.0.1(webpack@5.97.1)))
+        version: 9.5.2(typescript@5.7.3)(webpack@5.97.1)
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -122,16 +122,10 @@ importers:
       monaco-editor:
         specifier: 0.52.2
         version: 0.52.2
-      uuid:
-        specifier: 11.0.5
-        version: 11.0.5
     devDependencies:
       '@types/ace':
         specifier: 0.0.52
         version: 0.0.52
-      '@types/uuid':
-        specifier: 10.0.0
-        version: 10.0.0
       css-loader:
         specifier: 7.1.2
         version: 7.1.2(webpack@5.97.1(webpack-cli@6.0.1(webpack@5.97.1)))
@@ -1811,9 +1805,6 @@ packages:
 
   '@types/triple-beam@1.3.5':
     resolution: {integrity: sha512-6WaYesThRMCl19iryMYP7/x2OVgCtbIVflDGFpWnb9irXI3UjYE4AzmYuiUKY1AJstGijoY+MgUszMgRxIYTYw==}
-
-  '@types/uuid@10.0.0':
-    resolution: {integrity: sha512-7gqG38EyHgyP1S+7+xomFtL+ZNHcKv6DwNaCZmJmo1vgMugyF3TCnXVg4t1uk89mLNwnLtnY3TpOpCOyp1/xHQ==}
 
   '@types/ws@8.5.10':
     resolution: {integrity: sha512-vmQSUcfalpIq0R9q7uTo2lXs6eGIpt9wtnLdMv9LVpIjCA/+ufZRozlVoVelIYixx1ugCBKDhn89vnsEGOCx9A==}
@@ -6207,10 +6198,6 @@ packages:
     resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
     hasBin: true
 
-  uuid@11.0.5:
-    resolution: {integrity: sha512-508e6IcKLrhxKdBbcA2b4KQZlLVp2+J5UwQ6F7Drckkc5N9ZJwFa4TgWtsww9UG8fGHbm6gbV19TdM5pQ4GaIA==}
-    hasBin: true
-
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
@@ -8603,8 +8590,6 @@ snapshots:
 
   '@types/triple-beam@1.3.5': {}
 
-  '@types/uuid@10.0.0': {}
-
   '@types/ws@8.5.10':
     dependencies:
       '@types/node': 22.10.10
@@ -8691,17 +8676,17 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@xtuc/long': 4.2.2
 
-  '@webpack-cli/configtest@3.0.1(webpack-cli@6.0.1(webpack@5.97.1))(webpack@5.97.1(webpack-cli@6.0.1(webpack@5.97.1)))':
+  '@webpack-cli/configtest@3.0.1(webpack-cli@6.0.1(webpack@5.97.1))(webpack@5.97.1)':
     dependencies:
       webpack: 5.97.1(webpack-cli@6.0.1(webpack@5.97.1))
       webpack-cli: 6.0.1(webpack@5.97.1)
 
-  '@webpack-cli/info@3.0.1(webpack-cli@6.0.1(webpack@5.97.1))(webpack@5.97.1(webpack-cli@6.0.1(webpack@5.97.1)))':
+  '@webpack-cli/info@3.0.1(webpack-cli@6.0.1(webpack@5.97.1))(webpack@5.97.1)':
     dependencies:
       webpack: 5.97.1(webpack-cli@6.0.1(webpack@5.97.1))
       webpack-cli: 6.0.1(webpack@5.97.1)
 
-  '@webpack-cli/serve@3.0.1(webpack-cli@6.0.1(webpack@5.97.1))(webpack@5.97.1(webpack-cli@6.0.1(webpack@5.97.1)))':
+  '@webpack-cli/serve@3.0.1(webpack-cli@6.0.1(webpack@5.97.1))(webpack@5.97.1)':
     dependencies:
       webpack: 5.97.1(webpack-cli@6.0.1(webpack@5.97.1))
       webpack-cli: 6.0.1(webpack@5.97.1)
@@ -13555,7 +13540,7 @@ snapshots:
       '@jest/types': 29.6.3
       babel-jest: 29.7.0(@babel/core@7.26.0)
 
-  ts-loader@9.5.2(typescript@5.7.3)(webpack@5.97.1(webpack-cli@6.0.1(webpack@5.97.1))):
+  ts-loader@9.5.2(typescript@5.7.3)(webpack@5.97.1):
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.18.0
@@ -13711,8 +13696,6 @@ snapshots:
 
   uuid@10.0.0: {}
 
-  uuid@11.0.5: {}
-
   uuid@8.3.2: {}
 
   uuid@9.0.1: {}
@@ -13764,9 +13747,9 @@ snapshots:
   webpack-cli@6.0.1(webpack@5.97.1):
     dependencies:
       '@discoveryjs/json-ext': 0.6.3
-      '@webpack-cli/configtest': 3.0.1(webpack-cli@6.0.1(webpack@5.97.1))(webpack@5.97.1(webpack-cli@6.0.1(webpack@5.97.1)))
-      '@webpack-cli/info': 3.0.1(webpack-cli@6.0.1(webpack@5.97.1))(webpack@5.97.1(webpack-cli@6.0.1(webpack@5.97.1)))
-      '@webpack-cli/serve': 3.0.1(webpack-cli@6.0.1(webpack@5.97.1))(webpack@5.97.1(webpack-cli@6.0.1(webpack@5.97.1)))
+      '@webpack-cli/configtest': 3.0.1(webpack-cli@6.0.1(webpack@5.97.1))(webpack@5.97.1)
+      '@webpack-cli/info': 3.0.1(webpack-cli@6.0.1(webpack@5.97.1))(webpack@5.97.1)
+      '@webpack-cli/serve': 3.0.1(webpack-cli@6.0.1(webpack@5.97.1))(webpack@5.97.1)
       colorette: 2.0.20
       commander: 12.1.0
       cross-spawn: 7.0.6

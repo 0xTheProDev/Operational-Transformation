@@ -30,7 +30,6 @@ import {
   push,
   ref,
 } from "firebase/database";
-import { v4 as uuid } from "uuid";
 import { IFireAceEditor } from "@otjs/firebase-ace";
 
 /**
@@ -40,11 +39,6 @@ declare global {
   interface Window {
     aceEditor?: AceAjax.Editor;
     fireAce?: IFireAceEditor;
-  }
-  interface NodeModule {
-    hot?: {
-      accept(path: string, callback: Function): void;
-    };
   }
 }
 
@@ -63,7 +57,7 @@ const randInt = (limit: number = 1) => (Math.random() * limit) | 0;
 const userColor = `rgb(${randInt(255)}, ${randInt(255)}, ${randInt(255)})`;
 
 /** User Id */
-const userId = uuid();
+const userId = crypto.randomUUID();
 
 /** User Name */
 const userName = `Anonymous ${randInt(100)}`;
