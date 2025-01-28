@@ -33,7 +33,7 @@
     "@babel/preset-env": "7.26.7",
     "@microsoft/api-extractor": "7.49.1",
     "@types/jest": "29.5.14",
-    "@types/node": "22.10.10",
+    "@types/node": "22.12.0",
     "@types/regenerator-runtime": "0.13.8",
     "babel-jest": "29.7.0",
     "canvas": "3.1.0",
