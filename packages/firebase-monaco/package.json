@@ -47,7 +47,7 @@
   "devDependencies": {
     "@otjs/types": "workspace:*",
     "@otjs/utils": "workspace:*",
-    "firebase": "11.6.0",
+    "firebase": "11.9.1",
     "mitt": "3.0.1",
     "monaco-editor": "0.52.2"
   },
