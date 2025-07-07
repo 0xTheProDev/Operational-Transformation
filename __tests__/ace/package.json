@@ -13,6 +13,6 @@
   "license": "MIT",
   "devDependencies": {
     "@otjs/ace": "workspace:*",
-    "ace-builds": "1.43.0"
+    "ace-builds": "1.43.1"
   }
 }
