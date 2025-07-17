@@ -13,7 +13,7 @@
   "dependencies": {
     "@otjs/firebase-ace": "workspace:*",
     "@otjs/firebase-monaco": "workspace:*",
-    "firebase": "11.6.0",
+    "firebase": "11.10.0",
     "monaco-editor": "0.52.2"
   },
   "devDependencies": {
