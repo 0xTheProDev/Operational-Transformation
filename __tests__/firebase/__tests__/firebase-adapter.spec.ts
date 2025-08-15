@@ -110,7 +110,7 @@ describe("Test Firebase Adapter", () => {
           // @ts-expect-error
           24,
         ),
-      ).toThrowError(TypeError);
+      ).toThrow(TypeError);
     });
 
     it("should update User Id of current user", () => {
@@ -138,7 +138,7 @@ describe("Test Firebase Adapter", () => {
           // @ts-expect-error
           false,
         ),
-      ).toThrowError(TypeError);
+      ).toThrow(TypeError);
     });
 
     it("should update User Color of current user", async () => {
@@ -167,7 +167,7 @@ describe("Test Firebase Adapter", () => {
           // @ts-expect-error
           Symbol(),
         ),
-      ).toThrowError(TypeError);
+      ).toThrow(TypeError);
     });
 
     it("should not throw error if null or undefined is passed as param", () => {
@@ -200,7 +200,7 @@ describe("Test Firebase Adapter", () => {
           // @ts-expect-error
           "Cursor",
         ),
-      ).rejects.toThrowError(TypeError);
+      ).rejects.toThrow(TypeError);
     });
 
     it("should remove Cursor Position of current user", async () => {
