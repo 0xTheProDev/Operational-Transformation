@@ -33,11 +33,11 @@
     "@babel/preset-env": "7.28.3",
     "@microsoft/api-extractor": "7.52.10",
     "@types/jest": "30.0.0",
-    "@types/node": "24.2.1",
+    "@types/node": "24.3.0",
     "@types/regenerator-runtime": "0.13.8",
     "babel-jest": "30.0.5",
     "canvas": "3.1.2",
-    "firebase-tools": "14.12.0",
+    "firebase-tools": "14.12.1",
     "husky": "9.1.7",
     "identity-obj-proxy": "3.0.0",
     "jest": "30.0.5",
@@ -51,7 +51,7 @@
     "ts-jest": "29.4.1",
     "ts-loader": "9.5.2",
     "typescript": "5.9.2",
-    "webpack": "5.101.1",
+    "webpack": "5.101.2",
     "webpack-cli": "6.0.1"
   },
   "packageManager": "pnpm@9.10.0"
