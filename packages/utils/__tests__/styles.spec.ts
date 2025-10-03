@@ -53,7 +53,53 @@ describe("Style Utility Functions", () => {
         className: "test-class",
         cursorColor: "#000",
       });
-      expect(appendChildSpy.mock.calls).toMatchSnapshot();
+      expect(appendChildSpy.mock.calls).toMatchInlineSnapshot(`
+        [
+          [
+            <style>
+              
+            /**
+             * Copyright © 2021 - 2024 Progyan Bhattacharya
+             * Licensed under the MIT License.
+             * See LICENSE in the project root for license information.
+             */
+
+            .test-class-cursor {
+              position: absolute;
+              background-color: transparent;
+              border-left: 2px solid #000;
+            }
+
+            .test-class-selection {
+              position: absolute;
+              opacity: 0.5;
+              background-color: #000;
+              border-left: 2px solid #000;
+            }
+
+            .test-class-tooltip {
+              opacity: 1;
+              padding: 2px 8px;
+              font-size: 12px;
+              white-space: nowrap;
+              border-radius: 2px;
+              color: #ffffff;
+              border-color: #000;
+              background-color: #000;
+            }
+
+            .test-class-widget {
+              height: 20px;
+              padding-bottom: 0 !important;
+              position: absolute;
+              transition: all 0.1s linear;
+              z-index: 10000;
+            }
+          
+            </style>,
+          ],
+        ]
+      `);
     });
 
     it("should not inject same style rules twice", async () => {
@@ -113,7 +159,14 @@ describe("Style Utility Functions", () => {
         className: "test-class",
         textContent: "user-name",
       });
-      expect(tooltip).toMatchSnapshot();
+      expect(tooltip).toMatchInlineSnapshot(`
+        <div
+          class="test-class"
+          role="tooltip"
+        >
+          user-name
+        </div>
+      `);
     });
 
     it.skip("should retry if DOM update fails once", async () => {
@@ -168,7 +221,13 @@ describe("Style Utility Functions", () => {
         className: "test-class",
         childElement,
       });
-      expect(tooltip).toMatchSnapshot();
+      expect(tooltip).toMatchInlineSnapshot(`
+        <div
+          class="test-class"
+        >
+          <div />
+        </div>
+      `);
     });
 
     it.skip("should retry if DOM update fails once", async () => {
