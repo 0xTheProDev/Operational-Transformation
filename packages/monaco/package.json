@@ -45,7 +45,7 @@
     "@otjs/plaintext-editor": "0.2.2",
     "@otjs/types": "workspace:*",
     "@otjs/utils": "workspace:*",
-    "monaco-editor": "0.52.2"
+    "monaco-editor": "0.54.0"
   },
   "peerDependencies": {
     "@otjs/plaintext": "^0.2.0",
