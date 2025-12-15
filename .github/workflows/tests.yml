@@ -125,7 +125,7 @@ jobs:
       - name: Prepare Environment
         uses: ./.github/shared/setup
 
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
 
       - name: Generate Coverage Report
         shell: bash
