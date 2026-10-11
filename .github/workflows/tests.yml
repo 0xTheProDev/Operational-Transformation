@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Prepare Environment
         uses: ./.github/shared/setup
@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Prepare Environment
         uses: ./.github/shared/setup
@@ -72,7 +72,7 @@ jobs:
     environment: test
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Prepare Environment
         uses: ./.github/shared/setup
@@ -99,7 +99,7 @@ jobs:
   #   runs-on: ubuntu-latest
   #   steps:
   #     - name: Checkout Repository
-  #       uses: actions/checkout@v6
+  #       uses: actions/checkout@v7
 
   #     - name: Prepare Environment
   #       uses: ./.github/shared/setup
@@ -120,12 +120,12 @@ jobs:
     environment: test
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Prepare Environment
         uses: ./.github/shared/setup
 
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
 
       - name: Generate Coverage Report
         shell: bash
@@ -139,7 +139,7 @@ jobs:
           pnpm coverage
 
       - name: Upload Coverage Report to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         with:
           directory: ./coverage
           fail_ci_if_error: true
