@@ -1,0 +1,55 @@
+{
+  "name": "@otjs/quill",
+  "version": "0.2.2",
+  "description": "Plain Text Editor Adapter for Quill Editor.",
+  "author": "Progyan Bhattacharya <bprogyan@gmail.com>",
+  "homepage": "https://ot.js.org",
+  "keywords": [
+    "quill",
+    "collaborative",
+    "editor",
+    "eventual-consistency",
+    "operational-transformation",
+    "typescript"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "index.d.ts",
+  "rootDir": "quill",
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xTheProDev/Operational-Transformation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/0xTheProDev/Operational-Transformation/discussions"
+  },
+  "scripts": {
+    "prebuild": "pnpm run clean",
+    "build": "pnpm run build:lib && pnpm run build:dts",
+    "build:lib": "webpack",
+    "build:dts": "api-extractor run",
+    "clean": "rimraf lib typings index.d.ts"
+  },
+  "devDependencies": {
+    "@otjs/plaintext": "0.2.2",
+    "@otjs/plaintext-editor": "0.2.2",
+    "@otjs/types": "workspace:*",
+    "@otjs/utils": "workspace:*",
+    "quill": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@otjs/plaintext": "^0.2.0",
+    "@otjs/plaintext-editor": "^0.2.0",
+    "quill": "^2.0.0"
+  }
+}
