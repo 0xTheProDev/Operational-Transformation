@@ -125,7 +125,7 @@ jobs:
       - name: Prepare Environment
         uses: ./.github/shared/setup
 
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
 
       - name: Generate Coverage Report
         shell: bash
@@ -139,7 +139,7 @@ jobs:
           pnpm coverage
 
       - name: Upload Coverage Report to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         with:
           directory: ./coverage
           fail_ci_if_error: true
