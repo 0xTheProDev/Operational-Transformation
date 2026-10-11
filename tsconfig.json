@@ -5,6 +5,7 @@
     "downlevelIteration": true,
     "paths": {
       "@otjs/*": ["*/src"]
-    }
+    },
+    "ignoreDeprecations": "6.0"
   }
 }

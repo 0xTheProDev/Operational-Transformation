@@ -67,8 +67,8 @@ export class MonacoAdapter
   protected _ignoreChanges: boolean = false;
   protected _undoCallback: IEventHandler<void> | null = null;
   protected _redoCallback: IEventHandler<void> | null = null;
-  protected _originalUndo: IEventHandler<void> | null = null;
-  protected _originalRedo: IEventHandler<void> | null = null;
+  protected _originalUndo: ITextModelWithUndoRedo["undo"] | null = null;
+  protected _originalRedo: ITextModelWithUndoRedo["redo"] | null = null;
   protected _lastDocLines: string[] = [];
   protected _lastCursorRange: monaco.Selection | null = null;
   protected _monaco: monaco.editor.IStandaloneCodeEditor;
@@ -188,7 +188,7 @@ export class MonacoAdapter
     }
 
     /* istanbul ignore else */
-    if (model.undo !== this._originalUndo) {
+    if (this._originalUndo && model.undo !== this._originalUndo) {
       model.undo = this._originalUndo;
     }
 
@@ -208,7 +208,7 @@ export class MonacoAdapter
     }
 
     /* istanbul ignore else */
-    if (model.redo !== this._originalRedo) {
+    if (this._originalRedo && model.redo !== this._originalRedo) {
       model.redo = this._originalRedo;
     }
 
