@@ -12,7 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Prepare Environment
-        uses: ./.github/shared/setup
+        uses: 0xTheProDev/setup-js@v1.2
+        with:
+          cache: pnpm
+          registry-url: "https://registry.npmjs.org"
+          version-file: .nvmrc
 
       - name: Build Artifacts
         run: pnpm build
