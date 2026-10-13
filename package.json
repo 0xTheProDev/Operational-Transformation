@@ -10,7 +10,7 @@
     "coverage": "nyc merge coverage-all coverage/coverage.json",
     "coverage:clean": "rimraf coverage-* coverage",
     "coverage:dev": "nyc report -t coverage --report-dir coverage --reporter=lcov",
-    "test": "TEST_ENV=true jest --colors",
+    "test": "NODE_OPTIONS=--max-old-space-size=8192 TEST_ENV=true jest --colors",
     "test:ci": "pnpm run test --ci --silent",
     "test:ace": "pnpm run --filter '@otjs-tests/ace' test:ci",
     "test:firebase": "pnpm run --filter '@otjs-tests/firebase' test:ci",

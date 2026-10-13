@@ -23,7 +23,6 @@
  */
 
 import * as monaco from "monaco-editor";
-import { IEventHandler } from "@otjs/types";
 
 /**
  * @internal
@@ -31,7 +30,7 @@ import { IEventHandler } from "@otjs/types";
  */
 export interface ITextModelWithUndoRedo extends monaco.editor.ITextModel {
   /** Native Undo Handler for Monaco */
-  undo: IEventHandler<void> | null;
+  undo(): void | Promise<void>;
   /** Native Redo Handler for Monaco */
-  redo: IEventHandler<void> | null;
+  redo(): void | Promise<void>;
 }
