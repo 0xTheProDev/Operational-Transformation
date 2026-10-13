@@ -78,7 +78,7 @@ jobs:
         uses: ./.github/shared/setup
 
       - name: Add Realtime Database Rules
-        uses: jsdaniell/create-json@v1.2.3
+        uses: jsdaniell/create-json@v1.2.4
         with:
           name: "database.rules.json"
           json: ${{ secrets.FIREBASE_DATABASE_JSON }}
