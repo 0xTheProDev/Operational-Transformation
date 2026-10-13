@@ -5,16 +5,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "*.js"
-      - "*.json"
-      - "*.yml"
-      - "packages/**"
-      - "!**.md"
-      - "!examples/**/*.js"
-      - "!examples/**/*.json"
-      - "!packages/**/__mocks__/**"
-      - "!packages/**/__tests__/**"
   pull_request:
     branches:
       - main
