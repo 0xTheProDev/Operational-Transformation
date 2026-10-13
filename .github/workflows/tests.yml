@@ -112,24 +112,28 @@ jobs:
           if-no-files-found: error
 
   # Temporarily Disable Monaco Suite till the Import Transformation Issue is solved.
-  # monaco:
-  #   name: Monaco Integration
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout Repository
-  #       uses: actions/checkout@v7
+  monaco:
+    name: Monaco Integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
 
-  #     - name: Prepare Environment
-  #       uses: ./.github/shared/setup
+      - name: Prepare Environment
+        uses: 0xTheProDev/setup-js@v1.2
+        with:
+          cache: pnpm
+          registry-url: "https://registry.npmjs.org"
+          version-file: .nvmrc
 
-  #     - name: Run Tests
-  #       run: "pnpm test:monaco"
+      - name: Run Tests
+        run: "pnpm test:monaco"
 
-  #     - uses: actions/upload-artifact@v2
-  #       with:
-  #         name: coverage-monaco-integration
-  #         path: coverage-monaco/coverage-final.json
-  #         if-no-files-found: error
+      - uses: actions/upload-artifact@v2
+        with:
+          name: coverage-monaco-integration
+          path: coverage-monaco/coverage-final.json
+          if-no-files-found: error
 
   coverage:
     name: Generate Coverage Report
