@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "noEmitOnError": false,
+    "paths": {
+      "@otjs/*": ["*/src"],
+      "monaco-editor": ["../node_modules/monaco-editor/esm/vs/index.d.ts"]
+    }
+  }
+}

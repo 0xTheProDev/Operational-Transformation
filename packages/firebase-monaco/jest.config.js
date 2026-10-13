@@ -14,6 +14,13 @@ module.exports = {
     "@otjs/plaintext-editor": `<rootDir>/packages/${package.rootDir}/__mocks__/editor-client.mock`,
     ...baseConfig.moduleNameMapper,
   },
+  // Monaco Editor exposes its declarations through package exports.
+  transform: {
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      { tsconfig: "<rootDir>/packages/firebase-monaco/tsconfig.test.json" },
+    ],
+  },
   // Run tests from one or more projects
   projects: null,
   // The root directory that Jest should scan for tests and modules within
