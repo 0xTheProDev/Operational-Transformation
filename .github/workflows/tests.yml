@@ -129,7 +129,7 @@ jobs:
       - name: Run Tests
         run: "pnpm test:monaco"
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v7
         with:
           name: coverage-monaco-integration
           path: coverage-monaco/coverage-final.json
