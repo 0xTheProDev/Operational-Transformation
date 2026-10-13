@@ -36,7 +36,11 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Prepare Environment
-        uses: ./.github/shared/setup
+        uses: 0xTheProDev/setup-js@v1.2
+        with:
+          cache: pnpm
+          registry-url: "https://registry.npmjs.org"
+          version-file: .nvmrc
 
       - name: Run Tests
         run: "pnpm test:ci"
@@ -55,7 +59,11 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Prepare Environment
-        uses: ./.github/shared/setup
+        uses: 0xTheProDev/setup-js@v1.2
+        with:
+          cache: pnpm
+          registry-url: "https://registry.npmjs.org"
+          version-file: .nvmrc
 
       - name: Run Tests
         run: "pnpm test:ace"
@@ -75,7 +83,11 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Prepare Environment
-        uses: ./.github/shared/setup
+        uses: 0xTheProDev/setup-js@v1.2
+        with:
+          cache: pnpm
+          registry-url: "https://registry.npmjs.org"
+          version-file: .nvmrc
 
       - name: Setup JDK 21
         uses: actions/setup-java@v6
@@ -84,11 +96,13 @@ jobs:
           java-version: "21"
 
       - name: Add Realtime Database Rules
-        uses: jsdaniell/create-json@v1.2.4
-        with:
-          name: "database.rules.json"
-          json: ${{ secrets.FIREBASE_DATABASE_JSON }}
-          dir: "__tests__/firebase/.firebase/"
+        env:
+          JSON_CONTENT: ${{ secrets.FIREBASE_DATABASE_JSON }}
+          OUTPUT_DIR: "__tests__/firebase/.firebase"
+          OUTPUT_FILE: "database.rules.json"
+        run: |
+          mkdir -p "$OUTPUT_DIR"
+          printf '%s' "$JSON_CONTENT" > "$OUTPUT_DIR/$OUTPUT_FILE"
 
       - name: Run Tests
         run: "pnpm test:firebase"
@@ -108,12 +122,16 @@ jobs:
   #       uses: actions/checkout@v7
 
   #     - name: Prepare Environment
-  #       uses: ./.github/shared/setup
+  #       uses: 0xTheProDev/setup-js@v1.2
+  #       with:
+  #         cache: pnpm
+  #         registry-url: "https://registry.npmjs.org"
+  #         version-file: .nvmrc
 
   #     - name: Run Tests
   #       run: "pnpm test:monaco"
 
-  #     - uses: actions/upload-artifact@v2
+  #     - uses: actions/upload-artifact@v7
   #       with:
   #         name: coverage-monaco-integration
   #         path: coverage-monaco/coverage-final.json
@@ -129,7 +147,11 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Prepare Environment
-        uses: ./.github/shared/setup
+        uses: 0xTheProDev/setup-js@v1.2
+        with:
+          cache: pnpm
+          registry-url: "https://registry.npmjs.org"
+          version-file: .nvmrc
 
       - uses: actions/download-artifact@v8
 
